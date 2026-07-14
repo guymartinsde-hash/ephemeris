@@ -132,11 +132,34 @@ body{background:#f4f4ef;font-family:'Georgia',serif;color:#222;padding:10px;-web
 #year-ctl{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:5px}
 #year-ctl .yc-btn{background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;width:20px;height:20px;line-height:1;border-radius:4px;cursor:pointer;font-size:13px;padding:0}
 #year-ctl .yc-btn:hover{border-color:rgba(200,210,240,.5);color:#dde}
+#year-ctl .yc-jump{font-size:9px;width:auto;padding:0 4px;color:#889;opacity:.7}
+#year-ctl .yc-jump:hover{opacity:1;color:#c9a961}
 #yr-input{background:rgba(255,255,255,.05);border:1px solid rgba(160,170,200,.25);color:#e8e4d8;width:58px;height:20px;text-align:center;border-radius:4px;font-size:11px;font-family:inherit;-moz-appearance:textfield}
 #yr-input::-webkit-outer-spin-button,#yr-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 #ayan-sel{background:rgba(20,22,38,.9);border:1px solid rgba(160,170,200,.25);color:#aab;height:20px;border-radius:4px;font-size:9px;font-family:inherit;padding:0 2px}
 #yr-loading{display:none;color:#c9a961;font-size:11px;animation:yrspin 1s linear infinite}
 @keyframes yrspin{to{transform:rotate(360deg)}}
+#decade-scanner{margin:6px auto;max-width:900px;padding:8px 12px;background:rgba(15,17,30,.85);border:1px solid rgba(160,170,200,.15);border-radius:8px;display:none;font-family:"Courier New",monospace}
+#decade-scanner.open{display:block}
+#ds-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+#ds-header span{font-size:9px;color:#889;letter-spacing:1px;text-transform:uppercase}
+.ds-ctrl{display:flex;align-items:center;gap:4px}
+.ds-btn{background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;padding:1px 6px;border-radius:4px;cursor:pointer;font-size:9px;font-family:inherit}
+.ds-btn:hover{border-color:rgba(200,210,240,.5);color:#dde}
+.ds-btn.active{background:#446688;color:#fff;border-color:#446688}
+#ds-grid{display:grid;gap:2px;overflow-x:auto}
+.ds-col{display:flex;flex-direction:column;align-items:stretch;cursor:pointer;border-radius:3px;transition:background .15s}
+.ds-col:hover{background:rgba(201,169,97,.15)}
+.ds-col.current{background:rgba(201,169,97,.1);outline:1px solid rgba(201,169,97,.4)}
+.ds-yr{font-size:7px;color:#889;text-align:center;padding:1px 0;white-space:nowrap}
+.ds-cell{height:6px;margin:0 1px;border-radius:1px;position:relative}
+.ds-legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;justify-content:center}
+.ds-legend span{font-size:7px;color:#778;display:flex;align-items:center;gap:3px}
+.ds-legend i{display:inline-block;width:8px;height:6px;border-radius:1px}
+#ds-status{font-size:8px;color:#c9a961;text-align:center;margin-top:4px}
+.ds-toggle{position:relative;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;padding:2px 10px;border-radius:10px;font-size:8px;font-family:"Courier New",monospace}
+.ds-toggle:hover{border-color:rgba(200,210,240,.5);color:#c9a961}
+.ds-toggle.active{background:rgba(201,169,97,.12);border-color:rgba(201,169,97,.4);color:#c9a961}
 </style>
 </head>
 <body>
@@ -144,9 +167,13 @@ body{background:#f4f4ef;font-family:'Georgia',serif;color:#222;padding:10px;-web
   <div class="ttl">&#10022; Ephemeris Sideral 2026 &#10022;</div>
   <div class="sub" id="sub-date">Fagan-Bradley 25&#176;06'</div>
 <div id="year-ctl">
+  <button class="yc-btn yc-jump" id="yr-p10" title="−10 anos">&#171;</button>
+  <button class="yc-btn yc-jump" id="yr-p5" title="−5 anos">−5</button>
   <button class="yc-btn" id="yr-prev" title="ano anterior">&#8249;</button>
   <input id="yr-input" type="number" min="-3000" max="2100" step="1" value="2026">
   <button class="yc-btn" id="yr-next" title="pr&#243;ximo ano">&#8250;</button>
+  <button class="yc-btn yc-jump" id="yr-n5" title="+5 anos">+5</button>
+  <button class="yc-btn yc-jump" id="yr-n10" title="+10 anos">&#187;</button>
   <select id="ayan-sel" title="sistema astrol&#243;gico">
     <option value="fagan-bradley">Fagan-Bradley</option>
     <option value="lahiri">Lahiri</option>
@@ -154,6 +181,25 @@ body{background:#f4f4ef;font-family:'Georgia',serif;color:#222;padding:10px;-web
   </select>
   <span id="yr-loading">&#10022;</span>
 </div>
+</div>
+<div style="text-align:center;margin:4px 0"><button class="ds-toggle" id="ds-toggle-btn">&#128269; Scanner de D&#233;cadas</button></div>
+<div id="decade-scanner">
+  <div id="ds-header">
+    <span>Scanner de Aspectos Pesados</span>
+    <div class="ds-ctrl">
+      <button class="ds-btn" data-span="10">10 anos</button>
+      <button class="ds-btn active" data-span="20">20 anos</button>
+      <button class="ds-btn" data-span="50">50 anos</button>
+      <button class="ds-btn" data-span="100">100 anos</button>
+      <span style="color:#556;margin:0 4px">|</span>
+      <button class="ds-btn" id="ds-back" title="per&#237;odo anterior">&#8249;</button>
+      <span id="ds-range" style="font-size:9px;color:#aab;min-width:80px;text-align:center">2016–2036</span>
+      <button class="ds-btn" id="ds-fwd" title="pr&#243;ximo per&#237;odo">&#8250;</button>
+    </div>
+  </div>
+  <div id="ds-grid"></div>
+  <div id="ds-legend" class="ds-legend"></div>
+  <div id="ds-status"></div>
 </div>
 <div id="toggles"></div>
 <div id="solar-strip-wrap"><canvas id="solar-strip"></canvas></div>
@@ -184,12 +230,21 @@ body{background:#f4f4ef;font-family:'Georgia',serif;color:#222;padding:10px;-web
 
 <script>
 // ═══ FASE 2 — ESTADO MULTI-ANO / MULTI-SISTEMA ═══
-const EPHEM_STATE={year:2026,ayanamsa:'fagan-bradley'};
+const EPHEM_STATE={year:2026,ayanamsa:'fagan-bradley',multiYear:null,_multiYearDow:null}; // multiYear={startYear,endYear,span}
 const AYAN_LABEL={'fagan-bradley':"Fagan-Bradley 25\u00b006'",'lahiri':'Lahiri','tropical':'Tropical'};
 const EPHEM_DATA_BASE='data'; // pasta relativa: data/{sistema}/{ano}.json
+// converte dia absoluto da timeline → {doy, ano} considerando multi-ano
+function ephemDayCtx(d){
+  if(EPHEM_STATE.multiYear){
+    const yOff=Math.floor((d-1)/365);
+    return{doy:((d-1)%365)+1,year:EPHEM_STATE.multiYear.startYear+yOff};
+  }
+  return{doy:d,year:EPHEM_STATE.year};
+}
+function ephemYearLabel(y){return y<0?Math.abs(y)+' a.C.':String(y);}
 const MD=[31,28,31,30,31,30,31,31,30,31,30,31];
 const MN=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-const TOT=365,LW=120;
+let TOT=365;const LW=120;
 const NOW=new Date();
 const TDOY=(()=>{let t=0;for(let i=0;i<NOW.getMonth();i++)t+=MD[i];return t+NOW.getDate();})();
 
@@ -1014,7 +1069,7 @@ const ZMIN=.3,ZMAX=26,ZST=.25;
 const ZDETAIL=8;
 function isDetailZoom(){ return ZS>=ZDETAIL; }
 const pN=d=>(d-1)/TOT;
-const fD=n=>{let a=0;for(let i=0;i<12;i++){if(n<=a+MD[i])return n-a;a+=MD[i];}return n;};
+const fD=n=>{n=((n-1)%365)+1;let a=0;for(let i=0;i<12;i++){if(n<=a+MD[i])return n-a;a+=MD[i];}return n;};
 
 const ELEM={
   FOGO:{bg:'#fffbf0',stroke:'#c87010',textColor:'#8a4d00',pillBg:'rgba(255,244,218,.85)',rbC:'#c87010',label:'Fogo'},
@@ -1792,31 +1847,13 @@ PL.forEach(pl=>{
     RM.push({pl,track,canvas,luaOverlay:overlay});
   } else {
     const canvas=document.createElement('canvas');canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;z-index:1';track.appendChild(canvas);
-    // Sign name overlay (symbol + name repeated)
-    const overlay=document.createElement('div');overlay.style.cssText='position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden';
-    pl.tr.forEach(t=>{
-      if(t.sg==='ALL')return;const sg=SG[t.sg];if(!sg)return;const el=ELEM[sg.e];
-      const s2=Math.max(1,t.s),e2=Math.min(365,t.e),w=e2-s2;if(w<4)return;
-      const reps=Math.max(1,Math.floor((w/TOT*700)/90));
-      for(let i=0;i<reps;i++){
-        const xFrac=pN(s2)+(i+.5)*(w/TOT)/reps;
-        const unit=document.createElement('div');unit.style.cssText='position:absolute;left:'+xFrac*100+'%;transform:translateX(-50%);top:50%;margin-top:-7px;display:flex;align-items:center;gap:4px;white-space:nowrap';
-        const sym2=document.createElement('span');sym2.className='sym';sym2.style.cssText='font-size:13px;color:'+el.textColor+';opacity:.28;line-height:1';sym2.textContent=sg.sym;
-        const txt=document.createElement('span');txt.className='sg-txt';txt.style.cssText='font-size:10px;letter-spacing:.4px;text-transform:uppercase;font-family:Courier New,monospace;color:'+el.textColor+';background:'+el.pillBg+';padding:2px 5px;border-radius:3px;opacity:.9';txt.textContent=sg.n;
-        unit.appendChild(sym2);unit.appendChild(txt);overlay.appendChild(unit);
-      }
-    });
+    // Sign name overlay (symbol + name repeated) — reconstruível na troca de ano/sistema
+    const overlay=document.createElement('div');overlay.className='sg-name-overlay';overlay.style.cssText='position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden';
+    populateSignOverlay(pl,overlay);
     track.appendChild(overlay);
     // NOTE: degree marks and sign-change dates are now drawn directly on canvas in renderCanvases
 
-    pl.rt.forEach(r=>{
-      const s2=Math.max(1,r.s),e2=Math.min(365,r.e),w=e2-s2;
-      const segEl2=pl.tr.find(t=>t.s<=r.s&&t.e>=r.s);const el=segEl2&&SG[segEl2.sg]?ELEM[SG[segEl2.sg].e]:ELEM.FOGO;
-      const rb=document.createElement('div');rb.className='rb';rb.style.cssText='left:'+pN(s2)*100+'%;width:'+(w/TOT)*100+'%;background:'+el.rbC+';border-top:1px solid rgba(255,255,255,.3)';
-      const d1d=document.createElement('div');d1d.className='rdl';d1d.style.cssText='left:2px;color:'+el.textColor;d1d.textContent=fD(s2);rb.appendChild(d1d);
-      if(w>15){const d2d=document.createElement('div');d2d.className='rdl';d2d.style.cssText='right:2px;left:auto;color:'+el.textColor;d2d.textContent=fD(e2);rb.appendChild(d2d);}
-      rb.addEventListener('mousemove',e=>sRT(e,pl,{s:s2,e:e2}));rb.addEventListener('mouseleave',hT);track.appendChild(rb);
-    });
+    populateRetroBars(pl,track);
 
     track.addEventListener('mousemove',e=>{
       const rect=track.getBoundingClientRect();const day=Math.round((e.clientX-rect.left)/rect.width*TOT)+1;
@@ -1870,6 +1907,53 @@ PL.forEach(pl=>{
     window._natalHouseRows[pl.id]=nhRow;
   }
 });
+
+// ── Decor das linhas (etiquetas de signo + barras Rx) — reconstruível ──
+function populateSignOverlay(pl,overlay){
+  overlay.innerHTML='';
+  pl.tr.forEach(t=>{
+    if(t.sg==='ALL')return;const sg=SG[t.sg];if(!sg)return;const el=ELEM[sg.e];
+    const s2=Math.max(1,t.s),e2=Math.min(TOT,t.e),w=e2-s2;if(w<4)return;
+    const reps=Math.max(1,Math.floor((w/TOT*700)/90));
+    for(let i=0;i<reps;i++){
+      const xFrac=pN(s2)+(i+.5)*(w/TOT)/reps;
+      const unit=document.createElement('div');unit.style.cssText='position:absolute;left:'+xFrac*100+'%;transform:translateX(-50%);top:50%;margin-top:-7px;display:flex;align-items:center;gap:4px;white-space:nowrap';
+      const sym2=document.createElement('span');sym2.className='sym';sym2.style.cssText='font-size:13px;color:'+el.textColor+';opacity:.28;line-height:1';sym2.textContent=sg.sym;
+      const txt=document.createElement('span');txt.className='sg-txt';txt.style.cssText='font-size:10px;letter-spacing:.4px;text-transform:uppercase;font-family:Courier New,monospace;color:'+el.textColor+';background:'+el.pillBg+';padding:2px 5px;border-radius:3px;opacity:.9';txt.textContent=sg.n;
+      unit.appendChild(sym2);unit.appendChild(txt);overlay.appendChild(unit);
+    }
+  });
+}
+function _fDMulti(day){ // data legível mesmo em multi-ano
+  if(EPHEM_STATE.multiYear){
+    const yOff=Math.floor((day-1)/365);
+    const doy=((day-1)%365)+1;
+    const yr=EPHEM_STATE.multiYear.startYear+yOff;
+    return fD(doy)+'·'+(yr<0?Math.abs(yr)+'aC':String(yr).slice(-2));
+  }
+  return fD(day);
+}
+function populateRetroBars(pl,track){
+  track.querySelectorAll('.rb').forEach(el2=>el2.remove());
+  pl.rt.forEach(r=>{
+    const s2=Math.max(1,r.s),e2=Math.min(TOT,r.e),w=e2-s2;
+    const segEl2=pl.tr.find(t=>t.s<=r.s&&t.e>=r.s);const el=segEl2&&SG[segEl2.sg]?ELEM[SG[segEl2.sg].e]:ELEM.FOGO;
+    const rb=document.createElement('div');rb.className='rb';rb.style.cssText='left:'+pN(s2)*100+'%;width:'+(w/TOT)*100+'%;background:'+el.rbC+';border-top:1px solid rgba(255,255,255,.3)';
+    const d1d=document.createElement('div');d1d.className='rdl';d1d.style.cssText='left:2px;color:'+el.textColor;d1d.textContent=_fDMulti(s2);rb.appendChild(d1d);
+    if(w>15){const d2d=document.createElement('div');d2d.className='rdl';d2d.style.cssText='right:2px;left:auto;color:'+el.textColor;d2d.textContent=_fDMulti(e2);rb.appendChild(d2d);}
+    rb.addEventListener('mousemove',e=>sRT(e,pl,{s:s2,e:e2}));rb.addEventListener('mouseleave',hT);track.appendChild(rb);
+  });
+}
+function rebuildRowDecor(){
+  if(typeof RM==='undefined')return;
+  RM.forEach(rm=>{
+    if(rm.pl.moon)return;
+    const ov=rm.track.querySelector('.sg-name-overlay');
+    if(ov)populateSignOverlay(rm.pl,ov);
+    populateRetroBars(rm.pl,rm.track);
+  });
+}
+window.__rebuildRowDecor=rebuildRowDecor;
 
 // ── SIDEBAR: sync labels to gantt rows via getBoundingClientRect ──
 // Called after every render so labels always align regardless of zoom/rows
@@ -2038,8 +2122,8 @@ function showPhaseCard(ph){
   const sgKey=luaDeg!==null?SG_ORDER[Math.floor(((luaDeg%360)+360)%360/30)]:'?';
   const sgObj=SG[sgKey]||{n:sgKey,sym:''};
   const MD2=[31,28,31,30,31,30,31,31,30,31,30,31];
-  function d2f(d){let a=0;for(let i=0;i<12;i++){if(d<=a+MD2[i])return(d-a)+' de '+['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][i]+' de 2026';a+=MD2[i];}return d;}
-  function d2dm(d){let a=0;for(let i=0;i<12;i++){if(d<=a+MD2[i])return(d-a);a+=MD2[i];}return d;}
+  function d2f(d){const c=ephemDayCtx(d);d=c.doy;let a=0;for(let i=0;i<12;i++){if(d<=a+MD2[i])return(d-a)+' de '+['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][i]+' de '+ephemYearLabel(c.year);a+=MD2[i];}return d;}
+  function d2dm(d){d=ephemDayCtx(d).doy;let a=0;for(let i=0;i<12;i++){if(d<=a+MD2[i])return(d-a);a+=MD2[i];}return d;}
   const accent=d.cor2;
   const prompt='Fase Lunar: '+d.nome+'\nData: '+d2f(day)+'\nLua em '+(sgObj.n||sgKey)+' · Nakshatra: '+(nakObj?nakObj.name:'—')+'\nArquétipo: '+d.arq+'\nSistema: Sideral Fagan-Bradley 25°06\'\n\nAnalise a energia desta fase lunar no contexto atual de '+EPHEM_STATE.year+'.';
   phaseCard.innerHTML='<div style="border-radius:16px;overflow:hidden;position:relative;background:#fff8f2;border:1px solid rgba(120,80,0,.15)"><div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,'+d.cor+','+accent+')"></div><div style="padding:18px 17px 14px;position:relative"><span id="pc-close" style="position:absolute;top:10px;right:12px;cursor:pointer;font-size:20px;opacity:.35;z-index:10">×</span><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><div style="font-size:36px;line-height:1">'+d.sym+'</div><div><div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-family:monospace;color:'+accent+';opacity:.8;margin-bottom:3px">'+d.arq+'</div><div style="font-size:20px;font-weight:800;color:#111">'+d.nome+'</div><div style="font-size:9px;font-family:monospace;color:#777;margin-top:3px">'+d2f(day)+'</div></div></div><div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08);margin-bottom:14px"><div style="padding:9px 12px;border-right:1px solid rgba(0,0,0,.07)"><div style="font-size:7px;text-transform:uppercase;letter-spacing:1px;opacity:.45;margin-bottom:3px;font-family:monospace">Lua em</div><div style="font-size:11px;font-weight:700;color:'+accent+'">'+(sgObj.sym||'')+' '+(sgObj.n||sgKey)+'</div></div><div style="padding:9px 12px"><div style="font-size:7px;text-transform:uppercase;letter-spacing:1px;opacity:.45;margin-bottom:3px;font-family:monospace">Nakshatra</div><div style="font-size:11px;font-weight:700;color:#555">✦ '+(nakObj?nakObj.name:'—')+'</div></div></div><div style="background:'+accent+'18;border-left:3px solid '+accent+';border-radius:0 8px 8px 0;padding:9px 12px;margin-bottom:12px;font-size:10px;font-style:italic;color:#333;font-weight:500">'+d.dir+'</div><div style="font-size:11px;line-height:1.72;color:#333;margin-bottom:12px">'+d.txt+'</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px"><div style="background:rgba(0,0,0,.04);border-radius:8px;padding:9px 10px"><div style="font-size:8px;font-weight:700;color:#888;margin-bottom:4px;font-family:monospace">🌑 Sombra</div><div style="font-size:10px;line-height:1.55;color:#555">'+d.sombra+'</div></div><div style="background:'+accent+'12;border-radius:8px;padding:9px 10px"><div style="font-size:8px;font-weight:700;color:'+accent+';margin-bottom:4px;font-family:monospace">☀️ Luz</div><div style="font-size:10px;line-height:1.55;color:#555">'+d.luz+'</div></div></div><div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;font-family:monospace;opacity:.45;margin-bottom:7px">🤖 Destrinche com IA</div><div style="display:flex;gap:7px"><a href="https://www.google.com/search?q='+encodeURIComponent(prompt)+'" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#4285f4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;text-decoration:none">Google AI</a><a href="https://www.perplexity.ai/search?q='+encodeURIComponent(prompt)+'" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#20b2aa;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;text-decoration:none">Perplexity</a><button id="pc-dl" style="flex:1;padding:10px 6px;border-radius:10px;background:'+accent+';color:#fff;font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;border:none;cursor:pointer">Extrair</button></div></div></div>';
@@ -2328,6 +2412,7 @@ async function loadEphemYear(year,ayan){
     Object.keys(PLANET_DEGS).forEach(k=>{delete PLANET_DEGS[k];});
     Object.keys(data).forEach(k=>{PLANET_DEGS[k]=data[k].slice();});
     EPHEM_STATE.year=year;EPHEM_STATE.ayanamsa=ayan;
+    EPHEM_STATE.multiYear=null;TOT=365; // volta pra timeline de 1 ano
     __ephemRefreshAll();
     return true;
   }catch(e){
@@ -2347,6 +2432,7 @@ function __ephemRefreshAll(){
   if(typeof rebuildMoonPhases==='function')rebuildMoonPhases();
   buildSquareData();buildConjData();buildTrineData();buildOppData();buildSextData();buildLuaAspData();
   if(typeof injectEclipses2026==='function')injectEclipses2026();
+  if(typeof rebuildRowDecor==='function')rebuildRowDecor();
   if(window.__clearAllMaps)window.__clearAllMaps();
   const y=EPHEM_STATE.year;
   const yl=y<0?Math.abs(y)+' a.C.':y;
@@ -2365,9 +2451,261 @@ window.__loadEphemYear=loadEphemYear;
   const go=y=>loadEphemYear(y,as.value);
   document.getElementById('yr-prev').addEventListener('click',()=>go(EPHEM_STATE.year-1));
   document.getElementById('yr-next').addEventListener('click',()=>go(EPHEM_STATE.year+1));
+  document.getElementById('yr-p10').addEventListener('click',()=>go(EPHEM_STATE.year-10));
+  document.getElementById('yr-p5').addEventListener('click',()=>go(EPHEM_STATE.year-5));
+  document.getElementById('yr-n5').addEventListener('click',()=>go(EPHEM_STATE.year+5));
+  document.getElementById('yr-n10').addEventListener('click',()=>go(EPHEM_STATE.year+10));
   yi.addEventListener('change',()=>go(parseInt(yi.value,10)||2026));
   yi.addEventListener('keydown',e=>{if(e.key==='Enter'){yi.blur();}});
   as.addEventListener('change',()=>go(EPHEM_STATE.year));
+})();
+
+// ═══ CARGA MULTI-ANO (Década / 5 Anos) ═══
+async function loadMultiYear(startYear, span){
+  if(_ephemLoading)return false;
+  _ephemLoading=true;
+  const ind=document.getElementById('yr-loading');if(ind)ind.style.display='inline-block';
+  const statusEl=document.getElementById('ds-status');
+  try{
+    const years=[];
+    for(let y=startYear;y<startYear+span;y++)years.push(y);
+    // Carregar todos os JSONs
+    const allData={};
+    for(let i=0;i<years.length;i+=5){
+      const batch=years.slice(i,i+5);
+      if(statusEl)statusEl.textContent='Carregando '+(i+batch.length)+'/'+span+'...';
+      const results=await Promise.all(batch.map(async y=>{
+        if(y===2026&&EPHEM_STATE.ayanamsa==='fagan-bradley')return{year:y,data:_PLANET_DEGS_2026_FB};
+        const r=await fetch(EPHEM_DATA_BASE+'/'+EPHEM_STATE.ayanamsa+'/'+y+'.json');
+        if(!r.ok)throw new Error(y+': HTTP '+r.status);
+        const d=await r.json();
+        Object.keys(d).forEach(k=>{if(d[k].length===366)d[k].splice(59,1);});
+        return{year:y,data:d};
+      }));
+      results.forEach(r=>{allData[r.year]=r.data;});
+    }
+    // Concatenar graus: cada planeta fica com 365*span valores
+    const merged={};
+    const firstData=allData[years[0]];
+    const allKeys=new Set();
+    years.forEach(y=>{if(allData[y])Object.keys(allData[y]).forEach(k=>allKeys.add(k));});
+    allKeys.forEach(k=>{
+      merged[k]=[];
+      years.forEach(y=>{
+        const d=allData[y];
+        if(d&&d[k])merged[k]=merged[k].concat(d[k]);
+        else merged[k]=merged[k].concat(new Array(365).fill(null)); // ano sem esse corpo
+      });
+    });
+    // Atualizar PLANET_DEGS
+    Object.keys(PLANET_DEGS).forEach(k=>{delete PLANET_DEGS[k];});
+    Object.keys(merged).forEach(k=>{PLANET_DEGS[k]=merged[k];});
+    // Atualizar estado
+    TOT=365*span;
+    EPHEM_STATE.year=startYear;
+    EPHEM_STATE.multiYear={startYear,endYear:startYear+span-1,span};
+    EPHEM_STATE._multiYearDow=new Date(Date.UTC(startYear,0,1)).getUTCDay();
+    // Refresh
+    __ephemRefreshAll();
+    // Título
+    const fmt=y=>y<0?Math.abs(y)+' a.C.':y;
+    const ttl=document.querySelector('.ttl');
+    if(ttl)ttl.innerHTML='\u2726 Ephemeris Sideral '+fmt(startYear)+'–'+fmt(startYear+span-1)+' \u2726';
+    document.title='Ephemeris '+fmt(startYear)+'–'+fmt(startYear+span-1);
+    const sub=document.getElementById('sub-date');
+    if(sub)sub.textContent=AYAN_LABEL[EPHEM_STATE.ayanamsa]+' · '+span+' anos';
+    if(statusEl)statusEl.textContent='';
+    return true;
+  }catch(e){
+    alert('Erro carregando multi-ano: '+e.message);
+    return false;
+  }finally{
+    _ephemLoading=false;
+    if(ind)ind.style.display='none';
+  }
+}
+window.__loadMultiYear=loadMultiYear;
+
+// ═══ SCANNER DE DÉCADAS ═══
+(function(){
+  const SLOW_IDS=['Jupiter','Saturno','Urano','Netuno','Plutao','NodoN','Quiron','Lilith'];
+  const SLOW_KEY={Jupiter:'Jupiter',Saturno:'Saturno',Urano:'Urano',Netuno:'Netuno',Plutao:'Plutao',NodoN:'NodoN',Quiron:'Quiron',Lilith:'Lilith'};
+  const ASP_DEFS=[
+    {name:'Conjunção',ang:0,orb:8,col:'#e74c3c'},
+    {name:'Oposição',ang:180,orb:8,col:'#e67e22'},
+    {name:'Quadratura',ang:90,orb:6,col:'#f1c40f'},
+    {name:'Trígono',ang:120,orb:6,col:'#2ecc71'},
+    {name:'Sextil',ang:60,orb:4,col:'#3498db'},
+  ];
+  const panel=document.getElementById('decade-scanner');
+  const grid=document.getElementById('ds-grid');
+  const status=document.getElementById('ds-status');
+  const rangeLabel=document.getElementById('ds-range');
+  const legend=document.getElementById('ds-legend');
+  const toggleBtn=document.getElementById('ds-toggle-btn');
+
+  let dsSpan=20, dsCenter=2026, dsCache={};
+
+  // Toggle abrir/fechar
+  toggleBtn.addEventListener('click',()=>{
+    const open=panel.classList.toggle('open');
+    toggleBtn.classList.toggle('active',open);
+    if(open)runScan();
+  });
+
+  // Span buttons
+  panel.querySelectorAll('.ds-btn[data-span]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      dsSpan=parseInt(btn.dataset.span);
+      panel.querySelectorAll('.ds-btn[data-span]').forEach(b=>{b.classList.toggle('active',b===btn);});
+      runScan();
+    });
+  });
+
+  // Navigation
+  document.getElementById('ds-back').addEventListener('click',()=>{dsCenter-=dsSpan;runScan();});
+  document.getElementById('ds-fwd').addEventListener('click',()=>{dsCenter+=dsSpan;runScan();});
+
+  // Gerar pares de planetas lentos
+  function slowPairs(){
+    const pairs=[];
+    for(let i=0;i<SLOW_IDS.length;i++)
+      for(let j=i+1;j<SLOW_IDS.length;j++)
+        pairs.push([SLOW_IDS[i],SLOW_IDS[j]]);
+    return pairs;
+  }
+
+  // Carregar JSON de um ano (com cache)
+  async function loadYear(yr){
+    const key=EPHEM_STATE.ayanamsa+'_'+yr;
+    if(dsCache[key])return dsCache[key];
+    // Se é o ano atual carregado, usar PLANET_DEGS
+    if(yr===EPHEM_STATE.year){
+      const copy={};
+      Object.keys(PLANET_DEGS).forEach(k=>{copy[k]=PLANET_DEGS[k].slice();});
+      dsCache[key]=copy;
+      return copy;
+    }
+    try{
+      const r=await fetch(EPHEM_DATA_BASE+'/'+EPHEM_STATE.ayanamsa+'/'+yr+'.json');
+      if(!r.ok)return null;
+      const d=await r.json();
+      Object.keys(d).forEach(k=>{if(d[k].length===366)d[k].splice(59,1);});
+      dsCache[key]=d;
+      return d;
+    }catch(e){return null;}
+  }
+
+  // Analisar aspectos de um ano
+  function analyzeYear(data){
+    if(!data)return [];
+    const found=[];
+    const pairs=slowPairs();
+    pairs.forEach(([a,b])=>{
+      const ka=SLOW_KEY[a]||a, kb=SLOW_KEY[b]||b;
+      const da=data[ka], db=data[kb];
+      if(!da||!db)return;
+      ASP_DEFS.forEach(asp=>{
+        let inAsp=false, minD=999, bestDay=0;
+        for(let d=0;d<Math.min(da.length,db.length);d++){
+          let diff=Math.abs(da[d]-db[d])%360;
+          if(diff>180)diff=360-diff;
+          const dist=Math.abs(diff-asp.ang);
+          if(dist<=asp.orb){
+            if(!inAsp)inAsp=true;
+            if(dist<minD){minD=dist;bestDay=d;}
+          }
+        }
+        if(inAsp&&minD<asp.orb*0.7){
+          found.push({a,b,asp:asp.name,col:asp.col,exact:minD<1,intensity:1-minD/asp.orb});
+        }
+      });
+    });
+    return found;
+  }
+
+  // Renderizar grid
+  async function runScan(){
+    const y0=dsCenter-Math.floor(dsSpan/2);
+    const y1=y0+dsSpan-1;
+    const yFmt=y=>y<0?Math.abs(y)+'a.C.':y;
+    rangeLabel.textContent=yFmt(y0)+'–'+yFmt(y1);
+    grid.innerHTML='';
+    grid.style.gridTemplateColumns='repeat('+dsSpan+',1fr)';
+    status.textContent='Carregando '+dsSpan+' anos...';
+
+    // Legenda
+    legend.innerHTML='';
+    ASP_DEFS.forEach(a=>{
+      const s=document.createElement('span');
+      s.innerHTML='<i style="background:'+a.col+'"></i>'+a.name;
+      legend.appendChild(s);
+    });
+
+    // Carregar e analisar em paralelo (batches de 5)
+    const years=[];
+    for(let y=y0;y<=y1;y++)years.push(y);
+    const results={};
+    for(let i=0;i<years.length;i+=5){
+      const batch=years.slice(i,i+5);
+      status.textContent='Analisando '+(i+batch.length)+'/'+dsSpan+'...';
+      const datas=await Promise.all(batch.map(y=>loadYear(y)));
+      batch.forEach((y,j)=>{results[y]=analyzeYear(datas[j]);});
+    }
+
+    // Encontrar max intensidade pra normalizar
+    let maxAsp=1;
+    years.forEach(y=>{if(results[y])maxAsp=Math.max(maxAsp,results[y].length);});
+
+    // Renderizar colunas
+    years.forEach(y=>{
+      const col=document.createElement('div');
+      col.className='ds-col'+(y===EPHEM_STATE.year?' current':'');
+      const lbl=document.createElement('div');
+      lbl.className='ds-yr';
+      lbl.textContent=y<0?Math.abs(y)+'aC':y;
+      col.appendChild(lbl);
+      
+      // Uma célula por tipo de aspecto
+      ASP_DEFS.forEach(asp=>{
+        const cell=document.createElement('div');
+        cell.className='ds-cell';
+        const matches=(results[y]||[]).filter(r=>r.asp===asp.name);
+        if(matches.length>0){
+          const maxI=Math.max(...matches.map(m=>m.intensity));
+          const hasExact=matches.some(m=>m.exact);
+          cell.style.background=asp.col;
+          cell.style.opacity=0.3+maxI*0.7;
+          if(hasExact)cell.style.boxShadow='0 0 3px '+asp.col;
+          cell.title=matches.map(m=>m.a+'×'+m.b+' '+m.asp+(m.exact?' (exato)':'')).join('\n');
+        }else{
+          cell.style.background='rgba(255,255,255,.03)';
+        }
+        col.appendChild(cell);
+      });
+      
+      col.addEventListener('click',()=>{
+        loadEphemYear(y,EPHEM_STATE.ayanamsa);
+        grid.querySelectorAll('.ds-col').forEach(c=>c.classList.remove('current'));
+        col.classList.add('current');
+      });
+      grid.appendChild(col);
+    });
+    status.textContent=dsSpan+' anos analisados — clique num ano para carregar';
+  }
+
+  // Sync quando muda o ano principal
+  const origRefresh=window.__ephemRefreshAll;
+  window.__ephemRefreshAll=function(){
+    origRefresh();
+    dsCenter=EPHEM_STATE.year;
+    if(panel.classList.contains('open')){
+      grid.querySelectorAll('.ds-col').forEach(c=>{
+        const yr=parseInt(c.querySelector('.ds-yr').textContent.replace('aC',''));
+        c.classList.toggle('current',yr===EPHEM_STATE.year);
+      });
+    }
+  };
 })();
 
 function getAbsDeg(plId, dayOfYear){
@@ -2425,7 +2763,7 @@ function computeSquares(minOrb, maxOrb){
     for(let bi=ai+1;bi<ALL_PLANETS.length;bi++){
       const pA=ALL_PLANETS[ai], pB=ALL_PLANETS[bi];
       let inSq=false, startDay=0;
-      for(let day=1;day<=365;day++){
+      for(let day=1;day<=TOT;day++){
         const a=getAbsDeg(pA.id,day);
         const b=getAbsDeg(pB.id,day);
         // Check if within the orb BAND (minOrb to maxOrb from exact 90°)
@@ -2458,7 +2796,7 @@ function buildSquareData(){
       const pA=ALL_PLANETS[ai],pB=ALL_PLANETS[bi];
       // Period (orb 0-5°)
       let inP=false,pStart=0,exactDay=null,minDist=999;
-      for(let day=1;day<=365;day++){
+      for(let day=1;day<=TOT;day++){
         const a=getAbsDeg(pA.id,day),b=getAbsDeg(pB.id,day);
         if(a===null||b===null){
           if(inP){squaresPeriod.push({pA,pB,startDay:pStart,endDay:day-1,exactDay,minDist});inP=false;exactDay=null;minDist=999;}
@@ -2501,7 +2839,7 @@ function buildConjData(){
     for(let bi=ai+1;bi<ALL_PLANETS.length;bi++){
       const pA=ALL_PLANETS[ai],pB=ALL_PLANETS[bi];
       let inP=false,pStart=0,exactDay=null,minDist=999;
-      for(let day=1;day<=365;day++){
+      for(let day=1;day<=TOT;day++){
         const a=getAbsDeg(pA.id,day),b=getAbsDeg(pB.id,day);
         if(a===null||b===null){
           if(inP){conjsPeriod.push({pA,pB,startDay:pStart,endDay:day-1,exactDay,minDist,type:'conj'});inP=false;exactDay=null;minDist=999;}
@@ -2534,7 +2872,7 @@ function buildTrineData(){
     for(let bi=ai+1;bi<ALL_PLANETS.length;bi++){
       const pA=ALL_PLANETS[ai],pB=ALL_PLANETS[bi];
       let inP=false,pStart=0,exactDay=null,minDist=999;
-      for(let day=1;day<=365;day++){
+      for(let day=1;day<=TOT;day++){
         const a=getAbsDeg(pA.id,day),b=getAbsDeg(pB.id,day);
         if(a===null||b===null){
           if(inP){trinesPeriod.push({pA,pB,startDay:pStart,endDay:day-1,exactDay,minDist,type:'trine'});inP=false;exactDay=null;minDist=999;}
@@ -2566,23 +2904,23 @@ function rebuildPlanetTransits(){
     if(!degs){pl.tr=[];pl.rt=[];return;} // sem dados (ex.: Quíron antes de 675 d.C.)
     // segmentos de signo
     const segs=[];let curSg=degToSg(degs[0]),segStart=1;
-    for(let i=1;i<365;i++){
+    for(let i=1;i<TOT;i++){
       const sg=degToSg(degs[i]);
       if(sg!==curSg){segs.push({s:segStart,e:i,sg:curSg});segStart=i+1;curSg=sg;}
     }
-    segs.push({s:segStart,e:365,sg:curSg});
+    segs.push({s:segStart,e:TOT,sg:curSg});
     pl.tr=segs;
     // retrogradações: velocidade diária negativa (com tratamento de wrap 360)
     if(pl.moon){pl.rt=[];return;} // Lua nunca retrograda
     const rts=[];let inR=false,rS=0;
-    for(let i=0;i<364;i++){
+    for(let i=0;i<TOT-1;i++){
       let dv=degs[i+1]-degs[i];
       if(dv>180)dv-=360;if(dv<-180)dv+=360;
       const retro=dv<0;
       if(retro&&!inR){inR=true;rS=i+1;}
       if(!retro&&inR){inR=false;rts.push({s:rS,e:i+1});}
     }
-    if(inR)rts.push({s:rS,e:365});
+    if(inR)rts.push({s:rS,e:TOT});
     // funde períodos separados por gaps ≤3 dias (ruído de estação) e descarta blips curtos
     const merged=[];
     rts.forEach(r=>{
@@ -2602,7 +2940,7 @@ function buildOppData(){
     for(let bi=ai+1;bi<ALL_PLANETS.length;bi++){
       const pA=ALL_PLANETS[ai],pB=ALL_PLANETS[bi];
       let inP=false,pStart=0,exactDay=null,minDist=999;
-      for(let day=1;day<=365;day++){
+      for(let day=1;day<=TOT;day++){
         const a=getAbsDeg(pA.id,day),b=getAbsDeg(pB.id,day);
         if(a===null||b===null){
           if(inP){oppsPeriod.push({pA,pB,startDay:pStart,endDay:day-1,exactDay,minDist,type:'opp'});inP=false;exactDay=null;minDist=999;}
@@ -2634,7 +2972,7 @@ function buildSextData(){
     for(let bi=ai+1;bi<ALL_PLANETS.length;bi++){
       const pA=ALL_PLANETS[ai],pB=ALL_PLANETS[bi];
       let inP=false,pStart=0,exactDay=null,minDist=999;
-      for(let day=1;day<=365;day++){
+      for(let day=1;day<=TOT;day++){
         const a=getAbsDeg(pA.id,day),b=getAbsDeg(pB.id,day);
         if(a===null||b===null){
           if(inP){sextsPeriod.push({pA,pB,startDay:pStart,endDay:day-1,exactDay,minDist,type:'sext'});inP=false;exactDay=null;minDist=999;}
@@ -2691,7 +3029,7 @@ function buildLuaAspData(){
     const tPl=PL.find(p=>p.id===tId);if(!tPl) return;
     ASP_DEFS.forEach(({type,target,orb})=>{
       let inP=false,pStart=0,exactDay=null,minDist=999;
-      for(let day=1;day<=365;day++){
+      for(let day=1;day<=TOT;day++){
         const luaD=getAbsDeg('Lua',day),tD=getAbsDeg(tId,day);
         if(luaD===null||tD===null){if(inP){luaAspPeriod.push({pA:LUA,pB:tPl,startDay:pStart,endDay:day-1,exactDay,minDist,type});}inP=false;exactDay=null;minDist=999;continue;}
         let diff=Math.abs(luaD-tD)%360;if(diff>180)diff=360-diff;
@@ -2767,7 +3105,7 @@ function showLuaAspCard(asp){
   const pGlT=PLANET_GL[asp.pB.id]||{sym:asp.pB.sym,kw:'',desc:''};
   const aspGlEntry=ASP_GL[asp.type]||{sym:aspSyms[asp.type]||'·',n:aspNames[asp.type]||'',grau:'',kw:'',desc:''};
   const MD2=[31,28,31,30,31,30,31,31,30,31,30,31];
-  function d2f(d){let a=0;for(let i=0;i<12;i++){if(d<=a+MD2[i])return(d-a)+' de '+['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][i]+' de 2026';a+=MD2[i];}return d;}
+  function d2f(d){const c=ephemDayCtx(d);d=c.doy;let a=0;for(let i=0;i<12;i++){if(d<=a+MD2[i])return(d-a)+' de '+['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][i]+' de '+ephemYearLabel(c.year);a+=MD2[i];}return d;}
   function d2(d){let a=0;for(let i=0;i<12;i++){if(d<=a+MD2[i])return(d-a)+'/'+(i+1);a+=MD2[i];}return d;}
   const eclipseExtra=isEcl?'<div style="background:'+ac.col+'18;border:1px solid '+ac.col+'33;border-radius:10px;padding:11px 13px;margin:0 18px 12px;font-size:10.5px;line-height:1.68;color:#222"><div style="font-size:11px;font-weight:700;color:'+ac.col+';margin-bottom:6px">'+sym+' '+(asp.eclLabel||eclColors[eType].label)+'</div>'+(asp.eclNota?'<div style="font-style:italic;margin-bottom:6px;opacity:.8">'+asp.eclNota+'</div>':'')+eclColors[eType].desc+'</div>':'';
   const prompt='Aspecto Lunar'+(isEcl?' — ECLIPSE':'')+': Lua '+(aspSyms[asp.type]||'')+' '+asp.pB.n+'\nTipo: '+(aspNames[asp.type]||asp.type)+'\nData: '+d2f(day)+'\nLua em '+(sgLO.n||sgLua)+' '+degLua+' · Nakshatra: '+(nakLua?nakLua.name:'—')+'\n'+asp.pB.n+' em '+(sgTO.n||sgT)+' '+degT+'\nSistema: Sideral Fagan-Bradley 25°06\'\n\nAnalise este aspecto lunar.';
@@ -3054,7 +3392,7 @@ const natalAspPanel=mkPanel('natal-asp-info','sq',{bottom:'12px',right:'420px'})
 // ── HELPERS GLOBAIS (buildInfoCfg depende destes) ───────────────
 const _MD=[31,28,31,30,31,30,31,31,30,31,30,31];
 const _MNL=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
-function doyToDateFull(d){let a=0;for(let i=0;i<12;i++){if(d<=a+_MD[i])return(d-a)+' de '+_MNL[i]+' de 2026';a+=_MD[i];}return d+'';}
+function doyToDateFull(d){const c=ephemDayCtx(d);d=c.doy;let a=0;for(let i=0;i<12;i++){if(d<=a+_MD[i])return(d-a)+' de '+_MNL[i]+' de '+ephemYearLabel(c.year);a+=_MD[i];}return d+'';}
 function doyToDate(d){let a=0;for(let i=0;i<12;i++){if(d<=a+_MD[i])return(d-a)+'/'+(i+1);a+=_MD[i];}return d;}
 const _SLOW=['Jupiter','Saturno','Urano','Netuno','Plutao','NodoN','Quiron','Lilith'];
 function getLevel(asp){const sA=_SLOW.includes(asp.pA.id),sB=_SLOW.includes(asp.pB.id);return(sA&&sB)?1:(sA||sB)?2:3;}
@@ -4196,6 +4534,8 @@ pLabel.textContent='Período:';
 periodWrap.appendChild(pLabel);
 
 const PERIODS=[
+  {label:'D\u00e9cada',days:3650,startDoy:1,multiYear:10},
+  {label:'5 Anos',days:1825,startDoy:1,multiYear:5},
   {label:'Anual',   days:365, startDoy:1},
   {label:'Semestral',days:182,startDoy:null},
   {label:'Trimestral',days:91,startDoy:null},
@@ -4216,7 +4556,21 @@ PERIODS.forEach((p,i)=>{
       b.style.color=j===i?'#fff':'#aaa';
       b.style.borderColor=j===i?'#446688':'#ddd';
     });
-    applyPeriodView(p);
+    if(p.multiYear){
+      const cy=EPHEM_STATE.multiYear?EPHEM_STATE.multiYear.startYear:EPHEM_STATE.year;
+      const startY=Math.floor(cy/p.multiYear)*p.multiYear;
+      loadMultiYear(startY,p.multiYear).then(()=>applyPeriodView(p));
+    }else{
+      // Voltar pra ano único se estava em multi-ano
+      if(EPHEM_STATE.multiYear){
+        const singleYear=EPHEM_STATE.year;
+        EPHEM_STATE.multiYear=null;
+        TOT=365;
+        loadEphemYear(singleYear,EPHEM_STATE.ayanamsa).then(()=>applyPeriodView(p));
+      }else{
+        applyPeriodView(p);
+      }
+    }
   });
   periodWrap.appendChild(btn);
 });
@@ -4280,11 +4634,11 @@ function applyPeriodView(p){
   activePeriodView=p;
   const sw=document.getElementById('scroll-wrap');
   const cW=sw.clientWidth||window.innerWidth||800;
-  ZS=Math.max(ZMIN,Math.min(ZMAX,365/p.days));
+  ZS=Math.max(ZMIN,Math.min(ZMAX,TOT/p.days));
   sR();
   requestAnimationFrame(()=>{requestAnimationFrame(()=>{
     const tW2=Math.max(cW,cW*ZS);
-    const targetScroll=p.days===365?0:Math.max(0,pN(TDOY)*tW2-cW/2);
+    const targetScroll=(p.days===365||p.multiYear)?0:Math.max(0,pN(TDOY)*tW2-cW/2);
     sw.scrollLeft=targetScroll;
   });});
 }
@@ -5858,15 +6212,41 @@ function render(){
   document.getElementById('gantt-inner').style.width=tW+'px';
   document.getElementById('zlbl').textContent=Math.round(ZS*100)+'%';
   const ppd=tW/TOT;
-  // Sync month header widths
+  // Sync month/year header widths
   const MD_LENS=[31,28,31,30,31,30,31,31,30,31,30,31];
-  document.querySelectorAll('.mlbl').forEach((el,i)=>{el.style.width=(MD_LENS[i]*ppd)+'px';el.style.minWidth='0';});
-  document.querySelectorAll('.mg').forEach(mg=>{const mls=mg.querySelectorAll('.ml');mls.forEach((ml,i)=>{ml.style.flex='none';ml.style.width=(MD_LENS[i]*ppd)+'px';ml.style.minWidth='0';});});
+  if(EPHEM_STATE.multiYear){
+    // Multi-ano: esconder headers mensais, mostrar anos
+    document.querySelectorAll('.mlbl').forEach(el=>{el.style.display='none';});
+    document.querySelectorAll('.mg').forEach(mg=>{mg.querySelectorAll('.ml').forEach(ml=>{ml.style.display='none';});});
+    // Criar/atualizar labels de ano
+    let yrBar=document.getElementById('year-header-bar');
+    if(!yrBar){
+      yrBar=document.createElement('div');yrBar.id='year-header-bar';
+      yrBar.style.cssText='position:absolute;top:0;left:0;height:20px;display:flex;z-index:5;pointer-events:none';
+      const mhdr=document.getElementById('month-header')||document.querySelector('.mhr');
+      if(mhdr)mhdr.appendChild(yrBar);
+    }
+    yrBar.style.display='flex';yrBar.innerHTML='';
+    const {startYear,span}=EPHEM_STATE.multiYear;
+    for(let i=0;i<span;i++){
+      const lbl=document.createElement('div');
+      const y=startYear+i;
+      lbl.textContent=y<0?Math.abs(y)+'aC':y;
+      lbl.style.cssText='width:'+(365*ppd)+'px;text-align:center;font-size:9px;color:#889;border-right:1px solid rgba(0,0,0,.08);line-height:20px;font-family:"Courier New",monospace';
+      yrBar.appendChild(lbl);
+    }
+  }else{
+    // Ano único: headers mensais normais
+    const yrBar=document.getElementById('year-header-bar');
+    if(yrBar)yrBar.style.display='none';
+    document.querySelectorAll('.mlbl').forEach((el,i)=>{el.style.display='';el.style.width=(MD_LENS[i]*ppd)+'px';el.style.minWidth='0';});
+    document.querySelectorAll('.mg').forEach(mg=>{const mls=mg.querySelectorAll('.ml');mls.forEach((ml,i)=>{ml.style.display='';ml.style.flex='none';ml.style.width=(MD_LENS[i]*ppd)+'px';ml.style.minWidth='0';});});
+  }
   // Weekend grid lines (only monthly/quinzenal)
   const DOW_WK=new Date(Date.UTC(EPHEM_STATE.year,0,1)).getUTCDay(); // dia da semana de 1/jan
   document.querySelectorAll('.wk-grid').forEach(el=>el.remove());
   if(isDetailZoom()&&(!activePeriodView||activePeriodView.days<=30)){
-    const suns=[];for(let d=1;d<=365;d++){if((DOW_WK+d-1)%7===0)suns.push(d);}
+    const suns=[];for(let d=1;d<=TOT;d++){if(((EPHEM_STATE._multiYearDow||DOW_WK)+d-1)%7===0)suns.push(d);}
     document.querySelectorAll('.tt').forEach(track=>{
       const wg=document.createElement('div');wg.className='wk-grid';
       wg.style.cssText='position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:4';
@@ -5896,9 +6276,17 @@ function render(){
   } else dHdr.style.display='none';
   document.querySelectorAll('.scd').forEach(el=>el.style.opacity=ZS>.6?'1':'0');
   const inner=document.getElementById('gantt-inner');const iH=inner.offsetHeight;
-  const tX=pN(TDOY)*tW;
+  // "Hoje" só existe se o range carregado contém o hoje real
+  const _curY=NOW.getFullYear();
+  let _todayDoy=-1;
+  if(EPHEM_STATE.multiYear){
+    const my=EPHEM_STATE.multiYear;
+    if(_curY>=my.startYear&&_curY<=my.endYear)_todayDoy=(_curY-my.startYear)*365+TDOY;
+  }else if(EPHEM_STATE.year===_curY)_todayDoy=TDOY;
+  const _showToday=_todayDoy>0;
+  const tX=pN(_showToday?_todayDoy:1)*tW;
   const tl=document.getElementById('today-line');
-  tl.style.cssText='position:absolute;left:'+tX+'px;top:0;height:'+iH+'px;width:2px;background:rgba(160,100,0,.55);z-index:20;pointer-events:none';
+  tl.style.cssText='position:absolute;left:'+tX+'px;top:0;height:'+iH+'px;width:2px;background:rgba(160,100,0,.55);z-index:20;pointer-events:none;display:'+(_showToday?'block':'none');
   // Position marker: fixed, just above the gantt-inner top edge
   const innerRect=inner.getBoundingClientRect();
   const lineClientX=innerRect.left+tX-sw.scrollLeft;
@@ -5909,8 +6297,9 @@ function render(){
   const tlRect=document.getElementById('today-line').getBoundingClientRect();
   tm.style.left=(tlRect.left+tlRect.width/2)+'px';
   tm.style.top=(mhrRect.top-24)+'px';
+  tm.style.display=_showToday?'':'none';
   const td=document.getElementById('today-date');
-  td.style.cssText='position:absolute;left:'+tX+'px;top:'+(iH+6)+'px;font-size:8px;font-family:"Courier New",monospace;font-weight:700;color:rgba(160,100,5,.85);transform:translateX(-50%);white-space:nowrap;pointer-events:none';
+  td.style.cssText='position:absolute;left:'+tX+'px;top:'+(iH+6)+'px;font-size:8px;font-family:"Courier New",monospace;font-weight:700;color:rgba(160,100,5,.85);transform:translateX(-50%);white-space:nowrap;pointer-events:none;display:'+(_showToday?'block':'none');
   td.textContent=NOW.getDate();
   renderCanvases(tW);
   requestAnimationFrame(()=>{
