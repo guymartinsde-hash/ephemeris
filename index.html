@@ -7,37 +7,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#f4f4ef;font-family:'Georgia',serif;color:#222;padding:10px;-webkit-text-size-adjust:100%}
+body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-webkit-text-size-adjust:100%;background-image:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.25),transparent),radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.2),transparent),radial-gradient(1px 1px at 50% 10%,rgba(255,255,255,.3),transparent),radial-gradient(1px 1px at 70% 80%,rgba(255,255,255,.15),transparent),radial-gradient(1px 1px at 90% 40%,rgba(255,255,255,.22),transparent),radial-gradient(1.5px 1.5px at 15% 85%,rgba(200,180,140,.35),transparent),radial-gradient(1.5px 1.5px at 55% 45%,rgba(200,180,140,.3),transparent),radial-gradient(1.5px 1.5px at 85% 15%,rgba(200,180,140,.25),transparent);background-size:400px 300px,350px 280px,300px 250px,380px 320px,320px 290px,450px 350px,500px 400px,420px 330px}
 .sym{font-family:'Noto Sans Symbols 2','Segoe UI Symbol','Apple Symbols',serif}
 .hdr{text-align:center;margin-bottom:8px}
-.ttl{font-size:15px;font-weight:400;letter-spacing:5px;color:#333;text-transform:uppercase;font-style:italic}
-.sub{font-size:8px;letter-spacing:1.5px;color:#999;margin-top:2px;font-family:'Courier New',monospace}
+.ttl{font-size:22.5px;font-weight:400;letter-spacing:5px;color:#e8e0c8;text-transform:uppercase;font-style:italic;text-shadow:0 0 20px rgba(200,160,60,.3)}
+.sub{font-size:12px;letter-spacing:2px;color:#a09880;margin-top:2px;font-family:'Courier New',monospace}
 
 #solar-strip-wrap{width:100%;overflow:hidden;background:#020308;border-bottom:1px solid rgba(0,0,0,.2);line-height:0}
 #solar-strip{display:block;width:100%;height:auto}
 .sb-vgrp{position:absolute;left:0;width:14px;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:4;overflow:hidden}
-.sb-vgrp span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:6px;letter-spacing:1.6px;font-family:'Courier New',monospace;font-weight:700;text-transform:uppercase;opacity:.6;white-space:nowrap}
-#asp-compact{display:flex;flex-wrap:wrap;gap:4px 6px;padding:5px 9px;align-items:center;background:rgba(30,20,50,.035);border-radius:8px;border:1px solid rgba(120,80,180,.12);margin-bottom:4px}
-#asp-compact .ac-lbl{font-size:6.5px;letter-spacing:1.2px;color:#999;text-transform:uppercase;font-family:'Courier New',monospace;flex-shrink:0;font-weight:700}
-#asp-compact .ac-btn{padding:2px 7px;border-radius:10px;border:1.5px solid;font-size:8px;cursor:pointer;font-family:'Courier New',monospace;font-weight:700;transition:opacity .15s;background:transparent}
+.sb-vgrp span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;letter-spacing:2.1px;font-family:'Courier New',monospace;font-weight:700;text-transform:uppercase;opacity:.6;white-space:nowrap}
+#asp-compact{display:flex;flex-wrap:wrap;gap:4px 6px;padding:5px 9px;align-items:center;background:rgba(30,20,50,.5);border-radius:8px;border:1px solid rgba(120,80,180,.25);margin-bottom:4px}
+#asp-compact .ac-lbl{font-size:9.8px;letter-spacing:1.6px;color:#999;text-transform:uppercase;font-family:'Courier New',monospace;flex-shrink:0;font-weight:700}
+#asp-compact .ac-btn{padding:2px 7px;border-radius:10px;border:1.5px solid;font-size:12px;cursor:pointer;font-family:'Courier New',monospace;font-weight:700;transition:opacity .15s;background:transparent}
 #asp-compact .ac-sep{width:1px;height:16px;background:rgba(120,80,180,.12);flex-shrink:0}
 #sub-toggles-bar{display:flex;gap:6px;align-items:center;padding:2px 10px 4px;flex-wrap:wrap}
 #toggles{margin-bottom:2px}
+#toggles .tg-btn{color:#b0a890!important}
+#toggles .tg-btn.on{color:#e8d8a0!important}
 .grp-toggles{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px;align-items:center}
-.grp-label{font-size:7px;letter-spacing:1.5px;color:#aaa;text-transform:uppercase;font-family:'Courier New',monospace;width:82px;flex-shrink:0;line-height:1.3}
-.tog-btn{padding:3px 8px;border-radius:12px;border:1.5px solid #ddd;background:#fff;font-size:10px;cursor:pointer;transition:all .15s;font-family:'Georgia',serif;color:#aaa;line-height:1.2;white-space:nowrap}
+.grp-label{font-size:10.5px;letter-spacing:2px;color:#aaa;text-transform:uppercase;font-family:'Courier New',monospace;width:82px;flex-shrink:0;line-height:1.3}
+.tog-btn{padding:3px 8px;border-radius:12px;border:1.5px solid #ddd;background:#fff;font-size:15px;cursor:pointer;transition:all .15s;font-family:'Georgia',serif;color:#aaa;line-height:1.2;white-space:nowrap}
 .tog-btn.on{color:#fff}
 .tog-divider{height:1px;background:#e8e8e0;margin:3px 0}
-.all-btn{padding:2px 7px;border-radius:10px;border:1px solid #ddd;background:#f5f5f0;font-size:8px;cursor:pointer;color:#aaa;font-family:'Courier New',monospace}
+.all-btn{padding:2px 7px;border-radius:10px;border:1px solid #ddd;background:#f5f5f0;font-size:12px;cursor:pointer;color:#aaa;font-family:'Courier New',monospace}
 #zctrl{display:flex;align-items:center;gap:6px;margin-bottom:6px;justify-content:center;flex-wrap:wrap}
-.zbtn{background:#fff;border:1px solid #ccc;color:#555;font-size:12px;width:24px;height:20px;border-radius:4px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace}
-#zlbl{font-size:8px;color:#999;font-family:'Courier New',monospace;min-width:38px;text-align:center}
-#zreset{font-size:7px;color:#bbb;cursor:pointer;padding:2px 5px;border:1px solid #ddd;border-radius:3px;background:transparent;font-family:'Courier New',monospace}
+.zbtn{background:#fff;border:1px solid #ccc;color:#555;font-size:18px;width:24px;height:20px;border-radius:4px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace}
+#zlbl{font-size:12px;color:#999;font-family:'Courier New',monospace;min-width:38px;text-align:center}
+#zreset{font-size:10.5px;color:#bbb;cursor:pointer;padding:2px 5px;border:1px solid #ddd;border-radius:3px;background:transparent;font-family:'Courier New',monospace}
 #gantt-layout{display:flex;width:100%;position:relative}
 #planet-sidebar{width:120px;flex-shrink:0;z-index:30;position:relative;background:#f4f4ef;border-right:2px solid rgba(0,0,0,.1);box-shadow:4px 0 14px rgba(0,0,0,.06);display:flex;flex-direction:column}
 #sb-title{display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;border-bottom:1px solid rgba(0,0,0,.08);position:relative;z-index:2;background:#f4f4ef;overflow:hidden}
-#sb-title .sbt-main{font-size:8px;font-weight:700;letter-spacing:2.5px;color:#888;text-transform:uppercase;font-family:"Courier New",monospace;line-height:1.2}
-#sb-title .sbt-sub{font-size:5.5px;letter-spacing:3px;color:#bbb;text-transform:uppercase;font-family:"Courier New",monospace;line-height:1.3;margin-top:1px}
+#sb-title .sbt-main{font-size:12px;font-weight:700;letter-spacing:2.5px;color:#888;text-transform:uppercase;font-family:"Courier New",monospace;line-height:1.2}
+#sb-title .sbt-sub{font-size:8.3px;letter-spacing:3px;color:#bbb;text-transform:uppercase;font-family:"Courier New",monospace;line-height:1.3;margin-top:1px}
 #sb-body{position:relative;flex:1;overflow:hidden}
 .sb-lbl{position:absolute;left:0;width:100%;display:flex;align-items:center;padding:0 5px;gap:4px;box-sizing:border-box;overflow:hidden}
 .sb-planet{background:transparent}
@@ -45,53 +47,54 @@ body{background:#f4f4ef;font-family:'Georgia',serif;color:#222;padding:10px;-web
 .sb-nak{background:transparent;justify-content:flex-end;padding-right:6px;border-bottom-color:transparent}
 .sb-phase{background:transparent;justify-content:center;border-bottom-color:transparent}
 .sb-grp-div{position:absolute;left:0;width:100%;height:2px;background:rgba(0,0,0,.13)}
-#scroll-wrap{overflow-x:auto;overflow-y:visible;position:relative;padding-bottom:24px;flex:1;min-width:0}
+#scroll-wrap{overflow-x:auto;overflow-y:visible;position:relative;padding-bottom:24px;flex:1;min-width:0;background:rgba(15,18,35,.75);border:1px solid rgba(160,170,200,.2);border-radius:10px;box-shadow:inset 0 0 30px rgba(0,0,0,.3),0 0 15px rgba(0,0,0,.4);padding:2px}
 #scroll-wrap::-webkit-scrollbar{height:4px}
-#scroll-wrap::-webkit-scrollbar-thumb{background:#ccc;border-radius:2px}
+#scroll-wrap::-webkit-scrollbar-thumb{background:rgba(160,170,200,.3);border-radius:2px}
 #gantt-inner{position:relative;min-width:100%;overflow:visible}#gantt{position:relative}
-.mhr{display:flex;position:sticky;top:0;background:#f4f4ef;z-index:10;border-bottom:1.5px solid #bbb;overflow:hidden}
-.mlbl{flex:none;text-align:center;font-size:9px;letter-spacing:.3px;color:#333;text-transform:uppercase;padding:2px 0;font-family:'Courier New',monospace;border-left:1.5px solid #ccc;font-weight:700;line-height:22px}
+.mhr{display:flex;position:sticky;top:0;background:rgba(12,15,30,.95);z-index:10;border-bottom:1.5px solid rgba(160,170,200,.3);overflow:hidden}
+.mlbl{flex:none;text-align:center;font-size:13.5px;letter-spacing:.3px;color:#c9bfa0;text-transform:uppercase;padding:2px 0;font-family:'Courier New',monospace;border-left:1.5px solid rgba(160,170,200,.2);font-weight:700;line-height:29.7px}
 #day-hdr{display:none}
-.dlbl{flex-shrink:0;text-align:center;font-size:7px;color:#888;font-family:'Courier New',monospace;border-left:1px solid #ddd;line-height:18px}
+.dlbl{flex-shrink:0;text-align:center;font-size:10.5px;color:#889;font-family:'Courier New',monospace;border-left:1px solid rgba(160,170,200,.15);line-height:24.3px}
 .grp-gap{height:5px}
 .grp-gap-sm{height:3px}
-.sd-grp{height:2px;background:rgba(0,0,0,.13);margin-top:1px;margin-bottom:4px}
-.pr{display:flex;align-items:center;margin-bottom:0;height:40px;transition:height .18s,opacity .18s,margin .18s;position:relative}
+.sd-grp{height:2px;background:rgba(160,170,200,.15);margin-top:1px;margin-bottom:4px}
+.pr{display:flex;align-items:center;margin-bottom:0;height:52px;transition:height .18s,opacity .18s,margin .18s;position:relative}
 .pr.hidden{height:0!important;overflow:hidden;margin-bottom:0;opacity:0;pointer-events:none;border-bottom:none}
 /* ── Blocos por planeta: container colorido que abraça signos+naks+casas ── */
 .pblock{position:relative;border-radius:0 9px 9px 0;padding:4px 0 6px;margin-bottom:8px;background:var(--pc);transition:padding .18s,margin .18s}
 .pblock:has(> .pr.hidden){padding:0;margin:0;box-shadow:none;background:transparent}
+.pblock .rb{background:rgba(200,100,0,.5)!important}
 .pblock .pr::after{display:none}
-.pblock .tt{background:rgba(252,250,246,.94);border-radius:0}
-.pblock .nak-row{border-bottom:none!important;background:rgba(252,250,246,.82)!important;margin-top:2px}
-.pblock #lua-phases-row{border-bottom:none!important;background:rgba(252,250,246,.82)!important;margin-top:2px}
-.pblock [id^="natal-houses-row-"]{border-bottom:none!important;background:rgba(252,250,246,.86)!important;margin-top:2px}
+.pblock .tt{background:rgba(20,24,40,.85);border-radius:0}
+.pblock .nak-row{border-bottom:none!important;background:rgba(15,18,35,.7)!important;margin-top:2px}
+.pblock #lua-phases-row{border-bottom:none!important;background:rgba(15,18,35,.7)!important;margin-top:2px}
+.pblock [id^="natal-houses-row-"]{border-bottom:none!important;background:rgba(15,18,35,.7)!important;margin-top:2px}
 /* Continuous divider line extending through the gantt bars */
 .sd-grp::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(0,0,0,.13);pointer-events:none;z-index:5}
 .pl{display:none!important;width:0!important;padding:0!important;overflow:hidden!important}
-.ps{font-size:17px;width:22px;text-align:center;flex-shrink:0}
+.ps{font-size:25.5px;width:30px;text-align:center;flex-shrink:0}
 .pnames{display:flex;flex-direction:column;overflow:hidden}
-.pn-big{font-size:11px;font-weight:500;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pn-sm{font-size:6px;letter-spacing:.5px;color:#aaa;text-transform:uppercase;font-family:'Courier New',monospace;white-space:nowrap}
-.tt{flex:1;position:relative;height:34px;border-radius:8px;overflow:hidden;min-width:0}
+.pn-big{font-size:16.5px;font-weight:500;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pn-sm{font-size:9px;letter-spacing:.5px;color:#aaa;text-transform:uppercase;font-family:'Courier New',monospace;white-space:nowrap}
+.tt{flex:1;position:relative;height:46px;border-radius:8px;overflow:hidden;min-width:0}
 .mg{position:absolute;top:0;height:100%;display:flex;width:100%;pointer-events:none;z-index:3}
-.ml{flex:none;border-left:2px solid rgba(0,0,0,.18)}
-.deg-lbl-top{position:absolute;top:2px;font-size:8px;color:rgba(0,0,0,.58);font-family:'Courier New',monospace;font-weight:600;transform:translateX(-50%);white-space:nowrap;pointer-events:none;z-index:4;letter-spacing:-.2px}
-.wk-grid{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:4}
-.scd{position:absolute;top:25px;font-size:6px;color:#888;font-family:'Courier New',monospace;transform:translateX(-50%);white-space:nowrap;pointer-events:none;z-index:4}
+.ml{flex:none;border-left:2px solid rgba(160,170,200,.15)}
+.deg-lbl-top{position:absolute;top:2px;font-size:12px;color:rgba(200,190,160,.7);font-family:'Courier New',monospace;font-weight:600;transform:translateX(-50%);white-space:nowrap;pointer-events:none;z-index:4;letter-spacing:-.2px}
+.wk-grid{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:4;opacity:.5}
+.scd{position:absolute;top:25px;font-size:9px;color:#888;font-family:'Courier New',monospace;transform:translateX(-50%);white-space:nowrap;pointer-events:none;z-index:4}
 .rb{position:absolute;bottom:0;height:4px;z-index:5;cursor:pointer;opacity:.8;border-radius:0}
-.rdl{position:absolute;bottom:4px;font-size:6px;font-family:'Courier New',monospace;white-space:nowrap;pointer-events:none}
+.rdl{position:absolute;bottom:4px;font-size:9px;font-family:'Courier New',monospace;white-space:nowrap;pointer-events:none}
 #today-line{position:absolute;top:0;width:2px;background:rgba(160,100,0,.55);z-index:20;pointer-events:none}
 #today-marker{position:fixed;z-index:200;pointer-events:none;display:flex;flex-direction:column;align-items:center;transform:translateX(-50%)}
-#today-now{font-size:7px;font-family:'Courier New',monospace;font-weight:700;color:rgba(160,90,5,.9);letter-spacing:.5px;white-space:nowrap;line-height:1;margin-bottom:2px}
+#today-now{font-size:10.5px;font-family:'Courier New',monospace;font-weight:700;color:rgba(160,90,5,.9);letter-spacing:.5px;white-space:nowrap;line-height:1;margin-bottom:2px}
 #today-arrow{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid rgba(160,90,5,.85)}
-.tip{position:fixed;background:rgba(255,255,255,.97);border:1px solid #ddd;border-radius:8px;padding:8px 12px;font-size:10px;color:#333;pointer-events:none;z-index:1000;max-width:230px;display:none;box-shadow:0 4px 20px rgba(0,0,0,.12)}
-.t1{font-size:12px;font-weight:600;color:#111;margin-bottom:2px}
-.t2{font-size:8px;color:#999;margin-bottom:4px;font-family:'Courier New',monospace}
-.btip{display:inline-flex;align-items:center;gap:2px;border-radius:3px;padding:1px 5px;font-size:8px;margin-right:3px;font-family:'Courier New',monospace}
+.tip{position:fixed;background:rgba(255,255,255,.97);border:1px solid #ddd;border-radius:8px;padding:8px 12px;font-size:15px;color:#333;pointer-events:none;z-index:1000;max-width:230px;display:none;box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.t1{font-size:18px;font-weight:600;color:#111;margin-bottom:2px}
+.t2{font-size:12px;color:#999;margin-bottom:4px;font-family:'Courier New',monospace}
+.btip{display:inline-flex;align-items:center;gap:2px;border-radius:3px;padding:1px 5px;font-size:12px;margin-right:3px;font-family:'Courier New',monospace}
 .lgw{margin-top:12px;padding-top:8px;border-top:1px solid #e0e0e0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.lgt{font-size:6px;letter-spacing:2px;color:#aaa;text-transform:uppercase;margin-bottom:4px;font-family:'Courier New',monospace}
-.li{display:flex;align-items:center;gap:5px;font-size:7px;color:#888;margin-bottom:3px;font-family:'Courier New',monospace}
+.lgt{font-size:9px;letter-spacing:2.6px;color:#aaa;text-transform:uppercase;margin-bottom:4px;font-family:'Courier New',monospace}
+.li{display:flex;align-items:center;gap:5px;font-size:10.5px;color:#888;margin-bottom:3px;font-family:'Courier New',monospace}
 .lsw{width:22px;height:10px;border-radius:2px;flex-shrink:0}
 
 /* ── NATAL TRANSIT ROWS ─────────────────────────────────── */
@@ -99,23 +102,23 @@ body{background:#f4f4ef;font-family:'Georgia',serif;color:#222;padding:10px;-web
   background:linear-gradient(90deg,rgba(200,160,40,.13),transparent);
   border-bottom:1px solid rgba(200,160,40,.2);border-top:2px solid rgba(200,160,40,.25);
   position:relative;font-family:'Courier New',monospace}
-.natal-section-hdr .nsh-lbl{font-size:8px;letter-spacing:2px;color:#c8a028;
+.natal-section-hdr .nsh-lbl{font-size:12px;letter-spacing:2.6px;color:#c8a028;
   text-transform:uppercase;padding:0 8px;white-space:nowrap}
 .natal-pl-row{display:none;align-items:center;height:44px;
   border-bottom:1px solid rgba(200,160,40,.1);
   background:rgba(200,160,40,.03);position:relative;overflow:visible}
 .natal-pl-row .npr-lbl{width:120px;flex-shrink:0;display:flex;align-items:center;
   gap:5px;padding:0 6px 0 10px;box-sizing:border-box}
-.natal-pl-row .npr-sym{font-size:15px;width:18px;text-align:center;flex-shrink:0}
-.natal-pl-row .npr-name{font-size:9px;font-weight:600;white-space:nowrap;overflow:hidden;
+.natal-pl-row .npr-sym{font-size:22.5px;width:18px;text-align:center;flex-shrink:0}
+.natal-pl-row .npr-name{font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;
   text-overflow:ellipsis;color:#8a7020}
-.natal-pl-row .npr-deg{font-size:7px;color:#aaa;font-family:'Courier New',monospace;
+.natal-pl-row .npr-deg{font-size:10.5px;color:#aaa;font-family:'Courier New',monospace;
   line-height:1.2;margin-top:1px}
 .natal-pl-track{flex:1;position:relative;height:100%;overflow:visible}
 .natal-house-row{display:none;align-items:center;height:32px;
   border-bottom:1px solid rgba(200,160,40,.07);
   background:rgba(200,160,40,.015);position:relative;overflow:hidden}
-.natal-house-row .nhr-lbl{width:120px;flex-shrink:0;font-size:8px;color:#b8902a;
+.natal-house-row .nhr-lbl{width:120px;flex-shrink:0;font-size:12px;color:#b8902a;
   font-family:'Courier New',monospace;letter-spacing:.5px;padding:0 6px 0 12px;
   box-sizing:border-box}
 .natal-house-track{flex:1;position:relative;height:100%;overflow:hidden}
@@ -123,41 +126,41 @@ body{background:#f4f4ef;font-family:'Georgia',serif;color:#222;padding:10px;-web
 .tnbadge{position:absolute;transform:translate(-50%,-50%);top:50%;
   z-index:20;cursor:pointer;display:flex;flex-direction:column;align-items:center;
   pointer-events:auto}
-.tnbadge .tnb-sym{font-size:13px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))}
-.tnbadge .tnb-asp{font-size:6px;font-family:'Courier New',monospace;color:#fff;
+.tnbadge .tnb-sym{font-size:19.5px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))}
+.tnbadge .tnb-asp{font-size:9px;font-family:'Courier New',monospace;color:#fff;
   background:rgba(0,0,0,.55);border-radius:2px;padding:0 2px;line-height:1.4;
   white-space:nowrap}
 /* house fill bands */
 .natal-hband{position:absolute;top:0;bottom:0;opacity:.12;pointer-events:none}
 #year-ctl{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:5px}
-#year-ctl .yc-btn{background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;width:20px;height:20px;line-height:1;border-radius:4px;cursor:pointer;font-size:13px;padding:0}
+#year-ctl .yc-btn{background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;width:20px;height:20px;line-height:1;border-radius:4px;cursor:pointer;font-size:19.5px;padding:0}
 #year-ctl .yc-btn:hover{border-color:rgba(200,210,240,.5);color:#dde}
-#year-ctl .yc-jump{font-size:9px;width:auto;padding:0 4px;color:#889;opacity:.7}
+#year-ctl .yc-jump{font-size:13.5px;width:auto;padding:0 4px;color:#889;opacity:.7}
 #year-ctl .yc-jump:hover{opacity:1;color:#c9a961}
-#yr-input{background:rgba(255,255,255,.05);border:1px solid rgba(160,170,200,.25);color:#e8e4d8;width:58px;height:20px;text-align:center;border-radius:4px;font-size:11px;font-family:inherit;-moz-appearance:textfield}
+#yr-input{background:rgba(255,255,255,.05);border:1px solid rgba(160,170,200,.25);color:#e8e4d8;width:58px;height:20px;text-align:center;border-radius:4px;font-size:16.5px;font-family:inherit;-moz-appearance:textfield}
 #yr-input::-webkit-outer-spin-button,#yr-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-#ayan-sel{background:rgba(20,22,38,.9);border:1px solid rgba(160,170,200,.25);color:#aab;height:20px;border-radius:4px;font-size:9px;font-family:inherit;padding:0 2px}
-#yr-loading{display:none;color:#c9a961;font-size:11px;animation:yrspin 1s linear infinite}
+#ayan-sel{background:rgba(20,22,38,.9);border:1px solid rgba(160,170,200,.25);color:#aab;height:20px;border-radius:4px;font-size:13.5px;font-family:inherit;padding:0 2px}
+#yr-loading{display:none;color:#c9a961;font-size:16.5px;animation:yrspin 1s linear infinite}
 @keyframes yrspin{to{transform:rotate(360deg)}}
 #decade-scanner{margin:6px auto;max-width:900px;padding:8px 12px;background:rgba(15,17,30,.85);border:1px solid rgba(160,170,200,.15);border-radius:8px;display:none;font-family:"Courier New",monospace}
 #decade-scanner.open{display:block}
 #ds-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
-#ds-header span{font-size:9px;color:#889;letter-spacing:1px;text-transform:uppercase}
+#ds-header span{font-size:13.5px;color:#889;letter-spacing:1.3px;text-transform:uppercase}
 .ds-ctrl{display:flex;align-items:center;gap:4px}
-.ds-btn{background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;padding:1px 6px;border-radius:4px;cursor:pointer;font-size:9px;font-family:inherit}
+.ds-btn{background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;padding:1px 6px;border-radius:4px;cursor:pointer;font-size:13.5px;font-family:inherit}
 .ds-btn:hover{border-color:rgba(200,210,240,.5);color:#dde}
 .ds-btn.active{background:#446688;color:#fff;border-color:#446688}
 #ds-grid{display:grid;gap:2px;overflow-x:auto}
 .ds-col{display:flex;flex-direction:column;align-items:stretch;cursor:pointer;border-radius:3px;transition:background .15s}
 .ds-col:hover{background:rgba(201,169,97,.15)}
 .ds-col.current{background:rgba(201,169,97,.1);outline:1px solid rgba(201,169,97,.4)}
-.ds-yr{font-size:7px;color:#889;text-align:center;padding:1px 0;white-space:nowrap}
+.ds-yr{font-size:10.5px;color:#889;text-align:center;padding:1px 0;white-space:nowrap}
 .ds-cell{height:6px;margin:0 1px;border-radius:1px;position:relative}
 .ds-legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;justify-content:center}
-.ds-legend span{font-size:7px;color:#778;display:flex;align-items:center;gap:3px}
+.ds-legend span{font-size:10.5px;color:#778;display:flex;align-items:center;gap:3px}
 .ds-legend i{display:inline-block;width:8px;height:6px;border-radius:1px}
-#ds-status{font-size:8px;color:#c9a961;text-align:center;margin-top:4px}
-.ds-toggle{position:relative;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;padding:2px 10px;border-radius:10px;font-size:8px;font-family:"Courier New",monospace}
+#ds-status{font-size:12px;color:#c9a961;text-align:center;margin-top:4px}
+.ds-toggle{position:relative;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;padding:2px 10px;border-radius:10px;font-size:12px;font-family:"Courier New",monospace}
 .ds-toggle:hover{border-color:rgba(200,210,240,.5);color:#c9a961}
 .ds-toggle.active{background:rgba(201,169,97,.12);border-color:rgba(201,169,97,.4);color:#c9a961}
 </style>
@@ -193,7 +196,7 @@ body{background:#f4f4ef;font-family:'Georgia',serif;color:#222;padding:10px;-web
       <button class="ds-btn" data-span="100">100 anos</button>
       <span style="color:#556;margin:0 4px">|</span>
       <button class="ds-btn" id="ds-back" title="per&#237;odo anterior">&#8249;</button>
-      <span id="ds-range" style="font-size:9px;color:#aab;min-width:80px;text-align:center">2016–2036</span>
+      <span id="ds-range" style="font-size:13.5px;color:#aab;min-width:80px;text-align:center">2016–2036</span>
       <button class="ds-btn" id="ds-fwd" title="pr&#243;ximo per&#237;odo">&#8250;</button>
     </div>
   </div>
@@ -209,7 +212,7 @@ body{background:#f4f4ef;font-family:'Georgia',serif;color:#222;padding:10px;-web
   <span id="zlbl">100%</span>
   <button class="zbtn" id="zin">+</button>
   <span id="zreset">reset</span>
-  <span style="font-size:7px;color:#ccc;font-family:'Courier New',monospace;margin-left:6px">Ctrl+scroll</span>
+  <span style="font-size:10.5px;color:#ccc;font-family:'Courier New',monospace;margin-left:6px">Ctrl+scroll</span>
 </div>
 <div id="gantt-layout">
   <div id="planet-sidebar">
@@ -1227,7 +1230,7 @@ makeDraggableResizable(nakCard);
 function showNakCard(nk,planetName,day){
   const MD=[31,28,31,30,31,30,31,31,30,31,30,31];
   function doyToDate(d){let a=0;for(let i=0;i<12;i++){if(d<=a+MD[i])return(d-a)+'/'+(i+1);a+=MD[i];}return d;}
-  nakCard.innerHTML='<div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:10px"><div style="font-size:7px;letter-spacing:1.5px;color:#9988bb;text-transform:uppercase;font-family:Courier New,monospace">Nakshatra · '+planetName+' · '+doyToDate(day)+'</div><span id="nak-close" style="cursor:pointer;color:#776699;font-size:18px;line-height:1;padding:0 2px">×</span></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(150,120,220,.2)"><div style="width:36px;height:36px;border-radius:50%;background:'+nk.color+'33;border:2px solid '+nk.color+';display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:13px;font-weight:700;color:'+nk.color+'">'+nk.n+'</span></div><div><div style="font-size:16px;font-weight:700;color:'+nk.color+';letter-spacing:.5px">'+nk.name+'</div><div style="font-size:8px;color:#9988bb;font-family:Courier New,monospace;margin-top:2px">Divindade: '+nk.god+'</div></div></div><div style="font-size:9px;color:rgba(232,224,240,.85);line-height:1.6;padding:8px;border-radius:6px;background:rgba(150,120,220,.08);border-left:3px solid '+nk.color+'">'+nk.theme+'</div><div style="margin-top:8px;font-size:7px;color:#776699;font-family:Courier New,monospace;text-align:right">'+nk.start.toFixed(1)+'° – '+nk.end.toFixed(1)+'° · Sideral Fagan-Bradley</div>';
+  nakCard.innerHTML='<div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:10px"><div style="font-size:10.5px;letter-spacing:2px;color:#9988bb;text-transform:uppercase;font-family:Courier New,monospace">Nakshatra · '+planetName+' · '+doyToDate(day)+'</div><span id="nak-close" style="cursor:pointer;color:#776699;font-size:27px;line-height:1;padding:0 2px">×</span></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(150,120,220,.2)"><div style="width:36px;height:36px;border-radius:50%;background:'+nk.color+'33;border:2px solid '+nk.color+';display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:19.5px;font-weight:700;color:'+nk.color+'">'+nk.n+'</span></div><div><div style="font-size:24px;font-weight:700;color:'+nk.color+';letter-spacing:.5px">'+nk.name+'</div><div style="font-size:12px;color:#9988bb;font-family:Courier New,monospace;margin-top:2px">Divindade: '+nk.god+'</div></div></div><div style="font-size:13.5px;color:rgba(232,224,240,.85);line-height:1.6;padding:8px;border-radius:6px;background:rgba(150,120,220,.08);border-left:3px solid '+nk.color+'">'+nk.theme+'</div><div style="margin-top:8px;font-size:10.5px;color:#776699;font-family:Courier New,monospace;text-align:right">'+nk.start.toFixed(1)+'° – '+nk.end.toFixed(1)+'° · Sideral Fagan-Bradley</div>';
   nakCard.style.display='block';
   document.getElementById('nak-close').addEventListener('click',()=>nakCard.style.display='none');
 }
@@ -1494,8 +1497,8 @@ drawStrip();
 (()=>{
   const phaseBtn=document.createElement('button');
   phaseBtn.id='tog_fases';
-  phaseBtn.style.cssText='display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:10px;border:1.5px solid #8899bb;background:#1a1a2e;color:#f5e6c8;font-size:9px;cursor:pointer;font-family:"Courier New",monospace;font-weight:600;transition:opacity .15s';
-  phaseBtn.innerHTML=moonPhaseSVG('full',13)+'<span style="font-size:8px">fases</span>';
+  phaseBtn.style.cssText='display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:10px;border:1.5px solid #8899bb;background:#1a1a2e;color:#f5e6c8;font-size:13.5px;cursor:pointer;font-family:"Courier New",monospace;font-weight:600;transition:opacity .15s';
+  phaseBtn.innerHTML=moonPhaseSVG('full',13)+'<span style="font-size:12px">fases</span>';
   phaseBtn.addEventListener('click',()=>{
     showMoonPhases=!showMoonPhases;
     phaseBtn.style.opacity=showMoonPhases?'1':'0.38';
@@ -1508,8 +1511,8 @@ drawStrip();
 
   const nakBtn=document.createElement('button');
   nakBtn.id='tog_nakshatras';
-  nakBtn.style.cssText='display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:10px;border:1.5px solid rgba(150,120,220,.5);background:rgba(26,26,46,.85);color:#c8b8e8;font-size:9px;cursor:pointer;font-family:"Courier New",monospace;font-weight:600;opacity:.38';
-  nakBtn.innerHTML='&#10022; <span style="font-size:8px">nakshatras</span>';
+  nakBtn.style.cssText='display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:10px;border:1.5px solid rgba(150,120,220,.5);background:rgba(26,26,46,.85);color:#c8b8e8;font-size:13.5px;cursor:pointer;font-family:"Courier New",monospace;font-weight:600;opacity:.38';
+  nakBtn.innerHTML='&#10022; <span style="font-size:12px">nakshatras</span>';
   nakBtn.addEventListener('click',()=>{
     showNakshatras=!showNakshatras;
     nakBtn.style.opacity=showNakshatras?'1':'0.38';
@@ -1538,7 +1541,7 @@ drawStrip();
   // "Meu Mapa" toggle button
   const nBtn = document.createElement('button');
   nBtn.id = 'tog_natal_user';
-  nBtn.style.cssText = 'display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:12px;border:1.5px solid #c8a028;background:#fff;color:#c8a028;font-size:10px;cursor:pointer;font-family:Georgia,serif;opacity:.45;transition:all .15s';
+  nBtn.style.cssText = 'display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:12px;border:1.5px solid #c8a028;background:#fff;color:#c8a028;font-size:15px;cursor:pointer;font-family:Georgia,serif;opacity:.45;transition:all .15s';
   nBtn.innerHTML = '✦ <span>Meu Mapa</span>';
   nBtn.addEventListener('click', ()=>{
     const on = NATAL_ACTIVE === 'user_default';
@@ -1794,11 +1797,11 @@ const dHdr=document.createElement('div');dHdr.id='day-hdr';gantt.appendChild(dHd
 const tip=document.getElementById('tip');
 function sT(e,pl,t){
   const sg=SG[t.sg];const el=sg?ELEM[sg.e]:null;
-  if(t.note||!sg){tip.innerHTML='<div class="t1"><span class="sym">'+pl.sym+'</span> '+pl.n+'</div><div class="t2">'+pl.d+'</div><div style="font-size:9px;color:#888;font-style:italic">'+(t.note||'')+'</div>';}
-  else{tip.innerHTML='<div class="t1"><span class="sym">'+pl.sym+'</span> '+pl.n+'</div><div class="t2">'+pl.d+'</div><div style="font-size:15px;margin-bottom:2px"><span class="sym">'+sg.sym+'</span> <span style="font-size:11px;color:#333">'+sg.n+'</span></div><div style="margin-bottom:2px"><span class="btip" style="background:'+el.bg+';border:1px solid '+el.stroke+'44;color:'+el.textColor+'">'+el.label+'</span><span class="btip" style="background:#f0f0f0;border:1px solid #ddd;color:#555">'+sg.m+'</span></div><div style="font-size:8px;color:#888">'+(SD2[t.sg]||'')+'</div>';}
+  if(t.note||!sg){tip.innerHTML='<div class="t1"><span class="sym">'+pl.sym+'</span> '+pl.n+'</div><div class="t2">'+pl.d+'</div><div style="font-size:13.5px;color:#888;font-style:italic">'+(t.note||'')+'</div>';}
+  else{tip.innerHTML='<div class="t1"><span class="sym">'+pl.sym+'</span> '+pl.n+'</div><div class="t2">'+pl.d+'</div><div style="font-size:22.5px;margin-bottom:2px"><span class="sym">'+sg.sym+'</span> <span style="font-size:16.5px;color:#333">'+sg.n+'</span></div><div style="margin-bottom:2px"><span class="btip" style="background:'+el.bg+';border:1px solid '+el.stroke+'44;color:'+el.textColor+'">'+el.label+'</span><span class="btip" style="background:#f0f0f0;border:1px solid #ddd;color:#555">'+sg.m+'</span></div><div style="font-size:12px;color:#888">'+(SD2[t.sg]||'')+'</div>';}
   tip.style.display='block';mT2(e);
 }
-function sRT(e,p,r){tip.innerHTML='<div class="t1"><span class="sym">'+p.sym+'</span> '+p.n+' Rx</div><div class="t2">'+p.d+'</div><div style="color:#c84010;font-size:9px">In\u00edcio: dia '+fD(r.s)+' \u00b7 Fim: dia '+fD(Math.min(r.e,365))+'</div>';tip.style.display='block';mT2(e);}
+function sRT(e,p,r){tip.innerHTML='<div class="t1"><span class="sym">'+p.sym+'</span> '+p.n+' Rx</div><div class="t2">'+p.d+'</div><div style="color:#c84010;font-size:13.5px">In\u00edcio: dia '+fD(r.s)+' \u00b7 Fim: dia '+fD(Math.min(r.e,365))+'</div>';tip.style.display='block';mT2(e);}
 function mT2(e){let x=e.clientX+12,y=e.clientY-8;if(x+235>window.innerWidth)x=e.clientX-240;if(y+170>window.innerHeight)y=e.clientY-170;tip.style.left=x+'px';tip.style.top=y+'px';}
 function hT(){tip.style.display='none'}
 
@@ -1884,7 +1887,7 @@ PL.forEach(pl=>{
   nakRow.className='nak-row';nakRow.dataset.plid=pl.id;
   nakRow.style.cssText='display:none;align-items:center;height:20px;border-bottom:1px solid rgba(150,120,220,.08);background:rgba(26,26,46,.06);position:relative;overflow:hidden';
   const nakLbl=document.createElement('div');nakLbl.className='pl';nakLbl.style.cssText='display:flex;align-items:center;justify-content:flex-end;padding-right:4px;opacity:.5';
-  nakLbl.innerHTML='<span style="font-size:7px;color:#9988bb;font-family:Courier New,monospace">&#10022;</span>';
+  nakLbl.innerHTML='<span style="font-size:10.5px;color:#9988bb;font-family:Courier New,monospace">&#10022;</span>';
   nakRow.appendChild(nakLbl);
   const nakTrack=document.createElement('div');nakTrack.className='nak-track';nakTrack.dataset.plid=pl.id;nakTrack.style.cssText='flex:1;position:relative;height:100%;overflow:hidden';
   nakRow.appendChild(nakTrack);blk.appendChild(nakRow);
@@ -1918,8 +1921,8 @@ function populateSignOverlay(pl,overlay){
     for(let i=0;i<reps;i++){
       const xFrac=pN(s2)+(i+.5)*(w/TOT)/reps;
       const unit=document.createElement('div');unit.style.cssText='position:absolute;left:'+xFrac*100+'%;transform:translateX(-50%);top:50%;margin-top:-7px;display:flex;align-items:center;gap:4px;white-space:nowrap';
-      const sym2=document.createElement('span');sym2.className='sym';sym2.style.cssText='font-size:13px;color:'+el.textColor+';opacity:.28;line-height:1';sym2.textContent=sg.sym;
-      const txt=document.createElement('span');txt.className='sg-txt';txt.style.cssText='font-size:10px;letter-spacing:.4px;text-transform:uppercase;font-family:Courier New,monospace;color:'+el.textColor+';background:'+el.pillBg+';padding:2px 5px;border-radius:3px;opacity:.9';txt.textContent=sg.n;
+      const sym2=document.createElement('span');sym2.className='sym';sym2.style.cssText='font-size:19.5px;color:'+el.textColor+';opacity:.28;line-height:1';sym2.textContent=sg.sym;
+      const txt=document.createElement('span');txt.className='sg-txt';txt.style.cssText='font-size:15px;letter-spacing:.4px;text-transform:uppercase;font-family:Courier New,monospace;color:'+el.textColor+';background:'+el.pillBg+';padding:2px 5px;border-radius:3px;opacity:.9';txt.textContent=sg.n;
       unit.appendChild(sym2);unit.appendChild(txt);overlay.appendChild(unit);
     }
   });
@@ -2017,9 +2020,9 @@ function syncSidebar(){
       div.appendChild(colorBar);
       const idw=document.createElement('div');
       idw.style.cssText='position:absolute;left:19px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:4px;max-width:55%;overflow:hidden;pointer-events:none';
-      idw.innerHTML='<span style="font-size:15px;line-height:1;color:'+tc+'">'+pl.sym+'</span>'
-        +'<div style="min-width:0"><div style="font-size:10.5px;font-weight:800;line-height:1.15;color:'+tc+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+pl.n+'</div>'
-        +'<div style="font-size:5.5px;letter-spacing:.6px;color:'+tc+';opacity:.65;text-transform:uppercase;font-family:\'Courier New\',monospace;white-space:nowrap">'+(GL_GRP[pl.g]||pl.g.toUpperCase().slice(0,7))+'</div></div>';
+      idw.innerHTML='<span style="font-size:22.5px;line-height:1;color:'+tc+'">'+pl.sym+'</span>'
+        +'<div style="min-width:0"><div style="font-size:15.8px;font-weight:800;line-height:1.15;color:'+tc+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+pl.n+'</div>'
+        +'<div style="font-size:8.3px;letter-spacing:.6px;color:'+tc+';opacity:.65;text-transform:uppercase;font-family:\'Courier New\',monospace;white-space:nowrap">'+(GL_GRP[pl.g]||pl.g.toUpperCase().slice(0,7))+'</div></div>';
       div.appendChild(idw);
     });
   });
@@ -2051,7 +2054,7 @@ function syncSidebar(){
     if(!row||row.offsetHeight===0) return;
 
     const _tc=_sbTxtC(pl.col);
-    const _tag='font-size:6.5px;letter-spacing:.7px;text-transform:uppercase;font-family:Courier New,monospace;font-weight:700;color:'+_tc+';opacity:.85;white-space:nowrap';
+    const _tag='font-size:9.8px;letter-spacing:.7px;text-transform:uppercase;font-family:Courier New,monospace;font-weight:700;color:'+_tc+';opacity:.85;white-space:nowrap';
     // Rótulo da barra de signos (encostado à direita, letra menor)
     addLbl(row,'sb-lbl sb-planet','display:flex;align-items:center;justify-content:flex-end;padding-right:4px',div=>{
       const t=document.createElement('span');
@@ -2078,7 +2081,7 @@ function syncSidebar(){
     if(nakRow2&&nakRow2.style.display!=='none'){
       addLbl(nakRow2,'sb-lbl sb-nak','display:flex;align-items:center;justify-content:flex-end;padding-right:4px',div=>{
         const t=document.createElement('span');
-        t.style.cssText=_tag+';font-size:5.5px;opacity:.7';
+        t.style.cssText=_tag+';font-size:8.3px;opacity:.7';
         t.textContent='✦ Naks';
         div.appendChild(t);
       });
@@ -2089,7 +2092,7 @@ function syncSidebar(){
     if(nhRowSb&&nhRowSb.style.display!=='none'){
       addLbl(nhRowSb,'sb-lbl','display:flex;align-items:center;justify-content:flex-end;padding-right:4px',div=>{
         const t=document.createElement('span');
-        t.style.cssText=_tag+';font-size:5.5px;opacity:.75';
+        t.style.cssText=_tag+';font-size:8.3px;opacity:.75';
         t.textContent='Casas';
         div.appendChild(t);
       });
@@ -2126,7 +2129,7 @@ function showPhaseCard(ph){
   function d2dm(d){d=ephemDayCtx(d).doy;let a=0;for(let i=0;i<12;i++){if(d<=a+MD2[i])return(d-a);a+=MD2[i];}return d;}
   const accent=d.cor2;
   const prompt='Fase Lunar: '+d.nome+'\nData: '+d2f(day)+'\nLua em '+(sgObj.n||sgKey)+' · Nakshatra: '+(nakObj?nakObj.name:'—')+'\nArquétipo: '+d.arq+'\nSistema: Sideral Fagan-Bradley 25°06\'\n\nAnalise a energia desta fase lunar no contexto atual de '+EPHEM_STATE.year+'.';
-  phaseCard.innerHTML='<div style="border-radius:16px;overflow:hidden;position:relative;background:#fff8f2;border:1px solid rgba(120,80,0,.15)"><div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,'+d.cor+','+accent+')"></div><div style="padding:18px 17px 14px;position:relative"><span id="pc-close" style="position:absolute;top:10px;right:12px;cursor:pointer;font-size:20px;opacity:.35;z-index:10">×</span><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><div style="font-size:36px;line-height:1">'+d.sym+'</div><div><div style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-family:monospace;color:'+accent+';opacity:.8;margin-bottom:3px">'+d.arq+'</div><div style="font-size:20px;font-weight:800;color:#111">'+d.nome+'</div><div style="font-size:9px;font-family:monospace;color:#777;margin-top:3px">'+d2f(day)+'</div></div></div><div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08);margin-bottom:14px"><div style="padding:9px 12px;border-right:1px solid rgba(0,0,0,.07)"><div style="font-size:7px;text-transform:uppercase;letter-spacing:1px;opacity:.45;margin-bottom:3px;font-family:monospace">Lua em</div><div style="font-size:11px;font-weight:700;color:'+accent+'">'+(sgObj.sym||'')+' '+(sgObj.n||sgKey)+'</div></div><div style="padding:9px 12px"><div style="font-size:7px;text-transform:uppercase;letter-spacing:1px;opacity:.45;margin-bottom:3px;font-family:monospace">Nakshatra</div><div style="font-size:11px;font-weight:700;color:#555">✦ '+(nakObj?nakObj.name:'—')+'</div></div></div><div style="background:'+accent+'18;border-left:3px solid '+accent+';border-radius:0 8px 8px 0;padding:9px 12px;margin-bottom:12px;font-size:10px;font-style:italic;color:#333;font-weight:500">'+d.dir+'</div><div style="font-size:11px;line-height:1.72;color:#333;margin-bottom:12px">'+d.txt+'</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px"><div style="background:rgba(0,0,0,.04);border-radius:8px;padding:9px 10px"><div style="font-size:8px;font-weight:700;color:#888;margin-bottom:4px;font-family:monospace">🌑 Sombra</div><div style="font-size:10px;line-height:1.55;color:#555">'+d.sombra+'</div></div><div style="background:'+accent+'12;border-radius:8px;padding:9px 10px"><div style="font-size:8px;font-weight:700;color:'+accent+';margin-bottom:4px;font-family:monospace">☀️ Luz</div><div style="font-size:10px;line-height:1.55;color:#555">'+d.luz+'</div></div></div><div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;font-family:monospace;opacity:.45;margin-bottom:7px">🤖 Destrinche com IA</div><div style="display:flex;gap:7px"><a href="https://www.google.com/search?q='+encodeURIComponent(prompt)+'" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#4285f4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;text-decoration:none">Google AI</a><a href="https://www.perplexity.ai/search?q='+encodeURIComponent(prompt)+'" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#20b2aa;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;text-decoration:none">Perplexity</a><button id="pc-dl" style="flex:1;padding:10px 6px;border-radius:10px;background:'+accent+';color:#fff;font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;border:none;cursor:pointer">Extrair</button></div></div></div>';
+  phaseCard.innerHTML='<div style="border-radius:16px;overflow:hidden;position:relative;background:#fff8f2;border:1px solid rgba(120,80,0,.15)"><div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,'+d.cor+','+accent+')"></div><div style="padding:18px 17px 14px;position:relative"><span id="pc-close" style="position:absolute;top:10px;right:12px;cursor:pointer;font-size:30px;opacity:.35;z-index:10">×</span><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><div style="font-size:54px;line-height:1">'+d.sym+'</div><div><div style="font-size:12px;letter-spacing:1.6px;text-transform:uppercase;font-family:monospace;color:'+accent+';opacity:.8;margin-bottom:3px">'+d.arq+'</div><div style="font-size:30px;font-weight:800;color:#111">'+d.nome+'</div><div style="font-size:13.5px;font-family:monospace;color:#777;margin-top:3px">'+d2f(day)+'</div></div></div><div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08);margin-bottom:14px"><div style="padding:9px 12px;border-right:1px solid rgba(0,0,0,.07)"><div style="font-size:10.5px;text-transform:uppercase;letter-spacing:1.3px;opacity:.45;margin-bottom:3px;font-family:monospace">Lua em</div><div style="font-size:16.5px;font-weight:700;color:'+accent+'">'+(sgObj.sym||'')+' '+(sgObj.n||sgKey)+'</div></div><div style="padding:9px 12px"><div style="font-size:10.5px;text-transform:uppercase;letter-spacing:1.3px;opacity:.45;margin-bottom:3px;font-family:monospace">Nakshatra</div><div style="font-size:16.5px;font-weight:700;color:#555">✦ '+(nakObj?nakObj.name:'—')+'</div></div></div><div style="background:'+accent+'18;border-left:3px solid '+accent+';border-radius:0 8px 8px 0;padding:9px 12px;margin-bottom:12px;font-size:15px;font-style:italic;color:#333;font-weight:500">'+d.dir+'</div><div style="font-size:16.5px;line-height:1.72;color:#333;margin-bottom:12px">'+d.txt+'</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px"><div style="background:rgba(0,0,0,.04);border-radius:8px;padding:9px 10px"><div style="font-size:12px;font-weight:700;color:#888;margin-bottom:4px;font-family:monospace">🌑 Sombra</div><div style="font-size:15px;line-height:1.55;color:#555">'+d.sombra+'</div></div><div style="background:'+accent+'12;border-radius:8px;padding:9px 10px"><div style="font-size:12px;font-weight:700;color:'+accent+';margin-bottom:4px;font-family:monospace">☀️ Luz</div><div style="font-size:15px;line-height:1.55;color:#555">'+d.luz+'</div></div></div><div style="font-size:12px;letter-spacing:1.3px;text-transform:uppercase;font-family:monospace;opacity:.45;margin-bottom:7px">🤖 Destrinche com IA</div><div style="display:flex;gap:7px"><a href="https://www.google.com/search?q='+encodeURIComponent(prompt)+'" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#4285f4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;text-decoration:none">Google AI</a><a href="https://www.perplexity.ai/search?q='+encodeURIComponent(prompt)+'" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#20b2aa;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;text-decoration:none">Perplexity</a><button id="pc-dl" style="flex:1;padding:10px 6px;border-radius:10px;background:'+accent+';color:#fff;font-size:13.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;border:none;cursor:pointer">Extrair</button></div></div></div>';
   phaseCard.style.display='block';
   document.getElementById('pc-close').addEventListener('click',()=>phaseCard.style.display='none');
   document.getElementById('pc-dl').addEventListener('click',()=>{const b=new Blob([prompt],{type:'text/plain'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='fase_lua_'+ph.type+'_'+day+'.txt';a.click();URL.revokeObjectURL(u);});
@@ -2245,7 +2248,7 @@ function renderCanvases(tW){
         const xFrac=pN(s2)+(w2/TOT)*0.5;
         const unit=document.createElement('div');
         unit.style.cssText='position:absolute;left:'+xFrac*100+'%;transform:translateX(-50%);top:50%;margin-top:-7px;display:flex;align-items:center;gap:2px;white-space:nowrap';
-        const sym2=document.createElement('span');sym2.style.cssText='font-size:11px;color:'+el.textColor+';opacity:.35;line-height:1';sym2.textContent=sg.sym;
+        const sym2=document.createElement('span');sym2.style.cssText='font-size:16.5px;color:'+el.textColor+';opacity:.35;line-height:1';sym2.textContent=sg.sym;
         // Only show text label if segment is wide enough
         if(w2/TOT*tW > 28){
           const txt=document.createElement('span');
@@ -3107,9 +3110,9 @@ function showLuaAspCard(asp){
   const MD2=[31,28,31,30,31,30,31,31,30,31,30,31];
   function d2f(d){const c=ephemDayCtx(d);d=c.doy;let a=0;for(let i=0;i<12;i++){if(d<=a+MD2[i])return(d-a)+' de '+['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][i]+' de '+ephemYearLabel(c.year);a+=MD2[i];}return d;}
   function d2(d){let a=0;for(let i=0;i<12;i++){if(d<=a+MD2[i])return(d-a)+'/'+(i+1);a+=MD2[i];}return d;}
-  const eclipseExtra=isEcl?'<div style="background:'+ac.col+'18;border:1px solid '+ac.col+'33;border-radius:10px;padding:11px 13px;margin:0 18px 12px;font-size:10.5px;line-height:1.68;color:#222"><div style="font-size:11px;font-weight:700;color:'+ac.col+';margin-bottom:6px">'+sym+' '+(asp.eclLabel||eclColors[eType].label)+'</div>'+(asp.eclNota?'<div style="font-style:italic;margin-bottom:6px;opacity:.8">'+asp.eclNota+'</div>':'')+eclColors[eType].desc+'</div>':'';
+  const eclipseExtra=isEcl?'<div style="background:'+ac.col+'18;border:1px solid '+ac.col+'33;border-radius:10px;padding:11px 13px;margin:0 18px 12px;font-size:15.8px;line-height:1.68;color:#222"><div style="font-size:16.5px;font-weight:700;color:'+ac.col+';margin-bottom:6px">'+sym+' '+(asp.eclLabel||eclColors[eType].label)+'</div>'+(asp.eclNota?'<div style="font-style:italic;margin-bottom:6px;opacity:.8">'+asp.eclNota+'</div>':'')+eclColors[eType].desc+'</div>':'';
   const prompt='Aspecto Lunar'+(isEcl?' — ECLIPSE':'')+': Lua '+(aspSyms[asp.type]||'')+' '+asp.pB.n+'\nTipo: '+(aspNames[asp.type]||asp.type)+'\nData: '+d2f(day)+'\nLua em '+(sgLO.n||sgLua)+' '+degLua+' · Nakshatra: '+(nakLua?nakLua.name:'—')+'\n'+asp.pB.n+' em '+(sgTO.n||sgT)+' '+degT+'\nSistema: Sideral Fagan-Bradley 25°06\'\n\nAnalise este aspecto lunar.';
-  luaAspPanel.innerHTML='<div style="border-radius:16px;overflow:hidden;position:relative;background:'+ac.bg+';border:1px solid rgba(0,0,0,.1)"><div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,'+accent+','+accent+'88)"></div><div style="height:520px;overflow-y:auto"><div style="padding:18px 17px 4px;position:relative"><span id="lac" style="position:absolute;top:10px;right:12px;cursor:pointer;font-size:20px;opacity:.35;z-index:10;line-height:1">×</span><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><div style="width:52px;height:52px;border-radius:14px;background:'+accent+'18;border:1px solid '+accent+'44;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;flex-shrink:0">'+sym+'</div><div><div style="font-size:9px;letter-spacing:1.2px;text-transform:uppercase;font-family:monospace;color:'+accent+';opacity:.85;margin-bottom:3px">'+(isEcl?(asp.eclLabel||eclColors[eType].label):aspGlEntry.grau)+'</div><div style="font-size:18px;font-weight:800;color:#111">Lua '+(aspSyms[asp.type]||'')+ ' '+asp.pB.n+'</div><div style="font-size:9px;font-family:monospace;color:#777;margin-top:2px">'+d2f(day)+'</div></div></div><div style="display:grid;grid-template-columns:1fr 28px 1fr;gap:5px;margin-bottom:0"><div style="border-radius:10px;padding:10px 11px;border:1px solid rgba(0,0,0,.09);background:rgba(255,255,255,.55)"><div style="font-size:20px;line-height:1;margin-bottom:5px">☽</div><div style="font-size:11px;font-weight:700;margin-bottom:3px">Lua</div><div style="font-size:9px;font-family:monospace;background:'+accent+'20;color:'+accent+';padding:2px 6px;border-radius:4px;display:inline-block;font-weight:700;margin-bottom:3px">'+degLua+'</div><div style="font-size:8.5px;font-family:monospace;opacity:.7">'+(sgLO.sym||'')+' '+(sgLO.n||sgLua)+'</div><div style="font-size:8px;font-family:monospace;opacity:.55;margin-top:2px">✦ '+(nakLua?nakLua.name:'—')+'</div></div><div style="display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;opacity:.5;color:'+accent+'">'+(aspGlEntry.sym||'·')+'</div><div style="border-radius:10px;padding:10px 11px;border:1px solid rgba(0,0,0,.09);background:rgba(255,255,255,.55)"><div style="font-size:20px;line-height:1;margin-bottom:5px">'+(pGlT.sym||asp.pB.sym)+'</div><div style="font-size:11px;font-weight:700;margin-bottom:3px">'+asp.pB.n+'</div><div style="font-size:9px;font-family:monospace;background:'+accent+'20;color:'+accent+';padding:2px 6px;border-radius:4px;display:inline-block;font-weight:700;margin-bottom:3px">'+degT+'</div><div style="font-size:8.5px;font-family:monospace;opacity:.7">'+(sgTO.sym||'')+' '+(sgTO.n||sgT)+'</div><div style="font-size:8px;font-family:monospace;opacity:.55;margin-top:2px">✦ '+(nakT?nakT.name:'—')+'</div></div></div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08);margin:10px 0"><div style="padding:8px 12px;border-right:1px solid rgba(0,0,0,.07)"><div style="font-size:7px;text-transform:uppercase;letter-spacing:1px;opacity:.45;margin-bottom:3px;font-family:monospace">Exato</div><div style="font-size:10px;font-weight:700;color:'+accent+'">'+d2(day)+'</div></div><div style="padding:8px 12px;border-right:1px solid rgba(0,0,0,.07)"><div style="font-size:7px;text-transform:uppercase;letter-spacing:1px;opacity:.45;margin-bottom:3px;font-family:monospace">Início</div><div style="font-size:10px;font-weight:700">'+d2(asp.startDay)+'</div></div><div style="padding:8px 12px"><div style="font-size:7px;text-transform:uppercase;letter-spacing:1px;opacity:.45;margin-bottom:3px;font-family:monospace">Fim</div><div style="font-size:10px;font-weight:700">'+d2(asp.endDay)+'</div></div></div>'+eclipseExtra+'<div style="padding:0 18px 16px"><div style="font-size:8px;text-transform:uppercase;letter-spacing:1.5px;font-family:monospace;opacity:.45;margin-bottom:8px">☽ Lua</div><div style="background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.09);border-radius:10px;padding:11px 13px;margin-bottom:12px;font-size:11px;line-height:1.65;color:#333">O mundo interior. Como você sente, o que nutre e protege, os padrões emocionais herdados.'+(nakLua?'<div style="font-size:9px;font-family:monospace;color:'+accent+';opacity:.8;margin-top:6px">✦ '+nakLua.name+'</div>':'')+'</div><div style="font-size:8px;text-transform:uppercase;letter-spacing:1.5px;font-family:monospace;opacity:.45;margin-bottom:8px">'+(pGlT.sym||asp.pB.sym)+' '+asp.pB.n+'</div><div style="background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.09);border-radius:10px;padding:11px 13px;margin-bottom:12px"><div style="font-size:9px;font-family:monospace;opacity:.5;margin-bottom:4px">'+(pGlT.kw||'')+'</div><div style="font-size:11px;line-height:1.65;color:#333">'+(pGlT.desc||'')+(nakT?'<div style="font-size:9px;font-family:monospace;color:'+accent+';opacity:.8;margin-top:6px">✦ '+nakT.name+'</div>':'')+'</div></div><div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;font-family:monospace;opacity:.45;margin-bottom:7px">🤖 Destrinche com IA</div><div style="display:flex;gap:7px"><a href="https://www.google.com/search?q='+encodeURIComponent(prompt)+'" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#4285f4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;text-transform:uppercase;text-decoration:none">Google AI</a><a href="https://www.perplexity.ai/search?q='+encodeURIComponent(prompt)+'" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#20b2aa;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;text-transform:uppercase;text-decoration:none">Perplexity</a><button id="ladl" style="flex:1;padding:10px 6px;border-radius:10px;background:'+accent+';color:#fff;font-size:9px;font-weight:700;text-transform:uppercase;border:none;cursor:pointer">Extrair</button></div></div></div></div>';
+  luaAspPanel.innerHTML='<div style="border-radius:16px;overflow:hidden;position:relative;background:'+ac.bg+';border:1px solid rgba(0,0,0,.1)"><div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,'+accent+','+accent+'88)"></div><div style="height:520px;overflow-y:auto"><div style="padding:18px 17px 4px;position:relative"><span id="lac" style="position:absolute;top:10px;right:12px;cursor:pointer;font-size:30px;opacity:.35;z-index:10;line-height:1">×</span><div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><div style="width:52px;height:52px;border-radius:14px;background:'+accent+'18;border:1px solid '+accent+'44;display:flex;align-items:center;justify-content:center;font-size:39px;font-weight:700;flex-shrink:0">'+sym+'</div><div><div style="font-size:13.5px;letter-spacing:1.6px;text-transform:uppercase;font-family:monospace;color:'+accent+';opacity:.85;margin-bottom:3px">'+(isEcl?(asp.eclLabel||eclColors[eType].label):aspGlEntry.grau)+'</div><div style="font-size:27px;font-weight:800;color:#111">Lua '+(aspSyms[asp.type]||'')+ ' '+asp.pB.n+'</div><div style="font-size:13.5px;font-family:monospace;color:#777;margin-top:2px">'+d2f(day)+'</div></div></div><div style="display:grid;grid-template-columns:1fr 28px 1fr;gap:5px;margin-bottom:0"><div style="border-radius:10px;padding:10px 11px;border:1px solid rgba(0,0,0,.09);background:rgba(255,255,255,.55)"><div style="font-size:30px;line-height:1;margin-bottom:5px">☽</div><div style="font-size:16.5px;font-weight:700;margin-bottom:3px">Lua</div><div style="font-size:13.5px;font-family:monospace;background:'+accent+'20;color:'+accent+';padding:2px 6px;border-radius:4px;display:inline-block;font-weight:700;margin-bottom:3px">'+degLua+'</div><div style="font-size:12.8px;font-family:monospace;opacity:.7">'+(sgLO.sym||'')+' '+(sgLO.n||sgLua)+'</div><div style="font-size:12px;font-family:monospace;opacity:.55;margin-top:2px">✦ '+(nakLua?nakLua.name:'—')+'</div></div><div style="display:flex;align-items:center;justify-content:center;font-size:33px;font-weight:700;opacity:.5;color:'+accent+'">'+(aspGlEntry.sym||'·')+'</div><div style="border-radius:10px;padding:10px 11px;border:1px solid rgba(0,0,0,.09);background:rgba(255,255,255,.55)"><div style="font-size:30px;line-height:1;margin-bottom:5px">'+(pGlT.sym||asp.pB.sym)+'</div><div style="font-size:16.5px;font-weight:700;margin-bottom:3px">'+asp.pB.n+'</div><div style="font-size:13.5px;font-family:monospace;background:'+accent+'20;color:'+accent+';padding:2px 6px;border-radius:4px;display:inline-block;font-weight:700;margin-bottom:3px">'+degT+'</div><div style="font-size:12.8px;font-family:monospace;opacity:.7">'+(sgTO.sym||'')+' '+(sgTO.n||sgT)+'</div><div style="font-size:12px;font-family:monospace;opacity:.55;margin-top:2px">✦ '+(nakT?nakT.name:'—')+'</div></div></div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08);margin:10px 0"><div style="padding:8px 12px;border-right:1px solid rgba(0,0,0,.07)"><div style="font-size:10.5px;text-transform:uppercase;letter-spacing:1.3px;opacity:.45;margin-bottom:3px;font-family:monospace">Exato</div><div style="font-size:15px;font-weight:700;color:'+accent+'">'+d2(day)+'</div></div><div style="padding:8px 12px;border-right:1px solid rgba(0,0,0,.07)"><div style="font-size:10.5px;text-transform:uppercase;letter-spacing:1.3px;opacity:.45;margin-bottom:3px;font-family:monospace">Início</div><div style="font-size:15px;font-weight:700">'+d2(asp.startDay)+'</div></div><div style="padding:8px 12px"><div style="font-size:10.5px;text-transform:uppercase;letter-spacing:1.3px;opacity:.45;margin-bottom:3px;font-family:monospace">Fim</div><div style="font-size:15px;font-weight:700">'+d2(asp.endDay)+'</div></div></div>'+eclipseExtra+'<div style="padding:0 18px 16px"><div style="font-size:12px;text-transform:uppercase;letter-spacing:2px;font-family:monospace;opacity:.45;margin-bottom:8px">☽ Lua</div><div style="background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.09);border-radius:10px;padding:11px 13px;margin-bottom:12px;font-size:16.5px;line-height:1.65;color:#333">O mundo interior. Como você sente, o que nutre e protege, os padrões emocionais herdados.'+(nakLua?'<div style="font-size:13.5px;font-family:monospace;color:'+accent+';opacity:.8;margin-top:6px">✦ '+nakLua.name+'</div>':'')+'</div><div style="font-size:12px;text-transform:uppercase;letter-spacing:2px;font-family:monospace;opacity:.45;margin-bottom:8px">'+(pGlT.sym||asp.pB.sym)+' '+asp.pB.n+'</div><div style="background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.09);border-radius:10px;padding:11px 13px;margin-bottom:12px"><div style="font-size:13.5px;font-family:monospace;opacity:.5;margin-bottom:4px">'+(pGlT.kw||'')+'</div><div style="font-size:16.5px;line-height:1.65;color:#333">'+(pGlT.desc||'')+(nakT?'<div style="font-size:13.5px;font-family:monospace;color:'+accent+';opacity:.8;margin-top:6px">✦ '+nakT.name+'</div>':'')+'</div></div><div style="font-size:12px;letter-spacing:1.3px;text-transform:uppercase;font-family:monospace;opacity:.45;margin-bottom:7px">🤖 Destrinche com IA</div><div style="display:flex;gap:7px"><a href="https://www.google.com/search?q='+encodeURIComponent(prompt)+'" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#4285f4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;text-transform:uppercase;text-decoration:none">Google AI</a><a href="https://www.perplexity.ai/search?q='+encodeURIComponent(prompt)+'" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#20b2aa;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;text-transform:uppercase;text-decoration:none">Perplexity</a><button id="ladl" style="flex:1;padding:10px 6px;border-radius:10px;background:'+accent+';color:#fff;font-size:13.5px;font-weight:700;text-transform:uppercase;border:none;cursor:pointer">Extrair</button></div></div></div></div>';
   luaAspPanel.style.display='block';
   document.getElementById('lac').addEventListener('click',()=>luaAspPanel.style.display='none');
   document.getElementById('ladl').addEventListener('click',()=>{const b=new Blob([prompt],{type:'text/plain'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='lua_asp_'+day+'.txt';a.click();URL.revokeObjectURL(u);});
@@ -3176,7 +3179,7 @@ _cs.textContent=`
 .ap-close{
   position:absolute;top:10px;right:12px;width:28px;height:28px;
   display:flex;align-items:center;justify-content:center;
-  cursor:pointer;font-size:20px;border-radius:50%;
+  cursor:pointer;font-size:30px;border-radius:50%;
   transition:background .15s;z-index:10;opacity:.4;
 }
 .ap-close:hover{opacity:.8;background:rgba(0,0,0,.07);}
@@ -3188,15 +3191,15 @@ _cs.textContent=`
 .ap-asp-badge{
   width:54px;height:54px;border-radius:14px;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  font-size:28px;font-weight:700;
+  font-size:42px;font-weight:700;
 }
 .ap-asp-info{flex:1;min-width:0;}
 .ap-asp-level{
-  font-size:9px;letter-spacing:1.2px;text-transform:uppercase;
+  font-size:13.5px;letter-spacing:1.6px;text-transform:uppercase;
   font-weight:600;margin-bottom:4px;font-family:monospace;
 }
-.ap-asp-name{font-size:20px;font-weight:800;line-height:1.15;letter-spacing:-.3px;}
-.ap-asp-sub{font-size:10px;font-weight:500;opacity:.6;margin-top:3px;}
+.ap-asp-name{font-size:30px;font-weight:800;line-height:1.15;letter-spacing:-.3px;}
+.ap-asp-sub{font-size:15px;font-weight:500;opacity:.6;margin-top:3px;}
 
 /* planets row */
 .ap-planets-row{
@@ -3207,17 +3210,17 @@ _cs.textContent=`
   border-radius:12px;padding:11px 12px;border:1px solid rgba(0,0,0,.1);
   background:rgba(255,255,255,.55);
 }
-.ap-pbox-sym{font-size:24px;line-height:1;margin-bottom:6px;}
-.ap-pbox-name{font-size:12px;font-weight:700;margin-bottom:4px;line-height:1.2;}
+.ap-pbox-sym{font-size:36px;line-height:1;margin-bottom:6px;}
+.ap-pbox-name{font-size:18px;font-weight:700;margin-bottom:4px;line-height:1.2;}
 .ap-pbox-deg{
-  font-size:10px;font-family:monospace;font-weight:700;
+  font-size:15px;font-family:monospace;font-weight:700;
   padding:2px 6px;border-radius:5px;display:inline-block;margin-bottom:5px;
 }
-.ap-pbox-sign{font-size:9.5px;opacity:.75;line-height:1.5;font-family:monospace;}
-.ap-pbox-nak{font-size:9px;opacity:.6;line-height:1.4;font-family:monospace;margin-top:3px;}
+.ap-pbox-sign{font-size:14.3px;opacity:.75;line-height:1.5;font-family:monospace;}
+.ap-pbox-nak{font-size:13.5px;opacity:.6;line-height:1.4;font-family:monospace;margin-top:3px;}
 .ap-asp-sym-mid{
   display:flex;align-items:center;justify-content:center;
-  font-size:24px;font-weight:700;opacity:.5;
+  font-size:36px;font-weight:700;opacity:.5;
 }
 
 /* timing strip */
@@ -3227,13 +3230,13 @@ _cs.textContent=`
 }
 .ap-ti{padding:10px 12px;border-right:1px solid rgba(0,0,0,.07);}
 .ap-ti:last-child{border-right:none;}
-.ap-ti-label{font-size:8px;text-transform:uppercase;letter-spacing:1px;opacity:.45;margin-bottom:4px;font-family:monospace;}
-.ap-ti-val{font-size:10.5px;font-weight:700;line-height:1.35;}
+.ap-ti-label{font-size:12px;text-transform:uppercase;letter-spacing:1.3px;opacity:.45;margin-bottom:4px;font-family:monospace;}
+.ap-ti-val{font-size:15.8px;font-weight:700;line-height:1.35;}
 
 /* section header */
 .ap-sec{padding:14px 18px 0;}
 .ap-sec-h{
-  font-size:9px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;
+  font-size:13.5px;text-transform:uppercase;letter-spacing:2px;font-weight:700;
   font-family:monospace;opacity:.5;
   display:flex;align-items:center;gap:8px;margin-bottom:10px;
 }
@@ -3250,29 +3253,29 @@ _cs.textContent=`
 }
 .ap-gb-icon{
   width:34px;height:34px;border-radius:9px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;font-size:17px;
+  display:flex;align-items:center;justify-content:center;font-size:25.5px;
 }
 .ap-gb-txt{flex:1;min-width:0;}
-.ap-gb-tag{font-size:8px;letter-spacing:1px;text-transform:uppercase;font-family:monospace;opacity:.5;margin-bottom:3px;}
-.ap-gb-title{font-size:13px;font-weight:700;line-height:1.2;margin-bottom:2px;}
-.ap-gb-sub{font-size:9px;font-family:monospace;opacity:.6;}
+.ap-gb-tag{font-size:12px;letter-spacing:1.3px;text-transform:uppercase;font-family:monospace;opacity:.5;margin-bottom:3px;}
+.ap-gb-title{font-size:19.5px;font-weight:700;line-height:1.2;margin-bottom:2px;}
+.ap-gb-sub{font-size:13.5px;font-family:monospace;opacity:.6;}
 .ap-gb-kws{
   display:flex;flex-wrap:wrap;gap:4px;padding:0 14px 10px;
 }
 .ap-gb-kw{
-  font-size:9px;font-family:monospace;font-weight:600;
+  font-size:13.5px;font-family:monospace;font-weight:600;
   padding:3px 9px;border-radius:20px;
   border:1px solid currentColor;opacity:.7;
 }
 .ap-gb-desc{
-  font-size:11px;line-height:1.68;
+  font-size:16.5px;line-height:1.68;
   padding:0 14px 13px;opacity:.85;
 }
 
 /* CTA botões */
 .ap-cta{padding:14px 18px 18px;}
 .ap-cta-hint{
-  font-size:10px;line-height:1.6;
+  font-size:15px;line-height:1.6;
   padding:11px 14px;border-radius:10px;
   background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08);
   margin-bottom:10px;font-style:italic;opacity:.75;
@@ -3281,7 +3284,7 @@ _cs.textContent=`
 .ap-btn{
   flex:1;padding:11px 6px;border-radius:11px;
   display:flex;align-items:center;justify-content:center;gap:5px;
-  font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+  font-size:15px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
   text-decoration:none;transition:filter .15s;cursor:pointer;border:none;
   font-family:'Inter',sans-serif;
 }
@@ -3564,10 +3567,10 @@ function renderCard(panel,cfg){
 
   <!-- ═══ HERO: ASPECTO ═══ -->
   <div class="ap-hero">
-    ${cfg._isNatal?`<div style="background:rgba(200,160,40,.1);border:1px solid rgba(200,160,40,.35);border-radius:8px;padding:6px 10px;margin-bottom:8px;display:flex;align-items:center;gap:6px"><span style="font-size:10px;color:#c8a028">✦</span><span style="font-size:8px;letter-spacing:1.2px;text-transform:uppercase;font-family:'Courier New',monospace;color:#c8a028;font-weight:700">Trânsito Pessoal · Mapa 17/03/1982 · Diadema-SP</span></div>`:''}
-    ${cfg._isReturn?`<div style="background:linear-gradient(90deg,rgba(200,160,40,.15),rgba(200,160,40,.05));border:1px solid rgba(200,160,40,.4);border-radius:8px;padding:7px 12px;margin-bottom:8px;font-size:9px;letter-spacing:1px;color:#c8a028;font-family:'Courier New',monospace;text-transform:uppercase">⟳ Retorno Planetário — renovação do ciclo</div>`:''}
-    ${cfg._isNatalOpp?`<div style="background:linear-gradient(90deg,rgba(204,102,0,.12),rgba(204,102,0,.04));border:1px solid rgba(204,102,0,.35);border-radius:8px;padding:7px 12px;margin-bottom:8px;font-size:9px;letter-spacing:1px;color:#cc6600;font-family:'Courier New',monospace;text-transform:uppercase">⊙ Oposição ao Natal — meio-ciclo de ${pA.n}</div>`:''}
-    ${cfg._isNatalSq?`<div style="background:linear-gradient(90deg,rgba(204,34,34,.12),rgba(204,34,34,.04));border:1px solid rgba(204,34,34,.3);border-radius:8px;padding:7px 12px;margin-bottom:8px;font-size:9px;letter-spacing:1px;color:#cc2222;font-family:'Courier New',monospace;text-transform:uppercase">□ Fase crítica do ciclo — quadratura de ${pA.n} ao natal</div>`:''}
+    ${cfg._isNatal?`<div style="background:rgba(200,160,40,.1);border:1px solid rgba(200,160,40,.35);border-radius:8px;padding:6px 10px;margin-bottom:8px;display:flex;align-items:center;gap:6px"><span style="font-size:15px;color:#c8a028">✦</span><span style="font-size:12px;letter-spacing:1.6px;text-transform:uppercase;font-family:'Courier New',monospace;color:#c8a028;font-weight:700">Trânsito Pessoal · Mapa 17/03/1982 · Diadema-SP</span></div>`:''}
+    ${cfg._isReturn?`<div style="background:linear-gradient(90deg,rgba(200,160,40,.15),rgba(200,160,40,.05));border:1px solid rgba(200,160,40,.4);border-radius:8px;padding:7px 12px;margin-bottom:8px;font-size:13.5px;letter-spacing:1.3px;color:#c8a028;font-family:'Courier New',monospace;text-transform:uppercase">⟳ Retorno Planetário — renovação do ciclo</div>`:''}
+    ${cfg._isNatalOpp?`<div style="background:linear-gradient(90deg,rgba(204,102,0,.12),rgba(204,102,0,.04));border:1px solid rgba(204,102,0,.35);border-radius:8px;padding:7px 12px;margin-bottom:8px;font-size:13.5px;letter-spacing:1.3px;color:#cc6600;font-family:'Courier New',monospace;text-transform:uppercase">⊙ Oposição ao Natal — meio-ciclo de ${pA.n}</div>`:''}
+    ${cfg._isNatalSq?`<div style="background:linear-gradient(90deg,rgba(204,34,34,.12),rgba(204,34,34,.04));border:1px solid rgba(204,34,34,.3);border-radius:8px;padding:7px 12px;margin-bottom:8px;font-size:13.5px;letter-spacing:1.3px;color:#cc2222;font-family:'Courier New',monospace;text-transform:uppercase">□ Fase crítica do ciclo — quadratura de ${pA.n} ao natal</div>`:''}
     <div class="ap-asp-hero">
       <div class="ap-asp-badge" style="background:${th.badge};color:${th.accent};border:1px solid ${th.border}">
         ${aspGl.sym}
@@ -3583,7 +3586,7 @@ function renderCard(panel,cfg){
     <div class="ap-planets-row">
       <div class="ap-pbox" style="border-color:${th.border}">
         <div class="ap-pbox-sym">${pGlA.sym||pA.sym}</div>
-        <div class="ap-pbox-name" style="color:${th.text}">${pA.n}${cfg._isNatal?` <span style="font-size:7px;letter-spacing:1.5px;background:${th.badge};color:${th.accent};border-radius:3px;padding:1px 4px;vertical-align:middle;font-family:'Courier New',monospace">TRÂNSITO</span>`:''}</div>
+        <div class="ap-pbox-name" style="color:${th.text}">${pA.n}${cfg._isNatal?` <span style="font-size:10.5px;letter-spacing:2px;background:${th.badge};color:${th.accent};border-radius:3px;padding:1px 4px;vertical-align:middle;font-family:'Courier New',monospace">TRÂNSITO</span>`:''}</div>
         <div class="ap-pbox-deg" style="background:${th.badge};color:${th.accent}">${degA}</div>
         <div class="ap-pbox-sign">${sgGlA.sym} ${sgGlA.n}<br>${sgGlA.el} ${sgGlA.mod}</div>
         <div class="ap-pbox-nak">✦ ${nakA}</div>
@@ -3591,7 +3594,7 @@ function renderCard(panel,cfg){
       <div class="ap-asp-sym-mid" style="color:${th.accent}">${aspSym}</div>
       <div class="ap-pbox" style="border-color:${th.border}">
         <div class="ap-pbox-sym">${pGlB.sym||pB.sym}</div>
-        <div class="ap-pbox-name" style="color:${th.text}">${pB.n}${cfg._isNatal?` <span style="font-size:7px;letter-spacing:1.5px;background:${th.badge};color:${th.accent};border-radius:3px;padding:1px 4px;vertical-align:middle;font-family:'Courier New',monospace">NATAL · Casa ${cfg._natHouse||'?'}${cfg._natRx?' ℞':''}</span>`:''}</div>
+        <div class="ap-pbox-name" style="color:${th.text}">${pB.n}${cfg._isNatal?` <span style="font-size:10.5px;letter-spacing:2px;background:${th.badge};color:${th.accent};border-radius:3px;padding:1px 4px;vertical-align:middle;font-family:'Courier New',monospace">NATAL · Casa ${cfg._natHouse||'?'}${cfg._natRx?' ℞':''}</span>`:''}</div>
         <div class="ap-pbox-deg" style="background:${th.badge};color:${th.accent}">${degB}</div>
         <div class="ap-pbox-sign">${sgGlB.sym} ${sgGlB.n}<br>${sgGlB.el} ${sgGlB.mod}</div>
         <div class="ap-pbox-nak">✦ ${nakB}</div>
@@ -3632,13 +3635,13 @@ function renderCard(panel,cfg){
   <div class="ap-sec">
     <div class="ap-sec-h" style="color:${th.accent}">♎ Os Signos</div>
     ${gb(sgGlA.sym,'Signo · '+sgGlA.el+' '+sgGlA.mod+' · Regente: '+(sgGlA.ruler||'—'),sgGlA.n,'',sgGlA.kw,sgGlA.desc)}
-    ${sameSg?`<div style="font-size:8.5px;opacity:.5;padding:0 2px 8px;font-family:monospace">${pB.n} também em ${sgGlA.n}</div>`:gb(sgGlB.sym,'Signo · '+sgGlB.el+' '+sgGlB.mod+' · Regente: '+(sgGlB.ruler||'—'),sgGlB.n,'',sgGlB.kw,sgGlB.desc)}
+    ${sameSg?`<div style="font-size:12.8px;opacity:.5;padding:0 2px 8px;font-family:monospace">${pB.n} também em ${sgGlA.n}</div>`:gb(sgGlB.sym,'Signo · '+sgGlB.el+' '+sgGlB.mod+' · Regente: '+(sgGlB.ruler||'—'),sgGlB.n,'',sgGlB.kw,sgGlB.desc)}
   </div>
 
   <!-- ═══ NAKSHATRAS ═══ -->
   ${nGlA||nGlB?`<div class="ap-sec"><div class="ap-sec-h" style="color:${th.accent}">✦ Nakshatras</div>`:''}
   ${nGlA?gb('✦','Nakshatra de '+pA.n+' · Divindade: '+nGlA.dev,nakA,'',nGlA.kw,nGlA.desc):''}
-  ${nGlB&&sameNak?`<div style="font-size:8.5px;opacity:.5;padding:0 2px 8px;font-family:monospace">${pB.n} também em ${nakA}</div>`:nGlB?gb('✦','Nakshatra de '+pB.n+' · Divindade: '+nGlB.dev,nakB,'',nGlB.kw,nGlB.desc):''}
+  ${nGlB&&sameNak?`<div style="font-size:12.8px;opacity:.5;padding:0 2px 8px;font-family:monospace">${pB.n} também em ${nakA}</div>`:nGlB?gb('✦','Nakshatra de '+pB.n+' · Divindade: '+nGlB.dev,nakB,'',nGlB.kw,nGlB.desc):''}
   ${nGlA||nGlB?`</div>`:''}
 
   <!-- ═══ CTA: LEITURA IA ═══ -->
@@ -4161,15 +4164,15 @@ function showNatalAspCard(transPlId, natPl, aspDef, dayIdx){
 
     // Use generic desc — AI does the interpretation. Banner and special note injected visually.
     const specialBanner = isReturn
-      ? `<div style="background:linear-gradient(90deg,#c8a02822,#c8a02811);border:1px solid #c8a02866;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:9px;letter-spacing:1px;color:#c8a028;font-family:'Courier New',monospace;text-transform:uppercase">⟳ Retorno Planetário — renovação do ciclo de ${transPlObj.n||transPlId}</div>`
+      ? `<div style="background:linear-gradient(90deg,#c8a02822,#c8a02811);border:1px solid #c8a02866;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:13.5px;letter-spacing:1.3px;color:#c8a028;font-family:'Courier New',monospace;text-transform:uppercase">⟳ Retorno Planetário — renovação do ciclo de ${transPlObj.n||transPlId}</div>`
       : isOpposition
-      ? `<div style="background:linear-gradient(90deg,#cc660022,#cc660011);border:1px solid #cc660066;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:9px;letter-spacing:1px;color:#cc6600;font-family:'Courier New',monospace;text-transform:uppercase">⊙ Oposição ao Natal — meio-ciclo de ${transPlObj.n||transPlId}</div>`
+      ? `<div style="background:linear-gradient(90deg,#cc660022,#cc660011);border:1px solid #cc660066;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:13.5px;letter-spacing:1.3px;color:#cc6600;font-family:'Courier New',monospace;text-transform:uppercase">⊙ Oposição ao Natal — meio-ciclo de ${transPlObj.n||transPlId}</div>`
       : isSquare
-      ? `<div style="background:linear-gradient(90deg,#cc222222,#cc222211);border:1px solid #cc222266;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:9px;letter-spacing:1px;color:#cc2222;font-family:'Courier New',monospace;text-transform:uppercase">□ Fase crítica — quadratura de ${transPlObj.n||transPlId} ao natal</div>`
+      ? `<div style="background:linear-gradient(90deg,#cc222222,#cc222211);border:1px solid #cc222266;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:13.5px;letter-spacing:1.3px;color:#cc2222;font-family:'Courier New',monospace;text-transform:uppercase">□ Fase crítica — quadratura de ${transPlObj.n||transPlId} ao natal</div>`
       : '';
 
     const desc = {
-      corpo: `<div style="background:rgba(200,160,40,.08);border:1px solid rgba(200,160,40,.25);border-radius:8px;padding:7px 10px;margin-bottom:8px;font-size:8px;letter-spacing:1.2px;color:#c8a028;font-family:'Courier New',monospace;text-transform:uppercase">✦ Trânsito Pessoal · Mapa 17/03/1982 · Diadema-SP</div>`+
+      corpo: `<div style="background:rgba(200,160,40,.08);border:1px solid rgba(200,160,40,.25);border-radius:8px;padding:7px 10px;margin-bottom:8px;font-size:12px;letter-spacing:1.6px;color:#c8a028;font-family:'Courier New',monospace;text-transform:uppercase">✦ Trânsito Pessoal · Mapa 17/03/1982 · Diadema-SP</div>`+
         specialBanner+
         `${transPlObj.n||transPlId} transitante em ${siA.n||sgA} toca o ${natPl.id} natal em ${siB.n||sgB} — Casa ${natPl.h}${natPl.rx?' · ℞':''} — do seu mapa de nascimento. Use os botões abaixo para a leitura completa com IA.`,
       momento: null, coletivo: null, indiv: null, sombra: null, integracao: null, luz: null,
@@ -4299,18 +4302,18 @@ function showTransitInfo(pl, t){
 
     function gb(icon,tag,title,sub,kw,desc){
       const kwTags=(kw||'').split('·').filter(k=>k.trim()).map(k=>
-        `<span style="font-size:9px;font-family:monospace;font-weight:600;padding:3px 9px;border-radius:20px;border:1px solid ${accent};color:${accent};opacity:.7;display:inline-block;margin:2px">${k.trim()}</span>`).join('');
+        `<span style="font-size:13.5px;font-family:monospace;font-weight:600;padding:3px 9px;border-radius:20px;border:1px solid ${accent};color:${accent};opacity:.7;display:inline-block;margin:2px">${k.trim()}</span>`).join('');
       return `<div style="border-radius:11px;border:1px solid rgba(0,0,0,.09);background:rgba(255,255,255,.65);margin-bottom:8px;overflow:hidden">
         <div style="display:flex;align-items:flex-start;gap:10px;padding:12px 14px 8px">
-          <div style="width:34px;height:34px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:17px;background:${badge};color:${accent}">${icon}</div>
+          <div style="width:34px;height:34px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:25.5px;background:${badge};color:${accent}">${icon}</div>
           <div style="flex:1;min-width:0">
-            <div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;font-family:monospace;opacity:.5;margin-bottom:3px;color:${accent}">${tag}</div>
-            <div style="font-size:13px;font-weight:700;line-height:1.2;color:#111;margin-bottom:2px">${title}</div>
-            ${sub?`<div style="font-size:9px;font-family:monospace;opacity:.55">${sub}</div>`:''}
+            <div style="font-size:12px;letter-spacing:1.3px;text-transform:uppercase;font-family:monospace;opacity:.5;margin-bottom:3px;color:${accent}">${tag}</div>
+            <div style="font-size:19.5px;font-weight:700;line-height:1.2;color:#111;margin-bottom:2px">${title}</div>
+            ${sub?`<div style="font-size:13.5px;font-family:monospace;opacity:.55">${sub}</div>`:''}
           </div>
         </div>
         ${kwTags?`<div style="padding:0 14px 10px;display:flex;flex-wrap:wrap;gap:3px">${kwTags}</div>`:''}
-        <div style="font-size:11px;line-height:1.68;padding:0 14px 13px;opacity:.85;color:#222">${desc}</div>
+        <div style="font-size:16.5px;line-height:1.68;padding:0 14px 13px;opacity:.85;color:#222">${desc}</div>
       </div>`;
     }
 
@@ -4329,28 +4332,28 @@ function showTransitInfo(pl, t){
 
     <!-- Título do trânsito -->
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-      <div style="width:54px;height:54px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:28px;background:${badge};border:1px solid ${border};color:${accent}">${pGl.sym||pl.sym}</div>
+      <div style="width:54px;height:54px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:42px;background:${badge};border:1px solid ${border};color:${accent}">${pGl.sym||pl.sym}</div>
       <div style="flex:1;min-width:0">
-        <div style="font-size:9px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;font-family:monospace;color:${accent};margin-bottom:4px">
+        <div style="font-size:13.5px;letter-spacing:1.6px;text-transform:uppercase;font-weight:600;font-family:monospace;color:${accent};margin-bottom:4px">
           Trânsito Planetário · Sideral FB${isRetro?' · ℞ Inclui Retrógrado':''}
         </div>
-        <div style="font-size:20px;font-weight:800;line-height:1.15;letter-spacing:-.3px;color:#111">${pl.n} em ${sGl.n}</div>
-        <div style="font-size:10px;opacity:.55;margin-top:3px">${pGl.kw||''}</div>
+        <div style="font-size:30px;font-weight:800;line-height:1.15;letter-spacing:-.3px;color:#111">${pl.n} em ${sGl.n}</div>
+        <div style="font-size:15px;opacity:.55;margin-top:3px">${pGl.kw||''}</div>
       </div>
     </div>
 
     <!-- Box planeta + signo + nak -->
     <div style="border-radius:12px;padding:12px 14px;border:1px solid rgba(0,0,0,.1);background:rgba(255,255,255,.55)">
       <div style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start">
-        <div style="font-size:32px;line-height:1">${pGl.sym||pl.sym}</div>
+        <div style="font-size:48px;line-height:1">${pGl.sym||pl.sym}</div>
         <div>
-          <div style="font-size:12px;font-weight:700;color:#111;margin-bottom:4px">${pl.n}</div>
-          <div style="font-size:10px;font-family:monospace;margin-bottom:3px">
+          <div style="font-size:18px;font-weight:700;color:#111;margin-bottom:4px">${pl.n}</div>
+          <div style="font-size:15px;font-family:monospace;margin-bottom:3px">
             <span style="background:${badge};color:${accent};padding:2px 7px;border-radius:5px;font-weight:700">${degInSg}</span>
             <span style="opacity:.7;margin-left:6px">${sGl.sym} ${sGl.n} · ${sGl.el} ${sGl.mod}</span>
           </div>
-          <div style="font-size:9.5px;font-family:monospace;opacity:.6">✦ ${nakName}</div>
-          ${isRetro?`<div style="margin-top:6px;font-size:9px;font-family:monospace;font-weight:700;color:${accent};background:${badge};border:1px solid ${border};padding:3px 8px;border-radius:5px;display:inline-block">℞ Retrógrado: ${retroStartD} → ${retroEndD}</div>`:''}
+          <div style="font-size:14.3px;font-family:monospace;opacity:.6">✦ ${nakName}</div>
+          ${isRetro?`<div style="margin-top:6px;font-size:13.5px;font-family:monospace;font-weight:700;color:${accent};background:${badge};border:1px solid ${border};padding:3px 8px;border-radius:5px;display:inline-block">℞ Retrógrado: ${retroStartD} → ${retroEndD}</div>`:''}
         </div>
       </div>
     </div>
@@ -4394,7 +4397,7 @@ function showTransitInfo(pl, t){
   ${isRetro?`<div class="ap-sec">
     <div class="ap-sec-h" style="color:${accent}">℞ Retrógrado</div>
     <div style="border-radius:11px;border:1px solid ${border};background:${bg2};padding:13px 14px;margin-bottom:8px">
-      <div style="font-size:11px;line-height:1.68;color:#222;opacity:.87">
+      <div style="font-size:16.5px;line-height:1.68;color:#222;opacity:.87">
         Durante o período retrógrado (${retroStartD} → ${retroEndD}), ${pl.n} parece recuar no céu. Energeticamente, o movimento para dentro se intensifica — revisão, reavaliação, o que ficou incompleto volta à tona. Assuntos ligados a ${sGl.n} pedem atenção interior antes de avançar. Decisões importantes podem ser postergadas; contratos, comunicações e compromissos merecem cautela extra. O que retorna nesse período traz uma segunda chance de resolução.
       </div>
     </div>
@@ -4495,7 +4498,7 @@ const aspTypeState={sq:true,conj:true,trine:true,opp:true,sext:true};
 ASP_TYPES.forEach(({key,sym,label,col})=>{
   const btn=document.createElement('button');
   btn.className='ac-btn';
-  btn.style.cssText='border-color:'+col+'66;color:'+col+';font-size:12px;padding:1px 6px;min-width:24px';
+  btn.style.cssText='border-color:'+col+'66;color:'+col+';font-size:18px;padding:1px 6px;min-width:24px';
   btn.textContent=sym;
   btn.title=label+' — clique para mostrar/ocultar';
   btn.addEventListener('click',()=>{
@@ -4512,7 +4515,7 @@ ASP_TYPES.forEach(({key,sym,label,col})=>{
 // Limpar button
 const btnLimparAll=document.createElement('button');
 btnLimparAll.className='ac-btn';
-btnLimparAll.style.cssText='border-color:#ddd;color:#aaa;font-size:7px;margin-left:auto';
+btnLimparAll.style.cssText='border-color:#ddd;color:#aaa;font-size:10.5px;margin-left:auto';
 btnLimparAll.textContent='\u2715 limpar';
 window.__clearAllMaps=()=>{
   activePeriods.clear();activeConjPeriods.clear();activeTrinesPeriods.clear();activeOppsPeriods.clear();activeSextsPeriods.clear();activeLuaAspPeriods.clear();
@@ -4529,7 +4532,7 @@ document.getElementById('zctrl').parentNode.insertBefore(aspCompact,document.get
 const periodWrap=document.createElement('div');
 periodWrap.style.cssText='display:flex;align-items:center;gap:5px;margin-bottom:6px;flex-wrap:wrap';
 const pLabel=document.createElement('span');
-pLabel.style.cssText='font-size:7px;letter-spacing:1.5px;color:#aaa;text-transform:uppercase;font-family:"Courier New",monospace;flex-shrink:0';
+pLabel.style.cssText='font-size:10.5px;letter-spacing:2px;color:#aaa;text-transform:uppercase;font-family:"Courier New",monospace;flex-shrink:0';
 pLabel.textContent='Período:';
 periodWrap.appendChild(pLabel);
 
@@ -4546,7 +4549,7 @@ const PERIODS=[
 let activePeriodView=null; // null = show all (zoom based)
 PERIODS.forEach((p,i)=>{
   const btn=document.createElement('button');
-  btn.style.cssText='padding:2px 8px;border-radius:10px;border:1px solid '+(i===0?'#446688':'#ddd')+';background:'+(i===0?'#446688':'#fff')+';color:'+(i===0?'#fff':'#aaa')+';font-size:8px;cursor:pointer;font-family:"Courier New",monospace';
+  btn.style.cssText='padding:2px 8px;border-radius:10px;border:1px solid '+(i===0?'#446688':'#ddd')+';background:'+(i===0?'#446688':'#fff')+';color:'+(i===0?'#fff':'#aaa')+';font-size:12px;cursor:pointer;font-family:"Courier New",monospace';
   btn.textContent=p.label;
   btn.id='period_'+i;
   btn.addEventListener('click',()=>{
@@ -4585,7 +4588,7 @@ const transitWrap = document.createElement('div');
 transitWrap.style.cssText = 'display:flex;align-items:center;gap:6px;padding:4px 10px;font-family:"Courier New",monospace;flex-wrap:wrap;border-bottom:1px solid rgba(0,0,0,.07)';
 
 const tLabel = document.createElement('span');
-tLabel.style.cssText = 'font-size:8px;color:#999;letter-spacing:1px;text-transform:uppercase;margin-right:2px';
+tLabel.style.cssText = 'font-size:12px;color:#999;letter-spacing:1.3px;text-transform:uppercase;margin-right:2px';
 tLabel.textContent = 'MOSTRAR:';
 transitWrap.appendChild(tLabel);
 
@@ -4593,7 +4596,7 @@ function makeTransitBtn(label, getActive, onClick, color){
   const btn = document.createElement('button');
   btn.style.cssText = `padding:2px 10px;border-radius:10px;border:1.5px solid ${color};
     background:${getActive()?color:'#fff'};color:${getActive()?'#fff':color};
-    font-size:8px;cursor:pointer;font-family:"Courier New",monospace;
+    font-size:12px;cursor:pointer;font-family:"Courier New",monospace;
     font-weight:600;transition:all .15s;letter-spacing:.5px`;
   btn.textContent = label;
   btn.addEventListener('click',()=>{
@@ -6059,7 +6062,7 @@ function renderNatalTransits(tW){
           const natSgName=['Áries','Touro','Gêmeos','Câncer','Leão','Virgem','Libra','Escorpião','Sagitário','Capricórnio','Aquário','Peixes'];
           tip.innerHTML=`<div class="t1"><span class="sym">${_plId}</span> ${_asp.sym} <span class="sym">${_np.sym}</span> ${_np.id} natal</div>`+
             `<div class="t2">${_asp.type==='sq'?'Quadratura':_asp.type==='conj'?'Conjunção':_asp.type==='trine'?'Trígono':_asp.type==='opp'?'Oposição':'Sextil'} · ${natSgName[natSgIdx]} natal · Casa ${_np.h}</div>`+
-            `<div style="color:#aaa;font-size:9px;margin-top:3px">Clique para abrir o card</div>`;
+            `<div style="color:#aaa;font-size:13.5px;margin-top:3px">Clique para abrir o card</div>`;
           tip.style.display='block';
           tip.style.left=Math.min(e.clientX+12,window.innerWidth-180)+'px';
           tip.style.top=Math.max(e.clientY-40,4)+'px';
@@ -6190,9 +6193,9 @@ function renderNatalTransits(tW){
             `<div class="t1"><span class="sym">${plId}</span> ${asp.sym} <span class="sym">${np.sym}</span> ${np.id} natal</div>`+
             `<div class="t2" style="color:${asp.color};font-style:italic">Aspecto se formando ↗</div>`+
             `<div class="t2">${plId} em ${SG_PT2[tSgI]} · ${np.id} natal em ${natDegLocal}° ${SG_PT2[natSgI]}</div>`+
-            `<div style="color:#888;font-size:9px;margin-top:3px">Distância atual: <b>${appr.dist.toFixed(1)}°</b> do exato</div>`+
-            `<div style="color:#c8a028;font-size:9px;margin-top:2px">⏳ Exatidão estimada: <b>~${appr.estYear}</b></div>`+
-            `<div style="color:#aaa;font-size:8px;font-style:italic;margin-top:3px">Datas precisas na Fase 2 · Swiss Ephemeris</div>`;
+            `<div style="color:#888;font-size:13.5px;margin-top:3px">Distância atual: <b>${appr.dist.toFixed(1)}°</b> do exato</div>`+
+            `<div style="color:#c8a028;font-size:13.5px;margin-top:2px">⏳ Exatidão estimada: <b>~${appr.estYear}</b></div>`+
+            `<div style="color:#aaa;font-size:12px;font-style:italic;margin-top:3px">Datas precisas na Fase 2 · Swiss Ephemeris</div>`;
           tip.style.display='block';
           const r=svg.getBoundingClientRect();
           tip.style.left=Math.min(e.clientX+12,window.innerWidth-180)+'px';
@@ -6215,32 +6218,72 @@ function render(){
   // Sync month/year header widths
   const MD_LENS=[31,28,31,30,31,30,31,31,30,31,30,31];
   if(EPHEM_STATE.multiYear){
-    // Multi-ano: esconder headers mensais, mostrar anos
+    const {startYear,span}=EPHEM_STATE.multiYear;
+    const yrPx=365*ppd;
+    // Esconder headers mensais padrão
     document.querySelectorAll('.mlbl').forEach(el=>{el.style.display='none';});
-    document.querySelectorAll('.mg').forEach(mg=>{mg.querySelectorAll('.ml').forEach(ml=>{ml.style.display='none';});});
-    // Criar/atualizar labels de ano
+    // Recriar header multi-ano: anos em cima, meses embaixo
     let yrBar=document.getElementById('year-header-bar');
     if(!yrBar){
       yrBar=document.createElement('div');yrBar.id='year-header-bar';
-      yrBar.style.cssText='position:absolute;top:0;left:0;height:20px;display:flex;z-index:5;pointer-events:none';
       const mhdr=document.getElementById('month-header')||document.querySelector('.mhr');
-      if(mhdr)mhdr.appendChild(yrBar);
+      if(mhdr){mhdr.style.flexDirection='column';mhdr.style.height='auto';mhdr.appendChild(yrBar);}
     }
-    yrBar.style.display='flex';yrBar.innerHTML='';
-    const {startYear,span}=EPHEM_STATE.multiYear;
+    yrBar.style.cssText='display:flex;width:'+(TOT*ppd)+'px';
+    yrBar.innerHTML='';
+    // Linha de anos
     for(let i=0;i<span;i++){
-      const lbl=document.createElement('div');
       const y=startYear+i;
-      lbl.textContent=y<0?Math.abs(y)+'aC':y;
-      lbl.style.cssText='width:'+(365*ppd)+'px;text-align:center;font-size:9px;color:#889;border-right:1px solid rgba(0,0,0,.08);line-height:20px;font-family:"Courier New",monospace';
-      yrBar.appendChild(lbl);
+      const col=document.createElement('div');
+      col.style.cssText='width:'+yrPx+'px;flex-shrink:0;border-right:1px solid rgba(160,170,200,.25)';
+      const yrLbl=document.createElement('div');
+      yrLbl.textContent=y<0?Math.abs(y)+' a.C.':y;
+      yrLbl.style.cssText='text-align:center;font-size:15px;font-weight:700;color:#c9a961;padding:3px 0 1px;font-family:"Courier New",monospace;letter-spacing:1.3px;border-bottom:1px solid rgba(160,170,200,.15)';
+      col.appendChild(yrLbl);
+      // Linha de meses dentro do ano
+      const mRow=document.createElement('div');
+      mRow.style.cssText='display:flex;width:100%';
+      const ML=['J','F','M','A','M','J','J','A','S','O','N','D'];
+      const MD_L=[31,28,31,30,31,30,31,31,30,31,30,31];
+      ML.forEach((m,mi)=>{
+        const mLbl=document.createElement('div');
+        mLbl.textContent=m;
+        mLbl.style.cssText='width:'+(MD_L[mi]*ppd)+'px;flex-shrink:0;text-align:center;font-size:10.5px;color:#889;font-family:"Courier New",monospace;border-left:1px solid rgba(160,170,200,.1);line-height:18.9px';
+        mRow.appendChild(mLbl);
+      });
+      col.appendChild(mRow);
+      yrBar.appendChild(col);
     }
+    // Grade de meses nos tracks (colunas verticais finas)
+    document.querySelectorAll('.mg').forEach(mg=>{
+      const mls=mg.querySelectorAll('.ml');
+      // Recriar mls pra multi-ano (12*span meses)
+      mg.innerHTML='';
+      for(let y=0;y<span;y++){
+        MD_LENS.forEach(md=>{
+          const ml=document.createElement('div');ml.className='ml';
+          ml.style.cssText='flex:none;width:'+(md*ppd)+'px;border-left:1px solid rgba(160,170,200,.1)';
+          mg.appendChild(ml);
+        });
+        // Borda de ano (mais visível)
+        if(mg.lastChild)mg.lastChild.style.borderRight='2px solid rgba(160,170,200,.25)';
+      }
+    });
   }else{
     // Ano único: headers mensais normais
     const yrBar=document.getElementById('year-header-bar');
     if(yrBar)yrBar.style.display='none';
     document.querySelectorAll('.mlbl').forEach((el,i)=>{el.style.display='';el.style.width=(MD_LENS[i]*ppd)+'px';el.style.minWidth='0';});
-    document.querySelectorAll('.mg').forEach(mg=>{const mls=mg.querySelectorAll('.ml');mls.forEach((ml,i)=>{ml.style.display='';ml.style.flex='none';ml.style.width=(MD_LENS[i]*ppd)+'px';ml.style.minWidth='0';});});
+    document.querySelectorAll('.mg').forEach(mg=>{
+      mg.innerHTML='';
+      MD_LENS.forEach((md,i)=>{
+        const ml=document.createElement('div');ml.className='ml';
+        ml.style.cssText='flex:none;width:'+(md*ppd)+'px;border-left:2px solid rgba(160,170,200,.15)';
+        mg.appendChild(ml);
+      });
+    });
+    const mhr=document.querySelector('.mhr');
+    if(mhr){mhr.style.flexDirection='';mhr.style.height='';}
   }
   // Weekend grid lines (only monthly/quinzenal)
   const DOW_WK=new Date(Date.UTC(EPHEM_STATE.year,0,1)).getUTCDay(); // dia da semana de 1/jan
@@ -6267,8 +6310,8 @@ function render(){
     let dom=1,mi=0,dim=MD2[0];
     for(let d=1;d<=TOT;d++){
       const dow=(DOW_S+d-1)%7,isWE=WE[dow],isMS=(dom===1);
-      if(wdRow){const wc=document.createElement('div');wc.style.cssText='width:'+ppd+'px;flex-shrink:0;box-sizing:border-box;font-size:'+(ppd>20?'7':'6')+'px;font-family:Courier New,monospace;text-align:center;line-height:11px;'+(isWE?'color:rgba(160,80,0,.75);font-weight:700':'color:rgba(0,0,0,.28)')+(isMS?';border-left:1.5px solid rgba(0,0,0,.18)':';border-left:1px solid rgba(0,0,0,.06)');wc.textContent=ppd>14?DOW_N[dow]:(ppd>10?DOW_N[dow][0]:'');wdRow.appendChild(wc);}
-      const dc=document.createElement('div');dc.style.cssText='width:'+ppd+'px;flex-shrink:0;box-sizing:border-box;font-size:'+(ppd>16?'8':'7')+'px;font-family:Courier New,monospace;text-align:center;line-height:11px;'+(isWE?'color:rgba(160,80,0,.85);font-weight:700':'color:rgba(0,0,0,.55)')+(isMS?';border-left:1.5px solid rgba(0,0,0,.22);font-weight:700':';border-left:1px solid rgba(0,0,0,.07)');
+      if(wdRow){const wc=document.createElement('div');wc.style.cssText='width:'+ppd+'px;flex-shrink:0;box-sizing:border-box;font-size:'+(ppd>20?'7':'6')+'px;font-family:Courier New,monospace;text-align:center;line-height:14.9px;'+(isWE?'color:rgba(160,80,0,.75);font-weight:700':'color:rgba(0,0,0,.28)')+(isMS?';border-left:1.5px solid rgba(0,0,0,.18)':';border-left:1px solid rgba(0,0,0,.06)');wc.textContent=ppd>14?DOW_N[dow]:(ppd>10?DOW_N[dow][0]:'');wdRow.appendChild(wc);}
+      const dc=document.createElement('div');dc.style.cssText='width:'+ppd+'px;flex-shrink:0;box-sizing:border-box;font-size:'+(ppd>16?'8':'7')+'px;font-family:Courier New,monospace;text-align:center;line-height:14.9px;'+(isWE?'color:rgba(160,80,0,.85);font-weight:700':'color:rgba(0,0,0,.55)')+(isMS?';border-left:1.5px solid rgba(0,0,0,.22);font-weight:700':';border-left:1px solid rgba(0,0,0,.07)');
       if(ppd>14)dc.textContent=dom;else if(ppd>7&&dom%5===0)dc.textContent=dom;else if(ppd>3&&dom%10===0)dc.textContent=dom;else if(isMS)dc.textContent=dom;
       dayRow.appendChild(dc);
       dom++;if(dom>dim){dom=1;mi=Math.min(mi+1,11);dim=MD2[mi];}
@@ -6299,7 +6342,7 @@ function render(){
   tm.style.top=(mhrRect.top-24)+'px';
   tm.style.display=_showToday?'':'none';
   const td=document.getElementById('today-date');
-  td.style.cssText='position:absolute;left:'+tX+'px;top:'+(iH+6)+'px;font-size:8px;font-family:"Courier New",monospace;font-weight:700;color:rgba(160,100,5,.85);transform:translateX(-50%);white-space:nowrap;pointer-events:none;display:'+(_showToday?'block':'none');
+  td.style.cssText='position:absolute;left:'+tX+'px;top:'+(iH+6)+'px;font-size:12px;font-family:"Courier New",monospace;font-weight:700;color:rgba(160,100,5,.85);transform:translateX(-50%);white-space:nowrap;pointer-events:none;display:'+(_showToday?'block':'none');
   td.textContent=NOW.getDate();
   renderCanvases(tW);
   requestAnimationFrame(()=>{
@@ -6361,15 +6404,15 @@ wStyle.textContent=`
   padding:12px 16px 8px;border-bottom:1px solid rgba(0,0,0,.08);
   flex-shrink:0;
 }
-#wheel-title{font-size:13px;font-weight:600;color:#444;letter-spacing:.3px}
-#wheel-date-lbl{font-size:11px;color:#888;font-family:'Courier New',monospace}
+#wheel-title{font-size:19.5px;font-weight:600;color:#444;letter-spacing:.3px}
+#wheel-date-lbl{font-size:16.5px;color:#888;font-family:'Courier New',monospace}
 #wheel-close{width:26px;height:26px;border-radius:50%;border:none;background:rgba(0,0,0,.07);
-  cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:#666}
+  cursor:pointer;font-size:21px;display:flex;align-items:center;justify-content:center;color:#666}
 #wheel-close:hover{background:rgba(0,0,0,.13)}
 #wheel-fullscr{width:26px;height:26px;border-radius:50%;border:none;background:rgba(0,0,0,.07);
-  cursor:pointer;font-size:13px;line-height:1;color:#555;display:flex;align-items:center;justify-content:center}
+  cursor:pointer;font-size:19.5px;line-height:1;color:#555;display:flex;align-items:center;justify-content:center}
 #wheel-fullscr:hover{background:rgba(0,0,0,.13)}
-.wm-btn{font-size:10px;font-weight:700;letter-spacing:.3px;padding:6px 10px;border-radius:14px;
+.wm-btn{font-size:15px;font-weight:700;letter-spacing:.3px;padding:6px 10px;border-radius:14px;
   border:1px solid rgba(0,0,0,.15);background:rgba(0,0,0,.04);color:#666;cursor:pointer;
   white-space:nowrap;transition:background .15s,color .15s}
 .wm-btn.wm-active{background:#1a2050;color:#f0d28a;border-color:#1a2050}
@@ -6380,54 +6423,54 @@ wStyle.textContent=`
 #orrery-pl-bar{flex-shrink:0}
 #wheel-footer{flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding:0 8px 10px}
 #wheel-legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:8px 12px 0;width:100%}
-.wl-item{display:flex;align-items:center;gap:4px;font-size:10px;color:#555;
+.wl-item{display:flex;align-items:center;gap:4px;font-size:15px;color:#555;
   background:rgba(0,0,0,.04);border-radius:6px;padding:3px 7px}
-.wl-sym{font-size:13px;line-height:1}
-#wheel-info{font-size:9px;color:#aaa;text-align:center;padding:4px 0 0;
+.wl-sym{font-size:19.5px;line-height:1}
+#wheel-info{font-size:13.5px;color:#aaa;text-align:center;padding:4px 0 0;
   font-family:'Courier New',monospace;letter-spacing:.3px}
 #wheel-zoom-btns{display:flex;align-items:center;gap:6px;padding:6px 0 2px}
 .wz-btn{width:24px;height:24px;border-radius:50%;border:1px solid rgba(0,0,0,.15);
-  background:rgba(0,0,0,.05);cursor:pointer;font-size:14px;display:flex;align-items:center;
+  background:rgba(0,0,0,.05);cursor:pointer;font-size:21px;display:flex;align-items:center;
   justify-content:center;color:#555;line-height:1;user-select:none;transition:background .15s}
 .wz-btn:hover{background:rgba(0,0,0,.12)}
-#wheel-zoom-pct{font-size:9px;font-family:'Courier New',monospace;color:#aaa;min-width:32px;text-align:center}
+#wheel-zoom-pct{font-size:13.5px;font-family:'Courier New',monospace;color:#aaa;min-width:32px;text-align:center}
 #wheel-foto{flex-shrink:0}
 /* ── Split roda + matriz ── */
 #wheel-split{flex:1;display:flex;min-height:0;min-width:0}
 #wheel-left{flex:1 1 58%;display:flex;flex-direction:column;min-width:0;min-height:0}
 #wheel-divider{flex:0 0 9px;background:rgba(0,0,0,.12);cursor:col-resize;touch-action:none;position:relative}
 #wheel-divider:hover,#wheel-divider.drag{background:rgba(240,210,138,.55)}
-#wheel-divider::after{content:'⋮⋮';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:12px;color:#999;letter-spacing:-3px}
+#wheel-divider::after{content:'⋮⋮';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:18px;color:#999;letter-spacing:-3px}
 #wheel-matrix{flex:1 1 42%;min-width:0;display:flex;flex-direction:column;background:#f4f5f7;border-left:1px solid rgba(0,0,0,.1)}
 #wheel-matrix-hdr{flex-shrink:0;padding:8px 10px;border-bottom:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;gap:6px}
-#wheel-matrix-title{font-size:11px;font-weight:800;color:#555;letter-spacing:.3px}
+#wheel-matrix-title{font-size:16.5px;font-weight:800;color:#555;letter-spacing:.3px}
 #wheel-mx-ai{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .mx-ai-seg{display:flex;gap:2px;background:rgba(0,0,0,.05);border-radius:9px;padding:2px}
-.mx-ai-seg button{font-size:9px;font-weight:700;border:0;background:transparent;color:#666;padding:5px 7px;border-radius:7px;cursor:pointer}
+.mx-ai-seg button{font-size:13.5px;font-weight:700;border:0;background:transparent;color:#666;padding:5px 7px;border-radius:7px;cursor:pointer}
 .mx-ai-seg button.on{background:#11385f;color:#dff}
 .mx-zoom{display:flex;align-items:center;gap:2px;margin-left:auto}
-.mx-zoom button{width:20px;height:20px;border-radius:6px;border:1px solid rgba(0,0,0,.15);background:rgba(0,0,0,.04);color:#666;font-size:11px;cursor:pointer;line-height:1}
-.mx-zoom span{font-size:9px;color:#888;font-family:monospace;min-width:30px;text-align:center}
+.mx-zoom button{width:20px;height:20px;border-radius:6px;border:1px solid rgba(0,0,0,.15);background:rgba(0,0,0,.04);color:#666;font-size:16.5px;cursor:pointer;line-height:1}
+.mx-zoom span{font-size:13.5px;color:#888;font-family:monospace;min-width:30px;text-align:center}
 #wheel-matrix-cols{flex:1;overflow:auto;padding:8px;display:flex;gap:8px;align-items:flex-start;min-height:0}
 .mx-col{flex:0 0 198px;display:flex;flex-direction:column;gap:7px}
-.mx-colhdr{position:sticky;top:0;z-index:2;border-radius:11px;padding:7px 10px;font-size:11px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 6px rgba(0,0,0,.25)}
-.mx-colhdr .cnt{font-size:9px;background:rgba(255,255,255,.25);border-radius:7px;padding:1px 6px}
+.mx-colhdr{position:sticky;top:0;z-index:2;border-radius:11px;padding:7px 10px;font-size:16.5px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.mx-colhdr .cnt{font-size:13.5px;background:rgba(255,255,255,.25);border-radius:7px;padding:1px 6px}
 .mx-card{background:#fff;border-radius:10px;border:1px solid #e3e3e3;border-left-width:4px;padding:8px 9px;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.12);transition:box-shadow .12s,transform .12s}
 .mx-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.22)}
 .mx-card.sel{box-shadow:0 0 0 2px #f0d28a,0 3px 10px rgba(0,0,0,.3);transform:translateY(-1px)}
-.mx-card .pl{font-size:11.5px;font-weight:800;color:#181820;line-height:1.3}
-.mx-card .pl .sm{font-size:8.5px;font-weight:700;opacity:.55}
-.mx-card .wb{display:inline-block;font-size:7.5px;font-weight:800;padding:1px 5px;border-radius:6px;margin-right:4px;vertical-align:1px}
+.mx-card .pl{font-size:17.3px;font-weight:800;color:#181820;line-height:1.3}
+.mx-card .pl .sm{font-size:12.8px;font-weight:700;opacity:.55}
+.mx-card .wb{display:inline-block;font-size:11.3px;font-weight:800;padding:1px 5px;border-radius:6px;margin-right:4px;vertical-align:1px}
 .mx-card .wb0{background:#1c1c22;color:#fff}.mx-card .wb1{background:#6b6b73;color:#fff}.mx-card .wb2{background:#e3e3e6;color:#555}
-.mx-card .ln{font-size:9.5px;color:#3a3a42;line-height:1.55;margin-top:3px}
+.mx-card .ln{font-size:14.3px;color:#3a3a42;line-height:1.55;margin-top:3px}
 .mx-card .ln .plnm{color:#15151b;font-weight:800}
 .mx-card .ln .csa{font-weight:800}
 .mx-card .ln .nk{color:#888}
-.mx-card .ln .role{font-size:7.5px;font-weight:800;opacity:.5;text-transform:uppercase}
-.mx-card .orb{font-size:9px;color:#777;margin-top:3px}
-.mx-card .casa{display:inline-block;font-size:8.5px;font-weight:800;border-radius:5px;padding:1px 5px;margin-left:4px}
-.mx-card .dz{margin-top:6px;width:100%;border:0;border-radius:7px;padding:6px;font-size:9.5px;font-weight:800;color:#fff;cursor:pointer}
-.mx-empty{color:#999;font-size:9.5px;font-style:italic;padding:6px 2px}
+.mx-card .ln .role{font-size:11.3px;font-weight:800;opacity:.5;text-transform:uppercase}
+.mx-card .orb{font-size:13.5px;color:#777;margin-top:3px}
+.mx-card .casa{display:inline-block;font-size:12.8px;font-weight:800;border-radius:5px;padding:1px 5px;margin-left:4px}
+.mx-card .dz{margin-top:6px;width:100%;border:0;border-radius:7px;padding:6px;font-size:14.3px;font-weight:800;color:#fff;cursor:pointer}
+.mx-empty{color:#999;font-size:14.3px;font-style:italic;padding:6px 2px}
 `;
 document.head.appendChild(wStyle);
 
@@ -6466,11 +6509,11 @@ panel.innerHTML=`
       <div id="wheel-info">Sideral Fagan-Bradley 25°06' · Geocêntrico · Terra ao Centro</div>
     </div>
     <div id="wheel-foto" style="border-top:1px solid rgba(0,0,0,.08);padding:10px 16px 12px;display:none;flex-direction:column;gap:0;flex-shrink:0">
-      <div style="font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#c8a028;font-family:monospace;margin-bottom:8px">🤖 Destrinche com IA</div>
+      <div style="font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:#c8a028;font-family:monospace;margin-bottom:8px">🤖 Destrinche com IA</div>
       <div style="display:flex;gap:7px">
-        <a id="wf-google" href="#" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#4285f4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;text-decoration:none">🔍 Google AI</a>
-        <a id="wf-perplexity" href="#" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#20b2aa;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;text-decoration:none">⚡ Perplexity</a>
-        <button id="wf-extract" style="flex:1;padding:10px 6px;border-radius:10px;background:#c8a028;color:#fff;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer">⬇ Extrair</button>
+        <a id="wf-google" href="#" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#4285f4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;text-decoration:none">🔍 Google AI</a>
+        <a id="wf-perplexity" href="#" target="_blank" style="flex:1;padding:10px 6px;border-radius:10px;background:#20b2aa;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;text-decoration:none">⚡ Perplexity</a>
+        <button id="wf-extract" style="flex:1;padding:10px 6px;border-radius:10px;background:#c8a028;color:#fff;font-size:13.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer">⬇ Extrair</button>
       </div>
     </div>
   </div>
@@ -6809,7 +6852,7 @@ function renderWheel(dayOfYear){
     const sgObj=SG[sgKey]||{sym:'',n:''};
     const d=Math.floor(pl.deg%30),m=Math.round((pl.deg%1)*60);
     const item=document.createElement('div');item.className='wl-item';
-    item.innerHTML=`<span class="wl-sym" style="color:${pl.col}">${pl.sym}</span><span style="font-weight:500">${pl.n}</span><span style="color:#bbb;font-size:9px">${d}°${m>0?m+"'":''}${sgObj.sym}</span>`;
+    item.innerHTML=`<span class="wl-sym" style="color:${pl.col}">${pl.sym}</span><span style="font-weight:500">${pl.n}</span><span style="color:#bbb;font-size:13.5px">${d}°${m>0?m+"'":''}${sgObj.sym}</span>`;
     legend.appendChild(item);
   });
 
@@ -7440,11 +7483,11 @@ function showNatalInputModal(){
   background:rgba(255,254,250,.98);border:1px solid rgba(0,0,0,.15);
   border-radius:10px;padding:8px 12px;display:none;
   box-shadow:0 4px 24px rgba(0,0,0,.25);min-width:140px">
-  <div id="ott-sym" style="font-size:22px;line-height:1;margin-bottom:4px"></div>
-  <div id="ott-name" style="font-family:sans-serif;font-size:12px;font-weight:600;color:#222;margin-bottom:3px"></div>
-  <div id="ott-pos" style="font-size:10px;font-family:monospace;color:#555;line-height:1.7"></div>
-  <div id="ott-rx"  style="font-size:8px;color:#e05030;font-family:monospace;font-weight:700;margin-top:2px"></div>
-  <div id="ott-arch" style="font-size:10px;color:#888;font-style:italic;margin-top:3px"></div>
+  <div id="ott-sym" style="font-size:33px;line-height:1;margin-bottom:4px"></div>
+  <div id="ott-name" style="font-family:sans-serif;font-size:18px;font-weight:600;color:#222;margin-bottom:3px"></div>
+  <div id="ott-pos" style="font-size:15px;font-family:monospace;color:#555;line-height:1.7"></div>
+  <div id="ott-rx"  style="font-size:12px;color:#e05030;font-family:monospace;font-weight:700;margin-top:2px"></div>
+  <div id="ott-arch" style="font-size:15px;color:#888;font-style:italic;margin-top:3px"></div>
 </div>
 
 <script>
@@ -7865,11 +7908,11 @@ function _renderBar(planets){
     const sk=_getSgKey(pl.deg), sg=_SG[sk];
     const c=document.createElement('div');
     c.style.cssText='flex:0 0 25%;padding:6px 7px;border-right:1px solid rgba(200,168,75,.07);border-bottom:1px solid rgba(200,168,75,.07);font-family:sans-serif;box-sizing:border-box';
-    c.innerHTML=`<div style="font-size:14px;line-height:1;margin-bottom:2px;color:${pl.col}">${pl.sym}</div>
-<div style="font-size:7px;font-weight:600;color:${pl.col};letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${pl.n}</div>
-<div style="font-size:6.5px;color:#888;font-family:monospace;line-height:1.5;margin-top:1px">${_getDIS(pl.deg).toFixed(1)}° ${sg.sym} ${sg.n}</div>
-<div style="font-size:6px;color:#aaa;opacity:.7">✦ ${_getNak(pl.deg)}</div>
-${pl.rx?'<div style="font-size:6px;color:#e05030;font-weight:700">℞</div>':''}`;
+    c.innerHTML=`<div style="font-size:21px;line-height:1;margin-bottom:2px;color:${pl.col}">${pl.sym}</div>
+<div style="font-size:10.5px;font-weight:600;color:${pl.col};letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${pl.n}</div>
+<div style="font-size:9.8px;color:#888;font-family:monospace;line-height:1.5;margin-top:1px">${_getDIS(pl.deg).toFixed(1)}° ${sg.sym} ${sg.n}</div>
+<div style="font-size:9px;color:#aaa;opacity:.7">✦ ${_getNak(pl.deg)}</div>
+${pl.rx?'<div style="font-size:9px;color:#e05030;font-weight:700">℞</div>':''}`;
     bar.appendChild(c);
   });
 }
