@@ -265,7 +265,11 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
 // ═══ FASE 2 — ESTADO MULTI-ANO / MULTI-SISTEMA ═══
 const EPHEM_STATE={year:2026,ayanamsa:'fagan-bradley',multiYear:null,_multiYearDow:null}; // multiYear={startYear,endYear,span}
 const AYAN_LABEL={'fagan-bradley':"Fagan-Bradley 25\u00b006'",'lahiri':'Lahiri','tropical':'Tropical'};
-const EPHEM_DATA_BASE='data'; // pasta relativa: data/{sistema}/{ano}.json
+// pasta relativa: data/{sistema}/{ano}.json
+// Aberto como arquivo local (file://)? Usa os JSONs do GitHub Pages direto.
+const EPHEM_DATA_BASE=(location.protocol==='file:')
+  ?'https://guymartinsde-hash.github.io/ephemeris/data'
+  :'data';
 // converte dia absoluto da timeline → {doy, ano} considerando multi-ano
 function ephemDayCtx(d){
   if(EPHEM_STATE.multiYear){
@@ -2434,7 +2438,7 @@ async function loadEphemYear(year,ayan){
     const isFile=location.protocol==='file:';
     alert('N\u00e3o consegui carregar '+year+' ('+(AYAN_LABEL[ayan]||ayan)+').\n\n'+
       (isFile
-        ?'Voc\u00ea abriu o HTML como arquivo local \u2014 o browser bloqueia fetch de JSONs locais. Rode um servidor local (python3 -m http.server) ou hospede no GitHub Pages.'
+        ?'Tentei buscar do GitHub Pages ('+EPHEM_DATA_BASE+'/'+ayan+'/'+year+'.json). Verifique sua conex\u00e3o com a internet e se esse ano j\u00e1 foi publicado no reposit\u00f3rio.'
         :'Verifique se o arquivo data/'+ayan+'/'+year+'.json existe no servidor.'));
     return false;
   }finally{
