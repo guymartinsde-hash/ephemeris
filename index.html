@@ -193,7 +193,7 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
   <button class="yc-btn yc-jump" id="yr-p10" title="−10 anos">&#171;</button>
   <button class="yc-btn yc-jump" id="yr-p5" title="−5 anos">−5</button>
   <button class="yc-btn" id="yr-prev" title="ano anterior">&#8249;</button>
-  <input id="yr-input" type="number" min="-3000" max="2100" step="1" value="2026">
+  <input id="yr-input" type="number" min="-10000" max="2100" step="1" value="2026">
   <button class="yc-btn" id="yr-next" title="pr&#243;ximo ano">&#8250;</button>
   <button class="yc-btn yc-jump" id="yr-n5" title="+5 anos">+5</button>
   <button class="yc-btn yc-jump" id="yr-n10" title="+10 anos">&#187;</button>
@@ -2409,12 +2409,12 @@ const DEG_KEY = {
 // Also expose DEG_KEY
 window.__EPHEM_DEG_KEY = DEG_KEY;
 
-// ═══ FASE 2 — CARREGADOR DE EFEMÉRIDES (qualquer ano -3000..2100, 3 sistemas) ═══
+// ═══ FASE 2 — CARREGADOR DE EFEMÉRIDES (qualquer ano -10000..2100, 3 sistemas) ═══
 const _PLANET_DEGS_2026_FB=JSON.parse(JSON.stringify(PLANET_DEGS)); // fallback embutido (offline)
 let _ephemLoading=false;
 async function loadEphemYear(year,ayan){
   if(_ephemLoading)return false;
-  year=Math.max(-3000,Math.min(2100,Math.round(year)));
+  year=Math.max(-10000,Math.min(2100,Math.round(year)));
   _ephemLoading=true;
   const ind=document.getElementById('yr-loading');if(ind)ind.style.display='inline-block';
   try{
