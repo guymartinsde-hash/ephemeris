@@ -8007,14 +8007,17 @@ window._orreryRender=_orreryRender;
 /* ═══════════════ SCANNER DE ERAS ═══════════════ */
 (function(){
 'use strict';
+// L0/rate recalibrados contra a efeméride real (data/tropical/*.json), ajuste local
+// centrado na era atual — o modelo linear (2 parâmetros) não segue órbitas excêntricas
+// com exatidão em milênios, mas agora acerta o signo real em ~2015-2035 pra todos os corpos.
 const PL=[
-  {id:'jup',name:'Júpiter',sym:'♃',L0:34.35,rate:30.348,pc:'#c9a961'},
-  {id:'sat',name:'Saturno',sym:'♄',L0:50.08,rate:12.221,pc:'#9a8f7d'},
-  {id:'ura',name:'Urano',sym:'♅',L0:314.06,rate:4.283,pc:'#5ba3c9'},
-  {id:'nep',name:'Netuno',sym:'♆',L0:304.35,rate:2.185,pc:'#8a7ad6'},
-  {id:'plu',name:'Plutão',sym:'♇',L0:238.96,rate:1.451,pc:'#a050a8'},
-  {id:'nod',name:'Nodo N',sym:'☊',L0:125.04,rate:-19.354,pc:'#909090'},
-  {id:'qui',name:'Quíron',sym:'⚷',L0:330,rate:7.1,pc:'#b08850'}
+  {id:'jup',name:'Júpiter',sym:'♃',L0:31.3151,rate:30.628545,pc:'#c9a961'},
+  {id:'sat',name:'Saturno',sym:'♄',L0:1.8594,rate:13.602167,pc:'#9a8f7d'},
+  {id:'ura',name:'Urano',sym:'♅',L0:312.0862,rate:4.035364,pc:'#5ba3c9'},
+  {id:'nep',name:'Netuno',sym:'♆',L0:302.4682,rate:2.191545,pc:'#8a7ad6'},
+  {id:'plu',name:'Plutão',sym:'♇',L0:256.0668,rate:1.811364,pc:'#a050a8'},
+  {id:'nod',name:'Nodo N',sym:'☊',L0:124.2338,rate:-19.281273,pc:'#909090'},
+  {id:'qui',name:'Quíron',sym:'⚷',L0:276.5348,rate:4.077545,pc:'#b08850'}
 ];
 const SIGNS=[
   {n:'Áries',g:'♈',el:'fire',mod:'card'},{n:'Touro',g:'♉',el:'earth',mod:'fix'},
