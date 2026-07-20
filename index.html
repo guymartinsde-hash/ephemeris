@@ -139,6 +139,7 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
 #year-ctl .yc-jump:hover{opacity:1;color:#c9a961}
 #yr-input{background:rgba(255,255,255,.05);border:1px solid rgba(160,170,200,.25);color:#e8e4d8;width:58px;height:20px;text-align:center;border-radius:4px;font-size:16.5px;font-family:inherit;-moz-appearance:textfield}
 #yr-input::-webkit-outer-spin-button,#yr-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+#yr-ac,#yr-dc{transition:all .15s}
 #ayan-sel{background:rgba(20,22,38,.9);border:1px solid rgba(160,170,200,.25);color:#aab;height:20px;border-radius:4px;font-size:13.5px;font-family:inherit;padding:0 2px}
 #yr-loading{display:none;color:#c9a961;font-size:16.5px;animation:yrspin 1s linear infinite}
 @keyframes yrspin{to{transform:rotate(360deg)}}
@@ -157,24 +158,99 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
 .esc-cb.on span{color:#c9a961}
 .esc-cb.on-asp{border-color:rgba(231,76,60,.4);background:rgba(231,76,60,.08)}
 .esc-cb.on-asp span{color:#e74c3c}
+.esc-cb.on-pl{border-color:rgba(100,180,230,.4);box-shadow:0 0 4px rgba(100,180,230,.15)}
+.esc-grp{border:1px solid rgba(160,170,200,.1);border-radius:8px;padding:8px 10px 6px;background:rgba(255,255,255,.02);margin-bottom:4px}
+.esc-grp-hdr{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.esc-grp-title{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#99a4b8}
+.esc-grp-line{flex:1;height:1px;background:rgba(160,170,200,.12)}
+.esc-grp-dur{font-size:9px;color:#8090a8;letter-spacing:1px}
+.esc-cb-desc{font-size:10px;color:#8898b0;margin-left:3px;white-space:nowrap}
+.esc-cb.on .esc-cb-desc{color:#b0995a}
+.esc-presets{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:4px}
+.esc-preset-btn{font-size:10px;letter-spacing:0.5px;color:#99a4b8;border:1px solid rgba(160,170,200,.18);background:rgba(255,255,255,.02);border-radius:5px;padding:5px 12px;cursor:pointer;transition:all .15s;font-family:'Courier New',monospace;line-height:1.3}
+.esc-preset-btn:hover{border-color:rgba(201,169,97,.4);color:#c9a961;background:rgba(201,169,97,.06)}
+.esc-preset-btn .esc-preset-hint{display:block;font-size:8px;color:#667a90;margin-top:1px;letter-spacing:0}
+.esc-cb span{font-size:12px}
+.esc-cb .esc-cb-desc{font-size:10px}
+.esc-cb input{width:14px;height:14px}
 #esc-asp-info{font-size:10px;color:#667;min-height:14px;text-align:center}
 .esc-era-tab{padding:3px 10px;border-radius:5px;border:1px solid rgba(255,255,255,.12);background:transparent;color:#889;font-size:11px;cursor:pointer;font-family:'Courier New',monospace;transition:all .15s}
 .esc-era-tab:hover{border-color:rgba(255,255,255,.3)}
 .esc-era-tab.active{color:#fff;font-weight:700}
-#esc-legend{display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:center;align-items:center;padding:4px;font-size:10px;color:#778}
-.esc-lgsw{display:inline-block;width:12px;height:7px;margin-right:2px;vertical-align:middle;border-radius:1px}
+#esc-legend{display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:center;align-items:center;padding:4px;font-size:13px;color:#889;letter-spacing:.5px}
+.esc-lgsw{display:inline-block;width:14px;height:9px;margin-right:3px;vertical-align:middle;border-radius:1px}
 .esc-era-block{margin-bottom:14px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:rgba(10,12,25,.5)}
-.esc-era-header{padding:7px 14px;font-size:14px;letter-spacing:3px;font-style:italic;display:flex;align-items:center;gap:8px;border-bottom:2px solid;font-family:Georgia,serif}
-.esc-era-header .esc-eg{font-size:20px}
+.esc-era-header{padding:7px 14px;font-size:15px;letter-spacing:3px;font-style:italic;display:flex;align-items:center;gap:8px;border-bottom:2px solid;font-family:Georgia,serif}
+.esc-era-header .esc-eg{font-size:22px}
 .esc-era-header .esc-en{text-transform:uppercase;font-weight:700}
-.esc-era-header .esc-ed{font-size:10px;color:rgba(255,255,255,.5);font-family:'Courier New',monospace;margin-left:auto}
-.esc-mil-header{padding:4px 14px;font-size:10px;color:#889;letter-spacing:2px;text-transform:uppercase;background:rgba(255,255,255,.025);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
+.esc-era-header .esc-ed{font-size:13px;color:rgba(255,255,255,.5);font-family:'Courier New',monospace;margin-left:auto}
+.esc-mil-header{padding:5px 14px;font-size:12px;color:#889;letter-spacing:2px;text-transform:uppercase;background:rgba(255,255,255,.025);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
 .esc-row{display:flex;align-items:stretch;position:relative}
-.esc-sb{flex-shrink:0;background:rgba(0,0,0,.25);border-right:1px solid rgba(255,255,255,.07)}
+.esc-sb{flex-shrink:0;background:rgba(0,0,0,.25);border-right:1px solid rgba(255,255,255,.07);cursor:pointer}
 .esc-holder{flex-grow:1;position:relative;min-height:20px}
 .esc-holder canvas{display:block}
 .esc-ph{background:rgba(255,255,255,.01)}
 #esc-tip{position:fixed;background:rgba(15,17,30,.96);border:1px solid rgba(201,169,97,.4);border-radius:6px;padding:6px 10px;font-size:11px;font-family:'Courier New',monospace;color:#d8d4c8;pointer-events:none;z-index:2000;display:none;max-width:250px;line-height:1.5;box-shadow:0 4px 16px rgba(0,0,0,.6)}
+#esc-js-modal{display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center}
+#esc-js-modal.open{display:flex}
+#esc-sp-modal{display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center}
+#esc-sp-modal.open{display:flex}
+#esc-sp-card{background:rgba(15,17,30,.97);border:1px solid rgba(201,169,97,.5);border-radius:10px;padding:20px 24px;max-width:520px;max-height:80vh;overflow-y:auto;color:#d8d4c8;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;box-shadow:0 8px 32px rgba(0,0,0,.8)}
+#esc-sp-card h3{color:#c9a961;font-size:15px;margin:0 0 12px;letter-spacing:2px}
+#esc-sp-card .jsc-phase{margin:8px 0;padding:6px 8px;border-radius:4px;background:rgba(255,255,255,.04)}
+#esc-sp-card .jsc-sym{font-size:16px;margin-right:6px}
+#esc-sp-card .jsc-name{color:#c9a961;font-weight:700}
+#esc-sp-card .jsc-desc{color:rgba(255,255,255,.65);margin-top:2px;font-size:11px}
+#esc-sp-card .jsc-close{float:right;cursor:pointer;color:#889;font-size:18px;line-height:1}
+#esc-up-card{background:rgba(15,17,30,.97);border:1px solid rgba(201,169,97,.5);border-radius:10px;padding:20px 24px;max-width:520px;max-height:80vh;overflow-y:auto;color:#d8d4c8;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;box-shadow:0 8px 32px rgba(0,0,0,.8)}
+#esc-up-card h3{color:#c9a961;font-size:15px;margin:0 0 12px;letter-spacing:2px}
+#esc-up-card .jsc-phase{margin:8px 0;padding:6px 8px;border-radius:4px;background:rgba(255,255,255,.04)}
+#esc-up-card .jsc-sym{font-size:16px;margin-right:6px}
+#esc-up-card .jsc-name{color:#c9a961;font-weight:700}
+#esc-up-card .jsc-desc{color:rgba(255,255,255,.65);margin-top:2px;font-size:11px}
+#esc-up-card .jsc-close{float:right;cursor:pointer;color:#889;font-size:18px;line-height:1}
+#esc-su-card{background:rgba(15,17,30,.97);border:1px solid rgba(201,169,97,.5);border-radius:10px;padding:20px 24px;max-width:520px;max-height:80vh;overflow-y:auto;color:#d8d4c8;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;box-shadow:0 8px 32px rgba(0,0,0,.8)}
+#esc-su-card h3{color:#c9a961;font-size:15px;margin:0 0 12px;letter-spacing:2px}
+#esc-su-card .jsc-phase{margin:8px 0;padding:6px 8px;border-radius:4px;background:rgba(255,255,255,.04)}
+#esc-su-card .jsc-sym{font-size:16px;margin-right:6px}
+#esc-su-card .jsc-name{color:#c9a961;font-weight:700}
+#esc-su-card .jsc-desc{color:rgba(255,255,255,.65);margin-top:2px;font-size:11px}
+#esc-su-card .jsc-close{float:right;cursor:pointer;color:#889;font-size:18px;line-height:1}
+#esc-np-card{background:rgba(15,17,30,.97);border:1px solid rgba(201,169,97,.5);border-radius:10px;padding:20px 24px;max-width:520px;max-height:80vh;overflow-y:auto;color:#d8d4c8;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;box-shadow:0 8px 32px rgba(0,0,0,.8)}
+#esc-np-card h3{color:#c9a961;font-size:15px;margin:0 0 12px;letter-spacing:2px}
+#esc-np-card .jsc-phase{margin:8px 0;padding:6px 8px;border-radius:4px;background:rgba(255,255,255,.04)}
+#esc-np-card .jsc-sym{font-size:16px;margin-right:6px}
+#esc-np-card .jsc-name{color:#c9a961;font-weight:700}
+#esc-np-card .jsc-desc{color:rgba(255,255,255,.65);margin-top:2px;font-size:11px}
+#esc-np-card .jsc-close{float:right;cursor:pointer;color:#889;font-size:18px;line-height:1}
+#esc-sn-card{background:rgba(15,17,30,.97);border:1px solid rgba(201,169,97,.5);border-radius:10px;padding:20px 24px;max-width:520px;max-height:80vh;overflow-y:auto;color:#d8d4c8;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;box-shadow:0 8px 32px rgba(0,0,0,.8)}
+#esc-sn-card h3{color:#c9a961;font-size:15px;margin:0 0 12px;letter-spacing:2px}
+#esc-sn-card .jsc-phase{margin:8px 0;padding:6px 8px;border-radius:4px;background:rgba(255,255,255,.04)}
+#esc-sn-card .jsc-sym{font-size:16px;margin-right:6px}
+#esc-sn-card .jsc-name{color:#c9a961;font-weight:700}
+#esc-sn-card .jsc-desc{color:rgba(255,255,255,.65);margin-top:2px;font-size:11px}
+#esc-sn-card .jsc-close{float:right;cursor:pointer;color:#889;font-size:18px;line-height:1}
+#esc-un-card{background:rgba(15,17,30,.97);border:1px solid rgba(201,169,97,.5);border-radius:10px;padding:20px 24px;max-width:520px;max-height:80vh;overflow-y:auto;color:#d8d4c8;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;box-shadow:0 8px 32px rgba(0,0,0,.8)}
+#esc-un-card h3{color:#c9a961;font-size:15px;margin:0 0 12px;letter-spacing:2px}
+#esc-un-card .jsc-phase{margin:8px 0;padding:6px 8px;border-radius:4px;background:rgba(255,255,255,.04)}
+#esc-un-card .jsc-sym{font-size:16px;margin-right:6px}
+#esc-un-card .jsc-name{color:#c9a961;font-weight:700}
+#esc-un-card .jsc-desc{color:rgba(255,255,255,.65);margin-top:2px;font-size:11px}
+#esc-un-card .jsc-close{float:right;cursor:pointer;color:#889;font-size:18px;line-height:1}
+#esc-ju-card,#esc-jn-card,#esc-jp-card{background:rgba(15,17,30,.97);border:1px solid rgba(201,169,97,.5);border-radius:10px;padding:20px 24px;max-width:520px;max-height:80vh;overflow-y:auto;color:#d8d4c8;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;box-shadow:0 8px 32px rgba(0,0,0,.8)}
+#esc-ju-card h3,#esc-jn-card h3,#esc-jp-card h3{color:#c9a961;font-size:15px;margin:0 0 12px;letter-spacing:2px}
+#esc-ju-card .jsc-phase,#esc-jn-card .jsc-phase,#esc-jp-card .jsc-phase{margin:8px 0;padding:6px 8px;border-radius:4px;background:rgba(255,255,255,.04)}
+#esc-ju-card .jsc-sym,#esc-jn-card .jsc-sym,#esc-jp-card .jsc-sym{font-size:16px;margin-right:6px}
+#esc-ju-card .jsc-name,#esc-jn-card .jsc-name,#esc-jp-card .jsc-name{color:#c9a961;font-weight:700}
+#esc-ju-card .jsc-desc,#esc-jn-card .jsc-desc,#esc-jp-card .jsc-desc{color:rgba(255,255,255,.65);margin-top:2px;font-size:11px}
+#esc-ju-card .jsc-close,#esc-jn-card .jsc-close,#esc-jp-card .jsc-close{float:right;cursor:pointer;color:#889;font-size:18px;line-height:1}
+#esc-js-card{background:rgba(15,17,30,.97);border:1px solid rgba(201,169,97,.5);border-radius:10px;padding:20px 24px;max-width:520px;max-height:80vh;overflow-y:auto;color:#d8d4c8;font-family:'Courier New',monospace;font-size:12px;line-height:1.7;box-shadow:0 8px 32px rgba(0,0,0,.8)}
+#esc-js-card h3{color:#c9a961;font-size:15px;margin:0 0 12px;letter-spacing:2px}
+#esc-js-card .jsc-phase{margin:8px 0;padding:6px 8px;border-radius:4px;background:rgba(255,255,255,.04)}
+#esc-js-card .jsc-sym{font-size:16px;margin-right:6px}
+#esc-js-card .jsc-name{color:#c9a961;font-weight:700}
+#esc-js-card .jsc-desc{color:rgba(255,255,255,.65);margin-top:2px;font-size:11px}
+#esc-js-card .jsc-close{float:right;cursor:pointer;color:#889;font-size:18px;line-height:1}
 .esc-tipyr{color:#c9a961;font-weight:700;font-size:13px;margin-bottom:3px}
 .esc-tiprow{display:flex;gap:4px;align-items:center}
 .esc-tippip{width:6px;height:6px;border-radius:1px;flex-shrink:0}
@@ -183,6 +259,34 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
 .ds-toggle{position:relative;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;padding:2px 10px;border-radius:10px;font-size:12px;font-family:"Courier New",monospace}
 .ds-toggle:hover{border-color:rgba(200,210,240,.5);color:#c9a961}
 .ds-toggle.active{background:rgba(201,169,97,.12);border-color:rgba(201,169,97,.4);color:#c9a961}
+
+/* Barbault Decomposto mode */
+#barb-mode-btns{display:none;margin-left:8px}
+#barb-mode-btns.vis{display:inline-flex;gap:4px}
+.barb-mbtn{padding:2px 8px;border:1px solid rgba(160,170,200,.2);background:rgba(18,18,30,.8);color:#888;border-radius:3px;cursor:pointer;font-size:10px;font-family:"Courier New",monospace}
+.barb-mbtn:hover{color:#ccc;border-color:rgba(160,170,200,.4)}
+.barb-mbtn.active{background:rgba(30,30,58,.9);border-color:rgba(90,90,170,.6);color:#c0c0ff}
+#barb-decomp-wrap{display:none;margin:8px 0;padding:8px;background:rgba(0,0,0,.3);border-radius:6px}
+#barb-decomp-wrap.open{display:block}
+#barb-d-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+#barb-d-controls label{font-size:10px;color:#888;letter-spacing:.5px}
+.bd-btn{padding:2px 8px;border:1px solid rgba(160,170,200,.2);background:rgba(18,18,30,.8);color:#888;border-radius:3px;cursor:pointer;font-size:10px;font-family:"Courier New",monospace}
+.bd-btn:hover{color:#ccc;border-color:rgba(160,170,200,.4)}
+.bd-btn.active{background:rgba(30,30,58,.9);border-color:rgba(90,90,170,.6);color:#c0c0ff}
+#barb-d-canvas{display:block;width:100%;border-radius:4px;margin:4px 0}
+#barb-d-legend{display:flex;flex-wrap:wrap;gap:3px 8px;margin-top:4px}
+.bdl-item{display:flex;align-items:center;gap:3px;font-size:9px;color:#999;cursor:pointer;user-select:none}
+.bdl-item:hover{color:#ddd}
+.bdl-item.dimmed{opacity:.2}
+.bdl-sw{width:7px;height:7px;border-radius:2px;display:inline-block}
+#barb-d-overlays{display:flex;gap:10px;margin-top:3px;font-size:9px;color:#666}
+#barb-d-overlays span{cursor:pointer;user-select:none}
+#barb-d-overlays span.off{opacity:.3}
+#barb-d-controls input[type=number]::-webkit-inner-spin-button{opacity:.5}
+#barb-d-controls input[type=number]:focus{outline:none;border-color:rgba(90,90,170,.5)}
+#barb-d-controls,#barb-d-controls2{flex-wrap:wrap}
+#barb-d-canvas{cursor:grab}
+
 </style>
 </head>
 <body>
@@ -193,7 +297,7 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
   <button class="yc-btn yc-jump" id="yr-p10" title="−10 anos">&#171;</button>
   <button class="yc-btn yc-jump" id="yr-p5" title="−5 anos">−5</button>
   <button class="yc-btn" id="yr-prev" title="ano anterior">&#8249;</button>
-  <input id="yr-input" type="number" min="-10000" max="2100" step="1" value="2026">
+  <button class="yc-btn" id="yr-ac" title="Antes de Cristo" onclick="yrSetEra('ac')" style="font-size:8px;opacity:.4;padding:0 3px;min-width:20px">AC</button><input id="yr-input" type="number" min="0" max="10000" step="1" value="2026"><button class="yc-btn" id="yr-dc" title="Depois de Cristo" onclick="yrSetEra('dc')" style="font-size:8px;opacity:1;padding:0 3px;min-width:20px;color:#c9a961">DC</button>
   <button class="yc-btn" id="yr-next" title="pr&#243;ximo ano">&#8250;</button>
   <button class="yc-btn yc-jump" id="yr-n5" title="+5 anos">+5</button>
   <button class="yc-btn yc-jump" id="yr-n10" title="+10 anos">&#187;</button>
@@ -243,22 +347,187 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
     <label>Aspecto</label>
     <div class="esc-cbwrap" id="esc-asp-cbs"></div>
   </div>
-  <div class="esc-bar">
-    <label>Planetas</label>
-    <div class="esc-cbwrap" id="esc-pl-cbs"></div>
-  </div>
   <div id="esc-asp-info"></div>
+  <!-- Presets -->
+  <div class="esc-presets">
+    <button class="esc-preset-btn" id="esc-preset-top3">Top 3 Pesados<span class="esc-preset-hint">os ciclos mais longos</span></button>
+    <button class="esc-preset-btn" id="esc-preset-all10">Todos os 10 Pares<span class="esc-preset-hint">composição do Barbault</span></button>
+    <button class="esc-preset-btn" id="esc-preset-clear">Limpar<span class="esc-preset-hint">desmarcar tudo</span></button>
+  </div>
+  <!-- Civilizacionais -->
+  <div class="esc-grp">
+    <div class="esc-grp-hdr"><span class="esc-grp-title">Civilizacionais</span><span class="esc-grp-line"></span><span class="esc-grp-dur">séculos</span></div>
+    <div class="esc-cbwrap">
+      <label class="esc-cb" id="esc-netplu-toggle" data-pair="3,4"><input type="checkbox"><span>♆♇ Net-Plu</span><span class="esc-cb-desc">· paradigma · ~492a</span></label>
+      <label class="esc-cb" id="esc-uranet-toggle" data-pair="2,3"><input type="checkbox"><span>♅♆ Ura-Net</span><span class="esc-cb-desc">· percepção · ~171a</span></label>
+      <label class="esc-cb" id="esc-uraplu-toggle" data-pair="2,4"><input type="checkbox"><span>♅♇ Ura-Plu</span><span class="esc-cb-desc">· revolução · ~127a</span></label>
+    </div>
+  </div>
+  <!-- Estruturais -->
+  <div class="esc-grp">
+    <div class="esc-grp-hdr"><span class="esc-grp-title">Estruturais</span><span class="esc-grp-line"></span><span class="esc-grp-dur">décadas</span></div>
+    <div class="esc-cbwrap">
+      <label class="esc-cb" id="esc-satplu-toggle" data-pair="1,4"><input type="checkbox"><span>♄♇ Sat-Plu</span><span class="esc-cb-desc">· poder · ~35a</span></label>
+      <label class="esc-cb" id="esc-satura-toggle" data-pair="1,2"><input type="checkbox"><span>♄♅ Sat-Ura</span><span class="esc-cb-desc">· reforma · ~45a</span></label>
+      <label class="esc-cb" id="esc-satnet-toggle" data-pair="1,3"><input type="checkbox"><span>♄♆ Sat-Net</span><span class="esc-cb-desc">· dissolução · ~36a</span></label>
+    </div>
+  </div>
+  <!-- Metrônomo -->
+  <div class="esc-grp">
+    <div class="esc-grp-hdr"><span class="esc-grp-title">Metrônomo</span><span class="esc-grp-line"></span><span class="esc-grp-dur">anos</span></div>
+    <div class="esc-cbwrap">
+      <label class="esc-cb" id="esc-jupsat-toggle" data-pair="0,1"><input type="checkbox"><span>♃♄ Júp-Sat</span><span class="esc-cb-desc">· governos · ~20a</span></label>
+      <label class="esc-cb" id="esc-jupura-toggle" data-pair="0,2"><input type="checkbox"><span>♃♅ Júp-Ura</span><span class="esc-cb-desc">· inovação · ~14a</span></label>
+      <label class="esc-cb" id="esc-jupnet-toggle" data-pair="0,3"><input type="checkbox"><span>♃♆ Júp-Net</span><span class="esc-cb-desc">· fé · ~13a</span></label>
+      <label class="esc-cb" id="esc-jupplu-toggle" data-pair="0,4"><input type="checkbox"><span>♃♇ Júp-Plu</span><span class="esc-cb-desc">· riqueza · ~12a</span></label>
+    </div>
+  </div>
+  <!-- Índices Visuais -->
+  <div class="esc-bar" style="margin-top:4px">
+    <label>Índices Visuais</label>
+    <div class="esc-cbwrap">
+      <label class="esc-cb" id="esc-barb-toggle"><input type="checkbox"><span>📉 Barbault</span><span class="esc-cb-desc">· soma dos 10</span></label><span id="barb-mode-btns"><button class="barb-mbtn active" data-bm="normal" onclick="setBarbViewMode('normal',this)">Normal</button><button class="barb-mbtn" data-bm="decomp" onclick="setBarbViewMode('decomp',this)">Decomposto</button></span>
+      <label class="esc-cb" id="esc-elem-toggle"><input type="checkbox"><span>🌍 Elemento</span><span class="esc-cb-desc">· dominância</span></label>
+    </div>
+  </div>
   <div id="esc-legend">
-    <span><span class="esc-lgsw" style="background:#c77b28"></span>Fogo</span>
-    <span><span class="esc-lgsw" style="background:#3d7d3d"></span>Terra</span>
+    <span><span class="esc-lgsw" style="background:#e6b800"></span>Fogo</span>
+    <span><span class="esc-lgsw" style="background:#3a9a3a"></span>Terra</span>
     <span><span class="esc-lgsw" style="background:#2d5f96"></span>&#193;gua</span>
-    <span><span class="esc-lgsw" style="background:#5495bd"></span>Ar</span>
+    <span><span class="esc-lgsw" style="background:#7bb8d9"></span>Ar</span>
     <span style="margin-left:8px">&#9670; Cardinal &#183; &#9644; Fixo &#183; &#11053; Mut&#225;vel</span>
   </div>
-  <div id="esc-matrix"></div>
+  <div id="barb-decomp-wrap">
+  <div id="barb-d-controls">
+    <label>ZOOM</label>
+    <button class="bd-btn" onclick="bdSetSpan(50)">50a</button>
+    <button class="bd-btn" onclick="bdSetSpan(200)">200a</button>
+    <button class="bd-btn active" onclick="bdSetSpan(500)">500a</button>
+    <button class="bd-btn" onclick="bdSetSpan(1000)">1mil</button>
+    <button class="bd-btn" onclick="bdSetSpan(3000)">3mil</button>
+    <button class="bd-btn" onclick="bdSetSpan(12100)">Tudo</button>
+    <span style="flex:1"></span>
+    <button class="bd-btn" id="bd-era-ac" onclick="bdSetEra('ac')" style="font-size:9px;opacity:.4">AC</button>
+    <input type="number" id="bd-goto" value="2026" min="0" max="10000" style="width:50px;background:#12121e;border:1px solid rgba(160,170,200,.2);color:#ccc;border-radius:3px;padding:2px 4px;font-size:11px;font-family:'Courier New',monospace;text-align:center" onkeydown="if(event.key==='Enter')bdGoTo()">
+    <button class="bd-btn" id="bd-era-dc" onclick="bdSetEra('dc')" style="font-size:9px;opacity:1;border-color:rgba(90,90,170,.5);color:#c0c0ff">DC</button>
+    <button class="bd-btn" onclick="bdGoTo()" style="font-size:10px">⎆</button>
+  </div>
+  <div id="barb-d-controls2" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+    <label>VIS</label>
+    <button class="bd-btn" data-bdm="stacked" onclick="setBDMode(this)">Stacked</button>
+    <button class="bd-btn active" data-bdm="lines" onclick="setBDMode(this)">Linhas</button>
+    <button class="bd-btn" data-bdm="both" onclick="setBDMode(this)">Ambos</button>
+    <span style="flex:1"></span>
+    <span style="color:#555;font-size:9px" id="bd-range-lbl">1776 → 2100 · 325a</span>
+  </div>
+  <canvas id="barb-d-canvas"></canvas>
+  <div id="barb-d-overlays">
+    <span onclick="this.classList.toggle('off');bdShowStellium=!bdShowStellium;drawBD()">⚠ Stellium</span>
+    <span onclick="this.classList.toggle('off');bdShowCesta=!bdShowCesta;drawBD()">✦ Cesta</span>
+  </div>
+  <div id="barb-d-legend"></div>
+</div>
+<div id="esc-matrix"></div>
 </div>
 <div id="esc-tip"></div>
-<div class="tip" id="tip"></div>
+<div id="esc-js-modal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div id="esc-js-card">
+    <span class="jsc-close" onclick="document.getElementById('esc-js-modal').classList.remove('open')">&times;</span>
+    <h3>&#x2643; J&#218;PITER vs &#x2644; SATURNO</h3>
+    <p style="color:rgba(255,255,255,.5);margin:0 0 10px">Ciclo de ~20 anos &mdash; o metr&#244;nomo da civiliza&#231;&#227;o</p>
+    <div class="jsc-phase"><span class="jsc-sym">&#x260C;</span><span class="jsc-name">Conjun&#231;&#227;o (0&deg;) &mdash; Semente / In&#237;cio</span><div class="jsc-desc">Um novo acordo socioecon&#244;mico nasce. Velhas estruturas entram em colapso definitivo para dar lugar a um novo ideal de progresso (J&#250;piter) e governan&#231;a (Saturno).</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Crescente (60&deg;) &mdash; Oportunidade</span><div class="jsc-desc">Os primeiros brotos da semente aparecem. O mercado e os governos testam novas ferramentas e alian&#231;as de forma experimental e pr&#225;tica.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Crescente (90&deg;) &mdash; Crise de A&#231;&#227;o</span><div class="jsc-desc">O primeiro grande teste de estresse. O novo modelo bate de frente com o que restou do passado. Exige decis&#245;es duras e quebra de barreiras. Fase do &ldquo;fazer acontecer na marra&rdquo;.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&#237;gono Crescente (120&deg;) &mdash; Florescimento</span><div class="jsc-desc">O sistema encontra estabilidade tempor&#225;ria. Engrenagens operam em harmonia, gerando otimismo econ&#244;mico, expans&#227;o cultural e consolida&#231;&#227;o de leis.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x260D;</span><span class="jsc-name">Oposi&#231;&#227;o (180&deg;) &mdash; Culmina&#231;&#227;o / Confronto</span><div class="jsc-desc">O &#225;pice do ciclo. Tudo o que foi plantado na conjun&#231;&#227;o atinge sua express&#227;o m&#225;xima e polarizada. Confronto direto entre vis&#245;es de mundo opostas.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&#237;gono Minguante (240&deg;) &mdash; Colheita</span><div class="jsc-desc">Fase de assimila&#231;&#227;o e colheita institucional. O que funcionou na oposi&#231;&#227;o se torna a norma regulamentada. Tentativa de estabilizar os ganhos coletivos.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Minguante (270&deg;) &mdash; Crise de Sentido</span><div class="jsc-desc">O modelo econ&#244;mico/social d&#225; sinais claros de exaust&#227;o. As pessoas perdem a f&#233; nas institui&#231;&#245;es atuais. Crise ideol&#243;gica e de reestrutura&#231;&#227;o interna.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Minguante (300&deg;) &mdash; Dissemina&#231;&#227;o</span><div class="jsc-desc">O encerramento do ciclo. Limpeza do terreno, compartilhamento do conhecimento restante e prepara&#231;&#227;o para a pr&#243;xima grande semente.</div></div>
+    <h3 style="margin-top:18px">&#x1F30D; GRANDE MUTA&#199;&#195;O</h3>
+    <p style="color:rgba(255,255,255,.5);margin:0 0 10px">A cada ~200 anos, as conjun&#231;&#245;es J&#250;piter-Saturno mudam de elemento. Isso define o &ldquo;tom&rdquo; de s&#233;culos inteiros.</p>
+    <div class="jsc-phase" style="border-left:3px solid #e6b800"><span class="jsc-name" style="color:#e6b800">&#x1F525; Per&#237;odo de Fogo (~200 anos)</span><div class="jsc-desc">Era de conquistas, expans&#227;o territorial, guerras ideol&#243;gicas, l&#237;deres carism&#225;ticos. Civiliza&#231;&#245;es expandem fronteiras pela for&#231;a e pela vis&#227;o. Impulso, a&#231;&#227;o, fogo criativo ou destrutivo.</div></div>
+    <div class="jsc-phase" style="border-left:3px solid #3a9a3a"><span class="jsc-name" style="color:#3a9a3a">&#x26F0;&#xFE0F; Per&#237;odo de Terra (~200 anos)</span><div class="jsc-desc">Era de materialismo, constru&#231;&#227;o, economia, recursos naturais. Impérios econ&#244;micos, acumula&#231;&#227;o de riqueza, consolida&#231;&#227;o de territ&#243;rios. O concreto prevalece sobre o abstrato.</div></div>
+    <div class="jsc-phase" style="border-left:3px solid #7bb8d9"><span class="jsc-name" style="color:#7bb8d9">&#x1F4A8; Per&#237;odo de Ar (~200 anos)</span><div class="jsc-desc">Era de ideias, comunica&#231;&#227;o, tecnologia, redes. Guerras de informa&#231;&#227;o e narrativa. Globaliza&#231;&#227;o, conex&#245;es virtuais, descentraliza&#231;&#227;o do poder. O intang&#237;vel supera o material.</div></div>
+    <div class="jsc-phase" style="border-left:3px solid #2d5f96"><span class="jsc-name" style="color:#2d5f96">&#x1F4A7; Per&#237;odo de &#193;gua (~200 anos)</span><div class="jsc-desc">Era de emo&#231;&#245;es coletivas, espiritualidade, crises humanit&#225;rias, dissolu&#231;&#227;o de fronteiras. Nacionalismos, como&#231;&#245;es sociais, movimentos de massa guiados por sentimento. O invis&#237;vel move o vis&#237;vel.</div></div>
+  </div>
+</div>
+<div id="esc-sp-modal" class="esc-js-modal-shared" onclick="if(event.target===this)this.classList.remove('open')">
+  <div id="esc-sp-card">
+    <span class="jsc-close" onclick="document.getElementById('esc-sp-modal').classList.remove('open')">&times;</span>
+    <h3>&#x2644; SATURNO vs &#x2647; PLUT&#195;O</h3>
+    <p style="color:rgba(255,255,255,.5);margin:0 0 6px">Ciclo de ~33-38 anos &mdash; o martelo da purga&#231;&#227;o hist&#243;rica</p>
+    <p style="color:rgba(255,255,255,.4);margin:0 0 14px;font-size:11px">Saturno representa o status quo: governos, leis, fronteiras, controle, a rigidez do sistema. Plut&#227;o representa o submundo: for&#231;as ocultas, grandes capitais invis&#237;veis, crises profundas, morte e transforma&#231;&#245;es irrevers&#237;veis. Quando se encontram, sistemas corruptos ou falidos s&#227;o implodidos pela realidade para que algo mais r&#237;gido nas&#231;a no lugar.</p>
+    <div class="jsc-phase"><span class="jsc-sym">&#x260C;</span><span class="jsc-name">Conjun&#231;&#227;o (0&deg;) &mdash; Choque de Realidade</span><div class="jsc-desc">P&#226;nico coletivo, sensa&#231;&#227;o de fim de &#233;poca. Decretos duros, militariza&#231;&#227;o, recess&#227;o. O sistema &#233; for&#231;ado a parar. Estruturas de poder desmoronam para renascer transformadas. Novas ordens geopol&#237;ticas nascem das cinzas. O fundo do po&#231;o de onde brota o novo.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Crescente (60&deg;) &mdash; Reconstru&#231;&#227;o</span><div class="jsc-desc">As primeiras estruturas da nova ordem se erguem sobre o terreno arrasado. Alian&#231;as estrat&#233;gicas e pactos de poder tomam forma. O medo da conjun&#231;&#227;o come&#231;a a se converter em a&#231;&#227;o pragm&#225;tica.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Crescente (90&deg;) &mdash; Crise de Controle</span><div class="jsc-desc">O novo sistema de controle imposto na conjun&#231;&#227;o sofre revolta ou teste extremo. O medo do colapso volta com for&#231;a. As massas batem de frente com a autoridade. Disputas de domina&#231;&#227;o, escaladas militares, provas de resist&#234;ncia. Quem manda &#233; posto &#224; prova.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&#237;gono Crescente (120&deg;) &mdash; Consolida&#231;&#227;o</span><div class="jsc-desc">O poder encontra estabilidade tempor&#225;ria. Imp&#233;rios e sistemas consolidam territ&#243;rios e hierarquias. A estrutura nascida do colapso se fortalece e se institucionaliza. Per&#237;odo de ordem aparente.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x260D;</span><span class="jsc-name">Oposi&#231;&#227;o (180&deg;) &mdash; Ruptura M&#225;xima</span><div class="jsc-desc">O &#225;pice da polariza&#231;&#227;o geopol&#237;tica. Confronto total entre estruturas de poder opostas. Maior perigo de guerras abertas de grande escala e divis&#245;es intransig&#234;ncias. O pulso card&#237;aco da civiliza&#231;&#227;o na frequ&#234;ncia m&#225;xima de conflito. O sistema racha ao meio.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&#237;gono Minguante (240&deg;) &mdash; Ordem Nova</span><div class="jsc-desc">Do confronto emerge uma nova ordem regulamentada. Tratados, institui&#231;&#245;es e equil&#237;brios geopol&#237;ticos se estabelecem. A tens&#227;o da oposi&#231;&#227;o vira norma aceita &mdash; at&#233; que o ciclo comece a corroer de novo.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Minguante (270&deg;) &mdash; Eros&#227;o do Poder</span><div class="jsc-desc">Os mecanismos de controle criados h&#225; 25 anos apodrecem por dentro. Esc&#226;ndalos de espionagem, corrup&#231;&#227;o estrutural. As regras vigentes n&#227;o protegem mais ningu&#233;m. A f&#233; nas institui&#231;&#245;es se dissolve. Decomposi&#231;&#227;o visível.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Minguante (300&deg;) &mdash; Purga Final</span><div class="jsc-desc">A limpeza que precede o pr&#243;ximo colapso. O que restou de poder obsoleto &#233; expurgado. O terreno &#233; limpo &mdash; n&#227;o por gentileza, mas por exaust&#227;o. Prepara&#231;&#227;o inevit&#225;vel para o pr&#243;ximo choque de realidade.</div></div>
+    <div style="margin-top:14px;padding:8px;border-radius:4px;background:rgba(200,50,50,.12);border-left:3px solid rgba(200,50,50,.6)">
+      <span class="jsc-name" style="color:rgba(220,80,60,.9)">&#x26A0; ALERTA DE RUPTURA</span>
+      <div class="jsc-desc">Quando o &#205;ndice Barbault est&#225; em queda + J&#250;piter-Saturno em Quadratura ou Conjun&#231;&#227;o + Saturno-Plut&#227;o em Conjun&#231;&#227;o ou Oposi&#231;&#227;o = converg&#234;ncia cr&#237;tica. O sinal &#x26A0; aparece nos anos onde esses tr&#234;s indicadores se alinham simultaneamente.</div>
+    </div>
+  </div>
+</div>
+<div id="esc-up-modal" onclick="if(event.target===this){this.style.display='none';}" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center">
+  <div id="esc-up-card">
+    <span class="jsc-close" onclick="document.getElementById('esc-up-modal').style.display='none'">&times;</span>
+    <h3>&#x2645; URANO vs &#x2647; PLUT&#195;O</h3>
+    <p style="color:rgba(255,255,255,.5);margin:0 0 6px">Ciclo de ~113-141 anos &mdash; o motor das revolu&#231;&#245;es profundas</p>
+    <p style="color:rgba(255,255,255,.4);margin:0 0 14px;font-size:11px">Urano representa a ruptura, a liberdade radical, o raio que parte o velho mundo. Plut&#227;o representa a transforma&#231;&#227;o irrevers&#237;vel, o poder oculto, a morte do que precisa morrer. Quando se encontram, civiliza&#231;&#245;es inteiras mudam de paradigma. Revolu&#231;&#245;es pol&#237;ticas, tecnol&#243;gicas e de consci&#234;ncia que redefinem o que &#233; poss&#237;vel.</p>
+    <div class="jsc-phase"><span class="jsc-sym">&#x260C;</span><span class="jsc-name">Conjun&#231;&#227;o (0&deg;) &mdash; Revolu&#231;&#227;o</span><div class="jsc-desc">Nasce uma nova era tecnol&#243;gica e ideol&#243;gica. O velho paradigma &#233; destroido por for&#231;as que ningu&#233;m controla. Revolu&#231;&#227;o Francesa, Industrial, Digital &mdash; todas nasceram de conjun&#231;&#245;es Urano-Plut&#227;o. O rel&#226;mpago que incendeia a floresta velha.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Crescente (60&deg;) &mdash; Inven&#231;&#227;o</span><div class="jsc-desc">As primeiras ferramentas e inven&#231;&#245;es da nova era tomam forma. Tecnologias experimentais, movimentos sociais embrion&#225;rios, novas linguagens. O fogo da revolu&#231;&#227;o se canaliza em cria&#231;&#227;o.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Crescente (90&deg;) &mdash; Disrup&#231;&#227;o</span><div class="jsc-desc">O novo paradigma bate de frente com as estruturas que resistiram &#224; revolu&#231;&#227;o. Conflitos ideol&#243;gicos radicais, guerras por liberdade, crise entre o futuro e o passado. A d&#233;cada de 1930 (fascismo vs democracia) &#233; o arquétipo.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&#237;gono Crescente (120&deg;) &mdash; Integra&#231;&#227;o</span><div class="jsc-desc">O paradigma revolucion&#225;rio se integra ao tecido social. Tecnologias se tornam corriqueiras, direitos conquistados viram lei, novas institui&#231;&#245;es se estabilizam. A revolu&#231;&#227;o vira normalidade.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x260D;</span><span class="jsc-name">Oposi&#231;&#227;o (180&deg;) &mdash; Crise de Paradigma</span><div class="jsc-desc">O paradigma nascido na conjun&#231;&#227;o atinge seu m&#225;ximo e come&#231;a a revelar suas sombras. Polui&#231;&#227;o industrial, armas nucleares, vigi&#226;ncia digital &mdash; as consequ&#234;ncias n&#227;o-intencionais explodem. Confronto entre os bene&#237;cios e os monstros que a revolu&#231;&#227;o criou.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&#237;gono Minguante (240&deg;) &mdash; Matura&#231;&#227;o</span><div class="jsc-desc">A civiliza&#231;&#227;o assimila as li&#231;&#245;es da crise. Regulamenta&#231;&#227;o, &#233;tica tecnol&#243;gica, equil&#237;brio entre poder e responsabilidade. O paradigma amadurece.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Minguante (270&deg;) &mdash; Obsolesc&#234;ncia</span><div class="jsc-desc">O paradigma d&#225; sinais claros de exaust&#227;o. A tecnologia que libertou agora aprisiona. As institui&#231;&#245;es revolucion&#225;rias se tornam conservadoras. A pr&#243;xima revolu&#231;&#227;o j&#225; fermenta no subsolo.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Minguante (300&deg;) &mdash; Gesta&#231;&#227;o</span><div class="jsc-desc">O terreno &#233; preparado para a pr&#243;xima revolu&#231;&#227;o. Visionários e dissidentes plantam sementes do futuro enquanto o velho sistema ainda funciona por in&#233;rcia. O novo j&#225; existe, mas poucos v&#234;em.</div></div>
+  </div>
+</div>
+
+<div id="esc-su-modal" onclick="if(event.target===this){this.style.display='none';}" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center">
+  <div id="esc-su-card">
+    <span class="jsc-close" onclick="document.getElementById('esc-su-modal').style.display='none'">&times;</span>
+    <h3>&#x2644; SATURNO vs &#x2645; URANO</h3>
+    <p style="color:rgba(255,255,255,.5);margin:0 0 6px">Ciclo de ~45 anos &mdash; tradi&ccedil;&atilde;o vs revolu&ccedil;&atilde;o</p>
+    <p style="color:rgba(255,255,255,.4);margin:0 0 14px;font-size:11px">Saturno &eacute; o guardi&atilde;o da forma: leis, hierarquias, fronteiras, o tempo como mestre. Urano &eacute; o rel&acirc;mpago que parte o que cristalizou: ruptura, liberdade, o futuro que n&atilde;o pede licen&ccedil;a. Quando se encontram, o velho mundo &eacute; for&ccedil;ado a se atualizar &mdash; ou &eacute; destru&iacute;do pelo que n&atilde;o quis absorver. Elman Bacher: &ldquo;o velho contra o novo, a escravid&atilde;o contra a transcend&ecirc;ncia, o medo contra a liberta&ccedil;&atilde;o&rdquo;.</p>
+    <div class="jsc-phase"><span class="jsc-sym">&#x260C;</span><span class="jsc-name">Conjun&ccedil;&atilde;o (0&deg;) &mdash; Terremoto Estrutural</span><div class="jsc-desc">O sistema vigente &eacute; eletrocutado. O que cristalizou al&eacute;m do prazo &eacute; partido pelo raio. Revolu&ccedil;&otilde;es, reformas radicais, colapsos de regimes. A tradi&ccedil;&atilde;o e a inova&ccedil;&atilde;o falam com uma voz s&oacute; &mdash; e essa voz diz: &ldquo;o que era n&atilde;o serve mais&rdquo;. 1988: queda do Muro iminente. 1942: ponto de virada da II Guerra. O velho morre para que o novo possa nascer com forma.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Crescente (60&deg;) &mdash; Reforma Pragm&aacute;tica</span><div class="jsc-desc">As primeiras reformas concretas emergem do terremoto. O que era utopia vira projeto. Novas tecnologias encontram estrutura. Leis e institui&ccedil;&otilde;es se adaptam &mdash; n&atilde;o por vis&atilde;o, mas por necessidade. A inova&ccedil;&atilde;o ganha forma sem perder o impulso. Janela onde mudan&ccedil;a e tradi&ccedil;&atilde;o cooperam.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Crescente (90&deg;) &mdash; Crise de Liberdade</span><div class="jsc-desc">O novo sistema bate de frente com o que restou do velho. Movimentos de liberdade contra rea&ccedil;&atilde;o autorit&aacute;ria. Protestos, repres&atilde;o, tens&atilde;o entre seguran&ccedil;a e autonomia. O instinto de controle tenta sufocar o impulso de liberta&ccedil;&atilde;o. 2021: pandemia como palco da quadratura &mdash; lockdowns, mandatos, revolta contra restri&ccedil;&otilde;es. O atrito que gera o movimento.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Crescente (120&deg;) &mdash; Integra&ccedil;&atilde;o Funcional</span><div class="jsc-desc">O novo paradigma se integra &agrave; estrutura social. A tecnologia que era disruptiva vira infraestrutura. As reformas se institucionalizam. Per&iacute;odo de estabilidade produtiva onde inova&ccedil;&atilde;o e tradi&ccedil;&atilde;o coexistem sem atrito. O futuro vira presente.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x260D;</span><span class="jsc-name">Oposi&ccedil;&atilde;o (180&deg;) &mdash; Polariza&ccedil;&atilde;o M&aacute;xima</span><div class="jsc-desc">Conservadores e progressistas em confronto total. O sistema maduro revela suas contradi&ccedil;&otilde;es. Quem defende a ordem e quem exige mudan&ccedil;a olham um para o outro sem concess&atilde;o. Crises constitucionais, revolu&ccedil;&otilde;es sociais, guerras culturais. O ponto onde o ciclo decide se evolui ou regride.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Minguante (240&deg;) &mdash; Colheita Estrutural</span><div class="jsc-desc">As li&ccedil;&otilde;es do confronto s&atilde;o absorvidas. Regulamenta&ccedil;&atilde;o equilibrada, tecnologia madura, institui&ccedil;&otilde;es que incorporaram a mudan&ccedil;a. A sabedoria de Saturno e a vis&atilde;o de Urano encontram s&iacute;ntese. Per&iacute;odo de consolida&ccedil;&atilde;o dos avan&ccedil;os.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Minguante (270&deg;) &mdash; Obsolesc&ecirc;ncia do Sistema</span><div class="jsc-desc">O sistema que funcionou come&ccedil;a a enrijecer. A tecnologia que libertou agora controla. As institui&ccedil;&otilde;es que foram reform&aacute;veis j&aacute; n&atilde;o respondem. Sensa&ccedil;&atilde;o coletiva de que &ldquo;algo precisa mudar mas nada muda&rdquo;. A cristaliza&ccedil;&atilde;o que Urano vai partir no pr&oacute;ximo ciclo j&aacute; &eacute; vis&iacute;vel.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Minguante (300&deg;) &mdash; Gesta&ccedil;&atilde;o do Pr&oacute;ximo Raio</span><div class="jsc-desc">O terreno &eacute; preparado para o pr&oacute;ximo terremoto. Vision&aacute;rios e dissidentes plantam sementes do futuro enquanto o sistema ainda funciona por in&eacute;rcia. O velho e o novo coexistem em tens&atilde;o silenciosa. O pr&oacute;ximo ciclo j&aacute; fermenta no subsolo.</div></div>
+  </div>
+</div>
+
+<div id="esc-np-modal" onclick="if(event.target===this){this.style.display='none';}" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center">
+  <div id="esc-np-card">
+    <span class="jsc-close" onclick="document.getElementById('esc-np-modal').style.display='none'">&times;</span>
+    <h3>&#x2646; NETUNO vs &#x2647; PLUT&#195;O</h3>
+    <p style="color:rgba(255,255,255,.5);margin:0 0 6px">Ciclo de ~492 anos &mdash; o pulso das civiliza&ccedil;&otilde;es</p>
+    <p style="color:rgba(255,255,255,.4);margin:0 0 14px;font-size:11px">Netuno &eacute; o oceano primordial: f&eacute;, dissolu&ccedil;&atilde;o, vis&atilde;o, o que conecta ao todo. Plut&atilde;o &eacute; o submundo: transforma&ccedil;&atilde;o irrevers&iacute;vel, morte e renascimento, o poder que opera nas profundezas. Quando se encontram, civiliza&ccedil;&otilde;es inteiras mudam de paradigma espiritual. A &uacute;ltima conjun&ccedil;&atilde;o (1891&ndash;92, G&ecirc;meos) inaugurou a era da eletricidade, da psican&aacute;lise e do cinema. A anterior (~1399, G&ecirc;meos) abriu o Renascimento. O ciclo &eacute; t&atilde;o longo que cada fase dura d&eacute;cadas &mdash; gera&ccedil;&otilde;es inteiras nascem e morrem dentro de uma &uacute;nica fase.</p>
+    <div class="jsc-phase"><span class="jsc-sym">&#x260C;</span><span class="jsc-name">Conjun&ccedil;&atilde;o (0&deg;) &mdash; Morte e Renascimento Civilizacional</span><div class="jsc-desc">O paradigma espiritual e cultural de cinco s&eacute;culos morre. Um novo nasce das cinzas &mdash; n&atilde;o como reforma, mas como muta&ccedil;&atilde;o total da consci&ecirc;ncia coletiva. ~1399: Renascimento, fim da Idade M&eacute;dia. 1891: psican&aacute;lise, eletricidade, cinema, raio-X &mdash; a realidade vis&iacute;vel se expande para o invis&iacute;vel. O que era impens&aacute;vel se torna o tecido da nova era.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Crescente (60&deg;) &mdash; Germina&ccedil;&atilde;o da Nova Vis&atilde;o</span><div class="jsc-desc">As primeiras express&otilde;es da nova consci&ecirc;ncia tomam forma concreta. Movimentos art&iacute;sticos, filos&oacute;ficos e espirituais canalizam a energia da conjun&ccedil;&atilde;o em cria&ccedil;&atilde;o. Ap&oacute;s 1891: Modernismo, Teosofia, primeiros v&ocirc;os, r&aacute;dio &mdash; a humanidade expande seus sentidos al&eacute;m do corpo. O sextil atual (2026&ndash;2032) &eacute; a primeira oportunidade concreta de dar forma ao que nasceu na virada do s&eacute;culo XX.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Crescente (90&deg;) &mdash; Crise de F&eacute;</span><div class="jsc-desc">O novo paradigma bate de frente com as estruturas que resistiram &agrave; muta&ccedil;&atilde;o. Guerras ideol&oacute;gicas, crises de sentido coletivo, confronto entre o velho sagrado e o novo poss&iacute;vel. A f&eacute; que sustentava o mundo anterior &eacute; testada at&eacute; a raiz. O que sobrevive &eacute; o que &eacute; real.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Crescente (120&deg;) &mdash; Florescimento Espiritual</span><div class="jsc-desc">O paradigma nascido na conjun&ccedil;&atilde;o se integra ao tecido social. Arte, ci&ecirc;ncia e espiritualidade encontram equil&iacute;brio tempor&aacute;rio. Grandes s&iacute;nteses culturais, &eacute;pocas de ouro. A consci&ecirc;ncia coletiva amadurece sem perder a vis&atilde;o que a originou.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x260D;</span><span class="jsc-name">Oposi&ccedil;&atilde;o (180&deg;) &mdash; Revela&ccedil;&atilde;o e Confronto</span><div class="jsc-desc">O paradigma atinge sua express&atilde;o m&aacute;xima e revela suas sombras. Tudo o que foi constru&iacute;do desde a conjun&ccedil;&atilde;o &eacute; iluminado e confrontado. As consequ&ecirc;ncias n&atilde;o-intencionais de cinco s&eacute;culos de evolu&ccedil;&atilde;o explodem. A civiliza&ccedil;&atilde;o olha no espelho e v&ecirc; o que se tornou &mdash; o belo e o monstruoso.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Minguante (240&deg;) &mdash; Sabedoria Destilada</span><div class="jsc-desc">A civiliza&ccedil;&atilde;o assimila as li&ccedil;&otilde;es do confronto. O que funcionou &eacute; destilado em sabedoria perene. Tradi&ccedil;&otilde;es espirituais amadurecem, institui&ccedil;&otilde;es culturais se consolidam. A colheita de s&eacute;culos de experi&ecirc;ncia coletiva.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Minguante (270&deg;) &mdash; Exaust&atilde;o do Paradigma</span><div class="jsc-desc">O paradigma que sustentou a civiliza&ccedil;&atilde;o d&aacute; sinais claros de fadiga terminal. A f&eacute; nas institui&ccedil;&otilde;es espirituais e culturais se dissolve. O vazio de sentido precede a pr&oacute;xima grande muta&ccedil;&atilde;o. A noite escura da alma coletiva.</div></div>
+    <div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Minguante (300&deg;) &mdash; Profetas do Pr&oacute;ximo Ciclo</span><div class="jsc-desc">Vision&aacute;rios, m&iacute;sticos e dissidentes plantam as sementes do pr&oacute;ximo paradigma. O que vai nascer na pr&oacute;xima conjun&ccedil;&atilde;o j&aacute; existe em embri&atilde;o, invisível para a maioria. A civiliza&ccedil;&atilde;o funciona por in&eacute;rcia enquanto algo radicalmente novo germina no subsolo.</div></div>
+  </div>
+</div>
+
+<div id="esc-sn-modal" onclick="if(event.target===this){this.style.display='none';}" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center"><div id="esc-sn-card"><span class="jsc-close" onclick="document.getElementById('esc-sn-modal').style.display='none'">&times;</span><h3>&#x2644; SATURNO vs &#x2646; NETUNO</h3><p style="color:rgba(255,255,255,.5);margin:0 0 6px">Ciclo de ~36 anos &mdash; forma vs dissolu&ccedil;&atilde;o</p><p style="color:rgba(255,255,255,.4);margin:0 0 14px;font-size:11px">Saturno &eacute; a forma, a lei, o limite. Netuno &eacute; o oceano que dissolve toda forma: f&eacute;, ilus&atilde;o, ideal, compaixão. Quando se encontram, as estruturas que perderam a alma s&atilde;o dissolvidas. Elman Bacher: &ldquo;Saturno em demasia obscurece a luz das estrelas; Netuno em demasia d&aacute; o fora deste mundo.&rdquo; Ciclo piloto da R&uacute;ssia e do Brasil.</p><div class="jsc-phase"><span class="jsc-sym">&#x260C;</span><span class="jsc-name">Conjun&ccedil;&atilde;o (0&deg;) &mdash; Dissolu&ccedil;&atilde;o e Refunda&ccedil;&atilde;o</span><div class="jsc-desc">A estrutura que perdeu o sentido &eacute; dissolvida. 1917: Revolu&ccedil;&atilde;o Russa. 1953: morte de Stalin, Petrobras. 1989: queda do Muro, elei&ccedil;&atilde;o direta no Brasil. 2026: o ciclo reinicia &mdash; a semente das pr&oacute;ximas tr&ecirc;s d&eacute;cadas.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Crescente (60&deg;) &mdash; Idealismo Pragm&aacute;tico</span><div class="jsc-desc">Os ideais da conjun&ccedil;&atilde;o encontram forma concreta. Leis que traduzem vis&atilde;o em estrutura. A utopia ganha endere&ccedil;o.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Crescente (90&deg;) &mdash; Crise de Ilus&atilde;o</span><div class="jsc-desc">O ideal bate na realidade e racha. Desilusão coletiva, esc&acirc;ndalos institucionais, queda de &iacute;dolos. A f&eacute; foi depositada no lugar errado.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Crescente (120&deg;) &mdash; F&eacute; Madura</span><div class="jsc-desc">O ideal que sobreviveu &agrave; crise se integra &agrave; cultura. Movimentos espirituais e sociais florescem com base s&oacute;lida. Vis&atilde;o e estrutura cooperam.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x260D;</span><span class="jsc-name">Oposi&ccedil;&atilde;o (180&deg;) &mdash; Espelho do Ideal</span><div class="jsc-desc">M&aacute;xima express&atilde;o e sombras reveladas. A ideologia mostra seu lado obscuro. A estrutura criada em nome da f&eacute; se torna pris&atilde;o.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Minguante (240&deg;) &mdash; Sabedoria Compassiva</span><div class="jsc-desc">A f&eacute; que sobreviveu &eacute; mais madura, menos ing&ecirc;nua. Institui&ccedil;&otilde;es se reformam internamente. A compaixão deixa de ser cega.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Minguante (270&deg;) &mdash; Dissolu&ccedil;&atilde;o do Molde</span><div class="jsc-desc">O molde n&atilde;o segura mais o l&iacute;quido. Corrupção end&ecirc;mica, perda de f&eacute; nas institui&ccedil;&otilde;es, &eacute;xodo de massas.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Minguante (300&deg;) &mdash; Vision&aacute;rios na Margem</span><div class="jsc-desc">Nas margens surgem m&iacute;sticos e reformadores. A f&eacute; mudou de endere&ccedil;o. O pr&oacute;ximo ideal fermenta onde ningu&eacute;m olha.</div></div></div></div>
+
+<div id="esc-un-modal" onclick="if(event.target===this){this.style.display='none';}" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center"><div id="esc-un-card"><span class="jsc-close" onclick="document.getElementById('esc-un-modal').style.display='none'">&times;</span><h3>&#x2645; URANO vs &#x2646; NETUNO</h3><p style="color:rgba(255,255,255,.5);margin:0 0 6px">Ciclo de ~171 anos &mdash; a superluna&ccedil;&atilde;o c&oacute;smica</p><p style="color:rgba(255,255,255,.4);margin:0 0 14px;font-size:11px">Elman Bacher chama a Conjun&ccedil;&atilde;o Urano-Netuno de &ldquo;superluna&ccedil;&atilde;o&rdquo; &mdash; o plantio de semente em termos de poderes vibrat&oacute;rios c&oacute;smicos dos dois gigantes regentes dos dois &uacute;ltimos signos do zod&iacute;aco. Urano &eacute; o rel&acirc;mpago que liberta; Netuno &eacute; o oceano que inspira. Juntos redefinem o que a humanidade percebe como &ldquo;realidade&rdquo;. A B&iacute;blia da Astrologia: &ldquo;inspira&ccedil;&atilde;o e criatividade din&acirc;mica; personalidade altamente intuitiva, inventiva e espiritualmente inspirada.&rdquo;</p><div class="jsc-phase"><span class="jsc-sym">&#x260C;</span><span class="jsc-name">Conjun&ccedil;&atilde;o (0&deg;) &mdash; Muta&ccedil;&atilde;o da Percep&ccedil;&atilde;o</span><div class="jsc-desc">A humanidade recebe um &ldquo;novo nascimento&rdquo; vibrat&oacute;rio. O que era invis&iacute;vel se torna vis&iacute;vel. ~1821 (Sagit&aacute;rio/Capric&oacute;rnio): fotografia, telegrafo, ferrovias, manifesto comunista, metaf&iacute;sica p&uacute;blica. 1993 (Capric&oacute;rnio): internet, globaliza&ccedil;&atilde;o, genoma humano &mdash; o mundo se torna transparente. Egos de grande desenvolvimento encarnam durante estas janelas.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Crescente (60&deg;) &mdash; Tecnologia como Vis&atilde;o</span><div class="jsc-desc">As novas percep&ccedil;&otilde;es ganham ferramentas concretas. A tecnologia materializa o que era intuição. Inventores e visionários canalizam o impulso da conjunção em sistemas úteis.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Crescente (90&deg;) &mdash; Crise de Realidade</span><div class="jsc-desc">O que foi revelado gera confronto. A nova percep&ccedil;&atilde;o amea&ccedil;a as estruturas que dependiam da velha ilus&atilde;o. Revolu&ccedil;&otilde;es cient&iacute;ficas, crises de paradigma, o v&eacute;u &eacute; rasgado e nem todos querem ver.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Crescente (120&deg;) &mdash; Renascimento Cultural</span><div class="jsc-desc">A nova realidade se integra &agrave; cultura. Arte, ci&ecirc;ncia e espiritualidade florescem em s&iacute;ntese. A intui&ccedil;&atilde;o se harmoniza com a inven&ccedil;&atilde;o. &Eacute;pocas de ouro criativo onde o futuro se torna presente vivido.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x260D;</span><span class="jsc-name">Oposi&ccedil;&atilde;o (180&deg;) &mdash; Lua Cheia C&oacute;smica</span><div class="jsc-desc">Bacher: &ldquo;o vomitar brutal de energias congestionadas e putrefatas&rdquo;. O que foi plantado na conjun&ccedil;&atilde;o atinge m&aacute;xima tens&atilde;o. A I Guerra Mundial foi a oposi&ccedil;&atilde;o da superluna&ccedil;&atilde;o de ~1821. A humanidade inteira &eacute; for&ccedil;ada a uma &ldquo;maior conscientiza&ccedil;&atilde;o de certos princ&iacute;pios an&iacute;micos&rdquo;.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Minguante (240&deg;) &mdash; Sabedoria Integrada</span><div class="jsc-desc">As li&ccedil;&otilde;es do confronto s&atilde;o absorvidas. A tecnologia amadurece, a espiritualidade se enraiza. O que era revolu&ccedil;&atilde;o vira infraestrutura da consci&ecirc;ncia coletiva.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Minguante (270&deg;) &mdash; Fadiga Vibrat&oacute;ria</span><div class="jsc-desc">O impulso original perde for&ccedil;a. A tecnologia que revelou se torna ferramenta de controle. A espiritualidade se enrijece em dogma. O v&eacute;u come&ccedil;a a se refazer &mdash; a pr&oacute;xima superluna&ccedil;&atilde;o j&aacute; &eacute; necess&aacute;ria.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Minguante (300&deg;) &mdash; Sementes do Invis&iacute;vel</span><div class="jsc-desc">Nas margens da percep&ccedil;&atilde;o coletiva, novas intui&ccedil;&otilde;es germinam. O que a pr&oacute;xima conjun&ccedil;&atilde;o vai revelar j&aacute; existe como sussurro nos mais sens&iacute;veis. A realidade consensual funciona, mas algo al&eacute;m j&aacute; pulsa.</div></div></div></div>
+<div id="esc-ju-modal" onclick="if(event.target===this){this.style.display='none';}" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center"><div id="esc-ju-card"><span class="jsc-close" onclick="document.getElementById('esc-ju-modal').style.display='none'">&times;</span><h3>&#x2643; J&Uacute;PITER vs &#x2645; URANO</h3><p style="color:rgba(255,255,255,.5);margin:0 0 6px">Ciclo de ~14 anos &mdash; expans&atilde;o relampejante</p><p style="color:rgba(255,255,255,.4);margin:0 0 14px;font-size:11px">J&uacute;piter expande tudo que toca. Urano &eacute; o rel&acirc;mpago que liberta. Quando se encontram, saltos de inova&ccedil;&atilde;o explodem: breakthroughs tecnol&oacute;gicos, descobertas cient&iacute;ficas, movimentos de liberdade que mudam o jogo da noite pro dia. A B&iacute;blia da Astrologia: &ldquo;inspira&ccedil;&atilde;o e criatividade din&acirc;mica, inventiva e espiritualmente inspirada.&rdquo;</p><div class="jsc-phase"><span class="jsc-sym">&#x260C;</span><span class="jsc-name">Conjun&ccedil;&atilde;o (0&deg;) &mdash; Eureka Coletivo</span><div class="jsc-desc">Salto qu&acirc;ntico de inova&ccedil;&atilde;o. O imposs&iacute;vel vira real&mdash;da noite pro dia. Novas tecnologias, leis de liberdade, descobertas que redefinem limites. O otimismo uraniano explode em escala jupiteriana.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Crescente (60&deg;)</span><div class="jsc-desc">As inova&ccedil;&otilde;es da conjun&ccedil;&atilde;o encontram aplica&ccedil;&atilde;o pr&aacute;tica. Startups, patentes, reformas legislativas. O futuro ganha endere&ccedil;o comercial.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Crescente (90&deg;)</span><div class="jsc-desc">A inova&ccedil;&atilde;o enfrenta resist&ecirc;ncia institucional. Regulamenta&ccedil;&atilde;o vs disrup&ccedil;&atilde;o. O velho sistema tenta conter o que j&aacute; escapou.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Crescente (120&deg;)</span><div class="jsc-desc">A tecnologia se integra &agrave; cultura. O que era disruptivo vira normal. Expans&atilde;o sem atrito.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x260D;</span><span class="jsc-name">Oposi&ccedil;&atilde;o (180&deg;)</span><div class="jsc-desc">Tens&atilde;o m&aacute;xima entre expans&atilde;o e liberta&ccedil;&atilde;o. O que foi inventado revela consequ&ecirc;ncias n&atilde;o previstas.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Minguante (240&deg;)</span><div class="jsc-desc">Colheita da inova&ccedil;&atilde;o. Tecnologia madura gerando prosperidade real.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Minguante (270&deg;)</span><div class="jsc-desc">A tecnologia dominante mostra obsolesc&ecirc;ncia. Inquieta&ccedil;&atilde;o por algo novo. O pr&oacute;ximo salto j&aacute; &eacute; necess&aacute;rio.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Minguante (300&deg;)</span><div class="jsc-desc">Inventores e vision&aacute;rios plantam sementes do pr&oacute;ximo eureka.</div></div></div></div>
+<div id="esc-jn-modal" onclick="if(event.target===this){this.style.display='none';}" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center"><div id="esc-jn-card"><span class="jsc-close" onclick="document.getElementById('esc-jn-modal').style.display='none'">&times;</span><h3>&#x2643; J&Uacute;PITER vs &#x2646; NETUNO</h3><p style="color:rgba(255,255,255,.5);margin:0 0 6px">Ciclo de ~13 anos &mdash; f&eacute; expandida</p><p style="color:rgba(255,255,255,.4);margin:0 0 14px;font-size:11px">J&uacute;piter expande, Netuno dissolve e inspira. Juntos criam booms culturais e espirituais, utopias coletivas, bolhas especulativas e surtos de compaixão em massa. &Eacute; o ciclo da f&eacute; exuberante &mdash; que pode tanto elevar quanto iludir.</p><div class="jsc-phase"><span class="jsc-sym">&#x260C;</span><span class="jsc-name">Conjun&ccedil;&atilde;o (0&deg;) &mdash; Maremoto de F&eacute;</span><div class="jsc-desc">Onda de idealismo, espiritualidade e utopia. Movimentos religiosos, art&iacute;sticos e sociais nascem com for&ccedil;a descomunal. Tamb&eacute;m: bolhas financeiras, enganos em larga escala, compaixão sem cr&iacute;tica.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Crescente (60&deg;)</span><div class="jsc-desc">O ideal ganha forma concreta. Institui&ccedil;&otilde;es de caridade, movimentos culturais, produ&ccedil;&otilde;es art&iacute;sticas inspiradas.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Crescente (90&deg;)</span><div class="jsc-desc">O ideal confronta a realidade. Bolhas estouram, &iacute;dolos caem, a f&eacute; &eacute; testada. O que era ilus&atilde;o se revela.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Crescente (120&deg;)</span><div class="jsc-desc">A f&eacute; que sobreviveu se integra. Arte e espiritualidade maduras, compaixão com discernimento.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x260D;</span><span class="jsc-name">Oposi&ccedil;&atilde;o (180&deg;)</span><div class="jsc-desc">Confronto entre o sonho e o constru&iacute;do. O idealismo &eacute; for&ccedil;ado a olhar no espelho.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Minguante (240&deg;)</span><div class="jsc-desc">Colheita espiritual. O que &eacute; verdadeiro permanece, o que era ilus&atilde;o se dissolve.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Minguante (270&deg;)</span><div class="jsc-desc">Cinismo coletivo, fadiga espiritual. A f&eacute; institucional perde ader&ecirc;ncia.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Minguante (300&deg;)</span><div class="jsc-desc">M&iacute;sticos e artistas plantam as sementes da pr&oacute;xima onda de f&eacute;.</div></div></div></div>
+<div id="esc-jp-modal" onclick="if(event.target===this){this.style.display='none';}" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center"><div id="esc-jp-card"><span class="jsc-close" onclick="document.getElementById('esc-jp-modal').style.display='none'">&times;</span><h3>&#x2643; J&Uacute;PITER vs &#x2647; PLUT&Atilde;O</h3><p style="color:rgba(255,255,255,.5);margin:0 0 6px">Ciclo de ~12-13 anos &mdash; expans&atilde;o de poder</p><p style="color:rgba(255,255,255,.4);margin:0 0 14px;font-size:11px">J&uacute;piter amplifica, Plut&atilde;o intensifica. Juntos criam ciclos de concentra&ccedil;&atilde;o e redistribui&ccedil;&atilde;o de poder e riqueza. Plutocracia em expans&atilde;o ou transforma&ccedil;&atilde;o profunda das estruturas de poder. O ciclo dos impérios financeiros.</p><div class="jsc-phase"><span class="jsc-sym">&#x260C;</span><span class="jsc-name">Conjun&ccedil;&atilde;o (0&deg;) &mdash; Reconfig. do Poder</span><div class="jsc-desc">Ciclos plut&oacute;cráticos reiniciam. Fusões, aquisi&ccedil;&otilde;es, novas din&acirc;micas de poder global. O que era subterr&acirc;neo ganha escala jupiteriana. 2020: pandemia como catalisador de concentra&ccedil;&atilde;o de poder e riqueza sem precedentes.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Crescente (60&deg;)</span><div class="jsc-desc">O novo poder se organiza em estruturas concretas. Leis financeiras, regulamenta&ccedil;&otilde;es de mercado, expans&atilde;o de impérios.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Crescente (90&deg;)</span><div class="jsc-desc">Crise de poder. O que se expandiu encontra resist&ecirc;ncia. Escândalos financeiros, monop&oacute;lios questionados, revolta contra concentra&ccedil;&atilde;o.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Crescente (120&deg;)</span><div class="jsc-desc">O poder se estabiliza. Prosperidade distribu&iacute;da, crescimento econ&oacute;mico sustentado.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x260D;</span><span class="jsc-name">Oposi&ccedil;&atilde;o (180&deg;)</span><div class="jsc-desc">Confronto entre poder e sociedade. O que foi acumulado &eacute; questionado. Crises de legitimidade.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25B3;</span><span class="jsc-name">Tr&iacute;gono Minguante (240&deg;)</span><div class="jsc-desc">Redistribui&ccedil;&atilde;o madura. O poder encontra equil&iacute;brio tempor&aacute;rio.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x25A1;</span><span class="jsc-name">Quadratura Minguante (270&deg;)</span><div class="jsc-desc">Estruturas de poder enrijecem. Plutocracia visível, desigualdade insustent&aacute;vel.</div></div><div class="jsc-phase"><span class="jsc-sym">&#x26B9;</span><span class="jsc-name">Sextil Minguante (300&deg;)</span><div class="jsc-desc">Movimentos de redistribui&ccedil;&atilde;o germinam. O pr&oacute;ximo ciclo de poder j&aacute; se organiza.</div></div></div></div>
 <div id="today-marker"><span id="today-now">Linha do Tempo (Hoje)</span><div id="today-arrow"></div></div>
 
 <script>
@@ -1647,8 +1916,7 @@ function syncNatalRows(){
     if(!nhRow) return;
     const plRow=document.getElementById('row_'+plId);
     const plOff=active[plId]===false||!plRow||plRow.classList.contains('hidden');
-    const zoomBlock=!isDetailZoom()&&!_SLOW_NH.includes(plId);
-    nhRow.style.display=(NATAL_ACTIVE&&!plOff&&!zoomBlock)?'flex':'none';
+    nhRow.style.display=(NATAL_ACTIVE&&!plOff)?'flex':'none';
   });
 }
 
@@ -1763,7 +2031,7 @@ function _clipShape(ctx,mod,x,y,w,h,isF,isL){
 
 function drawTexture(ctx,elem,x,y,w,h,mod,isF,isL){
   // Flat colors from Era Scanner palette
-  const _FC={FOGO:'#d4952e',TERRA:'#3d7d3d',AR:'#5495bd',AGUA:'#2d5f96'};
+  const _FC={FOGO:'#e6b800',TERRA:'#3a9a3a',AR:'#7bb8d9',AGUA:'#2d5f96'};
   ctx.save();
   if(mod){_clipShape(ctx,mod,x,y,w,h,isF,isL);ctx.clip();}
   else{ctx.beginPath();ctx.rect(x,y,w,h);ctx.clip();}
@@ -8007,9 +8275,6 @@ window._orreryRender=_orreryRender;
 /* ═══════════════ SCANNER DE ERAS ═══════════════ */
 (function(){
 'use strict';
-// L0/rate recalibrados contra a efeméride real (data/tropical/*.json), ajuste local
-// centrado na era atual — o modelo linear (2 parâmetros) não segue órbitas excêntricas
-// com exatidão em milênios, mas agora acerta o signo real em ~2015-2035 pra todos os corpos.
 const PL=[
   {id:'jup',name:'Júpiter',sym:'♃',L0:31.3151,rate:30.628545,pc:'#c9a961'},
   {id:'sat',name:'Saturno',sym:'♄',L0:1.8594,rate:13.602167,pc:'#9a8f7d'},
@@ -8027,8 +8292,8 @@ const SIGNS=[
   {n:'Sagitário',g:'♐',el:'fire',mod:'mut'},{n:'Capricórnio',g:'♑',el:'earth',mod:'card'},
   {n:'Aquário',g:'♒',el:'air',mod:'fix'},{n:'Peixes',g:'♓',el:'water',mod:'mut'}
 ];
-const EC={fire:'#c77b28',earth:'#3d7d3d',water:'#2d5f96',air:'#5495bd'};
-const ECbright={fire:'#f5a33a',earth:'#55b055',water:'#4a8fd4',air:'#7fc4ea'};
+const EC={fire:'#e6b800',earth:'#3a9a3a',water:'#2d5f96',air:'#7bb8d9'};
+const ECbright={fire:'#f5cc00',earth:'#5bc05b',water:'#4a8fd4',air:'#a0d8f0'};
 const AYAN=25.06, TRANS=360;
 const ERAS=[
   {name:'Leão',glyph:'♌',el:'fire',start:-10519,end:-8371},
@@ -8045,15 +8310,325 @@ let selAsp=null,selPl=[];
 let yearData=null,aspHits=new Set(),aspDetail={};
 let activeEra='all';
 let rowRegistry=[],observer=null,inited=false;
+let showBarbault=false,showElemDom=false,showJupSat=false,showSatPlu=false,showUraPlu=false,showSatUra=false,showNetPlu=false,showSatNet=false,showUraNet=false,showJupUra=false,showJupNet=false,showJupPlu=false;
+const BARB_H=44,ELEM_H=16,JUPSAT_H=30,SATPLU_H=30,URAPLU_H=30,SATURA_H=30,NETPLU_H=30,SATNET_H=30,URANET_H=30,JUPURA_H=30,JUPNET_H=30,JUPPLU_H=30;
+
+const JS_PHASES=[
+  {name:'Conjunção',sym:'☌',desc:'0° Semente',col:'rgba(200,80,60,.7)'},
+  {name:'Sextil Crescente',sym:'⚹↑',desc:'60° Oportunidade',col:'rgba(80,160,180,.5)'},
+  {name:'Quadratura Crescente',sym:'□↑',desc:'90° Crise Ação',col:'rgba(210,180,50,.65)'},
+  {name:'Trígono Crescente',sym:'△↑',desc:'120° Florescer',col:'rgba(60,170,90,.55)'},
+  {name:'Oposição',sym:'☍',desc:'180° Culminação',col:'rgba(80,120,200,.7)'},
+  {name:'Trígono Minguante',sym:'△↓',desc:'240° Colheita',col:'rgba(60,150,80,.5)'},
+  {name:'Quadratura Minguante',sym:'□↓',desc:'270° Crise Sentido',col:'rgba(190,160,40,.6)'},
+  {name:'Sextil Minguante',sym:'⚹↓',desc:'300° Disseminar',col:'rgba(140,100,160,.5)'}
+];
+const SP_PHASES=[
+  {name:'Conjunção',sym:'☌',desc:'0° Colapso/Renascer',col:'rgba(180,50,50,.7)'},
+  {name:'Sextil Crescente',sym:'⚹↑',desc:'60° Reconstrução',col:'rgba(120,90,140,.5)'},
+  {name:'Quadratura Crescente',sym:'□↑',desc:'90° Confronto Poder',col:'rgba(200,120,40,.65)'},
+  {name:'Trígono Crescente',sym:'△↑',desc:'120° Consolidação',col:'rgba(100,120,100,.55)'},
+  {name:'Oposição',sym:'☍',desc:'180° Ruptura Máxima',col:'rgba(160,40,80,.7)'},
+  {name:'Trígono Minguante',sym:'△↓',desc:'240° Ordem Nova',col:'rgba(90,110,90,.5)'},
+  {name:'Quadratura Minguante',sym:'□↓',desc:'270° Erosão Poder',col:'rgba(180,110,40,.6)'},
+  {name:'Sextil Minguante',sym:'⚹↓',desc:'300° Purga Final',col:'rgba(120,80,130,.5)'}
+];
+const UP_PHASES=[
+  {name:'Conjunção',sym:'☌',desc:'0° Revolução',col:'rgba(90,180,220,.7)'},
+  {name:'Sextil Crescente',sym:'⚹↑',desc:'60° Invenção',col:'rgba(80,160,140,.5)'},
+  {name:'Quadratura Crescente',sym:'□↑',desc:'90° Disrupção',col:'rgba(200,100,60,.65)'},
+  {name:'Trígono Crescente',sym:'△↑',desc:'120° Integração',col:'rgba(70,150,100,.55)'},
+  {name:'Oposição',sym:'☍',desc:'180° Crise Paradigma',col:'rgba(170,60,120,.7)'},
+  {name:'Trígono Minguante',sym:'△↓',desc:'240° Maturação',col:'rgba(70,130,90,.5)'},
+  {name:'Quadratura Minguante',sym:'□↓',desc:'270° Obsolescência',col:'rgba(180,130,50,.6)'},
+  {name:'Sextil Minguante',sym:'⚹↓',desc:'300° Gestação',col:'rgba(100,120,160,.5)'}
+];
+
+const SU_PHASES=[
+  {name:'Conjunção',sym:'☌',desc:'0° Terremoto',col:'rgba(130,180,210,.7)'},
+  {name:'Sextil Crescente',sym:'⚹↑',desc:'60° Reforma',col:'rgba(90,150,170,.5)'},
+  {name:'Quadratura Crescente',sym:'□↑',desc:'90° Crise Liberdade',col:'rgba(200,150,60,.65)'},
+  {name:'Trígono Crescente',sym:'△↑',desc:'120° Integração',col:'rgba(70,160,120,.55)'},
+  {name:'Oposição',sym:'☍',desc:'180° Polarização',col:'rgba(100,140,200,.7)'},
+  {name:'Trígono Minguante',sym:'△↓',desc:'240° Colheita',col:'rgba(70,140,110,.5)'},
+  {name:'Quadratura Minguante',sym:'□↓',desc:'270° Obsolescência',col:'rgba(180,150,60,.6)'},
+  {name:'Sextil Minguante',sym:'⚹↓',desc:'300° Gestação',col:'rgba(110,140,170,.5)'}
+];
+
+const NP_PHASES=[
+  {name:'Conjunção',sym:'☌',desc:'0° Mutação',col:'rgba(140,100,180,.7)'},
+  {name:'Sextil Crescente',sym:'⚹↑',desc:'60° Germinação',col:'rgba(100,130,180,.5)'},
+  {name:'Quadratura Crescente',sym:'□↑',desc:'90° Crise de Fé',col:'rgba(180,120,80,.65)'},
+  {name:'Trígono Crescente',sym:'△↑',desc:'120° Florescer',col:'rgba(80,140,130,.55)'},
+  {name:'Oposição',sym:'☍',desc:'180° Revelação',col:'rgba(150,80,150,.7)'},
+  {name:'Trígono Minguante',sym:'△↓',desc:'240° Sabedoria',col:'rgba(80,120,110,.5)'},
+  {name:'Quadratura Minguante',sym:'□↓',desc:'270° Exaustão',col:'rgba(160,120,70,.6)'},
+  {name:'Sextil Minguante',sym:'⚹↓',desc:'300° Profetas',col:'rgba(120,100,160,.5)'}
+];
+const SN_PHASES=[
+  {name:'Conjunção',sym:'☌',desc:'0° Refundação',col:'rgba(100,140,180,.7)'},
+  {name:'Sextil Crescente',sym:'⚹↑',desc:'60° Idealismo',col:'rgba(80,130,160,.5)'},
+  {name:'Quadratura Crescente',sym:'□↑',desc:'90° Desilusão',col:'rgba(170,130,80,.65)'},
+  {name:'Trígono Crescente',sym:'△↑',desc:'120° Fé Madura',col:'rgba(70,140,120,.55)'},
+  {name:'Oposição',sym:'☍',desc:'180° Espelho',col:'rgba(120,100,170,.7)'},
+  {name:'Trígono Minguante',sym:'△↓',desc:'240° Compaixão',col:'rgba(70,120,110,.5)'},
+  {name:'Quadratura Minguante',sym:'□↓',desc:'270° Dissolução',col:'rgba(150,120,80,.6)'},
+  {name:'Sextil Minguante',sym:'⚹↓',desc:'300° Visionários',col:'rgba(100,120,150,.5)'}
+];
+const UN_PHASES=[
+  {name:'Conjunção',sym:'☌',desc:'0° Superlunação',col:'rgba(120,100,180,.7)'},
+  {name:'Sextil Crescente',sym:'⚹↑',desc:'60° Tecnologia',col:'rgba(90,130,170,.5)'},
+  {name:'Quadratura Crescente',sym:'□↑',desc:'90° Crise Realidade',col:'rgba(180,140,70,.65)'},
+  {name:'Trígono Crescente',sym:'△↑',desc:'120° Renascimento',col:'rgba(80,150,130,.55)'},
+  {name:'Oposição',sym:'☍',desc:'180° Lua Cheia',col:'rgba(140,90,160,.7)'},
+  {name:'Trígono Minguante',sym:'△↓',desc:'240° Sabedoria',col:'rgba(70,130,110,.5)'},
+  {name:'Quadratura Minguante',sym:'□↓',desc:'270° Fadiga',col:'rgba(160,130,70,.6)'},
+  {name:'Sextil Minguante',sym:'⚹↓',desc:'300° Sementes',col:'rgba(110,110,160,.5)'}
+];
+const JU_PHASES=[
+  {name:'Conjunção',sym:'☌',desc:'0° Eureka',col:'rgba(180,140,60,.7)'},
+  {name:'Sextil↑',sym:'⚹↑',desc:'60° Aplicação',col:'rgba(140,160,80,.5)'},
+  {name:'Quadratura↑',sym:'□↑',desc:'90° Resistência',col:'rgba(200,150,60,.6)'},
+  {name:'Trígono↑',sym:'△↑',desc:'120° Integração',col:'rgba(100,170,120,.5)'},
+  {name:'Oposição',sym:'☍',desc:'180° Consequências',col:'rgba(160,120,80,.65)'},
+  {name:'Trígono↓',sym:'△↓',desc:'240° Colheita',col:'rgba(90,150,110,.5)'},
+  {name:'Quadratura↓',sym:'□↓',desc:'270° Obsolescência',col:'rgba(180,140,60,.55)'},
+  {name:'Sextil↓',sym:'⚹↓',desc:'300° Sementes',col:'rgba(130,140,90,.5)'}
+];
+const JN_PHASES=[
+  {name:'Conjunção',sym:'☌',desc:'0° Maremoto',col:'rgba(100,140,190,.7)'},
+  {name:'Sextil↑',sym:'⚹↑',desc:'60° Forma',col:'rgba(90,130,170,.5)'},
+  {name:'Quadratura↑',sym:'□↑',desc:'90° Bolha',col:'rgba(170,140,90,.6)'},
+  {name:'Trígono↑',sym:'△↑',desc:'120° Fé Madura',col:'rgba(80,150,130,.5)'},
+  {name:'Oposição',sym:'☍',desc:'180° Espelho',col:'rgba(130,110,170,.65)'},
+  {name:'Trígono↓',sym:'△↓',desc:'240° Colheita',col:'rgba(80,130,120,.5)'},
+  {name:'Quadratura↓',sym:'□↓',desc:'270° Cinismo',col:'rgba(150,130,80,.55)'},
+  {name:'Sextil↓',sym:'⚹↓',desc:'300° Místicos',col:'rgba(100,120,160,.5)'}
+];
+const JP_PHASES=[
+  {name:'Conjunção',sym:'☌',desc:'0° Poder',col:'rgba(160,100,100,.7)'},
+  {name:'Sextil↑',sym:'⚹↑',desc:'60° Estrutura',col:'rgba(140,110,80,.5)'},
+  {name:'Quadratura↑',sym:'□↑',desc:'90° Crise',col:'rgba(190,130,70,.6)'},
+  {name:'Trígono↑',sym:'△↑',desc:'120° Prosperidade',col:'rgba(100,150,100,.5)'},
+  {name:'Oposição',sym:'☍',desc:'180° Confronto',col:'rgba(150,90,90,.65)'},
+  {name:'Trígono↓',sym:'△↓',desc:'240° Equilíbrio',col:'rgba(90,130,100,.5)'},
+  {name:'Quadratura↓',sym:'□↓',desc:'270° Plutocracia',col:'rgba(170,110,70,.55)'},
+  {name:'Sextil↓',sym:'⚹↓',desc:'300° Redistribuição',col:'rgba(120,100,110,.5)'}
+];
+var barbGlobalMin=9999,barbGlobalMax=0,barbGlobalReady=false;
+var mutationCache={};
+function computeMutationsFor(pa,pb){
+  var key=pa+'_'+pb;
+  if(mutationCache[key])return mutationCache[key];
+  var rawConjs=[];
+  for(var y=Y0;y<=Y1;y++){
+    if((pa===6||pb===6)&&y<675)continue;
+    var best=999,bestF=0.5;
+    for(var k=0;k<=24;k++){
+      var f=k/24;
+      var lA=sidLon(PL[pa],y,f),lB=sidLon(PL[pb],y,f);
+      var d=Math.abs(lA-lB)%360;if(d>180)d=360-d;
+      if(d<best){best=d;bestF=f;}
+    }
+    if(best<=5){
+      var lAx=sidLon(PL[pa],y,bestF);
+      var sg=toSign(lAx);
+      rawConjs.push({y:y,orb:best,sign:sg,el:SIGNS[sg].el});
+    }
+  }
+  var periods=[];
+  if(rawConjs.length===0){mutationCache[key]=periods;return periods;}
+  var conjs=[];
+  var ci=0;
+  while(ci<rawConjs.length){
+    var cj=ci,minOrb=999,bestIdx=ci;
+    while(cj<rawConjs.length&&(cj===ci||rawConjs[cj].y===rawConjs[cj-1].y+1)){
+      if(rawConjs[cj].orb<minOrb){minOrb=rawConjs[cj].orb;bestIdx=cj;}
+      cj++;
+    }
+    conjs.push(rawConjs[bestIdx]);
+    ci=cj;
+  }
+  var cur={el:conjs[0].el,start:Y0,firstConj:conjs[0].y};
+  for(var c=1;c<conjs.length;c++){
+    if(conjs[c].el!==cur.el){
+      cur.end=conjs[c].y-1;
+      cur.lastConj=conjs[c-1].y;
+      periods.push(cur);
+      cur={el:conjs[c].el,start:conjs[c].y,firstConj:conjs[c].y};
+    }
+  }
+  cur.end=Y1;cur.lastConj=conjs[conjs.length-1].y;
+  periods.push(cur);
+  mutationCache[key]=periods;
+  return periods;
+}
+function getMutationElFrom(periods,y){
+  for(var m=periods.length-1;m>=0;m--){
+    if(y>=periods[m].start)return periods[m];
+  }
+  return periods[0]||{el:'fire'};
+}
+var mutationPeriods=[],mutationReady=false;
+function computeMutations(){
+  if(mutationReady)return;
+  mutationPeriods=computeMutationsFor(0,1);
+  mutationReady=true;
+}
+function getMutationEl(y){return getMutationElFrom(mutationPeriods,y);}
+var satPluPeriods=[],satPluReady=false;
+function computeSatPlu(){
+  if(satPluReady)return;
+  satPluPeriods=computeMutationsFor(1,4);
+  satPluReady=true;
+}
+function getSatPluEl(y){return getMutationElFrom(satPluPeriods,y);}
+var uraPluPeriods=[],uraPluReady=false;
+function computeUraPlu(){
+  if(uraPluReady)return;
+  uraPluPeriods=computeMutationsFor(2,4);
+  uraPluReady=true;
+}
+function getUraPluEl(y){return getMutationElFrom(uraPluPeriods,y);}
+var satUraPeriods=[],satUraReady=false;
+function computeSatUra(){
+  if(satUraReady)return;
+  satUraPeriods=computeMutationsFor(1,2);
+  satUraReady=true;
+}
+function getSatUraEl(y){return getMutationElFrom(satUraPeriods,y);}
+var netPluPeriods=[],netPluReady=false;
+function computeNetPlu(){
+  if(netPluReady)return;
+  netPluPeriods=computeMutationsFor(3,4);
+  netPluReady=true;
+}
+function getNetPluEl(y){return getMutationElFrom(netPluPeriods,y);}
+var satNetPeriods=[],satNetReady=false;
+function computeSatNet(){if(satNetReady)return;satNetPeriods=computeMutationsFor(1,3);satNetReady=true;}
+function getSatNetEl(y){return getMutationElFrom(satNetPeriods,y);}
+var uraNetPeriods=[],uraNetReady=false;
+function computeUraNet(){if(uraNetReady)return;uraNetPeriods=computeMutationsFor(2,3);uraNetReady=true;}
+function getUraNetEl(y){return getMutationElFrom(uraNetPeriods,y);}
+var jupUraPeriods=[],jupUraReady=false;
+function computeJupUra(){if(jupUraReady)return;jupUraPeriods=computeMutationsFor(0,2);jupUraReady=true;}
+function getJupUraEl(y){return getMutationElFrom(jupUraPeriods,y);}
+var jupNetPeriods=[],jupNetReady=false;
+function computeJupNet(){if(jupNetReady)return;jupNetPeriods=computeMutationsFor(0,3);jupNetReady=true;}
+function getJupNetEl(y){return getMutationElFrom(jupNetPeriods,y);}
+var jupPluPeriods=[],jupPluReady=false;
+function computeJupPlu(){if(jupPluReady)return;jupPluPeriods=computeMutationsFor(0,4);jupPluReady=true;}
+function getJupPluEl(y){return getMutationElFrom(jupPluPeriods,y);}
+function computeBarbaultGlobals(){
+  if(barbGlobalReady)return;
+  barbGlobalMin=9999;barbGlobalMax=0;
+  for(var y=Y0;y<=Y1;y++){
+    var v=barbaultIdx(y);
+    if(v<barbGlobalMin)barbGlobalMin=v;
+    if(v>barbGlobalMax)barbGlobalMax=v;
+  }
+  barbGlobalReady=true;
+}
 
 const DPR=Math.min(2,window.devicePixelRatio||1);
-const SB_W=96, LBL_H=13;
+const SB_W=96;
+function LBL_H(){return Math.max(13,Math.round(CW*0.16)+2);}
+function yearFontSize(){return Math.max(9,Math.min(16,Math.round(CW*0.12)));}
 const MONTHS=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 
 function sidLon(pl,yr,f){let l=(pl.L0+pl.rate*(yr-2000+f)-AYAN)%360;while(l<0)l+=360;return l;}
 function toSign(l){return Math.floor(l/30)%12;}
 function fY(y){return y<0?Math.abs(y)+' a.C.':String(y);}
-function rowHeight(){return LBL_H+7*(BH+1)+4;}
+function rowHeight(){return LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0)+(showJupPlu?JUPPLU_H+2:0)+(showBarbault?BARB_H+4:0);}
+
+function dominantElement(y){
+  var cnt={fire:0,earth:0,water:0,air:0};
+  for(var i=0;i<5;i++){
+    var lon=sidLon(PL[i],y,0.5);
+    var sg=SIGNS[toSign(lon)];
+    cnt[sg.el]++;
+  }
+  var best='fire',bv=0;
+  var els=['fire','earth','air','water'];
+  for(var e=0;e<4;e++){if(cnt[els[e]]>bv){bv=cnt[els[e]];best=els[e];}}
+  return {el:best,count:bv,all:cnt};
+}
+
+function barbaultIdx(y){
+  var sum=0;
+  for(var i=0;i<5;i++){
+    for(var j=i+1;j<5;j++){
+      var l0=sidLon(PL[i],y,0.5),l1=sidLon(PL[j],y,0.5);
+      var d=Math.abs(l0-l1)%360;if(d>180)d=360-d;
+      sum+=d;
+    }
+  }
+  return sum;
+}
+
+function drawCyclePhases(ctx,years,base,stripH,mutH,plA,plB,phases){
+  var aspAngles=[0,60,90,120,180,300,270,240];
+  var orb=8;
+  var hits=[];
+  years.forEach(function(y,idx){
+    var x0=idx*(CW+GAP);
+    var bestPhase=-1,bestDist=999;
+    for(var k=0;k<=12;k++){
+      var f=k/12;
+      var lA=sidLon(PL[plA],y,f),lB=sidLon(PL[plB],y,f);
+      var sep=(lA-lB)%360;if(sep<0)sep+=360;
+      for(var p=0;p<8;p++){
+        var dist=Math.abs(sep-aspAngles[p]);
+        if(dist>180)dist=360-dist;
+        if(dist<bestDist){bestDist=dist;bestPhase=p;}
+      }
+    }
+    if(bestDist<=orb){
+      var ph=phases[bestPhase];
+      ctx.fillStyle=ph.col;ctx.globalAlpha=0.3;
+      ctx.fillRect(x0,base+mutH,CW,stripH-mutH);
+      ctx.globalAlpha=1;
+      var symFs=Math.max(12,Math.min(20,Math.round(CW*0.22)));
+      ctx.font='bold '+symFs+'px serif';
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillStyle='rgba(255,255,255,.9)';
+      ctx.fillText(ph.sym,x0+CW/2,base+mutH+(stripH-mutH)*0.45);
+      hits.push({idx:idx,phase:bestPhase,x0:x0});
+    }else{
+      hits.push({idx:idx,phase:-1,x0:x0});
+    }
+  });
+  var ci=0;
+  while(ci<hits.length){
+    if(hits[ci].phase<0){ci++;continue;}
+    var cj=ci,curP=hits[ci].phase;
+    while(cj<hits.length&&hits[cj].phase===curP)cj++;
+    var mid=Math.floor((ci+cj-1)/2);
+    var midX=hits[mid].x0+CW/2;
+    if((cj-ci)%2===0) midX=(hits[ci+Math.floor((cj-ci)/2)-1].x0+CW+hits[ci+Math.floor((cj-ci)/2)].x0)/2;
+    var ph=phases[curP];
+    var descFs=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+    ctx.font=descFs+'px Courier New';
+    var tw=ctx.measureText(ph.desc).width+8;
+    var th=descFs+4;
+    var bx=midX-tw/2,by=base+stripH-th-1;
+    ctx.fillStyle=ph.col;ctx.globalAlpha=0.5;
+    ctx.beginPath();
+    if(ctx.roundRect)ctx.roundRect(bx,by,tw,th,2);else ctx.rect(bx,by,tw,th);
+    ctx.fill();ctx.globalAlpha=1;
+    ctx.fillStyle='rgba(255,255,255,.8)';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(ph.desc,midX,by+th/2);
+    ci=cj;
+  }
+}
+
+function barbaultColor(val){
+  var gRange=barbGlobalMax-barbGlobalMin||1;
+  var t=Math.max(0,Math.min(1,(val-barbGlobalMin)/gRange));
+  if(t<0.5){var r=Math.round(200+55*(t*2)),g=Math.round(80+120*(t*2));return 'rgb('+r+','+g+',60)';}
+  else{var r2=Math.round(255-180*((t-0.5)*2)),g2=Math.round(200+55*((t-0.5)*2));return 'rgb('+r2+','+g2+',70)';}
+}
 function getEra(y){for(let i=0;i<ERAS.length;i++)if(y>=ERAS[i].start&&y<ERAS[i].end)return i;return -1;}
 function isTransition(y){
   for(let i=0;i<ERAS.length-1;i++){
@@ -8099,10 +8674,24 @@ function findAspects(){
     if(best<=orb){
       aspHits.add(y);
       const l0=sidLon(PL[selPl[0]],y,bestF),l1=sidLon(PL[selPl[1]],y,bestF);
-      aspDetail[y]={s0:toSign(l0),s1:toSign(l1),orb:best.toFixed(1),frac:bestF,
-        month:MONTHS[Math.min(11,Math.floor(bestF*12))]};
+      aspDetail[y]={s0:toSign(l0),s1:toSign(l1),orb:parseFloat(best.toFixed(1)),frac:bestF,
+        month:MONTHS[Math.min(11,Math.floor(bestF*12))],exact:false};
     }
   }
+  var sorted=Array.from(aspHits).sort(function(a,b){return a-b;});
+  var i=0;
+  while(i<sorted.length){
+    var j=i,minOrb=999,minY=sorted[i];
+    while(j<sorted.length&&(j===i||sorted[j]===sorted[j-1]+1)){
+      if(aspDetail[sorted[j]].orb<minOrb){minOrb=aspDetail[sorted[j]].orb;minY=sorted[j];}
+      j++;
+    }
+    aspDetail[minY].exact=true;
+    i=j;
+  }
+  var newHits=new Set();
+  sorted.forEach(function(y){if(aspDetail[y]&&aspDetail[y].exact)newHits.add(y);});
+  aspHits=newHits;
 }
 
 function drawBarShape(ctx,x,y,w,h,leftMod,rightMod,fill){
@@ -8138,8 +8727,8 @@ function drawRow(holder,years){
     const hit=aspHits.has(y);
     const dim=filterOn&&!hit;
     
-    ctx.font=(y%100===0?'bold ':'')+'9px Courier New';
-    ctx.fillStyle=dim?'rgba(255,255,255,.12)':(y%100===0?'rgba(255,255,255,.65)':'rgba(255,255,255,.35)');
+    ctx.font=(y%100===0?'bold ':'')+yearFontSize()+'px Courier New';
+    ctx.fillStyle=dim?'rgba(255,255,255,.2)':(y%100===0?'rgba(255,255,255,.95)':'rgba(255,255,255,.75)');
     ctx.textAlign='left';ctx.textBaseline='top';
     ctx.fillText(fY(y),x0+1,1);
     
@@ -8153,7 +8742,7 @@ function drawRow(holder,years){
     
     if(d){
       d.forEach(function(info,pi){
-        const by=LBL_H+pi*(BH+1);
+        const by=LBL_H()+pi*(BH+1);
         const plSelected=!filterOn||selPl.indexOf(pi)>=0;
         const barAlpha=dim?0.18:(hit&&!plSelected?0.15:0.9);
         if(!info){
@@ -8193,35 +8782,415 @@ function drawRow(holder,years){
     if(hit&&aspDetail[y]&&aspDetail[y].frac!==undefined){
       const det=aspDetail[y];
       const mx=x0+det.frac*CW;
-      const yTop=LBL_H-2,yBot=LBL_H+7*(BH+1);
-      ctx.strokeStyle='rgba(255,220,90,.9)';
-      ctx.lineWidth=1.5;
-      ctx.setLineDash([3,2]);
-      ctx.beginPath();ctx.moveTo(mx,yTop);ctx.lineTo(mx,yBot);ctx.stroke();
-      ctx.setLineDash([]);
+      const sz=Math.max(4,Math.round(BH*0.55));
+      var aspCol=selAsp===120||selAsp===60?'rgba(80,200,140,.95)':'rgba(231,100,70,.95)';
       selPl.forEach(function(pi){
-        const cy=LBL_H+pi*(BH+1)+BH/2;
-        ctx.fillStyle='#ffdc5a';
-        ctx.beginPath();
-        ctx.moveTo(mx,cy-3.5);ctx.lineTo(mx+3.5,cy);ctx.lineTo(mx,cy+3.5);ctx.lineTo(mx-3.5,cy);
-        ctx.closePath();ctx.fill();
+        var cy=LBL_H()+pi*(BH+1)+BH/2;
+        ctx.fillStyle=aspCol;ctx.strokeStyle='rgba(255,255,255,.7)';ctx.lineWidth=0.8;
+        if(selAsp===90){
+          ctx.fillRect(mx-sz/2,cy-sz/2,sz,sz);ctx.strokeRect(mx-sz/2,cy-sz/2,sz,sz);
+        }else if(selAsp===120){
+          ctx.beginPath();ctx.moveTo(mx,cy-sz*0.65);ctx.lineTo(mx+sz*0.6,cy+sz*0.4);ctx.lineTo(mx-sz*0.6,cy+sz*0.4);ctx.closePath();ctx.fill();ctx.stroke();
+        }else if(selAsp===60){
+          var r2=sz*0.45;
+          ctx.beginPath();for(var k=0;k<6;k++){var a2=Math.PI/3*k-Math.PI/2;ctx.lineTo(mx+r2*Math.cos(a2),cy+r2*Math.sin(a2));}ctx.closePath();ctx.fill();ctx.stroke();
+        }else if(selAsp===180){
+          ctx.beginPath();ctx.arc(mx,cy,sz*0.45,0,Math.PI*2);ctx.fill();ctx.stroke();
+          ctx.fillStyle='rgba(0,0,0,.5)';ctx.fillRect(mx-sz*0.5,cy-0.6,sz,1.2);
+        }else{
+          ctx.beginPath();ctx.arc(mx,cy,sz*0.45,0,Math.PI*2);ctx.fill();ctx.stroke();
+        }
       });
     }
     
-    if(hit&&aspDetail[y]){
-      const det=aspDetail[y];
-      const badge=SIGNS[det.s0].g+'·'+SIGNS[det.s1].g+(det.month?' '+det.month:'');
-      ctx.font='bold 9px serif';
-      const bw=ctx.measureText(badge).width+8;
-      const bx=x0+CW/2-bw/2,byy=h-11;
-      ctx.fillStyle='rgba(231,76,60,.9)';
+    if(hit&&aspDetail[y]&&aspDetail[y].exact){
+      var det2=aspDetail[y];
+      var sg0=SIGNS[det2.s0],sg1=SIGNS[det2.s1];
+      const isSameSign=det2.s0===det2.s1;
+      const bfs=Math.max(9,Math.round(CW*0.13));
+      const badgeH=bfs+4;
+      var badgeText=isSameSign
+        ? sg0.g+' '+sg0.n+(det2.month?' · '+det2.month:'')
+        : sg0.g+'·'+sg1.g+(det2.month?' '+det2.month:'');
+      ctx.font='bold '+bfs+'px serif';
+      const bw=ctx.measureText(badgeText).width+10;
+      var satBottom=LBL_H()+2*(BH+1)+1;
+      const bx=x0+CW/2-bw/2,byy=satBottom;
+      var elCol=EC[sg0.el];
+      ctx.fillStyle=elCol;
+      ctx.globalAlpha=0.92;
       ctx.beginPath();
-      if(ctx.roundRect)ctx.roundRect(bx,byy,bw,10,3);else ctx.rect(bx,byy,bw,10);
+      if(ctx.roundRect)ctx.roundRect(bx,byy,bw,badgeH,3);else ctx.rect(bx,byy,bw,badgeH);
       ctx.fill();
+      ctx.globalAlpha=1;
+      ctx.strokeStyle='rgba(255,255,255,.25)';ctx.lineWidth=0.5;
+      ctx.beginPath();
+      if(ctx.roundRect)ctx.roundRect(bx,byy,bw,badgeH,3);else ctx.rect(bx,byy,bw,badgeH);
+      ctx.stroke();
       ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';
-      ctx.fillText(badge,x0+CW/2,byy+5.5);
+      ctx.fillText(badgeText,x0+CW/2,byy+badgeH/2);
     }
   });
+  
+  if(showElemDom){
+    var elemBase=LBL_H()+7*(BH+1)+4;
+    var elemSym={fire:'🔥',earth:'⛰',water:'💧',air:'💨'};
+    var elemNm={fire:'Fogo',earth:'Terra',water:'Água',air:'Ar'};
+    var totalWe=years.length*(CW+GAP)-GAP;
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);
+      var de=dominantElement(y);
+      var col=EC[de.el];
+      ctx.fillStyle=col;ctx.globalAlpha=0.7;
+      ctx.fillRect(x0,elemBase,CW,ELEM_H);
+      ctx.globalAlpha=1;
+      if(idx===0||dominantElement(years[idx-1]).el!==de.el){
+        ctx.strokeStyle='rgba(255,255,255,.25)';ctx.lineWidth=0.5;
+        ctx.beginPath();ctx.moveTo(x0,elemBase);ctx.lineTo(x0,elemBase+ELEM_H);ctx.stroke();
+      }
+      var efs=Math.max(7,Math.min(11,Math.round(CW*0.11)));
+      ctx.font='bold '+efs+'px Courier New';
+      ctx.fillStyle='rgba(255,255,255,.85)';
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      var elInit={fire:'F',earth:'T',water:'Ag',air:'Ar'};
+      ctx.fillText(de.count+elInit[de.el],x0+CW/2,elemBase+ELEM_H/2);
+    });
+    ctx.strokeStyle='rgba(255,255,255,.08)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,elemBase);ctx.lineTo(totalWe,elemBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,elemBase+ELEM_H);ctx.lineTo(totalWe,elemBase+ELEM_H);ctx.stroke();
+  }
+  
+  if(showJupSat){
+    var jsBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0);
+    var totalWj=years.length*(CW+GAP)-GAP;
+    var mutH=5;
+    ctx.fillStyle='rgba(0,0,0,.25)';
+    ctx.fillRect(0,jsBase,totalWj,JUPSAT_H);
+    var prevMutEl='';
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);
+      var mut=getMutationEl(y);
+      ctx.fillStyle=EC[mut.el];ctx.globalAlpha=0.85;
+      ctx.fillRect(x0,jsBase,CW,mutH);
+      ctx.globalAlpha=1;
+      if(mut.el!==prevMutEl&&idx>0){
+        ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(x0,jsBase);ctx.lineTo(x0,jsBase+JUPSAT_H);ctx.stroke();
+        var mutFs=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+        ctx.font='bold '+mutFs+'px Courier New';
+        ctx.fillStyle='rgba(255,255,255,.7)';
+        ctx.textAlign='left';ctx.textBaseline='top';
+        var elNm={fire:'FOGO',earth:'TERRA',water:'ÁGUA',air:'AR'};
+        ctx.fillText(elNm[mut.el],x0+2,jsBase+mutH+1);
+      }
+      prevMutEl=mut.el;
+    });
+    drawCyclePhases(ctx,years,jsBase,JUPSAT_H,mutH,0,1,JS_PHASES);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,jsBase);ctx.lineTo(totalWj,jsBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,jsBase+JUPSAT_H);ctx.lineTo(totalWj,jsBase+JUPSAT_H);ctx.stroke();
+  }
+  
+  if(showSatPlu){
+    var spBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0);
+    var totalWsp=years.length*(CW+GAP)-GAP;
+    var mutHsp=5;
+    ctx.fillStyle='rgba(0,0,0,.25)';
+    ctx.fillRect(0,spBase,totalWsp,SATPLU_H);
+    var prevMutElsp='';
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);
+      var mut=getSatPluEl(y);
+      ctx.fillStyle=EC[mut.el];ctx.globalAlpha=0.85;
+      ctx.fillRect(x0,spBase,CW,mutHsp);
+      ctx.globalAlpha=1;
+      if(mut.el!==prevMutElsp&&idx>0){
+        ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(x0,spBase);ctx.lineTo(x0,spBase+SATPLU_H);ctx.stroke();
+        var mutFssp=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+        ctx.font='bold '+mutFssp+'px Courier New';
+        ctx.fillStyle='rgba(255,255,255,.7)';
+        ctx.textAlign='left';ctx.textBaseline='top';
+        var elNmsp={fire:'FOGO',earth:'TERRA',water:'ÁGUA',air:'AR'};
+        ctx.fillText(elNmsp[mut.el],x0+2,spBase+mutHsp+1);
+      }
+      prevMutElsp=mut.el;
+    });
+    drawCyclePhases(ctx,years,spBase,SATPLU_H,mutHsp,1,4,SP_PHASES);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,spBase);ctx.lineTo(totalWsp,spBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,spBase+SATPLU_H);ctx.lineTo(totalWsp,spBase+SATPLU_H);ctx.stroke();
+  }
+  
+  if(showUraPlu){
+    var upBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0);
+    var totalWup=years.length*(CW+GAP)-GAP;
+    var mutHup=5;
+    ctx.fillStyle='rgba(0,0,0,.25)';
+    ctx.fillRect(0,upBase,totalWup,URAPLU_H);
+    var prevMutElup='';
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);
+      var mut=getUraPluEl(y);
+      ctx.fillStyle=EC[mut.el];ctx.globalAlpha=0.85;
+      ctx.fillRect(x0,upBase,CW,mutHup);
+      ctx.globalAlpha=1;
+      if(mut.el!==prevMutElup&&idx>0){
+        ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(x0,upBase);ctx.lineTo(x0,upBase+URAPLU_H);ctx.stroke();
+        var mutFsup=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+        ctx.font='bold '+mutFsup+'px Courier New';
+        ctx.fillStyle='rgba(255,255,255,.7)';
+        ctx.textAlign='left';ctx.textBaseline='top';
+        var elNmup={fire:'FOGO',earth:'TERRA',water:'ÁGUA',air:'AR'};
+        ctx.fillText(elNmup[mut.el],x0+2,upBase+mutHup+1);
+      }
+      prevMutElup=mut.el;
+    });
+    drawCyclePhases(ctx,years,upBase,URAPLU_H,mutHup,2,4,UP_PHASES);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,upBase);ctx.lineTo(totalWup,upBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,upBase+URAPLU_H);ctx.lineTo(totalWup,upBase+URAPLU_H);ctx.stroke();
+  }
+  
+    if(showSatUra){
+    var suBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0);
+    var totalWsu=years.length*(CW+GAP)-GAP;
+    var mutHsu=5;
+    ctx.fillStyle='rgba(0,0,0,.25)';
+    ctx.fillRect(0,suBase,totalWsu,SATURA_H);
+    var prevMutElsu='';
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);
+      var mut=getSatUraEl(y);
+      ctx.fillStyle=EC[mut.el];ctx.globalAlpha=0.85;
+      ctx.fillRect(x0,suBase,CW,mutHsu);
+      ctx.globalAlpha=1;
+      if(mut.el!==prevMutElsu&&idx>0){
+        ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(x0,suBase);ctx.lineTo(x0,suBase+SATURA_H);ctx.stroke();
+        var mutFssu=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+        ctx.font='bold '+mutFssu+'px Courier New';
+        ctx.fillStyle='rgba(255,255,255,.7)';
+        ctx.textAlign='left';ctx.textBaseline='top';
+        var elNmsu={fire:'FOGO',earth:'TERRA',water:'ÁGUA',air:'AR'};
+        ctx.fillText(elNmsu[mut.el],x0+2,suBase+mutHsu+1);
+      }
+      prevMutElsu=mut.el;
+    });
+    drawCyclePhases(ctx,years,suBase,SATURA_H,mutHsu,1,2,SU_PHASES);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,suBase);ctx.lineTo(totalWsu,suBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,suBase+SATURA_H);ctx.lineTo(totalWsu,suBase+SATURA_H);ctx.stroke();
+  }
+  
+  if(showNetPlu){
+    var npBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0);
+    var totalWnp=years.length*(CW+GAP)-GAP;
+    var mutHnp=5;
+    ctx.fillStyle='rgba(0,0,0,.25)';
+    ctx.fillRect(0,npBase,totalWnp,NETPLU_H);
+    var prevMutElnp='';
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);
+      var mut=getNetPluEl(y);
+      ctx.fillStyle=EC[mut.el];ctx.globalAlpha=0.85;
+      ctx.fillRect(x0,npBase,CW,mutHnp);
+      ctx.globalAlpha=1;
+      if(mut.el!==prevMutElnp&&idx>0){
+        ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(x0,npBase);ctx.lineTo(x0,npBase+NETPLU_H);ctx.stroke();
+        var mutFsnp=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+        ctx.font='bold '+mutFsnp+'px Courier New';
+        ctx.fillStyle='rgba(255,255,255,.7)';
+        ctx.textAlign='left';ctx.textBaseline='top';
+        var elNmnp={fire:'FOGO',earth:'TERRA',water:'ÁGUA',air:'AR'};
+        ctx.fillText(elNmnp[mut.el],x0+2,npBase+mutHnp+1);
+      }
+      prevMutElnp=mut.el;
+    });
+    drawCyclePhases(ctx,years,npBase,NETPLU_H,mutHnp,3,4,NP_PHASES);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,npBase);ctx.lineTo(totalWnp,npBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,npBase+NETPLU_H);ctx.lineTo(totalWnp,npBase+NETPLU_H);ctx.stroke();
+  }
+  
+  if(showSatNet){
+    var snBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0);
+    var totalWsn=years.length*(CW+GAP)-GAP;var mutHsn=5;
+    ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,snBase,totalWsn,SATNET_H);
+    var prevMutElsn='';
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);var mut=getSatNetEl(y);
+      ctx.fillStyle=EC[mut.el];ctx.globalAlpha=0.85;ctx.fillRect(x0,snBase,CW,mutHsn);ctx.globalAlpha=1;
+      if(mut.el!==prevMutElsn&&idx>0){
+        ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(x0,snBase);ctx.lineTo(x0,snBase+SATNET_H);ctx.stroke();
+        var fs2=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+        ctx.font='bold '+fs2+'px Courier New';ctx.fillStyle='rgba(255,255,255,.7)';
+        ctx.textAlign='left';ctx.textBaseline='top';
+        ctx.fillText({fire:'FOGO',earth:'TERRA',water:'ÁGUA',air:'AR'}[mut.el],x0+2,snBase+mutHsn+1);
+      }
+      prevMutElsn=mut.el;
+    });
+    drawCyclePhases(ctx,years,snBase,SATNET_H,mutHsn,1,3,SN_PHASES);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,snBase);ctx.lineTo(totalWsn,snBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,snBase+SATNET_H);ctx.lineTo(totalWsn,snBase+SATNET_H);ctx.stroke();
+  }
+  if(showUraNet){
+    var unBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0);
+    var totalWun=years.length*(CW+GAP)-GAP;var mutHun=5;
+    ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,unBase,totalWun,URANET_H);
+    var prevMutElun='';
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);var mut=getUraNetEl(y);
+      ctx.fillStyle=EC[mut.el];ctx.globalAlpha=0.85;ctx.fillRect(x0,unBase,CW,mutHun);ctx.globalAlpha=1;
+      if(mut.el!==prevMutElun&&idx>0){
+        ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(x0,unBase);ctx.lineTo(x0,unBase+URANET_H);ctx.stroke();
+        var fs2=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+        ctx.font='bold '+fs2+'px Courier New';ctx.fillStyle='rgba(255,255,255,.7)';
+        ctx.textAlign='left';ctx.textBaseline='top';
+        ctx.fillText({fire:'FOGO',earth:'TERRA',water:'ÁGUA',air:'AR'}[mut.el],x0+2,unBase+mutHun+1);
+      }
+      prevMutElun=mut.el;
+    });
+    drawCyclePhases(ctx,years,unBase,URANET_H,mutHun,2,3,UN_PHASES);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,unBase);ctx.lineTo(totalWun,unBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,unBase+URANET_H);ctx.lineTo(totalWun,unBase+URANET_H);ctx.stroke();
+  }
+  if(showJupUra){
+    var juBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0);
+    var twju=years.length*(CW+GAP)-GAP;var mhju=5;
+    ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,juBase,twju,JUPURA_H);
+    var prevju='';
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);var mut=getJupUraEl(y);
+      ctx.fillStyle=EC[mut.el];ctx.globalAlpha=0.85;ctx.fillRect(x0,juBase,CW,mhju);ctx.globalAlpha=1;
+      if(mut.el!==prevju&&idx>0){
+        ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(x0,juBase);ctx.lineTo(x0,juBase+JUPURA_H);ctx.stroke();
+        var fsju=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+        ctx.font='bold '+fsju+'px Courier New';ctx.fillStyle='rgba(255,255,255,.7)';
+        ctx.textAlign='left';ctx.textBaseline='top';
+        ctx.fillText({fire:'FOGO',earth:'TERRA',water:'ÁGUA',air:'AR'}[mut.el],x0+2,juBase+mhju+1);
+      }
+      prevju=mut.el;
+    });
+    drawCyclePhases(ctx,years,juBase,JUPURA_H,mhju,0,2,JU_PHASES);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,juBase);ctx.lineTo(twju,juBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,juBase+JUPURA_H);ctx.lineTo(twju,juBase+JUPURA_H);ctx.stroke();
+  }
+  if(showJupNet){
+    var jnBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0);
+    var twjn=years.length*(CW+GAP)-GAP;var mhjn=5;
+    ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,jnBase,twjn,JUPNET_H);
+    var prevjn='';
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);var mut=getJupNetEl(y);
+      ctx.fillStyle=EC[mut.el];ctx.globalAlpha=0.85;ctx.fillRect(x0,jnBase,CW,mhjn);ctx.globalAlpha=1;
+      if(mut.el!==prevjn&&idx>0){
+        ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(x0,jnBase);ctx.lineTo(x0,jnBase+JUPNET_H);ctx.stroke();
+        var fsjn=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+        ctx.font='bold '+fsjn+'px Courier New';ctx.fillStyle='rgba(255,255,255,.7)';
+        ctx.textAlign='left';ctx.textBaseline='top';
+        ctx.fillText({fire:'FOGO',earth:'TERRA',water:'ÁGUA',air:'AR'}[mut.el],x0+2,jnBase+mhjn+1);
+      }
+      prevjn=mut.el;
+    });
+    drawCyclePhases(ctx,years,jnBase,JUPNET_H,mhjn,0,3,JN_PHASES);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,jnBase);ctx.lineTo(twjn,jnBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,jnBase+JUPNET_H);ctx.lineTo(twjn,jnBase+JUPNET_H);ctx.stroke();
+  }
+  if(showJupPlu){
+    var jpBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0);
+    var twjp=years.length*(CW+GAP)-GAP;var mhjp=5;
+    ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,jpBase,twjp,JUPPLU_H);
+    var prevjp='';
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);var mut=getJupPluEl(y);
+      ctx.fillStyle=EC[mut.el];ctx.globalAlpha=0.85;ctx.fillRect(x0,jpBase,CW,mhjp);ctx.globalAlpha=1;
+      if(mut.el!==prevjp&&idx>0){
+        ctx.strokeStyle='rgba(255,255,255,.6)';ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(x0,jpBase);ctx.lineTo(x0,jpBase+JUPPLU_H);ctx.stroke();
+        var fsjp=Math.max(6,Math.min(9,Math.round(CW*0.09)));
+        ctx.font='bold '+fsjp+'px Courier New';ctx.fillStyle='rgba(255,255,255,.7)';
+        ctx.textAlign='left';ctx.textBaseline='top';
+        ctx.fillText({fire:'FOGO',earth:'TERRA',water:'ÁGUA',air:'AR'}[mut.el],x0+2,jpBase+mhjp+1);
+      }
+      prevjp=mut.el;
+    });
+    drawCyclePhases(ctx,years,jpBase,JUPPLU_H,mhjp,0,4,JP_PHASES);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,jpBase);ctx.lineTo(twjp,jpBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,jpBase+JUPPLU_H);ctx.lineTo(twjp,jpBase+JUPPLU_H);ctx.stroke();
+  }
+    if(showBarbault){
+    var barbBase=LBL_H()+7*(BH+1)+6+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0)+(showJupPlu?JUPPLU_H+2:0);
+    var barbH=BARB_H-4;
+    var totalW=years.length*(CW+GAP)-GAP;
+    var gRange=barbGlobalMax-barbGlobalMin||1;
+    ctx.fillStyle='rgba(0,0,0,.35)';
+    ctx.fillRect(0,barbBase-2,totalW,barbH+4);
+    ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=0.5;
+    ctx.beginPath();ctx.moveTo(0,barbBase-2);ctx.lineTo(totalW,barbBase-2);ctx.stroke();
+    var bPts=[];
+    years.forEach(function(y,idx){
+      var val=barbaultIdx(y);
+      var x0=idx*(CW+GAP);
+      var t=Math.max(0,Math.min(1,(val-barbGlobalMin)/gRange));
+      var barH2=Math.round(t*barbH);
+      var bc=barbaultColor(val);
+      ctx.fillStyle=bc;ctx.globalAlpha=0.45;
+      ctx.fillRect(x0+1,barbBase+barbH-barH2,CW-2,barH2);
+      ctx.globalAlpha=1;
+      bPts.push({x:x0+CW/2,y:barbBase+barbH-barH2,val:val,col:bc,idx:idx});
+    });
+    var yLineMax=barbBase;
+    var yLineMin=barbBase+barbH;
+    var lblFs=Math.max(7,Math.min(10,Math.round(CW*0.1)));
+    ctx.setLineDash([3,3]);ctx.lineWidth=0.7;
+    ctx.strokeStyle='rgba(100,220,120,.3)';
+    ctx.beginPath();ctx.moveTo(0,yLineMax);ctx.lineTo(totalW,yLineMax);ctx.stroke();
+    ctx.strokeStyle='rgba(220,80,60,.3)';
+    ctx.beginPath();ctx.moveTo(0,yLineMin);ctx.lineTo(totalW,yLineMin);ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.font=lblFs+'px Courier New';ctx.textBaseline='bottom';
+    ctx.fillStyle='rgba(100,220,120,.45)';ctx.textAlign='right';
+    ctx.fillText(Math.round(barbGlobalMax),totalW-2,yLineMax-1);
+    ctx.fillStyle='rgba(220,80,60,.45)';ctx.textBaseline='top';
+    ctx.fillText(Math.round(barbGlobalMin),totalW-2,yLineMin+1);
+    if(bPts.length>1){
+      ctx.lineWidth=1.8;ctx.lineJoin='round';
+      for(var bp=0;bp<bPts.length-1;bp++){
+        ctx.strokeStyle=bPts[bp].col;
+        ctx.beginPath();ctx.moveTo(bPts[bp].x,bPts[bp].y);ctx.lineTo(bPts[bp+1].x,bPts[bp+1].y);ctx.stroke();
+      }
+    }
+    bPts.forEach(function(p,i){
+      ctx.fillStyle=p.col;
+      ctx.beginPath();ctx.arc(p.x,p.y,2.5,0,Math.PI*2);ctx.fill();
+      var isPeak=false,isValley=false;
+      if(bPts.length>=3){
+        if(i>0&&i<bPts.length-1){
+          isPeak=p.val>=bPts[i-1].val&&p.val>=bPts[i+1].val&&p.val!==bPts[i-1].val;
+          isValley=p.val<=bPts[i-1].val&&p.val<=bPts[i+1].val&&p.val!==bPts[i-1].val;
+        }
+      }
+      if(isPeak||isValley){
+        ctx.font='bold '+lblFs+'px Courier New';
+        ctx.fillStyle=isPeak?'rgba(100,230,130,.85)':'rgba(240,90,70,.85)';
+        ctx.textAlign='center';
+        ctx.textBaseline=isPeak?'bottom':'top';
+        ctx.fillText(Math.round(p.val),p.x,isPeak?p.y-4:p.y+5);
+      }
+    });
+  }
 }
 
 function drawSidebar(sb){
@@ -8234,7 +9203,7 @@ function drawSidebar(sb){
   ctx.scale(DPR,DPR);
   ctx.clearRect(0,0,SB_W,h);
   PL.forEach(function(p,pi){
-    const by=LBL_H+pi*(BH+1);
+    const by=LBL_H()+pi*(BH+1);
     ctx.fillStyle=p.pc;
     ctx.font='bold '+Math.min(BH+4,15)+'px serif';
     ctx.textAlign='left';ctx.textBaseline='middle';
@@ -8243,6 +9212,97 @@ function drawSidebar(sb){
     ctx.fillStyle='rgba(255,255,255,.55)';
     ctx.fillText(p.name,22,by+BH/2);
   });
+  if(showElemDom){
+    var elemBase2=LBL_H()+7*(BH+1)+4;
+    ctx.fillStyle='rgba(255,255,255,.45)';
+    ctx.font='bold '+Math.min(BH+2,10)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='middle';
+    ctx.fillText('Elemento',4,elemBase2+ELEM_H/2);
+  }
+  if(showJupSat){
+    var jsBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';
+    ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Júpiter',4,jsBase2+2);
+    ctx.fillText('vs Saturno',4,jsBase2+12);
+  }
+  if(showSatPlu){
+    var spBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';
+    ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Saturno',4,spBase2+2);
+    ctx.fillText('vs Plutão',4,spBase2+12);
+  }
+  if(showUraPlu){
+    var upBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';
+    ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Urano',4,upBase2+2);
+    ctx.fillText('vs Plutão',4,upBase2+12);
+  }
+  if(showSatUra){
+    var suBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';
+    ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Saturno',4,suBase2+2);
+    ctx.fillText('vs Urano',4,suBase2+12);
+  }
+  if(showNetPlu){
+    var npBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';
+    ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Netuno',4,npBase2+2);
+    ctx.fillText('vs Plutão',4,npBase2+12);
+  }
+  if(showSatNet){
+    var snBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';
+    ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Saturno',4,snBase2+2);
+    ctx.fillText('vs Netuno',4,snBase2+12);
+  }
+  if(showUraNet){
+    var unBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';
+    ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Urano',4,unBase2+2);
+    ctx.fillText('vs Netuno',4,unBase2+12);
+  }
+  if(showJupUra){
+    var juBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Júpiter',4,juBase2+2);ctx.fillText('vs Urano',4,juBase2+12);
+  }
+  if(showJupNet){
+    var jnBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Júpiter',4,jnBase2+2);ctx.fillText('vs Netuno',4,jnBase2+12);
+  }
+  if(showJupPlu){
+    var jpBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Júpiter',4,jpBase2+2);ctx.fillText('vs Plutão',4,jpBase2+12);
+  }
+  if(showBarbault){
+    var barbBase=LBL_H()+7*(BH+1)+6+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0)+(showJupPlu?JUPPLU_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';
+    ctx.font='bold '+Math.min(BH+2,10)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('Barbault',4,barbBase);
+    ctx.font=Math.min(BH,8)+'px Courier New';
+    ctx.fillStyle='rgba(255,255,255,.25)';
+    ctx.fillText('Índice',4,barbBase+11);
+  }
 }
 
 function buildSegments(){
@@ -8387,6 +9447,30 @@ function updateInfo(){
   document.getElementById('esc-info').textContent=(Y1-Y0+1)+' anos · '+fY(Y0)+' → '+fY(Y1)+' · dados aproximados (órbitas médias)';
 }
 
+function escPreset(ids){
+  // Turn off all cycle/index toggles
+  var allIds=['esc-barb-toggle','esc-elem-toggle','esc-jupsat-toggle','esc-satplu-toggle','esc-uraplu-toggle','esc-satura-toggle','esc-netplu-toggle','esc-satnet-toggle','esc-uranet-toggle','esc-jupura-toggle','esc-jupnet-toggle','esc-jupplu-toggle'];
+  allIds.forEach(function(id){
+    var el=document.getElementById(id);
+    if(el){
+      var inp=el.querySelector('input');
+      if(inp.checked){inp.checked=false;inp.dispatchEvent(new Event('change'));}
+    }
+  });
+  // Turn on selected
+  ids.forEach(function(id){
+    var el=document.getElementById(id);
+    if(el){
+      var inp=el.querySelector('input');
+      if(!inp.checked){inp.checked=true;inp.dispatchEvent(new Event('change'));}
+    }
+  });
+  // Set default aspect if none selected
+  if(!selAsp&&selAsp!==0){
+    var conjCb=document.querySelector('[data-asp="0"]');
+    if(conjCb){var ci=conjCb.querySelector('input');ci.checked=true;ci.dispatchEvent(new Event('change'));}
+  }
+}
 function buildFilters(){
   const asps=[{v:0,l:'☌ Conjunção'},{v:180,l:'☍ Oposição'},{v:90,l:'□ Quadratura'},{v:120,l:'△ Trígono'},{v:60,l:'⚹ Sextil'}];
   const ac=document.getElementById('esc-asp-cbs');
@@ -8406,26 +9490,35 @@ function buildFilters(){
       findAspects();redrawVisible();updateInfo();
     });
   });
-  const pc=document.getElementById('esc-pl-cbs');
-  pc.innerHTML=PL.map(function(p,i){return '<label class="esc-cb" data-pl="'+i+'"><input type="checkbox"><span>'+p.sym+' '+p.name+'</span></label>';}).join('');
-  pc.querySelectorAll('.esc-cb input').forEach(function(inp){
-    inp.addEventListener('change',function(){
-      const cb=this.closest('.esc-cb');
-      const v=parseInt(cb.dataset.pl);
+  // Pair checkboxes → set selPl for aspect filtering
+  document.querySelectorAll('[data-pair]').forEach(function(cb){
+    cb.querySelector('input').addEventListener('change',function(){
       if(this.checked){
-        if(selPl.length>=2){
-          const old=selPl.shift();
-          const oc=pc.querySelector('[data-pl="'+old+'"]');
-          oc.classList.remove('on');oc.querySelector('input').checked=false;
-        }
-        selPl.push(v);cb.classList.add('on');
+        var pair=cb.dataset.pair.split(',').map(Number);
+        selPl=pair;
+        // Dim other pairs' on-state for selPl (visual hint)
+        document.querySelectorAll('[data-pair]').forEach(function(o){
+          o.classList.remove('on-pl');
+        });
+        cb.classList.add('on-pl');
       }else{
-        const idx=selPl.indexOf(v);
-        if(idx>=0)selPl.splice(idx,1);
-        cb.classList.remove('on');
+        if(cb.classList.contains('on-pl')){
+          selPl=[];
+          cb.classList.remove('on-pl');
+        }
       }
       findAspects();redrawVisible();updateInfo();
     });
+  });
+  // Presets
+  document.getElementById('esc-preset-top3').addEventListener('click',function(){
+    escPreset(['esc-netplu-toggle','esc-uraplu-toggle','esc-jupsat-toggle','esc-barb-toggle']);
+  });
+  document.getElementById('esc-preset-all10').addEventListener('click',function(){
+    escPreset(['esc-netplu-toggle','esc-uranet-toggle','esc-uraplu-toggle','esc-satplu-toggle','esc-satura-toggle','esc-satnet-toggle','esc-jupsat-toggle','esc-jupura-toggle','esc-jupnet-toggle','esc-jupplu-toggle','esc-barb-toggle','esc-elem-toggle']);
+  });
+  document.getElementById('esc-preset-clear').addEventListener('click',function(){
+    escPreset([]);
   });
   // Era tabs — only eras with content in range (era overlap or adjacent transition overlap)
   const es=document.getElementById('esc-era-sel');
@@ -8451,11 +9544,162 @@ function buildFilters(){
       buildMatrix();
     });
   });
+  document.querySelector('#esc-barb-toggle input').addEventListener('change',function(){
+    showBarbault=this.checked;
+    if(showBarbault)computeBarbaultGlobals();
+    this.closest('.esc-cb').classList.toggle('on-asp',showBarbault);
+    buildMatrix();
+  });
+  document.querySelector('#esc-elem-toggle input').addEventListener('change',function(){
+    showElemDom=this.checked;
+    this.closest('.esc-cb').classList.toggle('on-asp',showElemDom);
+    buildMatrix();
+  });
+  document.querySelector('#esc-jupsat-toggle input').addEventListener('change',function(){
+    showJupSat=this.checked;
+    if(showJupSat)computeMutations();
+    this.closest('.esc-cb').classList.toggle('on-asp',showJupSat);
+    buildMatrix();
+  });
+  document.querySelector('#esc-satplu-toggle input').addEventListener('change',function(){
+    showSatPlu=this.checked;
+    if(showSatPlu)computeSatPlu();
+    this.closest('.esc-cb').classList.toggle('on-asp',showSatPlu);
+    buildMatrix();
+  });
+  document.querySelector('#esc-uraplu-toggle input').addEventListener('change',function(){
+    showUraPlu=this.checked;
+    if(showUraPlu)computeUraPlu();
+    this.closest('.esc-cb').classList.toggle('on-asp',showUraPlu);
+    buildMatrix();
+  });
+  document.querySelector('#esc-satura-toggle input').addEventListener('change',function(){
+    showSatUra=this.checked;
+    if(showSatUra)computeSatUra();
+    this.closest('.esc-cb').classList.toggle('on-asp',showSatUra);
+    buildMatrix();
+  });
+  document.querySelector('#esc-netplu-toggle input').addEventListener('change',function(){
+    showNetPlu=this.checked;
+    if(showNetPlu)computeNetPlu();
+    this.closest('.esc-cb').classList.toggle('on-asp',showNetPlu);
+    buildMatrix();
+  });
+  document.querySelector('#esc-satnet-toggle input').addEventListener('change',function(){
+    showSatNet=this.checked;
+    if(showSatNet)computeSatNet();
+    this.closest('.esc-cb').classList.toggle('on-asp',showSatNet);
+    buildMatrix();
+  });
+  document.querySelector('#esc-uranet-toggle input').addEventListener('change',function(){
+    showUraNet=this.checked;
+    if(showUraNet)computeUraNet();
+    this.closest('.esc-cb').classList.toggle('on-asp',showUraNet);
+    buildMatrix();
+  });
+  document.querySelector('#esc-jupura-toggle input').addEventListener('change',function(){
+    showJupUra=this.checked;if(showJupUra)computeJupUra();
+    this.closest('.esc-cb').classList.toggle('on-asp',showJupUra);buildMatrix();
+  });
+  document.querySelector('#esc-jupnet-toggle input').addEventListener('change',function(){
+    showJupNet=this.checked;if(showJupNet)computeJupNet();
+    this.closest('.esc-cb').classList.toggle('on-asp',showJupNet);buildMatrix();
+  });
+  document.querySelector('#esc-jupplu-toggle input').addEventListener('change',function(){
+    showJupPlu=this.checked;if(showJupPlu)computeJupPlu();
+    this.closest('.esc-cb').classList.toggle('on-asp',showJupPlu);buildMatrix();
+  });
 }
 
 // hover + click
 function initEvents(){
   const matrix=document.getElementById('esc-matrix');
+  matrix.addEventListener('click',function(e){
+    var sb=e.target.closest('.esc-sb');
+    if(sb&&showJupSat){
+      var rect=sb.getBoundingClientRect();
+      var cy=e.clientY-rect.top;
+      var jsBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0);
+      if(cy>=jsBase2&&cy<=jsBase2+JUPSAT_H){
+        document.getElementById('esc-js-modal').classList.add('open');
+        return;
+      }
+    }
+    if(sb&&showSatPlu){
+      var rect2=sb.getBoundingClientRect();
+      var cy2=e.clientY-rect2.top;
+      var spBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0);
+      if(cy2>=spBase2&&cy2<=spBase2+SATPLU_H){
+        document.getElementById('esc-sp-modal').classList.add('open');
+        return;
+      }
+    }
+    if(sb&&showUraPlu){
+      var rect3=sb.getBoundingClientRect();
+      var cy3=e.clientY-rect3.top;
+      var upBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0);
+      if(cy3>=upBase3&&cy3<=upBase3+URAPLU_H){
+        document.getElementById('esc-up-modal').style.display='flex';
+        document.getElementById('esc-up-modal').classList.add('open');
+        return;
+      }
+    }
+    if(sb&&showSatUra){
+      var rect4=sb.getBoundingClientRect();
+      var cy4=e.clientY-rect4.top;
+      var suBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0);
+      if(cy4>=suBase3&&cy4<=suBase3+SATURA_H){
+        document.getElementById('esc-su-modal').style.display='flex';
+        document.getElementById('esc-su-modal').classList.add('open');
+        return;
+      }
+    }
+    if(sb&&showNetPlu){
+      var rect5=sb.getBoundingClientRect();
+      var cy5=e.clientY-rect5.top;
+      var npBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0);
+      if(cy5>=npBase3&&cy5<=npBase3+NETPLU_H){
+        document.getElementById('esc-np-modal').style.display='flex';
+        document.getElementById('esc-np-modal').classList.add('open');
+        return;
+      }
+    }
+    if(sb&&showSatNet){
+      var rect6=sb.getBoundingClientRect();
+      var cy6=e.clientY-rect6.top;
+      var snBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0);
+      if(cy6>=snBase3&&cy6<=snBase3+SATNET_H){
+        document.getElementById('esc-sn-modal').style.display='flex';
+        document.getElementById('esc-sn-modal').classList.add('open');
+        return;
+      }
+    }
+    if(sb&&showUraNet){
+      var rect7=sb.getBoundingClientRect();
+      var cy7=e.clientY-rect7.top;
+      var unBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0);
+      if(cy7>=unBase3&&cy7<=unBase3+URANET_H){
+        document.getElementById('esc-un-modal').style.display='flex';
+        document.getElementById('esc-un-modal').classList.add('open');
+        return;
+      }
+    }
+    if(sb&&showJupUra){
+      var r8=sb.getBoundingClientRect();var c8=e.clientY-r8.top;
+      var jub3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0);
+      if(c8>=jub3&&c8<=jub3+JUPURA_H){document.getElementById('esc-ju-modal').style.display='flex';document.getElementById('esc-ju-modal').classList.add('open');return;}
+    }
+    if(sb&&showJupNet){
+      var r9=sb.getBoundingClientRect();var c9=e.clientY-r9.top;
+      var jnb3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0);
+      if(c9>=jnb3&&c9<=jnb3+JUPNET_H){document.getElementById('esc-jn-modal').style.display='flex';document.getElementById('esc-jn-modal').classList.add('open');return;}
+    }
+    if(sb&&showJupPlu){
+      var r10=sb.getBoundingClientRect();var c10=e.clientY-r10.top;
+      var jpb3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0);
+      if(c10>=jpb3&&c10<=jpb3+JUPPLU_H){document.getElementById('esc-jp-modal').style.display='flex';document.getElementById('esc-jp-modal').classList.add('open');return;}
+    }
+  });
   // botão ↗ "ir pro Gantt" — aparece só no hover do ano
   const gotoBtn=document.createElement('div');
   gotoBtn.id='esc-goto';
@@ -8581,6 +9825,353 @@ document.getElementById('esc-toggle-btn').addEventListener('click',function(){
     },120);
   }
 });
+})();
+
+
+
+// ═══ BARBAULT DECOMPOSTO (inside Scanner) ═══
+(function(){
+var BD_COLORS=['#e6b422','#e07830','#d04040','#c03070','#40a060','#30a0a0','#4080d0','#8060c0','#a04090','#607890'];
+var BD_LABELS=['Júp–Sat','Júp–Ura','Júp–Net','Júp–Plu','Sat–Ura','Sat–Net','Sat–Plu','Ura–Net','Ura–Plu','Net–Plu'];
+var BD_FULL=['Júpiter–Saturno','Júpiter–Urano','Júpiter–Netuno','Júpiter–Plutão','Saturno–Urano','Saturno–Netuno','Saturno–Plutão','Urano–Netuno','Urano–Plutão','Netuno–Plutão'];
+var BD_MEANINGS=[
+  ['Nova Ordem Social','Crescimento Ordenado','Expansão vs Contração','Prosperidade Estável','Ajuste Socioeconômico','Polarização Social'],
+  ['Salto de Inovação','Oportunidade Tecnológica','Excesso vs Originalidade','Expansão Inventiva','Inquietação Progressista','Disrupção Amplificada'],
+  ['Fé Renovada','Inspiração Coletiva','Inflação de Ilusões','Compaixão em Fluxo','Idealismo Desalinhado','Verdade vs Crença'],
+  ['Poder Amplificado','Influência Estratégica','Ambição Desmedida','Transformação Próspera','Controle Sutil','Confronto de Poderes'],
+  ['Reset Estrutural','Inovação Institucional','Tradição vs Ruptura','Modernização Estável','Rigidez sob Pressão','Velho vs Novo'],
+  ['Dissolução de Estruturas','Idealismo Prático','Utopia vs Realidade','Sonho Materializado','Desilusão Estrutural','Verdade vs Ilusão'],
+  ['Colapso e Reconstrução','Reconstrução Estratégica','Crise de Autoridade','Poder Consolidado','Tensão Oculta no Poder','Confronto de Forças'],
+  ['Nova Consciência Coletiva','Despertar Criativo','Crise de Identidade Coletiva','Visão Integrada','Progresso vs Ilusão','Polarização Ideológica'],
+  ['Revolução Radical','Inovação Transformadora','Ruptura e Resistência','Evolução Acelerada','Inquietação Profunda','Confronto Geracional'],
+  ['Morte e Renascimento Civilizacional','Germinação da Nova Visão','Crise de Paradigma','Florescimento Cultural','Ajuste Civilizacional','Apogeu e Polarização'],
+];
+var BD_ASP_S=['☌','⚹','□','△','⚻','☍'];
+var BD_ASP_C=['#e83030','#b0a040','#d08030','#40b070','#8888aa','#30c090'];
+function bdAspI(d){if(d<45)return 0;if(d<75)return 1;if(d<105)return 2;if(d<135)return 3;if(d<165)return 4;return 5;}
+
+var bdViewMode='normal'; // 'normal' or 'decomp'
+var bdMode='lines';
+var bdHidden=new Set();
+window.bdShowStellium=true;
+window.bdShowCesta=true;
+var bdHoverYr=-1;
+var bdPairs=null,bdStellium=null,bdCesta=null,bdStPeaks=null,bdCePeaks=null;
+var bdY0=1900,bdY1=2100,bdN=201;
+
+function bdCompute(){
+  if(bdPairs)return;
+  // Inline planet data (same as Scanner PL[0..4])
+  var BPL=[
+    {L0:34.35,rate:30.348},  // Jupiter
+    {L0:50.08,rate:12.221},  // Saturn
+    {L0:314.06,rate:4.283},  // Uranus
+    {L0:304.35,rate:2.185},  // Neptune
+    {L0:238.96,rate:1.451}   // Pluto
+  ];
+  var BAYAN=25.06;
+  function bSidLon(pl,yr,f){var l=(pl.L0+pl.rate*(yr-2000+f)-BAYAN)%360;while(l<0)l+=360;return l;}
+  bdN=bdY1-bdY0+1;
+  bdPairs=[];
+  for(var pi=0;pi<10;pi++)bdPairs.push(new Float32Array(bdN));
+  var idx=0;
+  for(var pi=0;pi<5;pi++)for(var pj=pi+1;pj<5;pj++){
+    for(var y=0;y<bdN;y++){
+      var yr=bdY0+y;
+      var l0=bSidLon(BPL[pi],yr,0.5),l1=bSidLon(BPL[pj],yr,0.5);
+      var d=Math.abs(l0-l1)%360;if(d>180)d=360-d;
+      bdPairs[idx][y]=d;
+    }
+    idx++;
+  }
+  bdStellium=new Float32Array(bdN);
+  for(var y=0;y<bdN;y++){
+    var lons=[];for(var i=0;i<5;i++)lons.push(bSidLon(BPL[i],bdY0+y,0.5));
+    lons.sort(function(a,b){return a-b;});
+    var m=360;for(var i=0;i<5;i++){var a=((lons[(i+4)%5]-lons[i])%360+360)%360;if(a<m)m=a;}
+    bdStellium[y]=Math.max(0,Math.min(1,(120-m)/120));
+  }
+  bdCesta=new Float32Array(bdN);
+  for(var y=0;y<bdN;y++){
+    var o=0,t=0,s=0;
+    for(var p=0;p<10;p++){var v=bdPairs[p][y];if(v>=160)o++;else if(v>=110&&v<=140)t++;else if(v>=50&&v<=80)s++;}
+    if(o>=1&&t>=2&&s>=2)bdCesta[y]=1;
+    else if(o>=1&&(t>=1&&s>=2||t>=2&&s>=1))bdCesta[y]=.7;
+    else if(o>=1&&(t+s)>=3)bdCesta[y]=.4;
+    else bdCesta[y]=0;
+  }
+  function fpk(data,thr){var p=[];for(var y=1;y<bdN-1;y++)if(data[y]>=thr&&data[y]>=data[y-1]&&data[y]>=data[y+1]&&(data[y]>data[y-1]||data[y]>data[y+1]))p.push(y);
+    var f=[];for(var i=0;i<p.length;i++){var ex=null;for(var j=0;j<f.length;j++)if(Math.abs(f[j]-p[i])<10){ex=j;break;}
+    if(ex===null)f.push(p[i]);else if(data[p[i]]>data[f[ex]])f[ex]=p[i];}return f;}
+  bdStPeaks=fpk(bdStellium,.3);bdCePeaks=fpk(bdCesta,.35);
+}
+
+// Mode switching
+window.setBarbViewMode=function(m,el){
+  bdViewMode=m;
+  document.querySelectorAll('.barb-mbtn').forEach(function(b){b.classList.remove('active');});
+  el.classList.add('active');
+  var dw=document.getElementById('barb-decomp-wrap');
+  var mx=document.getElementById('esc-matrix');
+  if(m==='decomp'){
+    dw.classList.add('open');
+    mx.style.display='none';
+    bdCompute();drawBD();
+  }else{
+    dw.classList.remove('open');
+    mx.style.display='';
+  }
+};
+window.setBDMode=function(el){
+  document.querySelectorAll('.bd-btn').forEach(function(b){b.classList.remove('active');});
+  el.classList.add('active');bdMode=el.dataset.bdm;drawBD();
+};
+
+// Show mode buttons when Barbault checkbox is toggled
+var barbCB=document.querySelector('#esc-barb-toggle input');
+if(barbCB){
+  var origChange=barbCB.onchange;
+  barbCB.addEventListener('change',function(){
+    document.getElementById('barb-mode-btns').classList.toggle('vis',barbCB.checked);
+    if(!barbCB.checked){
+      document.getElementById('barb-decomp-wrap').classList.remove('open');
+      document.getElementById('esc-matrix').style.display='';
+      bdViewMode='normal';
+      document.querySelectorAll('.barb-mbtn').forEach(function(b){b.classList.toggle('active',b.dataset.bm==='normal');});
+    }
+  });
+}
+
+function bdVis(p){return!bdHidden.has(p);}
+
+window.drawBD=function(){
+  bdCompute();
+  var cv=document.getElementById('barb-d-canvas');if(!cv)return;
+  var ctx=cv.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var w=cv.parentElement.clientWidth;
+  var h=Math.min(380,Math.max(260,window.innerHeight*.38));
+  cv.style.height=h+'px';cv.width=w*dpr;cv.height=h*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  var W=w,H=h;ctx.fillStyle='rgba(8,8,18,.95)';ctx.fillRect(0,0,W,H);
+  var ML=48,MR=10,MT=20,MB=22,pW=W-ML-MR,pH=H-MT-MB;
+  function xP(yi){return ML+(yi/(bdN-1))*pW;}
+  var dMax=180;
+  if(bdMode==='stacked'||bdMode==='both'){var sM=0;for(var y=0;y<bdN;y++){var s=0;for(var p=0;p<10;p++)if(bdVis(p))s+=bdPairs[p][y];if(s>sM)sM=s;}dMax=Math.max(dMax,sM);}
+  var tM=0;for(var y=0;y<bdN;y++){var s=0;for(var p=0;p<10;p++)if(bdVis(p))s+=bdPairs[p][y];if(s>tM)tM=s;}
+  dMax=Math.max(dMax,tM)*1.06;
+  function yP(v){return MT+pH-(v/dMax)*pH;}
+  // Grid
+  var step=bdNice(dMax/4);
+  ctx.textAlign='right';ctx.font='9px Courier New';
+  for(var v=0;v<=dMax;v+=step){var yy=yP(v);ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(ML,yy);ctx.lineTo(W-MR,yy);ctx.stroke();ctx.fillStyle='#555';ctx.fillText(Math.round(v)+'°',ML-4,yy+3);}
+  // Years
+  ctx.fillStyle='#555';ctx.textAlign='center';ctx.font='9px Courier New';
+  var ystep=bdN>5000?500:bdN>2000?200:bdN>800?100:bdN>300?50:bdN>100?20:bdN>40?10:5;
+  for(var yi=0;yi<bdN;yi++){var yr=bdY0+yi;if(yr%ystep===0){var x=xP(yi);ctx.fillText(yr,x,H-MB+13);ctx.strokeStyle='rgba(255,255,255,.03)';ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(x,MT);ctx.lineTo(x,H-MB);ctx.stroke();}}
+  // Stacked
+  if(bdMode==='stacked'||bdMode==='both'){
+    var act=[];for(var p=0;p<10;p++)if(bdVis(p))act.push(p);var al=bdMode==='both'?.3:.5;
+    for(var ai=0;ai<act.length;ai++){var p=act[ai];ctx.beginPath();
+      for(var yi=0;yi<bdN;yi++){var c=0;for(var k=0;k<=ai;k++)c+=bdPairs[act[k]][yi];yi===0?ctx.moveTo(xP(yi),yP(c)):ctx.lineTo(xP(yi),yP(c));}
+      for(var yi=bdN-1;yi>=0;yi--){var c=0;for(var k=0;k<ai;k++)c+=bdPairs[act[k]][yi];ctx.lineTo(xP(yi),yP(c));}
+      ctx.closePath();ctx.fillStyle=BD_COLORS[p]+bdHexA(Math.round(al*255));ctx.fill();}}
+  // Lines
+  if(bdMode==='lines'||bdMode==='both'){
+    var lw=bdMode==='both'?1:1.5,la=bdMode==='both'?.7:.85;
+    for(var p=0;p<10;p++){if(!bdVis(p))continue;ctx.strokeStyle=BD_COLORS[p];ctx.lineWidth=lw;ctx.globalAlpha=la;ctx.beginPath();
+      for(var yi=0;yi<bdN;yi++){yi===0?ctx.moveTo(xP(yi),yP(bdPairs[p][yi])):ctx.lineTo(xP(yi),yP(bdPairs[p][yi]));}ctx.stroke();}ctx.globalAlpha=1;}
+  // Total
+  ctx.strokeStyle='#e0e0f0';ctx.lineWidth=2.5;ctx.globalAlpha=.85;ctx.beginPath();
+  for(var yi=0;yi<bdN;yi++){var s=0;for(var p=0;p<10;p++)if(bdVis(p))s+=bdPairs[p][yi];yi===0?ctx.moveTo(xP(yi),yP(s)):ctx.lineTo(xP(yi),yP(s));}
+  ctx.stroke();ctx.globalAlpha=1;
+  // Stellium
+  if(bdShowStellium&&bdStPeaks){bdStPeaks.forEach(function(pk){
+    var tv=0;for(var p=0;p<10;p++)tv+=bdPairs[p][pk];var x=xP(pk),yy=yP(tv)+10;ctx.globalAlpha=.85;
+    [[-2,-1.5],[2,-1.5],[0,2],[-1.2,.5],[1.2,.5]].forEach(function(o){ctx.fillStyle='#ff3030';ctx.beginPath();ctx.arc(x+o[0],yy+o[1],1.2,0,Math.PI*2);ctx.fill();});
+    ctx.strokeStyle='#ff404077';ctx.lineWidth=1;ctx.beginPath();ctx.arc(x,yy,4.5,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1;});}
+  // Cesta
+  if(bdShowCesta&&bdCePeaks){bdCePeaks.forEach(function(pk){
+    var tv=0;for(var p=0;p<10;p++)tv+=bdPairs[p][pk];var x=xP(pk),yy=yP(tv)-10,r=4;
+    ctx.strokeStyle='#30dd80';ctx.lineWidth=1.2;ctx.globalAlpha=.85;
+    ctx.beginPath();ctx.moveTo(x-r,yy-r*.3);ctx.quadraticCurveTo(x,yy+r*.6,x+r,yy-r*.3);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(x-r,yy-r*.3);ctx.lineTo(x-r*.5,yy-r);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(x+r,yy-r*.3);ctx.lineTo(x+r*.5,yy-r);ctx.stroke();
+    ctx.fillStyle='#30dd80';ctx.beginPath();ctx.arc(x,yy+r*.15,1.2,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;});}
+  // 2026
+  var nyi=2026-bdY0;if(nyi>=0&&nyi<bdN){var x=xP(nyi);ctx.strokeStyle='#ff4444';ctx.lineWidth=1;ctx.globalAlpha=.4;ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(x,MT);ctx.lineTo(x,H-MB);ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;ctx.fillStyle='#ff6666';ctx.font='bold 8px Courier New';ctx.textAlign='center';ctx.fillText('2026',x,MT-4);}
+  // Tooltip
+  if(bdHoverYr>=0&&bdHoverYr<bdN){
+    var x=xP(bdHoverYr);ctx.strokeStyle='rgba(255,255,255,.12)';ctx.lineWidth=1;ctx.setLineDash([2,2]);ctx.beginPath();ctx.moveTo(x,MT);ctx.lineTo(x,H-MB);ctx.stroke();ctx.setLineDash([]);
+    var yr=bdY0+bdHoverYr,items=[],total=0;
+    for(var p=0;p<10;p++){if(!bdVis(p))continue;var v=bdPairs[p][bdHoverYr];total+=v;var prev=bdHoverYr>0?bdPairs[p][bdHoverYr-1]:v;items.push({p:p,v:v,ai:bdAspI(v),dir:v>prev?'↑':v<prev?'↓':'–'});}
+    items.sort(function(a,b){return b.v-a.v;});
+    var stSc=bdStellium[bdHoverYr],ceSc=bdCesta[bdHoverYr];var extra=0;if(bdShowStellium&&stSc>.05)extra++;if(bdShowCesta&&ceSc>0)extra++;
+    var lH=14,tW=235,tH=(items.length+1+extra)*lH+16;
+    var tx=x+14;if(tx+tW>W-6)tx=x-tW-14;if(tx<4)tx=4;var ty=MT+8;if(ty+tH>H-10)ty=H-10-tH;
+    ctx.fillStyle='rgba(12,12,30,.93)';ctx.strokeStyle='rgba(42,42,78,.8)';ctx.lineWidth=1;bdRR(ctx,tx,ty,tW,tH,5);ctx.fill();ctx.stroke();
+    ctx.textAlign='left';ctx.fillStyle='#ddd';ctx.font='bold 10px Courier New';ctx.fillText(yr+' · Total: '+Math.round(total)+'°',tx+8,ty+14);
+    ctx.strokeStyle='rgba(42,42,78,.5)';ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(tx+6,ty+19);ctx.lineTo(tx+tW-6,ty+19);ctx.stroke();
+    for(var i=0;i<items.length;i++){var it=items[i],ai=it.ai,mn=BD_MEANINGS[it.p][ai],ly=ty+19+(i+1)*lH;
+      ctx.fillStyle=BD_ASP_C[ai];ctx.font='bold 9px Courier New';ctx.textAlign='left';ctx.fillText(BD_ASP_S[ai]+it.dir,tx+7,ly);
+      ctx.fillStyle=BD_COLORS[it.p];ctx.fillRect(tx+25,ly-8,4,9);
+      ctx.fillStyle='#ccc';ctx.font='9px Courier New';ctx.fillText(BD_LABELS[it.p]+' '+Math.round(it.v)+'°',tx+33,ly);
+      ctx.fillStyle=BD_ASP_C[ai];ctx.font='italic 8px Courier New';ctx.fillText(mn,tx+98,ly);}
+    var ey=ty+19+(items.length+1)*lH;
+    if(extra>0){ctx.strokeStyle='rgba(42,42,78,.5)';ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(tx+6,ey-7);ctx.lineTo(tx+tW-6,ey-7);ctx.stroke();}
+    if(bdShowStellium&&stSc>.05){ctx.fillStyle='#ff4040';ctx.font='bold 8px Courier New';ctx.textAlign='left';ctx.fillText('⚠ Stellium '+Math.round(stSc*100)+'%',tx+8,ey+2);ey+=lH;}
+    if(bdShowCesta&&ceSc>0){ctx.fillStyle='#30dd80';ctx.font='bold 8px Courier New';ctx.textAlign='left';ctx.fillText('✦ Cesta '+Math.round(ceSc*100)+'%',tx+8,ey+2);}
+    for(var p=0;p<10;p++){if(!bdVis(p))continue;ctx.fillStyle=BD_COLORS[p];ctx.beginPath();ctx.arc(x,yP(bdPairs[p][bdHoverYr]),3,0,Math.PI*2);ctx.fill();}
+    ctx.fillStyle='#e0e0f0';ctx.beginPath();ctx.arc(x,yP(total),3.5,0,Math.PI*2);ctx.fill();}
+};
+
+// Hover
+var bcv=document.getElementById('barb-d-canvas');
+if(bcv){
+  bcv.addEventListener('mousemove',function(e){bdHov(e);});
+  bcv.addEventListener('touchmove',function(e){e.preventDefault();bdHov(e.touches[0]);},{passive:false});
+  bcv.addEventListener('mouseleave',function(){bdHoverYr=-1;drawBD();});
+}
+function bdHov(e){var r=document.getElementById('barb-d-canvas').getBoundingClientRect(),mx=(e.clientX||e.pageX)-r.left;var pw=r.width-58;var rel=(mx-48)/pw;bdHoverYr=rel>=0&&rel<=1?Math.round(rel*(bdN-1)):-1;drawBD();}
+
+// Legend
+// Navigation: full range -5000 to 2100, view window controlled by span + center
+var BD_FULL_Y0=-10000, BD_FULL_Y1=2100, BD_FULL_N=12101;
+var bdSpan=500, bdCenter=2000;
+var bdDragging=false, bdDragStartX=0, bdDragStartCenter=0;
+
+function bdClampView(){
+  var half=Math.floor(bdSpan/2);
+  if(bdCenter-half<BD_FULL_Y0) bdCenter=BD_FULL_Y0+half;
+  if(bdCenter+half>BD_FULL_Y1) bdCenter=BD_FULL_Y1-half;
+  bdY0=bdCenter-half; bdY1=bdY0+bdSpan-1;
+  if(bdY0<BD_FULL_Y0){bdY0=BD_FULL_Y0;bdY1=bdY0+bdSpan-1;}
+  if(bdY1>BD_FULL_Y1){bdY1=BD_FULL_Y1;bdY0=bdY1-bdSpan+1;}
+  bdN=bdY1-bdY0+1;
+  bdPairs=null;bdStellium=null;bdCesta=null;bdStPeaks=null;bdCePeaks=null;
+  bdUpdateLabel();
+}
+
+function bdUpdateLabel(){
+  var el=document.getElementById('bd-range-lbl');
+  if(el) el.textContent=bdY0+' → '+bdY1+' · '+bdN+'a';
+}
+
+window.bdSetSpan=function(s){
+  bdSpan=s;
+  document.querySelectorAll('#barb-d-controls .bd-btn[onclick*="bdSetSpan"]').forEach(function(b){
+    b.classList.toggle('active',b.textContent.trim()===({50:'50a',200:'200a',500:'500a',1000:'1mil',3000:'3mil',7100:'Tudo'}[s]||''));
+  });
+  bdClampView();drawBD();
+};
+
+var bdEra='dc'; // 'ac' or 'dc'
+window.bdSetEra=function(era){
+  bdEra=era;
+  document.getElementById('bd-era-ac').style.opacity=era==='ac'?'1':'.4';
+  document.getElementById('bd-era-ac').style.borderColor=era==='ac'?'rgba(90,90,170,.5)':'rgba(160,170,200,.2)';
+  document.getElementById('bd-era-ac').style.color=era==='ac'?'#c0c0ff':'#888';
+  document.getElementById('bd-era-dc').style.opacity=era==='dc'?'1':'.4';
+  document.getElementById('bd-era-dc').style.borderColor=era==='dc'?'rgba(90,90,170,.5)':'rgba(160,170,200,.2)';
+  document.getElementById('bd-era-dc').style.color=era==='dc'?'#c0c0ff':'#888';
+};
+
+window.bdGoTo=function(){
+  var yr=parseInt(document.getElementById('bd-goto').value);
+  if(isNaN(yr)||yr<0)return;
+  if(bdEra==='ac') yr=-yr;
+  bdCenter=yr;
+  bdClampView();drawBD();
+};
+
+// Drag to pan
+var bdcv=document.getElementById('barb-d-canvas');
+if(bdcv){
+  bdcv.addEventListener('mousedown',function(e){bdDragging=true;bdDragStartX=e.clientX;bdDragStartCenter=bdCenter;bdcv.style.cursor='grabbing';});
+  bdcv.addEventListener('touchstart',function(e){bdDragging=true;bdDragStartX=e.touches[0].clientX;bdDragStartCenter=bdCenter;},{passive:true});
+}
+window.addEventListener('mousemove',function(e){
+  if(!bdDragging)return;
+  var rect=document.getElementById('barb-d-canvas').getBoundingClientRect();
+  var pw=rect.width-58;
+  var dx=e.clientX-bdDragStartX;
+  var yearsDx=Math.round(-(dx/pw)*bdSpan);
+  bdCenter=bdDragStartCenter+yearsDx;
+  bdClampView();drawBD();
+});
+window.addEventListener('touchmove',function(e){
+  if(!bdDragging)return;
+  var rect=document.getElementById('barb-d-canvas').getBoundingClientRect();
+  var pw=rect.width-58;
+  var dx=e.touches[0].clientX-bdDragStartX;
+  var yearsDx=Math.round(-(dx/pw)*bdSpan);
+  bdCenter=bdDragStartCenter+yearsDx;
+  bdClampView();drawBD();
+},{passive:true});
+window.addEventListener('mouseup',function(){bdDragging=false;if(document.getElementById('barb-d-canvas'))document.getElementById('barb-d-canvas').style.cursor='';});
+window.addEventListener('touchend',function(){bdDragging=false;});
+
+// Init view
+bdClampView();
+
+function bdBuildLeg(){
+  var el=document.getElementById('barb-d-legend');if(!el)return;el.innerHTML='';
+  var ab=document.createElement('span');ab.className='bdl-item';ab.style.color=bdHidden.size===0?'#fff':'#999';
+  ab.innerHTML='<span class="bdl-sw" style="background:#888"></span>Todos';
+  ab.onclick=function(){bdHidden.clear();bdBuildLeg();drawBD();};el.appendChild(ab);
+  for(var p=0;p<10;p++){(function(p){var it=document.createElement('span');it.className='bdl-item'+(bdHidden.has(p)?' dimmed':'');
+    it.innerHTML='<span class="bdl-sw" style="background:'+BD_COLORS[p]+'"></span>'+BD_FULL[p];
+    it.onclick=function(){if(bdHidden.has(p))bdHidden.delete(p);else bdHidden.add(p);bdBuildLeg();drawBD();};
+    el.appendChild(it);})(p);}
+}
+bdBuildLeg();
+
+function bdHexA(n){return n.toString(16).padStart(2,'0');}
+function bdNice(r){if(r<=0)return 100;var e=Math.floor(Math.log10(r)),f=r/Math.pow(10,e);var n;if(f<=1)n=1;else if(f<=2)n=2;else if(f<=5)n=5;else n=10;return n*Math.pow(10,e);}
+function bdRR(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);c.lineTo(x+r,y+h);c.quadraticCurveTo(x,y+h,x,y+h-r);c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);c.closePath();}
+window.addEventListener('resize',function(){if(bdViewMode==='decomp')drawBD();});
+})();
+
+
+// ── AC/DC for main yr-input ──
+(function(){
+  var mainEra='dc';
+  window.yrSetEra=function(era){
+    mainEra=era;
+    var ac=document.getElementById('yr-ac'),dc=document.getElementById('yr-dc');
+    if(ac){ac.style.opacity=era==='ac'?'1':'.4';ac.style.color=era==='ac'?'#c9a961':'';} 
+    if(dc){dc.style.opacity=era==='dc'?'1':'.4';dc.style.color=era==='dc'?'#c9a961':'';}
+    // Trigger year change
+    var yi=document.getElementById('yr-input');
+    if(yi){
+      var v=Math.abs(parseInt(yi.value)||2026);
+      if(era==='ac') v=-v;
+      yi.value=Math.abs(v);
+      yi.dispatchEvent(new Event('change'));
+    }
+  };
+  // Intercept yr-input to apply era sign
+  var origYI=document.getElementById('yr-input');
+  if(origYI){
+    // Override value getter to return signed value
+    var origOnChange=origYI.onchange;
+    origYI.addEventListener('change',function(){
+      var v=Math.abs(parseInt(this.value)||0);
+      if(mainEra==='ac') v=-v;
+      // Store actual signed value as data attribute
+      this.dataset.signedValue=v;
+    });
+    // When loading negative years, auto-switch to AC
+    var checkEra=function(){
+      var v=parseInt(origYI.value);
+      if(v<0){mainEra='ac';origYI.value=Math.abs(v);yrSetEra('ac');}
+    };
+    // Patch: expose getSignedYear for other code
+    window.getMainYear=function(){
+      var v=Math.abs(parseInt(origYI.value)||0);
+      return mainEra==='ac'?-v:v;
+    };
+  }
 })();
 
 </script>
