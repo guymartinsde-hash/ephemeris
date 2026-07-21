@@ -2715,6 +2715,8 @@ async function loadEphemYear(year,ayan){
   }
 }
 function __ephemRefreshAll(){
+  if(window.__scannerRefreshForAyan)window.__scannerRefreshForAyan();
+  if(window.__bdRefreshForAyan)window.__bdRefreshForAyan();
   if(typeof rebuildPlanetTransits==='function')rebuildPlanetTransits();
   if(typeof rebuildMoonPhases==='function')rebuildMoonPhases();
   buildSquareData();buildConjData();buildTrineData();buildOppData();buildSextData();buildLuaAspData();
@@ -8279,15 +8281,24 @@ window._orreryRender=_orreryRender;
 // fixo (25.06) é aplicado uma única vez, no ponto de consumo (sidLon/bSidLon),
 // nunca dentro deste loader — os valores daqui são sempre tropicais.
 window.__swissScanner=(function(){
-  var data=null,promise=null,warned={};
+  var data=null,ayanData=null,promise=null,warned={};
   function load(){
     if(!promise){
-      promise=fetch(EPHEM_DATA_BASE+'/scanner_swiss.json').then(function(r){
-        if(!r.ok)throw new Error('HTTP '+r.status);
-        return r.json();
-      }).then(function(j){data=j;return j;}).catch(function(e){
-        console.warn('[Scanner] scanner_swiss.json indisponível, usando aproximação linear como fallback.',e);
-        data=null;return null;
+      promise=Promise.all([
+        fetch(EPHEM_DATA_BASE+'/scanner_swiss.json').then(function(r){
+          if(!r.ok)throw new Error('HTTP '+r.status);
+          return r.json();
+        }),
+        fetch(EPHEM_DATA_BASE+'/ayanamsa.json').then(function(r){
+          if(!r.ok)throw new Error('HTTP '+r.status);
+          return r.json();
+        })
+      ]).then(function(results){
+        data=results[0];ayanData=results[1];
+        return {data:data,ayanData:ayanData};
+      }).catch(function(e){
+        console.warn('[Scanner] dataset(s) indisponível(is), usando aproximação linear como fallback.',e);
+        data=null;ayanData=null;return null;
       });
     }
     return promise;
@@ -8315,7 +8326,26 @@ window.__swissScanner=(function(){
     if(val<0)val+=360;
     return val;
   }
-  return {load:load,lonAt:lonAt};
+  // Ayanamsa real, variável no tempo, respeitando o sistema selecionado no app
+  // (EPHEM_STATE.ayanamsa: 'tropical' | 'lahiri' | 'fagan-bradley'). Tropical = 0
+  // (por definição não há subtração). Fallback: 25.06 fixo (valor aproximado
+  // atual do Fagan-Bradley) se o dataset ainda não carregou ou falhou.
+  function ayanFor(year){
+    var mode=(typeof EPHEM_STATE!=='undefined'&&EPHEM_STATE.ayanamsa)||'fagan-bradley';
+    if(mode==='tropical')return 0;
+    if(!ayanData){
+      if(!warned['ayan_'+mode]){warned['ayan_'+mode]=true;console.warn('[Scanner] ayanamsa.json indisponível p/ '+mode+' — usando 25.06 fixo.');}
+      return 25.06;
+    }
+    var arr=ayanData[mode];
+    if(!arr)return 25.06;
+    var y=Math.round(year);
+    if(y<ayanData.y0)y=ayanData.y0;
+    if(y>ayanData.y1)y=ayanData.y1;
+    return arr[y-ayanData.y0];
+  }
+  return {load:load,lonAt:lonAt,ayanFor:ayanFor,
+    get erasLahiri(){return ayanData&&ayanData.eras_lahiri;}};
 })();
 </script>
 
@@ -8342,7 +8372,11 @@ const SIGNS=[
 ];
 const EC={fire:'#e6b800',earth:'#3a9a3a',water:'#2d5f96',air:'#7bb8d9'};
 const ECbright={fire:'#f5cc00',earth:'#5bc05b',water:'#4a8fd4',air:'#a0d8f0'};
-const AYAN=25.06, TRANS=360;
+const TRANS=360;
+// Fronteiras das Eras: sempre exibidas (mesmo em modo Tropical, onde "era" não é um
+// conceito nativo — usamos a referência Fagan-Bradley como padrão fixo). Entre Lahiri
+// e Fagan-Bradley (ambos siderais) as fronteiras SÃO recalculadas por applyErasForMode(),
+// já que os dois ayanamsas diferem por um deslocamento constante (~65 anos).
 const ERAS=[
   {name:'Leão',glyph:'♌',el:'fire',start:-10519,end:-8371},
   {name:'Câncer',glyph:'♋',el:'water',start:-8371,end:-6223},
@@ -8352,6 +8386,15 @@ const ERAS=[
   {name:'Peixes',glyph:'♓',el:'water',start:221,end:2369},
   {name:'Aquário',glyph:'♒',el:'air',start:2369,end:4517}
 ];
+const ERAS_FB_ORIG=ERAS.map(function(e){return {start:e.start,end:e.end};});
+function applyErasForMode(){
+  const mode=(typeof EPHEM_STATE!=='undefined'&&EPHEM_STATE.ayanamsa)||'fagan-bradley';
+  const lah=window.__swissScanner.erasLahiri;
+  for(let i=0;i<ERAS.length;i++){
+    if(mode==='lahiri'&&lah&&lah[i]){ERAS[i].start=lah[i][1];ERAS[i].end=lah[i][2];}
+    else{ERAS[i].start=ERAS_FB_ORIG[i].start;ERAS[i].end=ERAS_FB_ORIG[i].end;}
+  }
+}
 
 let Y0=-10000,Y1=2100,CW=60,BH=8,GAP=4;
 let selAsp=null,selPl=[];
@@ -8586,7 +8629,8 @@ const MONTHS=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov',
 
 function sidLon(pl,yr,f){
   const trop=window.__swissScanner.lonAt(pl.id,yr,f,function(){return (pl.L0+pl.rate*(yr-2000+f))%360;});
-  let l=(trop-AYAN)%360;while(l<0)l+=360;return l;
+  const ayan=window.__swissScanner.ayanFor(yr);
+  let l=(trop-ayan)%360;while(l<0)l+=360;return l;
 }
 function toSign(l){return Math.floor(l/30)%12;}
 function fY(y){return y<0?Math.abs(y)+' a.C.':String(y);}
@@ -9854,8 +9898,9 @@ document.getElementById('esc-toggle-btn').addEventListener('click',function(){
   this.classList.toggle('active',open);
   if(open&&!inited){
     inited=true;
-    buildFilters();
     window.__swissScanner.load().then(function(){
+      applyErasForMode();
+      buildFilters();
       computeAll();
       initEvents();
       buildMatrix();
@@ -9878,6 +9923,27 @@ document.getElementById('esc-toggle-btn').addEventListener('click',function(){
     },120);
   }
 });
+
+// Recalcula tudo quando o usuário troca o sistema (Tropical/Lahiri/Fagan-Bradley)
+// no seletor principal do app — antes disso o Scanner sempre mostrava sideral
+// fixo (25.06) não importa o que estivesse selecionado lá em cima.
+let __lastAyanMode=null;
+window.__scannerRefreshForAyan=function(){
+  const mode=(typeof EPHEM_STATE!=='undefined'&&EPHEM_STATE.ayanamsa)||'fagan-bradley';
+  if(mode===__lastAyanMode)return;
+  __lastAyanMode=mode;
+  applyErasForMode();
+  yearData=null;
+  mutationCache={};
+  mutationReady=false;satPluReady=false;uraPluReady=false;satUraReady=false;netPluReady=false;
+  satNetReady=false;uraNetReady=false;jupUraReady=false;jupNetReady=false;jupPluReady=false;
+  barbGlobalReady=false;
+  if(!inited)return; // ainda não abriu o Scanner — vai calcular certo na 1ª abertura
+  computeAll();
+  if(selAsp!==null&&selPl.length===2)findAspects();
+  buildFilters();
+  buildMatrix();
+};
 })();
 
 
@@ -9923,10 +9989,10 @@ function bdCompute(){
     {id:'nep',L0:302.4682,rate:2.191545},  // Neptune
     {id:'plu',L0:256.0668,rate:1.811364}   // Pluto
   ];
-  var BAYAN=25.06;
   function bSidLon(pl,yr,f){
     var trop=window.__swissScanner.lonAt(pl.id,yr,f,function(){return (pl.L0+pl.rate*(yr-2000+f))%360;});
-    var l=(trop-BAYAN)%360;while(l<0)l+=360;return l;
+    var ayan=window.__swissScanner.ayanFor(yr);
+    var l=(trop-ayan)%360;while(l<0)l+=360;return l;
   }
   bdN=bdY1-bdY0+1;
   bdPairs=[];
@@ -10187,6 +10253,12 @@ function bdHexA(n){return n.toString(16).padStart(2,'0');}
 function bdNice(r){if(r<=0)return 100;var e=Math.floor(Math.log10(r)),f=r/Math.pow(10,e);var n;if(f<=1)n=1;else if(f<=2)n=2;else if(f<=5)n=5;else n=10;return n*Math.pow(10,e);}
 function bdRR(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);c.lineTo(x+r,y+h);c.quadraticCurveTo(x,y+h,x,y+h-r);c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);c.closePath();}
 window.addEventListener('resize',function(){if(bdViewMode==='decomp')drawBD();});
+
+// Invalidar cache quando o ayanamsa muda (chamado por __ephemRefreshAll)
+window.__bdRefreshForAyan=function(){
+  bdPairs=null;bdStellium=null;bdCesta=null;bdStPeaks=null;bdCePeaks=null;
+  if(bdViewMode==='decomp'){bdCompute();drawBD();}
+};
 })();
 
 
