@@ -8272,6 +8272,54 @@ window._orreryRender=_orreryRender;
 </script>
 
 <script>
+// ═══ Swiss Ephemeris real-data loader p/ Scanner de Eras + Barbault Decomposto ═══
+// Substitui a aproximação linear (sidLon/bSidLon) por lookup em dados reais
+// (data/scanner_swiss.json — 24 amostras/ano extraídas da efeméride diária real,
+// mesma resolução que computeMutationsFor/findAspects já assumiam). O ayanamsa
+// fixo (25.06) é aplicado uma única vez, no ponto de consumo (sidLon/bSidLon),
+// nunca dentro deste loader — os valores daqui são sempre tropicais.
+window.__swissScanner=(function(){
+  var data=null,promise=null,warned={};
+  function load(){
+    if(!promise){
+      promise=fetch(EPHEM_DATA_BASE+'/scanner_swiss.json').then(function(r){
+        if(!r.ok)throw new Error('HTTP '+r.status);
+        return r.json();
+      }).then(function(j){data=j;return j;}).catch(function(e){
+        console.warn('[Scanner] scanner_swiss.json indisponível, usando aproximação linear como fallback.',e);
+        data=null;return null;
+      });
+    }
+    return promise;
+  }
+  function lonAt(bodyKey,year,f,fallbackFn){
+    if(!data){
+      if(!warned[bodyKey]){warned[bodyKey]=true;console.warn('[Scanner] dados reais indisponíveis p/ '+bodyKey+' — usando aproximação linear.');}
+      return fallbackFn();
+    }
+    var y0,y1,n,arr;
+    if(bodyKey==='qui'){y0=data.qui.y0;y1=data.qui.y1;n=data.qui.n;arr=data.qui.vals;}
+    else{y0=data.y0;y1=data.y1;n=data.n;arr=data.bodies[bodyKey];}
+    if(!arr||year<y0||year>y1){
+      if(bodyKey!=='qui'&&!warned[bodyKey+'_range']){warned[bodyKey+'_range']=true;console.warn('[Scanner] ano '+year+' fora da cobertura real p/ '+bodyKey+' — usando aproximação linear.');}
+      return fallbackFn();
+    }
+    var total=(y1-y0+1)*n;
+    var gi=(year-y0)*n+f*n;
+    var i0=Math.floor(gi);if(i0>=total)i0=total-1;if(i0<0)i0=0;
+    var i1=i0+1;if(i1>=total)i1=total-1;
+    var frac=gi-i0;
+    var a=arr[i0],b=arr[i1];
+    var db=((b-a+180)%360+360)%360-180;
+    var val=(a+db*frac)%360;
+    if(val<0)val+=360;
+    return val;
+  }
+  return {load:load,lonAt:lonAt};
+})();
+</script>
+
+<script>
 /* ═══════════════ SCANNER DE ERAS ═══════════════ */
 (function(){
 'use strict';
@@ -8536,7 +8584,10 @@ function LBL_H(){return Math.max(13,Math.round(CW*0.16)+2);}
 function yearFontSize(){return Math.max(9,Math.min(16,Math.round(CW*0.12)));}
 const MONTHS=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 
-function sidLon(pl,yr,f){let l=(pl.L0+pl.rate*(yr-2000+f)-AYAN)%360;while(l<0)l+=360;return l;}
+function sidLon(pl,yr,f){
+  const trop=window.__swissScanner.lonAt(pl.id,yr,f,function(){return (pl.L0+pl.rate*(yr-2000+f))%360;});
+  let l=(trop-AYAN)%360;while(l<0)l+=360;return l;
+}
 function toSign(l){return Math.floor(l/30)%12;}
 function fY(y){return y<0?Math.abs(y)+' a.C.':String(y);}
 function rowHeight(){return LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0)+(showJupPlu?JUPPLU_H+2:0)+(showBarbault?BARB_H+4:0);}
@@ -9804,9 +9855,11 @@ document.getElementById('esc-toggle-btn').addEventListener('click',function(){
   if(open&&!inited){
     inited=true;
     buildFilters();
-    computeAll();
-    initEvents();
-    buildMatrix();
+    window.__swissScanner.load().then(function(){
+      computeAll();
+      initEvents();
+      buildMatrix();
+    });
   }else if(open){
     buildMatrix(); // re-layout (width may have changed)
   }
@@ -9861,16 +9914,20 @@ var bdY0=1900,bdY1=2100,bdN=201;
 
 function bdCompute(){
   if(bdPairs)return;
-  // Inline planet data (same as Scanner PL[0..4])
+  // Inline planet data (mesmos ids/constantes do Scanner PL[0..4] — usado só como
+  // fallback linear quando data/scanner_swiss.json ainda não carregou ou falhou)
   var BPL=[
-    {L0:34.35,rate:30.348},  // Jupiter
-    {L0:50.08,rate:12.221},  // Saturn
-    {L0:314.06,rate:4.283},  // Uranus
-    {L0:304.35,rate:2.185},  // Neptune
-    {L0:238.96,rate:1.451}   // Pluto
+    {id:'jup',L0:31.3151,rate:30.628545},  // Jupiter
+    {id:'sat',L0:1.8594,rate:13.602167},   // Saturn
+    {id:'ura',L0:312.0862,rate:4.035364},  // Uranus
+    {id:'nep',L0:302.4682,rate:2.191545},  // Neptune
+    {id:'plu',L0:256.0668,rate:1.811364}   // Pluto
   ];
   var BAYAN=25.06;
-  function bSidLon(pl,yr,f){var l=(pl.L0+pl.rate*(yr-2000+f)-BAYAN)%360;while(l<0)l+=360;return l;}
+  function bSidLon(pl,yr,f){
+    var trop=window.__swissScanner.lonAt(pl.id,yr,f,function(){return (pl.L0+pl.rate*(yr-2000+f))%360;});
+    var l=(trop-BAYAN)%360;while(l<0)l+=360;return l;
+  }
   bdN=bdY1-bdY0+1;
   bdPairs=[];
   for(var pi=0;pi<10;pi++)bdPairs.push(new Float32Array(bdN));
