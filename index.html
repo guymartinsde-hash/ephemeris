@@ -8753,12 +8753,50 @@ function computeAll(){
     const row=[];
     PL.forEach(function(pl,pi){
       if(pi===6&&y<675){row.push(null);return;}
-      const s0=toSign(sidLon(pl,y,0)),s1=toSign(sidLon(pl,y,1));
-      if(s0===s1)row.push({s:s0,s2:null,split:0});
-      else{
-        const sm=toSign(sidLon(pl,y,0.5));
-        row.push({s:s0,s2:s1,split:s0===sm?0.6:0.4});
+      // SEGMENTOS REAIS: varre as 24 amostras + refino nas fronteiras.
+      // Suporta 3+ signos/ano (Júpiter rápido) e retrogradação (A→B→A).
+      // Modelo: segs=[{s,f0,f1},...]; mantém s/s2/split p/ compatibilidade.
+      const segs=[];
+      let curS=toSign(sidLon(pl,y,0)),curF0=0;
+      let prevS2=curS;
+      for(let k=1;k<=24;k++){
+        const fk=k/24;
+        const sk=toSign(sidLon(pl,y,fk));
+        if(sk!==prevS2){
+          // refina fronteira entre (k-1)/24 e fk
+          const fA=(k-1)/24;
+          let cross=fk;
+          for(let m=1;m<=12;m++){
+            const fm=fA+(fk-fA)*(m/12);
+            if(toSign(sidLon(pl,y,fm))!==prevS2){cross=fm;break;}
+          }
+          segs.push({s:curS,f0:curF0,f1:cross});
+          curS=sk;curF0=cross;
+          prevS2=sk;
+        }
       }
+      segs.push({s:curS,f0:curF0,f1:1});
+      // funde segmentos consecutivos do mesmo signo (retro que não cruzou de fato)
+      const merged=[segs[0]];
+      for(let si=1;si<segs.length;si++){
+        if(segs[si].s===merged[merged.length-1].s)merged[merged.length-1].f1=segs[si].f1;
+        else merged.push(segs[si]);
+      }
+      // descarta lascas <1% (≈3,6 dias — ruído de fronteira)
+      let clean=merged.filter(sg=>(sg.f1-sg.f0)>=0.01||merged.length===1);
+      if(clean.length===0)clean=[merged[0]];
+      // RE-FUNDE vizinhos do mesmo signo (descartar lasca entre dois trechos
+      // iguais deixava segmentos duplicados adjacentes)
+      const clean2=[clean[0]];
+      for(let si=1;si<clean.length;si++){
+        if(clean[si].s===clean2[clean2.length-1].s)clean2[clean2.length-1].f1=clean[si].f1;
+        else clean2.push(clean[si]);
+      }
+      clean=clean2;
+      clean[0].f0=0;clean[clean.length-1].f1=1;
+      for(let si=1;si<clean.length;si++)clean[si].f0=clean[si-1].f1;
+      if(clean.length===1)row.push({s:clean[0].s,s2:null,split:0,segs:clean});
+      else row.push({s:clean[0].s,s2:clean[clean.length-1].s,split:clean[1].f0,segs:clean});
     });
     yearData[y]=row;
   }
@@ -8877,7 +8915,21 @@ function drawRow(holder,years){
         const sg=SIGNS[info.s];
         const pal=(hit&&plSelected)?ECbright:EC;
         const showG=CW>=44&&!dim&&!(hit&&!plSelected);
-        if(info.s2!==null){
+        if(info.segs&&info.segs.length>1){
+          // multi-segmento: desenha cada trecho na fração real
+          info.segs.forEach(function(sgm,si){
+            var sgS=SIGNS[sgm.s];
+            var sx=x0+CW*sgm.f0, sw=CW*(sgm.f1-sgm.f0);
+            var lm=si===0?sgS.mod:'fix';
+            var rm=si===info.segs.length-1?sgS.mod:'fix';
+            drawBarShape(ctx,sx,by,sw,BH,lm,rm,pal[sgS.el]);
+            if(showG&&sw>=BH*0.9){
+              ctx.fillStyle='rgba(255,255,255,.55)';
+              ctx.font=(BH-1)+'px serif';ctx.textAlign='center';ctx.textBaseline='middle';
+              ctx.fillText(sgS.g,sx+sw/2,by+BH/2+0.5);
+            }
+          });
+        }else if(info.s2!==null){
           const sg2=SIGNS[info.s2];
           const w1=CW*info.split;
           drawBarShape(ctx,x0,by,w1,BH,sg.mod,'fix',pal[sg.el]);
@@ -9858,7 +9910,9 @@ function initEvents(){
         if(!info){h+='<div class="esc-tiprow"><span class="esc-tippip" style="background:'+p.pc+'"></span>'+p.sym+' '+p.name+' —</div>';return;}
         const sg=SIGNS[info.s];
         let t=sg.g+' '+sg.n;
-        if(info.s2!==null)t+=' → '+SIGNS[info.s2].g+' '+SIGNS[info.s2].n;
+        if(info.segs&&info.segs.length>1){
+          for(var _si=1;_si<info.segs.length;_si++)t+=' → '+SIGNS[info.segs[_si].s].g+' '+SIGNS[info.segs[_si].s].n;
+        }else if(info.s2!==null)t+=' → '+SIGNS[info.s2].g+' '+SIGNS[info.s2].n;
         h+='<div class="esc-tiprow"><span class="esc-tippip" style="background:'+p.pc+'"></span>'+p.sym+' '+p.name+' <span style="color:#aab">'+t+'</span></div>';
       });
     }
@@ -9964,8 +10018,23 @@ window.__scannerRefreshForAyan=function(){
   mutationReady=false;satPluReady=false;uraPluReady=false;satUraReady=false;netPluReady=false;
   satNetReady=false;uraNetReady=false;jupUraReady=false;jupNetReady=false;jupPluReady=false;
   barbGlobalReady=false;
+  // Zera também os arrays antigos — sem isso, strips ligados continuavam
+  // desenhando o sistema anterior (getMutationEl lia o array stale).
+  mutationPeriods=[];satPluPeriods=[];uraPluPeriods=[];satUraPeriods=[];netPluPeriods=[];
+  satNetPeriods=[];uraNetPeriods=[];jupUraPeriods=[];jupNetPeriods=[];jupPluPeriods=[];
   if(!inited)return; // ainda não abriu o Scanner — vai calcular certo na 1ª abertura
   computeAll();
+  // Recomputa os strips que estão VISÍVEIS agora (antes só recomputavam ao religar o checkbox)
+  if(showJupSat)computeMutations();
+  if(showSatPlu)computeSatPlu();
+  if(showUraPlu)computeUraPlu();
+  if(showSatUra)computeSatUra();
+  if(showNetPlu)computeNetPlu();
+  if(showSatNet)computeSatNet();
+  if(showUraNet)computeUraNet();
+  if(showJupUra)computeJupUra();
+  if(showJupNet)computeJupNet();
+  if(showJupPlu)computeJupPlu();
   if(selAsp!==null&&selPl.length===2)findAspects();
   buildFilters();
   buildMatrix();
