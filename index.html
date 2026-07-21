@@ -8521,6 +8521,18 @@ function computeMutationsFor(pa,pb){
       var d=Math.abs(lA-lB)%360;if(d>180)d=360-d;
       if(d<best){best=d;bestF=f;}
     }
+    // Refino sub-grid (mesma razão do findAspects): conjunções em fronteira de
+    // signo entre samples eram atribuídas ao signo errado (2020 trop: Cap vs Aqu).
+    (function(){
+      var step=1/24;
+      var fLo=Math.max(0,bestF-step),fHi=Math.min(1,bestF+step);
+      for(var k2=0;k2<=20;k2++){
+        var f2=fLo+(fHi-fLo)*(k2/20);
+        var lA2=sidLon(PL[pa],y,f2),lB2=sidLon(PL[pb],y,f2);
+        var d2=Math.abs(lA2-lB2)%360;if(d2>180)d2=360-d2;
+        if(d2<best){best=d2;bestF=f2;}
+      }
+    })();
     if(best<=5){
       var lAx=sidLon(PL[pa],y,bestF);
       var sg=toSign(lAx);
@@ -8765,6 +8777,20 @@ function findAspects(){
       let d=Math.abs(l0-l1)%360;if(d>180)d=360-d;
       const dist=Math.abs(d-selAsp);
       if(dist<best){best=dist;bestF=f;}
+    }
+    // Refino: o mínimo real pode cair ENTRE samples do grid (ex: conj Júp-Sat
+    // 21/dez/2020 a 0°29' Aquário — o grid pega 16/dez a 29° Capricórnio).
+    // Sub-amostra ±1 passo do grid com interpolação do dataset.
+    {
+      const step=1/24;
+      const fLo=Math.max(0,bestF-step),fHi=Math.min(1,bestF+step);
+      for(let k2=0;k2<=20;k2++){
+        const f2=fLo+(fHi-fLo)*(k2/20);
+        const l0=sidLon(PL[selPl[0]],y,f2),l1=sidLon(PL[selPl[1]],y,f2);
+        let d2=Math.abs(l0-l1)%360;if(d2>180)d2=360-d2;
+        const dist2=Math.abs(d2-selAsp);
+        if(dist2<best){best=dist2;bestF=f2;}
+      }
     }
     if(best<=orb){
       aspHits.add(y);
