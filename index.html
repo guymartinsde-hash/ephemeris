@@ -414,6 +414,7 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
     <div class="esc-cbwrap">
       <label class="esc-cb" id="esc-barb-toggle"><input type="checkbox"><span>📉 Barbault</span><span class="esc-cb-desc">· soma dos 10</span></label><span id="barb-mode-btns"><button class="barb-mbtn active" data-bm="normal" onclick="setBarbViewMode('normal',this)">Normal</button><button class="barb-mbtn" data-bm="decomp" onclick="setBarbViewMode('decomp',this)">Decomposto</button></span>
       <label class="esc-cb" id="esc-elem-toggle"><input type="checkbox"><span>🌍 Elemento</span><span class="esc-cb-desc">· dominância</span></label>
+      <label class="esc-cb" id="esc-ecl-toggle"><input type="checkbox"><span>☀☾ Eclipses</span><span class="esc-cb-desc">· Saros</span></label>
     </div>
   </div>
   <div id="esc-legend">
@@ -8488,8 +8489,44 @@ let selAsp=null,selPl=[];
 let yearData=null,aspHits=new Set(),aspDetail={};
 let activeEra='all';
 let rowRegistry=[],observer=null,inited=false;
-let showBarbault=false,showElemDom=false,showJupSat=false,showSatPlu=false,showUraPlu=false,showSatUra=false,showNetPlu=false,showSatNet=false,showUraNet=false,showJupUra=false,showJupNet=false,showJupPlu=false;
-const BARB_H=44,ELEM_H=16,JUPSAT_H=30,SATPLU_H=30,URAPLU_H=30,SATURA_H=30,NETPLU_H=30,SATNET_H=30,URANET_H=30,JUPURA_H=30,JUPNET_H=30,JUPPLU_H=30;
+let showBarbault=false,showElemDom=false,showEclipses=false,showJupSat=false,showSatPlu=false,showUraPlu=false,showSatUra=false,showNetPlu=false,showSatNet=false,showUraNet=false,showJupUra=false,showJupNet=false,showJupPlu=false;
+const BARB_H=44,ELEM_H=16,ECLIP_H=24,JUPSAT_H=30,SATPLU_H=30,URAPLU_H=30,SATURA_H=30,NETPLU_H=30,SATNET_H=30,URANET_H=30,JUPURA_H=30,JUPNET_H=30,JUPPLU_H=30;
+
+// ═══ ECLIPSE DATA ═══
+var eclipseData=null,eclipsesByYear={};
+function loadEclipseData(){
+  if(eclipseData)return Promise.resolve(eclipseData);
+  var base='https://guymartinsde-hash.github.io/ephemeris/';
+  return fetch(base+'data/eclipses_major.json').then(function(r){return r.json();}).then(function(d){
+    eclipseData=d;
+    eclipsesByYear=(d&&d.by_year)?d.by_year:{};
+    return d;
+  }).catch(function(e){console.warn('Eclipse data failed:',e);return null;});
+}
+function getEclipsesForYear(y){return eclipsesByYear[y]||[];}
+function eclColor(ecl){
+  if(!ecl)return'#888';
+  var k=ecl.k||ecl.kind||'s';
+  var t=ecl.t||ecl.type||'t';
+  if(k==='l')return t==='t'?'#4466cc':'#667799';
+  if(t==='a')return'#dd8833';
+  if(t==='h')return'#cc5522';
+  return'#cc3300';
+}
+function eclGlyph(ecl){return (ecl.k||ecl.kind)==='l'?'☾':'☀';}
+function sarosReturns(ecl,y,maxR){
+  if(!eclipsesByYear||!ecl.sr)return[];
+  maxR=maxR||5;
+  var returns=[];
+  for(var yy=y-1;yy>=y-400&&returns.length<maxR;yy--){
+    var arr=eclipsesByYear[yy];
+    if(!arr)continue;
+    for(var i=0;i<arr.length;i++){
+      if(arr[i].sr===ecl.sr){returns.push({y:yy,e:arr[i]});if(returns.length>=maxR)break;}
+    }
+  }
+  return returns;
+}
 
 const JS_PHASES=[
   {name:'Conjunção',sym:'☌',desc:'0° Semente',col:'rgba(200,80,60,.7)'},
@@ -8733,7 +8770,7 @@ function sidLon(pl,yr,f){
 }
 function toSign(l){return Math.floor(l/30)%12;}
 function fY(y){return y<0?Math.abs(y)+' a.C.':String(y);}
-function rowHeight(){return LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0)+(showJupPlu?JUPPLU_H+2:0)+(showBarbault?BARB_H+4:0);}
+function rowHeight(){return LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0)+(showJupPlu?JUPPLU_H+2:0)+(showBarbault?BARB_H+4:0);}
 
 function dominantElement(y){
   var cnt={fire:0,earth:0,water:0,air:0};
@@ -9159,8 +9196,59 @@ function drawRow(holder,years){
     ctx.beginPath();ctx.moveTo(0,elemBase+ELEM_H);ctx.lineTo(totalWe,elemBase+ELEM_H);ctx.stroke();
   }
   
+
+  // ═══ ECLIPSE STRIP ═══
+  if(showEclipses){
+    var eclBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0);
+    var totalWecl=years.length*(CW+GAP)-GAP;
+    ctx.strokeStyle='rgba(201,169,97,.25)';ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(0,eclBase);ctx.lineTo(totalWecl,eclBase);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(0,eclBase+ECLIP_H);ctx.lineTo(totalWecl,eclBase+ECLIP_H);ctx.stroke();
+    ctx.fillStyle='rgba(10,12,25,.4)';
+    ctx.fillRect(0,eclBase,totalWecl,ECLIP_H);
+    // ── aviso: fora do range de dados ──
+    var _eclMin=(eclipseData&&eclipseData.range)?eclipseData.range[0]:-5000;
+    if(years.length>0&&years[years.length-1]<_eclMin){
+      ctx.fillStyle='rgba(201,169,97,.45)';
+      ctx.font='italic 11px Courier New';
+      ctx.textAlign='left';ctx.textBaseline='middle';
+      var _eclMsg='dados de eclipses apenas a partir de '+Math.abs(_eclMin)+' a.C.';
+      for(var _mx=12;_mx<totalWecl;_mx+=760){ctx.fillText(_eclMsg,_mx,eclBase+ECLIP_H/2);}
+      ctx.textAlign='center';
+    }
+    years.forEach(function(y,idx){
+      var x0=idx*(CW+GAP);
+      var ecls=getEclipsesForYear(y);
+      if(ecls.length===0)return;
+      var slots=ecls.length;
+      var edx=CW/(slots+1);
+      for(var ee=0;ee<ecls.length;ee++){
+        var ecl=ecls[ee];
+        var exx=x0+edx*(ee+1);
+        var eyy=eclBase+ECLIP_H/2;
+        var er=Math.min(4,CW*0.12);
+        var ec=eclColor(ecl);
+        if((ecl.t||ecl.type)==='a'){
+          ctx.beginPath();ctx.arc(exx,eyy,er,0,Math.PI*2);
+          ctx.strokeStyle=ec;ctx.lineWidth=1.5;ctx.stroke();
+        } else {
+          ctx.beginPath();ctx.arc(exx,eyy,er,0,Math.PI*2);
+          ctx.fillStyle=ec;ctx.globalAlpha=0.85;ctx.fill();ctx.globalAlpha=1;
+          ctx.beginPath();ctx.arc(exx,eyy,er+2,0,Math.PI*2);
+          ctx.fillStyle=ec;ctx.globalAlpha=0.15;ctx.fill();ctx.globalAlpha=1;
+        }
+        if(CW>=30){
+          ctx.font='bold '+Math.max(6,er)+'px serif';
+          ctx.fillStyle='rgba(255,255,255,.7)';
+          ctx.textAlign='center';ctx.textBaseline='bottom';
+          ctx.fillText(eclGlyph(ecl),exx,eyy-er-1);
+        }
+      }
+    });
+  }
+
   if(showJupSat){
-    var jsBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0);
+    var jsBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0);
     var totalWj=years.length*(CW+GAP)-GAP;
     var mutH=5;
     ctx.fillStyle='rgba(0,0,0,.25)';
@@ -9191,7 +9279,7 @@ function drawRow(holder,years){
   }
   
   if(showSatPlu){
-    var spBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0);
+    var spBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0);
     var totalWsp=years.length*(CW+GAP)-GAP;
     var mutHsp=5;
     ctx.fillStyle='rgba(0,0,0,.25)';
@@ -9222,7 +9310,7 @@ function drawRow(holder,years){
   }
   
   if(showUraPlu){
-    var upBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0);
+    var upBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0);
     var totalWup=years.length*(CW+GAP)-GAP;
     var mutHup=5;
     ctx.fillStyle='rgba(0,0,0,.25)';
@@ -9253,7 +9341,7 @@ function drawRow(holder,years){
   }
   
     if(showSatUra){
-    var suBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0);
+    var suBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0);
     var totalWsu=years.length*(CW+GAP)-GAP;
     var mutHsu=5;
     ctx.fillStyle='rgba(0,0,0,.25)';
@@ -9284,7 +9372,7 @@ function drawRow(holder,years){
   }
   
   if(showNetPlu){
-    var npBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0);
+    var npBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0);
     var totalWnp=years.length*(CW+GAP)-GAP;
     var mutHnp=5;
     ctx.fillStyle='rgba(0,0,0,.25)';
@@ -9315,7 +9403,7 @@ function drawRow(holder,years){
   }
   
   if(showSatNet){
-    var snBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0);
+    var snBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0);
     var totalWsn=years.length*(CW+GAP)-GAP;var mutHsn=5;
     ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,snBase,totalWsn,SATNET_H);
     var prevMutElsn='';
@@ -9338,7 +9426,7 @@ function drawRow(holder,years){
     ctx.beginPath();ctx.moveTo(0,snBase+SATNET_H);ctx.lineTo(totalWsn,snBase+SATNET_H);ctx.stroke();
   }
   if(showUraNet){
-    var unBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0);
+    var unBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0);
     var totalWun=years.length*(CW+GAP)-GAP;var mutHun=5;
     ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,unBase,totalWun,URANET_H);
     var prevMutElun='';
@@ -9361,7 +9449,7 @@ function drawRow(holder,years){
     ctx.beginPath();ctx.moveTo(0,unBase+URANET_H);ctx.lineTo(totalWun,unBase+URANET_H);ctx.stroke();
   }
   if(showJupUra){
-    var juBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0);
+    var juBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0);
     var twju=years.length*(CW+GAP)-GAP;var mhju=5;
     ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,juBase,twju,JUPURA_H);
     var prevju='';
@@ -9384,7 +9472,7 @@ function drawRow(holder,years){
     ctx.beginPath();ctx.moveTo(0,juBase+JUPURA_H);ctx.lineTo(twju,juBase+JUPURA_H);ctx.stroke();
   }
   if(showJupNet){
-    var jnBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0);
+    var jnBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0);
     var twjn=years.length*(CW+GAP)-GAP;var mhjn=5;
     ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,jnBase,twjn,JUPNET_H);
     var prevjn='';
@@ -9407,7 +9495,7 @@ function drawRow(holder,years){
     ctx.beginPath();ctx.moveTo(0,jnBase+JUPNET_H);ctx.lineTo(twjn,jnBase+JUPNET_H);ctx.stroke();
   }
   if(showJupPlu){
-    var jpBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0);
+    var jpBase=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0);
     var twjp=years.length*(CW+GAP)-GAP;var mhjp=5;
     ctx.fillStyle='rgba(0,0,0,.25)';ctx.fillRect(0,jpBase,twjp,JUPPLU_H);
     var prevjp='';
@@ -9430,7 +9518,7 @@ function drawRow(holder,years){
     ctx.beginPath();ctx.moveTo(0,jpBase+JUPPLU_H);ctx.lineTo(twjp,jpBase+JUPPLU_H);ctx.stroke();
   }
     if(showBarbault){
-    var barbBase=LBL_H()+7*(BH+1)+6+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0)+(showJupPlu?JUPPLU_H+2:0);
+    var barbBase=LBL_H()+7*(BH+1)+6+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0)+(showJupPlu?JUPPLU_H+2:0);
     var barbH=BARB_H-4;
     var totalW=years.length*(CW+GAP)-GAP;
     var gRange=barbGlobalMax-barbGlobalMin||1;
@@ -9545,8 +9633,15 @@ function drawSidebar(sb){
     ctx.textAlign='left';ctx.textBaseline='middle';
     ctx.fillText('Elemento',4,elemBase2+ELEM_H/2);
   }
+  if(showEclipses){
+    var eclBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0);
+    ctx.fillStyle='rgba(255,255,255,.45)';
+    ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
+    ctx.textAlign='left';ctx.textBaseline='middle';
+    ctx.fillText('☀☾ Eclipses',4,eclBase2+ECLIP_H/2);
+  }
   if(showJupSat){
-    var jsBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0);
+    var jsBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';
     ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
@@ -9554,7 +9649,7 @@ function drawSidebar(sb){
     ctx.fillText('vs Saturno',4,jsBase2+12);
   }
   if(showSatPlu){
-    var spBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0);
+    var spBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';
     ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
@@ -9562,7 +9657,7 @@ function drawSidebar(sb){
     ctx.fillText('vs Plutão',4,spBase2+12);
   }
   if(showUraPlu){
-    var upBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0);
+    var upBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';
     ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
@@ -9570,7 +9665,7 @@ function drawSidebar(sb){
     ctx.fillText('vs Plutão',4,upBase2+12);
   }
   if(showSatUra){
-    var suBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0);
+    var suBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';
     ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
@@ -9578,7 +9673,7 @@ function drawSidebar(sb){
     ctx.fillText('vs Urano',4,suBase2+12);
   }
   if(showNetPlu){
-    var npBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0);
+    var npBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';
     ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
@@ -9586,7 +9681,7 @@ function drawSidebar(sb){
     ctx.fillText('vs Plutão',4,npBase2+12);
   }
   if(showSatNet){
-    var snBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0);
+    var snBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';
     ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
@@ -9594,7 +9689,7 @@ function drawSidebar(sb){
     ctx.fillText('vs Netuno',4,snBase2+12);
   }
   if(showUraNet){
-    var unBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0);
+    var unBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';
     ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
@@ -9602,25 +9697,25 @@ function drawSidebar(sb){
     ctx.fillText('vs Netuno',4,unBase2+12);
   }
   if(showJupUra){
-    var juBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0);
+    var juBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
     ctx.fillText('Júpiter',4,juBase2+2);ctx.fillText('vs Urano',4,juBase2+12);
   }
   if(showJupNet){
-    var jnBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0);
+    var jnBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
     ctx.fillText('Júpiter',4,jnBase2+2);ctx.fillText('vs Netuno',4,jnBase2+12);
   }
   if(showJupPlu){
-    var jpBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0);
+    var jpBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';ctx.font='bold '+Math.min(BH+2,9)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
     ctx.fillText('Júpiter',4,jpBase2+2);ctx.fillText('vs Plutão',4,jpBase2+12);
   }
   if(showBarbault){
-    var barbBase=LBL_H()+7*(BH+1)+6+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0)+(showJupPlu?JUPPLU_H+2:0);
+    var barbBase=LBL_H()+7*(BH+1)+6+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0)+(showJupPlu?JUPPLU_H+2:0);
     ctx.fillStyle='rgba(255,255,255,.45)';
     ctx.font='bold '+Math.min(BH+2,10)+'px Courier New';
     ctx.textAlign='left';ctx.textBaseline='top';
@@ -9775,7 +9870,7 @@ function updateInfo(){
 
 function escPreset(ids){
   // Turn off all cycle/index toggles
-  var allIds=['esc-barb-toggle','esc-elem-toggle','esc-jupsat-toggle','esc-satplu-toggle','esc-uraplu-toggle','esc-satura-toggle','esc-netplu-toggle','esc-satnet-toggle','esc-uranet-toggle','esc-jupura-toggle','esc-jupnet-toggle','esc-jupplu-toggle'];
+  var allIds=['esc-barb-toggle','esc-elem-toggle','esc-ecl-toggle','esc-jupsat-toggle','esc-satplu-toggle','esc-uraplu-toggle','esc-satura-toggle','esc-netplu-toggle','esc-satnet-toggle','esc-uranet-toggle','esc-jupura-toggle','esc-jupnet-toggle','esc-jupplu-toggle'];
   allIds.forEach(function(id){
     var el=document.getElementById(id);
     if(el){
@@ -9841,7 +9936,7 @@ function buildFilters(){
     escPreset(['esc-netplu-toggle','esc-uraplu-toggle','esc-jupsat-toggle','esc-barb-toggle']);
   });
   document.getElementById('esc-preset-all10').addEventListener('click',function(){
-    escPreset(['esc-netplu-toggle','esc-uranet-toggle','esc-uraplu-toggle','esc-satplu-toggle','esc-satura-toggle','esc-satnet-toggle','esc-jupsat-toggle','esc-jupura-toggle','esc-jupnet-toggle','esc-jupplu-toggle','esc-barb-toggle','esc-elem-toggle']);
+    escPreset(['esc-netplu-toggle','esc-uranet-toggle','esc-uraplu-toggle','esc-satplu-toggle','esc-satura-toggle','esc-satnet-toggle','esc-jupsat-toggle','esc-jupura-toggle','esc-jupnet-toggle','esc-jupplu-toggle','esc-barb-toggle','esc-elem-toggle','esc-ecl-toggle']);
   });
   document.getElementById('esc-preset-clear').addEventListener('click',function(){
     escPreset([]);
@@ -9879,6 +9974,12 @@ function buildFilters(){
   document.querySelector('#esc-elem-toggle input').addEventListener('change',function(){
     showElemDom=this.checked;
     this.closest('.esc-cb').classList.toggle('on-asp',showElemDom);
+    buildMatrix();
+  });
+  document.querySelector('#esc-ecl-toggle input').addEventListener('change',function(){
+    showEclipses=this.checked;
+    if(showEclipses&&!eclipseData)loadEclipseData().then(function(){buildMatrix();});
+    this.closest('.esc-cb').classList.toggle('on-asp',showEclipses);
     buildMatrix();
   });
   document.querySelector('#esc-jupsat-toggle input').addEventListener('change',function(){
@@ -9945,7 +10046,7 @@ function initEvents(){
     if(sb&&showJupSat){
       var rect=sb.getBoundingClientRect();
       var cy=e.clientY-rect.top;
-      var jsBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0);
+      var jsBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0);
       if(cy>=jsBase2&&cy<=jsBase2+JUPSAT_H){
         document.getElementById('esc-js-modal').classList.add('open');
         return;
@@ -9954,7 +10055,7 @@ function initEvents(){
     if(sb&&showSatPlu){
       var rect2=sb.getBoundingClientRect();
       var cy2=e.clientY-rect2.top;
-      var spBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0);
+      var spBase2=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0);
       if(cy2>=spBase2&&cy2<=spBase2+SATPLU_H){
         document.getElementById('esc-sp-modal').classList.add('open');
         return;
@@ -9963,7 +10064,7 @@ function initEvents(){
     if(sb&&showUraPlu){
       var rect3=sb.getBoundingClientRect();
       var cy3=e.clientY-rect3.top;
-      var upBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0);
+      var upBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0);
       if(cy3>=upBase3&&cy3<=upBase3+URAPLU_H){
         document.getElementById('esc-up-modal').style.display='flex';
         document.getElementById('esc-up-modal').classList.add('open');
@@ -9973,7 +10074,7 @@ function initEvents(){
     if(sb&&showSatUra){
       var rect4=sb.getBoundingClientRect();
       var cy4=e.clientY-rect4.top;
-      var suBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0);
+      var suBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0);
       if(cy4>=suBase3&&cy4<=suBase3+SATURA_H){
         document.getElementById('esc-su-modal').style.display='flex';
         document.getElementById('esc-su-modal').classList.add('open');
@@ -9983,7 +10084,7 @@ function initEvents(){
     if(sb&&showNetPlu){
       var rect5=sb.getBoundingClientRect();
       var cy5=e.clientY-rect5.top;
-      var npBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0);
+      var npBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0);
       if(cy5>=npBase3&&cy5<=npBase3+NETPLU_H){
         document.getElementById('esc-np-modal').style.display='flex';
         document.getElementById('esc-np-modal').classList.add('open');
@@ -9993,7 +10094,7 @@ function initEvents(){
     if(sb&&showSatNet){
       var rect6=sb.getBoundingClientRect();
       var cy6=e.clientY-rect6.top;
-      var snBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0);
+      var snBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0);
       if(cy6>=snBase3&&cy6<=snBase3+SATNET_H){
         document.getElementById('esc-sn-modal').style.display='flex';
         document.getElementById('esc-sn-modal').classList.add('open');
@@ -10003,7 +10104,7 @@ function initEvents(){
     if(sb&&showUraNet){
       var rect7=sb.getBoundingClientRect();
       var cy7=e.clientY-rect7.top;
-      var unBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0);
+      var unBase3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0);
       if(cy7>=unBase3&&cy7<=unBase3+URANET_H){
         document.getElementById('esc-un-modal').style.display='flex';
         document.getElementById('esc-un-modal').classList.add('open');
@@ -10012,17 +10113,17 @@ function initEvents(){
     }
     if(sb&&showJupUra){
       var r8=sb.getBoundingClientRect();var c8=e.clientY-r8.top;
-      var jub3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0);
+      var jub3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0);
       if(c8>=jub3&&c8<=jub3+JUPURA_H){document.getElementById('esc-ju-modal').style.display='flex';document.getElementById('esc-ju-modal').classList.add('open');return;}
     }
     if(sb&&showJupNet){
       var r9=sb.getBoundingClientRect();var c9=e.clientY-r9.top;
-      var jnb3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0);
+      var jnb3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0);
       if(c9>=jnb3&&c9<=jnb3+JUPNET_H){document.getElementById('esc-jn-modal').style.display='flex';document.getElementById('esc-jn-modal').classList.add('open');return;}
     }
     if(sb&&showJupPlu){
       var r10=sb.getBoundingClientRect();var c10=e.clientY-r10.top;
-      var jpb3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0);
+      var jpb3=LBL_H()+7*(BH+1)+4+(showElemDom?ELEM_H+2:0)+(showEclipses?ECLIP_H+2:0)+(showJupSat?JUPSAT_H+2:0)+(showSatPlu?SATPLU_H+2:0)+(showUraPlu?URAPLU_H+2:0)+(showSatUra?SATURA_H+2:0)+(showNetPlu?NETPLU_H+2:0)+(showSatNet?SATNET_H+2:0)+(showUraNet?URANET_H+2:0)+(showJupUra?JUPURA_H+2:0)+(showJupNet?JUPNET_H+2:0);
       if(c10>=jpb3&&c10<=jpb3+JUPPLU_H){document.getElementById('esc-jp-modal').style.display='flex';document.getElementById('esc-jp-modal').classList.add('open');return;}
     }
   });
@@ -10091,6 +10192,43 @@ function initEvents(){
         h+='<div class="esc-tipnodal">☊'+SIGNS[_nsi].g+' '+SIGNS[_nsi].n+' — ☋'+SIGNS[_ssi].g+' '+SIGNS[_ssi].n+'</div>';
         if(typeof NODAL_KW!=='undefined')h+='<div class="esc-tipnodkw">'+NODAL_KW[_nsi]+'</div>';
       }
+      // ── Eclipse data in tooltip ──
+      if(showEclipses&&eclipseData){
+        var _ecls=getEclipsesForYear(y);
+        var _eclRngMin=(eclipseData.range)?eclipseData.range[0]:-5000;
+        if(_ecls.length===0&&y<_eclRngMin){
+          h+='<div style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(201,169,97,.2);color:#998;font-size:10.5px;font-style:italic">☀☾ dados de eclipses apenas a partir de '+Math.abs(_eclRngMin)+' a.C.</div>';
+        }
+        if(_ecls.length>0){
+          h+='<div style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(201,169,97,.2)">';
+          h+='<div style="color:#c9a961;font-size:11px;letter-spacing:1px;margin-bottom:4px">☀☾ ECLIPSES</div>';
+          _ecls.forEach(function(_ecl){
+            var _ec=eclColor(_ecl);
+            var _tl={t:'Total',a:'Anular',h:'Híbrido',p:'Parcial'};
+            var _kl=(_ecl.k||_ecl.kind)==='l'?'Lunar':'Solar';
+            var _tt=_tl[_ecl.t||_ecl.type||'t']||'Total';
+            h+='<div style="display:flex;align-items:center;gap:6px;padding:2px 0">';
+            h+='<span style="color:'+_ec+';font-size:14px">'+eclGlyph(_ecl)+'</span>';
+            h+='<span style="color:#e0dcd0;font-weight:700">'+_kl+' '+_tt+'</span>';
+            if(_ecl.d&&_ecl.m)h+='<span style="color:#889;font-size:11px">'+_ecl.d+'/'+_ecl.m+'</span>';
+            if(typeof _ecl.s==='number'&&SIGNS[_ecl.s])h+='<span style="color:#aab;font-size:11px">'+SIGNS[_ecl.s].g+' '+SIGNS[_ecl.s].n+'</span>';
+            if(_ecl.sr)h+='<span style="color:#889;font-size:10px">Saros #'+_ecl.sr+'</span>';
+            h+='</div>';
+            if(_ecl.sr){
+              var _rets=sarosReturns(_ecl,y,3);
+              if(_rets.length>0){
+                h+='<div style="font-size:10px;color:#778;margin-left:22px">';
+                _rets.forEach(function(_r,_ri){
+                  h+=(_ri>0?' · ':'')+fY(_r.y);
+                });
+                h+='</div>';
+              }
+            }
+          });
+          h+='</div>';
+        }
+      }
+
       // ── Eclipse triggers ──
       if(typeof findTriggers!=='undefined'){
         var _trigs=findTriggers(y);
