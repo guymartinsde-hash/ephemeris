@@ -190,7 +190,26 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
 .esc-holder{flex-grow:1;position:relative;min-height:20px}
 .esc-holder canvas{display:block}
 .esc-ph{background:rgba(255,255,255,.01)}
-#esc-tip{position:fixed;background:rgba(15,17,30,.96);border:1px solid rgba(201,169,97,.4);border-radius:6px;padding:6px 10px;font-size:11px;font-family:'Courier New',monospace;color:#d8d4c8;pointer-events:none;z-index:2000;display:none;max-width:250px;line-height:1.5;box-shadow:0 4px 16px rgba(0,0,0,.6)}
+#esc-tip{position:fixed;background:linear-gradient(145deg,rgba(18,22,38,.98),rgba(13,16,28,.98));border:1px solid rgba(201,169,97,.45);border-radius:10px;padding:12px 16px;font-size:13px;font-family:'Courier New',monospace;color:#d8d4c8;pointer-events:none;z-index:2000;display:none;min-width:380px;max-width:560px;line-height:1.6;box-shadow:0 12px 40px rgba(0,0,0,.7)}
+.esc-tipera{font-size:14px;font-weight:600}
+.esc-tiptrans{font-size:11px;color:#e74c3c;letter-spacing:.5px}
+.esc-tiperakw{font-style:italic;font-size:12px;color:#9aaa8a;line-height:1.45;margin:2px 0 8px;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.07)}
+.esc-tipasp{color:#e74c3c;font-size:12px;margin-bottom:5px}
+.esc-tipnm{font-weight:700;color:#e0dcd0}
+.esc-tipsg{color:#aab}
+.esc-tipkw{font-style:italic;font-size:12px;color:#a0b898;margin-left:4px}
+.esc-tipkw::before{content:'· ';color:#556}
+.esc-tipdg{font-size:10px;letter-spacing:.5px;padding:1px 6px;border-radius:3px;font-weight:600;margin-left:5px;white-space:nowrap}
+.dg-dom{color:#c9b88c;background:rgba(201,184,140,.16)}
+.dg-exalt{color:#b8a0e0;background:rgba(180,160,220,.16)}
+.dg-det{color:#c87050;background:rgba(200,100,80,.13)}
+.dg-fall{color:#c87050;background:rgba(200,100,80,.13)}
+.esc-tipfoot{display:flex;gap:6px;margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,.06)}
+.esc-tipel{font-size:12px;padding:2px 8px;border-radius:4px;font-weight:600}
+.esc-el-fire{background:rgba(220,80,50,.16);color:#e08050}
+.esc-el-earth{background:rgba(100,160,70,.16);color:#80c060}
+.esc-el-air{background:rgba(80,160,210,.16);color:#70c0e0}
+.esc-el-water{background:rgba(60,120,190,.16);color:#60a0d0}
 #esc-js-modal{display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center}
 #esc-js-modal.open{display:flex}
 #esc-sp-modal{display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);justify-content:center;align-items:center}
@@ -251,9 +270,9 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
 #esc-js-card .jsc-name{color:#c9a961;font-weight:700}
 #esc-js-card .jsc-desc{color:rgba(255,255,255,.65);margin-top:2px;font-size:11px}
 #esc-js-card .jsc-close{float:right;cursor:pointer;color:#889;font-size:18px;line-height:1}
-.esc-tipyr{color:#c9a961;font-weight:700;font-size:13px;margin-bottom:3px}
-.esc-tiprow{display:flex;gap:4px;align-items:center}
-.esc-tippip{width:6px;height:6px;border-radius:1px;flex-shrink:0}
+.esc-tipyr{color:#c9a961;font-weight:700;font-size:20px;margin-bottom:3px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.esc-tiprow{display:flex;gap:5px;align-items:baseline;flex-wrap:wrap;padding:2px 0}
+.esc-tippip{width:8px;height:8px;border-radius:2px;flex-shrink:0;align-self:center}
 #esc-goto{position:absolute;width:17px;height:17px;display:none;align-items:center;justify-content:center;background:rgba(15,17,30,.92);border:1px solid rgba(201,169,97,.65);border-radius:4px;color:#c9a961;font-size:11px;line-height:1;cursor:pointer;z-index:30;box-shadow:0 1px 5px rgba(0,0,0,.5);transition:transform .1s}
 #esc-goto:hover{background:rgba(201,169,97,.25);color:#ffe9b0;transform:scale(1.15)}
 .ds-toggle{position:relative;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid rgba(160,170,200,.25);color:#aab;padding:2px 10px;border-radius:10px;font-size:12px;font-family:"Courier New",monospace}
@@ -287,6 +306,13 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
 #barb-d-controls,#barb-d-controls2{flex-wrap:wrap}
 #barb-d-canvas{cursor:grab}
 
+
+.esc-tipnodal{font-size:13px;font-weight:600;color:#a8c8a0;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.06)}
+.esc-tipnodkw{font-style:italic;font-size:12px;color:#8aaa82;margin-bottom:4px}
+.esc-tiptrig{font-size:12px;padding:3px 8px;margin:2px 0;border-radius:4px;font-weight:500}
+.esc-tiptrig.high{background:rgba(240,192,48,.12);color:#f0c830;border-left:3px solid #e0a030}
+.esc-tiptrig.mod{background:rgba(180,140,50,.08);color:#c0a040;border-left:3px solid #907030}
+/* ── end enriched tooltip ── */
 </style>
 </head>
 <body>
@@ -8370,6 +8396,67 @@ const SIGNS=[
   {n:'Sagitário',g:'♐',el:'fire',mod:'mut'},{n:'Capricórnio',g:'♑',el:'earth',mod:'card'},
   {n:'Aquário',g:'♒',el:'air',mod:'fix'},{n:'Peixes',g:'♓',el:'water',mod:'mut'}
 ];
+
+// ═══ TOOLTIP ENRIQUECIDO — Keywords, Dignidades, Contexto de Era ═══
+const PLANET_KW=[
+ ['Expansão via ação e pioneirismo','Expansão via abundância material','Expansão via conexão e ideias','Expansão via cuidado e proteção','Expansão via brilho e generosidade','Crescimento pelo discernimento prático','Expansão via equilíbrio e alianças','Expansão pelo mergulho no oculto','Expansão total — fé e risco máximo','Expansão via responsabilidade e ambição','Expansão via inovação e causas coletivas','Expansão via imaginação e transcendência'],
+ ['Limite forjado no impulso','Estrutura material — o concreto exige forma','Disciplina mental — foco contra dispersão','Responsabilidade emocional — amadurecimento','Autoridade testada pelo ego','Ordem e método como caminho','Justiça e equilíbrio como lei','Controle profundo — poder comprimido','Limite das crenças — fé testada','O mestre em casa — estrutura máxima','Estrutura via inovação radical','Disciplina espiritual — estrutura na fluidez'],
+ ['Revolução da identidade individual','Revolução do que parecia sólido','Revolução das comunicações e do pensamento','Revolução das raízes e da família','Revolução criativa — o gênio se liberta','Revolução dos métodos e da saúde','Revolução dos contratos e alianças','Revolução do poder e dos tabus','Revolução do conhecimento e das crenças','Revolução das instituições e hierarquias','O raio em casa — despertar coletivo','Revolução espiritual — fronteiras dissolvidas'],
+ ['O sonho pega fogo — visão vira ação','Ilusão ou redenção nos valores materiais','Neblina nas narrativas — verdade líquida','Dissolução e redenção das raízes emocionais','Glamour e ilusão no palco do ego','O sagrado invade o cotidiano','Idealização dos vínculos e da justiça','Mergulho nos mistérios — revelação ou engano','Fé expandida ou fanatismo cego','Dissolução das hierarquias — poder como miragem','Utopia coletiva ou ilusão tecnológica','O véu entre mundos no ponto mais fino'],
+ ['Morte e renascimento da identidade coletiva','Transformação radical dos valores e recursos','O poder da informação remodela o mundo','Transformação das raízes — nação e pertencimento','Poder criativo e ego coletivo regenerados','Transformação do trabalho e da saúde','Morte e renascimento dos contratos sociais','O fogo congelado em casa — poder puro','Transformação das crenças e do conhecimento','Morte e renascimento das hierarquias','Poder devolvido ao coletivo','Transformação do inconsciente coletivo'],
+ ['Destino via coragem e autoafirmação','Destino via valor próprio e sustentação','Destino via troca, aprendizado e ponte','Destino via cuidado e raízes emocionais','Destino via expressão autêntica','Destino via discernimento e serviço','Destino via equilíbrio e justiça relacional','Destino via transformação profunda','Destino via expansão e busca de sentido','Destino via responsabilidade e maturidade','Destino via inovação e consciência coletiva','Destino via rendição, fé e transcendência'],
+ ['A ferida do "eu existo" pede cura','A ferida do valor próprio abre pra curar','A ferida da comunicação e da mente dividida','A ferida do pertencimento e da nutrição','A ferida da expressão e do reconhecimento','A ferida da imperfeição e do serviço','A ferida do outro — cura via relacionamento','A ferida do poder e da confiança profunda','A ferida do sentido — cura via fé','A ferida da autoridade e do legado','A ferida da exclusão — cura via comunidade','A ferida da separação — cura via transcendência']
+];
+const DIGNITY={
+ 0:{8:{l:'Domicílio',c:'dg-dom'},11:{l:'Domicílio',c:'dg-dom'},3:{l:'Exaltação',c:'dg-exalt'},2:{l:'Detrimento',c:'dg-det'},5:{l:'Detrimento',c:'dg-det'},9:{l:'Queda',c:'dg-fall'}},
+ 1:{9:{l:'Domicílio',c:'dg-dom'},10:{l:'Domicílio',c:'dg-dom'},6:{l:'Exaltação',c:'dg-exalt'},3:{l:'Detrimento',c:'dg-det'},4:{l:'Detrimento',c:'dg-det'},0:{l:'Queda',c:'dg-fall'}},
+ 2:{10:{l:'Domicílio',c:'dg-dom'},4:{l:'Detrimento',c:'dg-det'},1:{l:'Detrimento',c:'dg-det'}},
+ 3:{11:{l:'Domicílio',c:'dg-dom'},5:{l:'Detrimento',c:'dg-det'}},
+ 4:{7:{l:'Domicílio',c:'dg-dom'},1:{l:'Detrimento',c:'dg-det'}}
+};
+// Keywords das Eras precessionais (índice = posição no array ERAS)
+const ERA_KW=[
+ 'Era do brilho — realeza, sol e culto ao poder criador',
+ 'Era das águas-mãe — matriarcado, agricultura, o lar como templo',
+ 'Era da palavra — escrita, comércio, as primeiras pontes entre povos',
+ 'Era do bezerro de ouro — construção, posse, templos de pedra',
+ 'Era do carneiro — conquista, guerra, o eu contra o mundo',
+ 'Era da fé — sacrifício, redenção, a alma buscando o invisível',
+ 'Era da mente coletiva — tecnologia, redes, o despertar do aquário'
+];
+
+
+// ═══ ECLIPSE TRIGGER DETECTION ═══
+const NODAL_KW=[
+  '♈♎ Eu vs. Nós — autonomia contra dependência',
+  '♉♏ Segurança vs. Transformação — posse contra desapego',
+  '♊♐ Informação vs. Sabedoria — dado contra sentido',
+  '♋♑ Raízes vs. Ambição — lar contra carreira',
+  '♌♒ Expressão vs. Coletivo — ego contra grupo',
+  '♍♓ Análise vs. Fé — controle contra entrega',
+  '♎♈ Diplomacia vs. Impulso — acordo contra ação',
+  '♏♉ Poder vs. Conforto — profundidade contra superfície',
+  '♐♊ Verdade vs. Narrativa — visão contra dado',
+  '♑♋ Estrutura vs. Emoção — dever contra sentimento',
+  '♒♌ Revolução vs. Tradição — futuro contra passado',
+  '♓♍ Transcendência vs. Pragmatismo — fé contra método'
+];
+function findTriggers(y){
+  var nodLon=sidLon(PL[5],y,0.5);
+  var nodSouth=(nodLon+180)%360;
+  var triggers=[];
+  [0,1,2,3,4].forEach(function(pi){
+    var pLon=sidLon(PL[pi],y,0.5);
+    var dN=Math.abs(pLon-nodLon)%360; if(dN>180)dN=360-dN;
+    var dS=Math.abs(pLon-nodSouth)%360; if(dS>180)dS=360-dS;
+    var d=Math.min(dN,dS);
+    if(d<=5){
+      triggers.push({pi:pi,dist:Math.round(d*10)/10,node:dN<dS?'Norte':'Sul',high:d<=2});
+    }
+  });
+  return triggers;
+}
+
 const EC={fire:'#e6b800',earth:'#3a9a3a',water:'#2d5f96',air:'#7bb8d9'};
 const ECbright={fire:'#f5cc00',earth:'#5bc05b',water:'#4a8fd4',air:'#a0d8f0'};
 const TRANS=360;
@@ -8752,7 +8839,11 @@ function computeAll(){
   for(let y=Y0;y<=Y1;y++){
     const row=[];
     PL.forEach(function(pl,pi){
-      if(pi===6&&y<675){row.push(null);return;}
+      if(pi===6){
+        // pi=6 = South Node (opposite of pi=5 North Node)
+        // Will be computed from pi=5 data in rendering
+        row.push(null);return;
+      }
       // SEGMENTOS REAIS: varre as 24 amostras + refino nas fronteiras.
       // Suporta 3+ signos/ano (Júpiter rápido) e retrogradação (A→B→A).
       // Modelo: segs=[{s,f0,f1},...]; mantém s/s2/split p/ compatibilidade.
@@ -8902,6 +8993,13 @@ function drawRow(holder,years){
     if(d){
       d.forEach(function(info,pi){
         const by=LBL_H()+pi*(BH+1);
+        // pi=6: render South Node (opposite of pi=5 North Node)
+        if(pi===6){
+          if(!d||!d[5])return;
+          var southInfo={s:(d[5].s+6)%12, s2:d[5].s2!==null&&d[5].s2!==undefined?(d[5].s2+6)%12:null, segs:null};
+          if(d[5].segs){southInfo.segs=d[5].segs.map(function(seg){return{s:(seg.s+6)%12,f0:seg.f0,f1:seg.f1};});}
+          info=southInfo;
+        }
         const plSelected=!filterOn||selPl.indexOf(pi)>=0;
         const barAlpha=dim?0.18:(hit&&!plSelected?0.15:0.9);
         if(!info){
@@ -8950,6 +9048,34 @@ function drawRow(holder,years){
         }
         ctx.globalAlpha=1;
       });
+      // ── Trigger marker on Eixo Norte (pi=5) ──
+      if(d&&d[5]&&typeof findTriggers!=='undefined'){
+        var trigs=findTriggers(y);
+        if(trigs.length>0){
+          var best=trigs[0];for(var ti=1;ti<trigs.length;ti++)if(trigs[ti].dist<best.dist)best=trigs[ti];
+          var nBy=LBL_H()+5*(BH+1);
+          ctx.globalAlpha=1;
+          ctx.font='bold '+(best.high?10:7)+'px serif';
+          ctx.fillStyle=best.high?'#f0c030':'#a08030';
+          ctx.textAlign='center';ctx.textBaseline='bottom';
+          ctx.fillText('\u26A1',x0+CW/2,nBy-2);
+          ctx.textAlign='left';ctx.globalAlpha=1;
+        }
+      }
+      // ── Visual grouping bracket between Norte(pi=5) and Sul(pi=6) ──
+      if(d&&d[5]){
+        var nBy5=LBL_H()+5*(BH+1);
+        var nBy6=LBL_H()+6*(BH+1);
+        ctx.save();
+        ctx.strokeStyle='rgba(201,169,97,.35)';
+        ctx.lineWidth=1;
+        ctx.setLineDash([2,2]);
+        ctx.beginPath();
+        ctx.moveTo(x0,nBy5+BH);ctx.lineTo(x0+CW,nBy5+BH);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+      }
     }
     
     if(hit&&aspDetail[y]&&aspDetail[y].frac!==undefined){
@@ -9380,10 +9506,37 @@ function drawSidebar(sb){
     ctx.fillStyle=p.pc;
     ctx.font='bold '+Math.min(BH+4,15)+'px serif';
     ctx.textAlign='left';ctx.textBaseline='middle';
+    if(pi===5){
+      // Norte
+      ctx.fillStyle='#909090';
+      ctx.font='bold '+Math.min(BH+4,15)+'px serif';
+      ctx.textAlign='left';ctx.textBaseline='middle';
+      ctx.fillText('☊',4,by+BH/2);
+      ctx.font=Math.min(BH+2,12)+'px Courier New';
+      ctx.fillStyle='rgba(255,255,255,.55)';
+      ctx.fillText('Norte',22,by+BH/2);
+    } else if(pi===6){
+      // Sul + label "Eixo" spanning both
+      ctx.fillStyle='#909090';
+      ctx.font='bold '+Math.min(BH+4,15)+'px serif';
+      ctx.textAlign='left';ctx.textBaseline='middle';
+      ctx.fillText('☋',4,by+BH/2);
+      ctx.font=Math.min(BH+2,12)+'px Courier New';
+      ctx.fillStyle='rgba(255,255,255,.55)';
+      ctx.fillText('Sul',22,by+BH/2);
+      // "Eixo" label between the two bars
+      ctx.save();
+      ctx.font='bold 9px Courier New';
+      ctx.fillStyle='rgba(201,169,97,.6)';
+      ctx.textAlign='center';
+      ctx.fillText('EIXO',SB_W/2,by-1);
+      ctx.restore();
+    } else {
     ctx.fillText(p.sym,4,by+BH/2);
     ctx.font=Math.min(BH+2,12)+'px Courier New';
     ctx.fillStyle='rgba(255,255,255,.55)';
     ctx.fillText(p.name,22,by+BH/2);
+    }
   });
   if(showElemDom){
     var elemBase2=LBL_H()+7*(BH+1)+4;
@@ -9897,24 +10050,63 @@ function initEvents(){
     const d=yearData[y];
     const ei=getEra(y),tr=isTransition(y);
     let h='<div class="esc-tipyr">'+fY(y);
-    if(ei>=0)h+=' <span style="font-size:10px;color:'+ECbright[ERAS[ei].el]+'">'+ERAS[ei].glyph+' '+ERAS[ei].name+'</span>';
-    if(tr)h+=' <span style="font-size:8px;color:#e74c3c">⟐ transição</span>';
+    if(ei>=0)h+=' <span class="esc-tipera" style="color:'+ECbright[ERAS[ei].el]+'">'+ERAS[ei].glyph+' '+ERAS[ei].name+'</span>';
+    if(tr)h+=' <span class="esc-tiptrans">⟐ transição</span>';
     h+='</div>';
+    if(ei>=0&&typeof ERA_KW!=='undefined'&&ERA_KW[ei])h+='<div class="esc-tiperakw">'+ERA_KW[ei]+'</div>';
     if(aspHits.has(y)&&aspDetail[y]){
       const det=aspDetail[y];
-      h+='<div style="color:#e74c3c;font-size:10px;margin-bottom:2px">'+PL[selPl[0]].sym+' '+SIGNS[det.s0].n+' × '+PL[selPl[1]].sym+' '+SIGNS[det.s1].n+' · orbe '+det.orb+'°'+(det.month?' · ~'+det.month:'')+'</div>';
+      h+='<div class="esc-tipasp">'+PL[selPl[0]].sym+' '+SIGNS[det.s0].n+' × '+PL[selPl[1]].sym+' '+SIGNS[det.s1].n+' · orbe '+det.orb+'°'+(det.month?' · ~'+det.month:'')+'</div>';
     }
     if(d){
+      var _elc={fire:0,earth:0,water:0,air:0};
       d.forEach(function(info,pi){
+        if(pi===6){
+          // South Node in tooltip
+          if(!d||!d[5])return;
+          var _southS=(d[5].s+6)%12;
+          var southSg=SIGNS[_southS];
+          var t2=southSg.g+' '+southSg.n;
+          h+='<div class="esc-tiprow"><span class="esc-tippip" style="background:#909090"></span><span class="esc-tipnm">☋ Sul</span> <span class="esc-tipsg">'+t2+'</span>';
+          if(typeof PLANET_KW!=='undefined'&&PLANET_KW[5])h+='<span class="esc-tipkw">'+PLANET_KW[5][_southS]+'</span>';
+          h+='</div>';
+          return;
+        }
         const p=PL[pi];
-        if(!info){h+='<div class="esc-tiprow"><span class="esc-tippip" style="background:'+p.pc+'"></span>'+p.sym+' '+p.name+' —</div>';return;}
+        if(!info){h+='<div class="esc-tiprow"><span class="esc-tippip" style="background:'+p.pc+'"></span><span class="esc-tipnm">'+p.sym+' '+p.name+'</span> <span class="esc-tipsg">—</span></div>';return;}
         const sg=SIGNS[info.s];
+        _elc[sg.el]++;
         let t=sg.g+' '+sg.n;
         if(info.segs&&info.segs.length>1){
           for(var _si=1;_si<info.segs.length;_si++)t+=' → '+SIGNS[info.segs[_si].s].g+' '+SIGNS[info.segs[_si].s].n;
         }else if(info.s2!==null)t+=' → '+SIGNS[info.s2].g+' '+SIGNS[info.s2].n;
-        h+='<div class="esc-tiprow"><span class="esc-tippip" style="background:'+p.pc+'"></span>'+p.sym+' '+p.name+' <span style="color:#aab">'+t+'</span></div>';
+        h+='<div class="esc-tiprow"><span class="esc-tippip" style="background:'+p.pc+'"></span><span class="esc-tipnm">'+p.sym+' '+p.name+'</span> <span class="esc-tipsg">'+t+'</span>';
+        if(typeof PLANET_KW!=='undefined'&&PLANET_KW[pi])h+='<span class="esc-tipkw">'+PLANET_KW[pi][info.s]+'</span>';
+        if(typeof DIGNITY!=='undefined'&&DIGNITY[pi]&&DIGNITY[pi][info.s]){var _dg=DIGNITY[pi][info.s];h+='<span class="esc-tipdg '+_dg.c+'">'+_dg.l+'</span>';}
+        h+='</div>';
       });
+      // ── Eixo Nodal context ──
+      if(d&&d[5]){
+        var _nsi=d[5].s,_ssi=(_nsi+6)%12;
+        h+='<div class="esc-tipnodal">☊'+SIGNS[_nsi].g+' '+SIGNS[_nsi].n+' — ☋'+SIGNS[_ssi].g+' '+SIGNS[_ssi].n+'</div>';
+        if(typeof NODAL_KW!=='undefined')h+='<div class="esc-tipnodkw">'+NODAL_KW[_nsi]+'</div>';
+      }
+      // ── Eclipse triggers ──
+      if(typeof findTriggers!=='undefined'){
+        var _trigs=findTriggers(y);
+        if(_trigs.length>0){
+          _trigs.forEach(function(t){
+            var _p=PL[t.pi];
+            h+='<div class="esc-tiptrig'+(t.high?' high':' mod')+'">'+(t.high?'⚡':'🔸')+' '+_p.sym+' '+_p.name+' a '+t.dist+'° do Nodo '+t.node+'</div>';
+          });
+        }
+      }
+      var _ef='';
+      if(_elc.fire)_ef+='<span class="esc-tipel esc-el-fire">🔥 '+_elc.fire+'</span>';
+      if(_elc.earth)_ef+='<span class="esc-tipel esc-el-earth">🌍 '+_elc.earth+'</span>';
+      if(_elc.air)_ef+='<span class="esc-tipel esc-el-air">💨 '+_elc.air+'</span>';
+      if(_elc.water)_ef+='<span class="esc-tipel esc-el-water">💧 '+_elc.water+'</span>';
+      if(_ef)h+='<div class="esc-tipfoot">'+_ef+'</div>';
     }
     tip.innerHTML=h;tip.style.display='block';
     let tx=e.clientX+14,ty=e.clientY-10;
