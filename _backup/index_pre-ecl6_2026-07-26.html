@@ -301,86 +301,8 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
 #barb-d-overlays{display:flex;gap:10px;margin-top:3px;font-size:9px;color:#666}
 #barb-d-overlays span{cursor:pointer;user-select:none}
 #barb-d-overlays span.off{opacity:.3}
-#bd-ecl-bar{display:flex;gap:3px;align-items:center;flex-wrap:wrap;margin-top:3px}
-.bd-ecl-lvl{font-size:8px;font-family:'Courier New',monospace;padding:1px 5px;border-radius:3px;
-  border:1px solid rgba(255,255,255,.08);cursor:pointer;user-select:none;transition:all .15s}
-.bd-ecl-lvl:hover{background:rgba(255,255,255,.04)}
-.bd-ecl-lvl.on{border-color:rgba(255,200,0,.3)}
-.bd-ecl-lvl.off{opacity:.2;border-color:transparent}
-.bd-ecl-lvl.hint{border-style:dashed}
-.bd-ecl-lvl.l5{color:#ff6030}.bd-ecl-lvl.l4{color:#FFD700}.bd-ecl-lvl.l3{color:#cc9900}
-.bd-ecl-lvl.l2{color:#b8a0e0}.bd-ecl-lvl.l1{color:#666}
 #barb-d-controls input[type=number]::-webkit-inner-spin-button{opacity:.5}
 #barb-d-controls input[type=number]:focus{outline:none;border-color:rgba(90,90,170,.5)}
-#saros-wrap{display:none;margin:8px 0;padding:8px;background:rgba(0,0,0,.3);border-radius:6px}
-#saros-wrap.open{display:block}
-#saros-ctrls{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:4px}
-#saros-ctrls button{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:4px;color:#999;padding:2px 7px;font:10px monospace;cursor:pointer}
-#saros-ctrls button.active{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.12)}
-#saros-ctrls .sep{width:1px;height:14px;background:rgba(255,255,255,.08);margin:0 3px;align-self:center}
-#saros-canvas{display:block;width:100%;border-radius:4px;cursor:crosshair}
-#saros-detail{max-height:260px;overflow-y:auto;margin-top:6px;padding:8px;background:rgba(255,255,255,.02);border-radius:4px;font:10px monospace;color:#888}
-#saros-detail .sd-num{font:bold 20px monospace;margin-bottom:2px}
-#saros-detail .sd-t{font:9px monospace;text-transform:uppercase;letter-spacing:1px;color:#666;margin-bottom:8px}
-#saros-detail .sd-s{margin-bottom:8px}
-#saros-detail .sd-l{font:8px monospace;color:#555;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
-#saros-detail .sd-v{font:11px system-ui;line-height:1.5;color:#bbb}
-.sd-tag{display:inline-block;padding:1px 5px;border-radius:3px;font:9px monospace;margin:1px 2px}
-#saros-detail .sd-bar{height:6px;border-radius:3px;margin:4px 0;position:relative;background:rgba(255,255,255,.04)}
-#saros-detail .sd-bf{height:100%;border-radius:3px;position:absolute;left:0;top:0}
-#saros-detail .sd-bn{position:absolute;top:-2px;width:2px;height:10px;background:#ff4444;border-radius:1px}
-/* Saros guide panel */
-#saros-guide{margin-top:6px;background:rgba(12,12,28,.7);border:1px solid rgba(160,170,200,.08);border-radius:5px;overflow:hidden}
-#saros-guide.collapsed #saros-guide-body{display:none}
-#saros-guide.collapsed{border-color:rgba(160,170,200,.04)}
-#saros-guide-toggle{font:9px 'Courier New',monospace;color:#666;cursor:pointer;text-align:center;padding:3px 0;display:block;user-select:none}
-#saros-guide-toggle:hover{color:#999}
-#saros-guide-body{display:flex;flex-wrap:wrap;gap:0}
-.sg-section{width:100%;font:8px 'Courier New',monospace;color:#555;letter-spacing:1px;padding:4px 10px 0;text-transform:uppercase}
-.sg-sep{width:100%;height:1px;background:rgba(255,255,255,.04)}
-.sg-card{flex:1;min-width:110px;padding:6px 8px;border-right:1px solid rgba(255,255,255,.03)}
-.sg-card:last-child{border-right:none}
-.sg-head{display:flex;align-items:center;gap:4px;margin-bottom:3px}
-.sg-sym{font-size:12px}.sg-name{font:bold 9px 'Courier New',monospace}
-.sg-desc{font:9px Georgia,serif;color:#888;line-height:1.35}
-.sg-kw{font:8px 'Courier New',monospace;color:#666;margin-top:2px;font-style:italic}
-/* Enhanced detail siblings */
-.sd-sib{display:flex;align-items:center;gap:4px;padding:3px 4px;border-radius:3px;font:9px monospace;color:#999;border-bottom:1px solid rgba(255,255,255,.02)}
-.sd-sib.heavy{border-right:3px solid #ff6600;color:#ccc}
-.sd-sib-yr{width:36px;font-weight:700;color:#bbb}
-.sd-sib-type{padding:0 4px;border-radius:2px;font-size:8px;min-width:36px;text-align:center}
-.sd-sib-type.T{background:rgba(255,100,0,.15);color:#ff8844}
-.sd-sib-type.An{background:rgba(200,160,40,.12);color:#ccaa44}
-.sd-sib-type.H{background:rgba(200,80,120,.12);color:#cc6688}
-.sd-sib-type.P{background:rgba(255,255,255,.04);color:#666}
-.sd-sib-phase{font-size:8px;flex:1}
-.sd-sib-barb{font-size:8px;min-width:40px;text-align:right}
-.sd-sib-barb.valley{color:#ff4040;font-weight:700}
-.sd-sib-barb.peak{color:#30dd80}
-.sd-filter-bar{display:flex;gap:2px;flex-wrap:wrap;margin:4px 0}
-.sd-fbtn{font:8px monospace;padding:1px 5px;border-radius:2px;border:1px solid rgba(255,255,255,.08);cursor:pointer;color:#777;user-select:none}
-.sd-fbtn.on{border-color:rgba(255,200,0,.3);color:#ccc}
-.sd-fbtn.heavy-btn{color:#ff8844;border-color:rgba(255,100,0,.3)}
-/* Saros Calendar Map */
-#saros-cal{display:none;margin-top:8px;background:rgba(8,8,20,.6);border:1px solid rgba(160,170,200,.12);border-radius:6px;padding:6px}
-#saros-cal.open{display:block}
-#scal-nav{display:flex;gap:3px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:4px}
-#scal-nav button{background:rgba(30,30,60,.6);border:1px solid rgba(160,170,200,.2);border-radius:3px;color:#888;padding:2px 6px;font:9px monospace;cursor:pointer}
-#scal-nav button.active{color:#c0c0ff;border-color:rgba(90,90,170,.5)}
-#scal-nav input{width:52px;background:rgba(30,30,60,.8);border:1px solid rgba(160,170,200,.25);color:#ccc;font:9px monospace;padding:1px 3px;border-radius:3px;text-align:center}
-#scal-nav .sp{width:1px;height:12px;background:rgba(160,170,200,.12)}
-#scal-info{text-align:center;font:9px monospace;color:#777;margin-bottom:3px;min-height:12px}
-#scal-series{display:flex;gap:2px;flex-wrap:wrap;justify-content:center;margin-bottom:4px;max-height:52px;overflow-y:auto}
-#scal-series button{background:rgba(30,30,60,.5);border:1px solid rgba(160,170,200,.13);border-radius:3px;color:#777;padding:1px 4px;font:8px monospace;cursor:pointer}
-#scal-series button.active{color:#FFD700;border-color:rgba(255,200,0,.45);background:rgba(60,50,20,.5)}
-#scal-series button.none{color:#aaa}
-#scal-series button:hover{border-color:rgba(160,170,200,.35)}
-#scal-canvas{display:block;width:100%;border-radius:4px;cursor:grab}
-#scal-legend{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:4px;font:8px monospace;color:#666}
-#scal-legend .lg{display:flex;align-items:center;gap:2px}
-#scal-legend .lgd{width:7px;height:7px;border-radius:50%;display:inline-block}
-#scal-close{float:right;font:9px monospace;color:#777;cursor:pointer;padding:0 4px}
-#scal-close:hover{color:#ccc}
 #barb-d-controls,#barb-d-controls2{flex-wrap:wrap}
 #barb-d-canvas{cursor:grab}
 
@@ -493,7 +415,6 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
       <label class="esc-cb" id="esc-barb-toggle"><input type="checkbox"><span>📉 Barbault</span><span class="esc-cb-desc">· soma dos 10</span></label><span id="barb-mode-btns"><button class="barb-mbtn active" data-bm="normal" onclick="setBarbViewMode('normal',this)">Normal</button><button class="barb-mbtn" data-bm="decomp" onclick="setBarbViewMode('decomp',this)">Decomposto</button></span>
       <label class="esc-cb" id="esc-elem-toggle"><input type="checkbox"><span>🌍 Elemento</span><span class="esc-cb-desc">· dominância</span></label>
       <label class="esc-cb" id="esc-ecl-toggle"><input type="checkbox"><span>☀☾ Eclipses</span><span class="esc-cb-desc">· Saros</span></label>
-      <button onclick="toggleSarosExplorer()" style="background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.3);border-radius:4px;color:#FFD700;padding:3px 10px;font:10px monospace;cursor:pointer;margin-left:4px">☀ Saros Explorer</button>
     </div>
   </div>
   <div id="esc-legend">
@@ -523,7 +444,6 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
     <button class="bd-btn" data-bdm="stacked" onclick="setBDMode(this)">Stacked</button>
     <button class="bd-btn active" data-bdm="lines" onclick="setBDMode(this)">Linhas</button>
     <button class="bd-btn" data-bdm="both" onclick="setBDMode(this)">Ambos</button>
-    <button class="bd-btn" data-bdm="ciclos" onclick="setBDMode(this)">Ciclos</button>
     <span style="flex:1"></span>
     <span style="color:#555;font-size:9px" id="bd-range-lbl">1776 → 2100 · 325a</span>
   </div>
@@ -531,84 +451,9 @@ body{background:#080c1a;font-family:'Georgia',serif;color:#d8d4c8;padding:10px;-
   <div id="barb-d-overlays">
     <span onclick="this.classList.toggle('off');bdShowStellium=!bdShowStellium;drawBD()">⚠ Stellium</span>
     <span onclick="this.classList.toggle('off');bdShowCesta=!bdShowCesta;drawBD()">✦ Cesta</span>
-    <span onclick="this.classList.toggle('off');window.bdShowEcl=!window.bdShowEcl;drawBD()">☀☾ Eclipses</span>
-  </div>
-  <div id="bd-ecl-bar">
-    <span class="bd-ecl-lvl l5 on" onclick="bdToggleEclLvl(5)">⚡5 Gatilho</span>
-    <span class="bd-ecl-lvl l4 on" onclick="bdToggleEclLvl(4)">★4 Peso</span>
-    <span class="bd-ecl-lvl l3" onclick="bdToggleEclLvl(3)">●3 Signif.</span>
-    <span class="bd-ecl-lvl l2" onclick="bdToggleEclLvl(2)">◦2 Notável</span>
-    <span class="bd-ecl-lvl l1" onclick="bdToggleEclLvl(1)">·1 Registro</span>
-    <span style="color:#555;font-size:8px;cursor:pointer;font-family:monospace" onclick="bdResetEclLvl()" title="Reset auto">↺</span>
-    <span style="font-size:8px;color:#555;font-family:monospace" id="bd-ecl-count"></span>
   </div>
   <div id="barb-d-legend"></div>
 </div>
-  <div id="saros-wrap">
-    <div id="saros-ctrls"></div>
-    <canvas id="saros-canvas"></canvas>
-    <div id="saros-detail">← Clique numa série no gráfico</div>
-    <div id="saros-cal">
-      <span id="scal-close" onclick="closeSarosCal()">&times; fechar</span>
-      <div id="scal-nav">
-        <button onclick="scalSpan(30)">30a</button>
-        <button onclick="scalSpan(50)">50a</button>
-        <button onclick="scalSpan(100)">100a</button>
-        <button onclick="scalSpan(200)">200a</button>
-        <button onclick="scalSpan(500)">500a</button>
-        <button onclick="scalSpan(1000)">1mil</button>
-        <button onclick="scalSpan(3000)">3mil</button>
-        <button onclick="scalSpan(-1)">Tudo</button>
-        <span class="sp"></span>
-        <span style="font:8px monospace;color:#888">Ir:</span>
-        <input id="scal-yr" value="2026" onchange="scalGoYear(this.value)" onkeydown="if(event.key==='Enter')scalGoYear(this.value)">
-        <span class="sp"></span>
-        <span id="scal-range" style="font:9px monospace;color:#777"></span>
-      </div>
-      <div id="scal-info"></div>
-      <div id="scal-series"></div>
-      <canvas id="scal-canvas"></canvas>
-      <div id="scal-legend">
-        <span class="lg"><span class="lgd" style="border:2px solid #ff6600;background:#111"></span>&#9788;Total</span>
-        <span class="lg"><span class="lgd" style="border:2px solid #ccaa44;background:#111"></span>&#9788;Anular</span>
-        <span class="lg"><span class="lgd" style="border:2px solid #cc5588;background:#111"></span>&#9788;H&iacute;brido</span>
-        <span class="lg"><span class="lgd" style="border:1px solid #666;background:#333"></span>&#9788;Parcial</span>
-        <span class="lg"><span class="lgd" style="background:#cc4444"></span>&#9790;Total</span>
-        <span class="lg"><span class="lgd" style="background:#884444"></span>&#9790;Parc</span>
-        <span style="color:#333">|</span>
-        <span class="lg"><span class="lgd" style="background:#d4952e55"></span>Fogo</span>
-        <span class="lg"><span class="lgd" style="background:#3d7d3d55"></span>Terra</span>
-        <span class="lg"><span class="lgd" style="background:#5495bd55"></span>Ar</span>
-        <span class="lg"><span class="lgd" style="background:#2d5f9655"></span>&Aacute;gua</span>
-      </div>
-    </div>
-    <div id="saros-guide" class="collapsed">
-      <span id="saros-guide-toggle" onclick="var p=document.getElementById('saros-guide');p.classList.toggle('collapsed');this.textContent=(p.classList.contains('collapsed')?'\u25B8':'\u25BE')+' Guia de Refer\u00EAncia \u00B7 Tipos \u00B7 Elementos \u00B7 Signos'">&blacktriangleright; Guia de Refer&ecirc;ncia &middot; Tipos &middot; Elementos &middot; Signos</span>
-      <div id="saros-guide-body">
-        <div class="sg-section">NATUREZA</div>
-        <div style="display:flex;flex-wrap:wrap;width:100%">
-          <div class="sg-card"><div class="sg-head"><span class="sg-sym">&#x2600;</span><span class="sg-name" style="color:#FFD700">SOLAR</span></div><div class="sg-desc">Eventos externos, geopol&iacute;ticos. L&iacute;deres, governos, rupturas de poder.</div><div class="sg-kw">&#x23F1; 1min sombra &asymp; 1 ano de efeito</div></div>
-          <div class="sg-card"><div class="sg-head"><span class="sg-sym">&#x263E;</span><span class="sg-name" style="color:#b8a0e0">LUNAR</span></div><div class="sg-desc">Crises internas, colapsos emocionais, revela&ccedil;&otilde;es. Popula&ccedil;&atilde;o e opini&atilde;o p&uacute;blica.</div><div class="sg-kw">&#x23F1; 1h eclipse &asymp; 1 m&ecirc;s de efeito</div></div>
-        </div>
-        <div class="sg-sep"></div>
-        <div class="sg-section">INTENSIDADE</div>
-        <div style="display:flex;flex-wrap:wrap;width:100%">
-          <div class="sg-card"><div class="sg-head"><span class="sg-sym">&#x25CF;</span><span class="sg-name" style="color:#ff6600">TOTAL</span></div><div class="sg-desc">For&ccedil;a m&aacute;xima. Reset completo. Inflex&atilde;o hist&oacute;rica.</div><div class="sg-kw">Queda de regimes &middot; Virada de cap&iacute;tulo</div></div>
-          <div class="sg-card"><div class="sg-head"><span class="sg-sym">&#x25CE;</span><span class="sg-name" style="color:#ccaa44">ANULAR</span></div><div class="sg-desc">Anel de Fogo. Incompletude, vazio central.</div><div class="sg-kw">Escassez &middot; Ilus&atilde;o de lideran&ccedil;a</div></div>
-          <div class="sg-card"><div class="sg-head"><span class="sg-sym">&#x25D1;</span><span class="sg-name" style="color:#cc5588">H&Iacute;BRIDO</span></div><div class="sg-desc">O mais raro. Viradas bruscas, instabilidade.</div><div class="sg-kw">Transi&ccedil;&atilde;o abrupta &middot; Rar&iacute;ssimo</div></div>
-          <div class="sg-card"><div class="sg-head"><span class="sg-sym">&#x25D4;</span><span class="sg-name" style="color:#777">PARCIAL</span></div><div class="sg-desc">Sinal fraco, ru&iacute;do. S&eacute;ries jovens ou velhas.</div><div class="sg-kw">Avisos &middot; Fric&ccedil;&otilde;es menores</div></div>
-        </div>
-        <div class="sg-sep"></div>
-        <div class="sg-section">CAMPO DE BATALHA &middot; ELEMENTO</div>
-        <div style="display:flex;flex-wrap:wrap;width:100%">
-          <div class="sg-card" style="border-left:3px solid #d4952e"><div class="sg-head"><span class="sg-name" style="color:#d4952e">&#x1F525; FOGO &#x2648;&#x264C;&#x2650;</span></div><div class="sg-desc">Guerras, for&ccedil;as armadas, lideran&ccedil;as, energia.</div><div class="sg-kw">&Aacute;ries: conflito &middot; Le&atilde;o: poder &middot; Sagit&aacute;rio: f&eacute;</div></div>
-          <div class="sg-card" style="border-left:3px solid #3d7d3d"><div class="sg-head"><span class="sg-name" style="color:#3d7d3d">&#x26F0;&#xFE0F; TERRA &#x2649;&#x264D;&#x2651;</span></div><div class="sg-desc">Finan&ccedil;as, bancos, commodities, institui&ccedil;&otilde;es.</div><div class="sg-kw">Touro: moeda &middot; Virgem: trabalho &middot; Capric&oacute;rnio: Estado</div></div>
-          <div class="sg-card" style="border-left:3px solid #5495bd"><div class="sg-head"><span class="sg-name" style="color:#5495bd">&#x1F4A8; AR &#x264A;&#x264E;&#x2652;</span></div><div class="sg-desc">Comunica&ccedil;&atilde;o, IA, m&iacute;dia, diplomacia, tech.</div><div class="sg-kw">G&ecirc;meos: dados &middot; Libra: justi&ccedil;a &middot; Aqu&aacute;rio: revolu&ccedil;&atilde;o</div></div>
-          <div class="sg-card" style="border-left:3px solid #2d5f96"><div class="sg-head"><span class="sg-name" style="color:#2d5f96">&#x1F4A7; &Aacute;GUA &#x264B;&#x264F;&#x2653;</span></div><div class="sg-desc">Sa&uacute;de, massas, poder oculto, crises humanit&aacute;rias.</div><div class="sg-kw">C&acirc;ncer: na&ccedil;&atilde;o &middot; Escorpi&atilde;o: corrup&ccedil;&atilde;o &middot; Peixes: psicose</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
 <div id="esc-matrix"></div>
 </div>
 <div id="esc-tip"></div>
@@ -8527,8 +8372,6 @@ window.__swissScanner=(function(){
     return arr[y-ayanData.y0];
   }
   return {load:load,lonAt:lonAt,ayanFor:ayanFor,
-    cover:function(){return data?{y0:data.y0,y1:data.y1,n:data.n}:null;},
-    ready:function(){return !!data;},
     get erasLahiri(){return ayanData&&ayanData.eras_lahiri;}};
 })();
 </script>
@@ -8657,101 +8500,10 @@ function loadEclipseData(){
   return fetch(base+'data/eclipses_major.json').then(function(r){return r.json();}).then(function(d){
     eclipseData=d;
     eclipsesByYear=(d&&d.by_year)?d.by_year:{};
-    window.eclipseData=eclipseData;
-    window.eclipsesByYear=eclipsesByYear;
-    buildSarosLifecycle();
-    if(typeof window._onEclipseData==='function')window._onEclipseData();
     return d;
-  }).catch(function(e){console.warn('Eclipse data failed:',e);window._eclipseLoadFailed=true;return null;});
+  }).catch(function(e){console.warn('Eclipse data failed:',e);return null;});
 }
-window.loadEclipseData=loadEclipseData;
-window.eclipsesByYear=eclipsesByYear;
 function getEclipsesForYear(y){return eclipsesByYear[y]||[];}
-
-// ═══ SAROS LIFECYCLE + 5-LEVEL ECLIPSE HIERARCHY ═══
-var sarosLife={}; // sr → {y0,y1,n}
-function buildSarosLifecycle(){
-  sarosLife={};
-  for(var yr in eclipsesByYear){
-    var y=parseInt(yr);var arr=eclipsesByYear[yr];
-    for(var i=0;i<arr.length;i++){
-      var sr=arr[i].sr;if(!sr)continue;
-      if(!sarosLife[sr]) sarosLife[sr]={y0:y,y1:y,n:1};
-      else{if(y<sarosLife[sr].y0)sarosLife[sr].y0=y;if(y>sarosLife[sr].y1)sarosLife[sr].y1=y;sarosLife[sr].n++;}
-    }
-  }
-}
-function eclFrac(ecl,yr){
-  if(!ecl.sr||!sarosLife[ecl.sr])return .5;
-  var s=sarosLife[ecl.sr];
-  var span=s.y1-s.y0;if(span<1)return .5;
-  return(yr-s.y0)/span;
-}
-function eclMature(f){return f>.22&&f<.78;}
-function eclPeak(f){return f>.35&&f<.65;}
-function eclApex(f){return f>.42&&f<.58;}
-
-// 5-level hierarchy
-function bdEclLevel(ecl,yr,isValley){
-  var k=ecl.k||ecl.kind||'s',t=ecl.t||ecl.type||'t';
-  var isSol=k==='s',isTotal=t==='t'||t==='h',isAnn=t==='a';
-  var f=eclFrac(ecl,yr),mat=eclMature(f),pk=eclPeak(f),ap=eclApex(f);
-  if(isSol&&isTotal&&pk&&isValley)return 5;
-  if(!isSol&&isTotal&&ap&&isValley)return 5;
-  if(isSol&&isTotal&&mat)return 4;
-  if(isTotal&&mat&&isValley)return 4;
-  if(isSol&&isTotal)return 3;
-  if(isSol&&isAnn&&mat)return 3;
-  if(!isSol&&isTotal&&pk)return 3;
-  if(!isSol&&isTotal)return 2;
-  if(isSol&&isAnn)return 2;
-  if(pk)return 2;
-  return 1;
-}
-
-// Eclipse level toggle state
-window.bdShowEcl=true;
-var bdEclManual=null; // null=auto, Set=manual override
-function bdAutoLevels(){
-  // bdSpan é declarado na IIFE do Barbault Decomposto (irmã, não aninhada).
-  // Publicado em window.bdSpan por bdClampView(). Ver ponte window.__ECL.
-  var bdSpan=(typeof window.bdSpan==='number')?window.bdSpan:500;
-  if(bdSpan<=50)return new Set([1,2,3,4,5]);
-  if(bdSpan<=100)return new Set([2,3,4,5]);
-  if(bdSpan<=200)return new Set([3,4,5]);
-  if(bdSpan<=500)return new Set([4,5]);
-  return new Set([5]);
-}
-function bdEclActive(){return bdEclManual||bdAutoLevels();}
-function bdEclVis(lvl){return bdEclActive().has(lvl);}
-window.bdToggleEclLvl=function(lvl){
-  if(!bdEclManual) bdEclManual=new Set(bdAutoLevels());
-  if(bdEclManual.has(lvl))bdEclManual.delete(lvl);else bdEclManual.add(lvl);
-  var auto=bdAutoLevels(),same=bdEclManual.size===auto.size;
-  if(same)auto.forEach(function(v){if(!bdEclManual.has(v))same=false;});
-  if(same)bdEclManual=null;
-  bdUpdateEclUI();drawBD();
-};
-window.bdResetEclLvl=function(){bdEclManual=null;bdUpdateEclUI();drawBD();};
-function bdUpdateEclUI(){
-  var act=bdEclActive(),isM=bdEclManual!==null;
-  var els=document.querySelectorAll('.bd-ecl-lvl');
-  els.forEach(function(el){
-    var m=el.className.match(/l(\d)/);if(!m)return;var l=parseInt(m[1]);
-    var on=act.has(l);
-    el.classList.toggle('on',on);el.classList.toggle('off',!on);
-    el.classList.toggle('hint',isM&&on!==bdAutoLevels().has(l));
-  });
-}
-
-// Visual params per level
-var BD_ECL_STYLE={
-  5:{r:5.5,glow:11,glowA:.22,sym:'\u26A1',symF:'bold 9px serif',symO:9,eR:1.8},
-  4:{r:4,  glow:7, glowA:.15,sym:'\u2605',symF:'8px serif',     symO:7,eR:1.3},
-  3:{r:2.8,glow:0, glowA:0,  sym:'',      symF:'',              symO:0,eR:.9},
-  2:{r:1.8,glow:0, glowA:0,  sym:'',      symF:'',              symO:0,eR:0},
-  1:{r:1.2,glow:0, glowA:0,  sym:'',      symF:'',              symO:0,eR:0}
-};
 function eclColor(ecl){
   if(!ecl)return'#888';
   var k=ecl.k||ecl.kind||'s';
@@ -10617,56 +10369,12 @@ window.__scannerRefreshForAyan=function(){
   buildFilters();
   buildMatrix();
 };
-
-// ══════════════════════════════════════════════════════════════
-// PONTE ENTRE IIFEs IRMÃS
-// Esta IIFE (Scanner de Eras) e a do Barbault Decomposto são
-// irmãs, não aninhadas. Nada declarado aqui com var/function é
-// visível lá. Tudo que o Barbault precisa passa por aqui.
-// ══════════════════════════════════════════════════════════════
-window.__ECL={
-  get data(){return eclipseData;},
-  byYear:getEclipsesForYear,
-  level:bdEclLevel,
-  vis:bdEclVis,
-  active:bdEclActive,
-  style:BD_ECL_STYLE,
-  frac:eclFrac,
-  mature:eclMature,
-  peak:eclPeak,
-  apex:eclApex,
-  updateUI:bdUpdateEclUI,
-  resetManual:function(){bdEclManual=null;bdUpdateEclUI();},
-  color:eclColor,
-  glyph:eclGlyph,
-  sidLon:sidLon,
-  cover:function(){
-    return (window.__swissScanner&&window.__swissScanner.cover)
-      ? window.__swissScanner.cover() : null;
-  }
-};
 })();
 
 
 
 // ═══ BARBAULT DECOMPOSTO (inside Scanner) ═══
 (function(){
-'use strict';
-// ── ponte p/ a IIFE irmã do Scanner (window.__ECL). Sem isto, cada
-//    identificador abaixo lança ReferenceError e aborta drawBD(). ──
-var _E=window.__ECL||{};
-function getEclipsesForYear(y){return (_E.byYear?_E.byYear(y):null)||[];}
-function bdEclLevel(e,y,v){return _E.level?_E.level(e,y,v):1;}
-function bdEclVis(l){return _E.vis?_E.vis(l):false;}
-function bdEclActive(){return _E.active?_E.active():new Set();}
-function bdUpdateEclUI(){if(_E.updateUI)_E.updateUI();}
-function bdResetEclManual(){if(_E.resetManual)_E.resetManual();}
-function eclFrac(e,y){return _E.frac?_E.frac(e,y):.5;}
-function eclMature(f){return _E.mature?_E.mature(f):false;}
-function eclPeak(f){return _E.peak?_E.peak(f):false;}
-function eclApex(f){return _E.apex?_E.apex(f):false;}
-function eclData(){return _E.data||null;}
-var BD_ECL_STYLE=_E.style||{};
 var BD_COLORS=['#e6b422','#e07830','#d04040','#c03070','#40a060','#30a0a0','#4080d0','#8060c0','#a04090','#607890'];
 var BD_LABELS=['Júp–Sat','Júp–Ura','Júp–Net','Júp–Plu','Sat–Ura','Sat–Net','Sat–Plu','Ura–Net','Ura–Plu','Net–Plu'];
 var BD_FULL=['Júpiter–Saturno','Júpiter–Urano','Júpiter–Netuno','Júpiter–Plutão','Saturno–Urano','Saturno–Netuno','Saturno–Plutão','Urano–Netuno','Urano–Plutão','Netuno–Plutão'];
@@ -10692,168 +10400,58 @@ var bdHidden=new Set();
 window.bdShowStellium=true;
 window.bdShowCesta=true;
 var bdHoverYr=-1;
-var bdPairs=null,bdStellium=null,bdCesta=null,bdStPeaks=null,bdCePeaks=null,bdElem=null,bdVoltage=null,bdVPeaks=null;
-var bdHovPair=-1; // which pair is hovered in legend (-1=none)
-var BD_ELEM_C=['#d4952e','#3d7d3d','#5495bd','#2d5f96']; // fire,earth,air,water
-var BD_CICLOS_ASP=[{d:0,s:'☌'},{d:60,s:'⚹'},{d:90,s:'□'},{d:120,s:'△'},{d:150,s:'⚻'},{d:180,s:'☍'}];
+var bdPairs=null,bdStellium=null,bdCesta=null,bdStPeaks=null,bdCePeaks=null;
 var bdY0=1900,bdY1=2100,bdN=201;
-
-// ══════════════════════════════════════════════════════════════════
-// CACHE GLOBAL POR BLOCOS
-// LON (longitudes) e as séries derivadas — pares, stellium, cesta,
-// voltagem — dependem SÓ do ano absoluto. Valem para qualquer janela.
-// Guardamos o range inteiro (-10000 → 2100) e preenchemos em blocos
-// de 128 anos, sob demanda. Pan e zoom viram subarray(): custo zero.
-// Custo de RAM: ~1,1 MB. Invalida sozinho se o ayanamsa mudar ou se
-// o scanner_swiss.json chegar depois (a chave inclui os dois).
-// ══════════════════════════════════════════════════════════════════
-var CBLK=128;
-var _cY0=0,_cN=0,_cNB=0;
-var _cLON=null,_cPAIR=null,_cSTEL=null,_cCES=null,_cVOLT=null,_cFill=null,_cKey='';
-var _BPL=[
-  {id:'jup',L0:31.3151,rate:30.628545},
-  {id:'sat',L0:1.8594,rate:13.602167},
-  {id:'ura',L0:312.0862,rate:4.035364},
-  {id:'nep',L0:302.4682,rate:2.191545},
-  {id:'plu',L0:256.0668,rate:1.811364}
-];
-var _fbPl=null,_fbYr=0;
-function _fb(){return (_fbPl.L0+_fbPl.rate*(_fbYr-2000+0.5))%360;}
-function _cacheKey(){
-  var SS=window.__swissScanner;
-  var ay=(typeof EPHEM_STATE!=='undefined'&&EPHEM_STATE.ayanamsa)||'fagan-bradley';
-  return ay+'|'+((SS&&SS.ready&&SS.ready())?'swiss':'linear');
-}
-function _cacheInit(){
-  var k=_cacheKey();
-  if(_cLON&&_cKey===k)return;
-  if(!_cLON){
-    _cY0=BD_FULL_Y0;_cN=BD_FULL_N;_cNB=Math.ceil(_cN/CBLK);
-    _cLON=[];for(var i=0;i<5;i++)_cLON.push(new Float64Array(_cN));
-    _cPAIR=[];for(var i=0;i<10;i++)_cPAIR.push(new Float32Array(_cN));
-    _cSTEL=new Float32Array(_cN);_cCES=new Float32Array(_cN);_cVOLT=new Float32Array(_cN);
-    _cFill=new Uint8Array(_cNB);
-  }else{
-    _cFill.fill(0); // ayanamsa trocou, ou a efeméride real chegou → tudo sujo
-  }
-  _cKey=k;
-}
-var _PAIR_IJ=[[0,1],[0,2],[0,3],[0,4],[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]];
-function _cFillBlock(bi){
-  if(_cFill[bi])return;
-  var SS=window.__swissScanner;
-  var i0=bi*CBLK, i1=Math.min(_cN,i0+CBLK);
-  var lons=new Float64Array(5);
-  for(var i=i0;i<i1;i++){
-    var yr=_cY0+i, ayan=SS.ayanFor(yr);
-    // 5 consultas à efeméride por ano — e só uma vez na vida do range
-    for(var b=0;b<5;b++){
-      var pl=_BPL[b];_fbPl=pl;_fbYr=yr;
-      var l=(SS.lonAt(pl.id,yr,0.5,_fb)-ayan)%360;if(l<0)l+=360;
-      _cLON[b][i]=l;
-    }
-    // pares (mesma fórmula de antes, ordem idêntica)
-    for(var p=0;p<10;p++){
-      var d=Math.abs(_cLON[_PAIR_IJ[p][0]][i]-_cLON[_PAIR_IJ[p][1]][i])%360;
-      if(d>180)d=360-d;
-      _cPAIR[p][i]=d;
-    }
-    // stellium
-    for(var s=0;s<5;s++)lons[s]=_cLON[s][i];
-    lons.sort();
-    var m=360;for(var s=0;s<5;s++){var a=((lons[(s+4)%5]-lons[s])%360+360)%360;if(a<m)m=a;}
-    _cSTEL[i]=Math.max(0,Math.min(1,(120-m)/120));
-    // cesta
-    var o=0,t=0,sx=0;
-    for(var p=0;p<10;p++){var v=_cPAIR[p][i];
-      if(v>=160)o++;else if(v>=110&&v<=140)t++;else if(v>=50&&v<=80)sx++;}
-    if(o>=1&&t>=2&&sx>=2)_cCES[i]=1;
-    else if(o>=1&&(t>=1&&sx>=2||t>=2&&sx>=1))_cCES[i]=.7;
-    else if(o>=1&&(t+sx)>=3)_cCES[i]=.4;
-    else _cCES[i]=0;
-    // voltagem
-    _cVOLT[i]=0;
-    if(_cCES[i]>=.4){
-      var orbs=[];
-      for(var p=0;p<10;p++){var v=_cPAIR[p][i];
-        if(v>=165)orbs.push(Math.abs(v-180));
-        else if(v>=112&&v<=128)orbs.push(Math.abs(v-120));
-        else if(v>=52&&v<=68)orbs.push(Math.abs(v-60));}
-      if(orbs.length>=4){
-        orbs.sort(function(a,b){return a-b;});
-        _cVOLT[i]=Math.max(0,Math.min(1,1-orbs[3]/10));
-      }
-    }
-  }
-  _cFill[bi]=1;
-}
-function _cEnsure(i0,i1){
-  var b0=Math.max(0,Math.floor(i0/CBLK)), b1=Math.min(_cNB-1,Math.floor(i1/CBLK));
-  for(var b=b0;b<=b1;b++)_cFillBlock(b);
-}
 
 function bdCompute(){
   if(bdPairs)return;
+  // Inline planet data (mesmos ids/constantes do Scanner PL[0..4] — usado só como
+  // fallback linear quando data/scanner_swiss.json ainda não carregou ou falhou)
+  var BPL=[
+    {id:'jup',L0:31.3151,rate:30.628545},  // Jupiter
+    {id:'sat',L0:1.8594,rate:13.602167},   // Saturn
+    {id:'ura',L0:312.0862,rate:4.035364},  // Uranus
+    {id:'nep',L0:302.4682,rate:2.191545},  // Neptune
+    {id:'plu',L0:256.0668,rate:1.811364}   // Pluto
+  ];
+  function bSidLon(pl,yr,f){
+    var trop=window.__swissScanner.lonAt(pl.id,yr,f,function(){return (pl.L0+pl.rate*(yr-2000+f))%360;});
+    var ayan=window.__swissScanner.ayanFor(yr);
+    var l=(trop-ayan)%360;while(l<0)l+=360;return l;
+  }
   bdN=bdY1-bdY0+1;
-  _cacheInit();
-  var OFF=bdY0-_cY0;                 // índice absoluto do primeiro ano da janela
-  _cEnsure(OFF,OFF+bdN-1);           // preenche só os blocos que faltam
-  var LON=_cLON;                     // modo Ciclos indexa com OFF+y
-
   bdPairs=[];
-  for(var pi=0;pi<10;pi++)bdPairs.push(_cPAIR[pi].subarray(OFF,OFF+bdN));
-  bdStellium=_cSTEL.subarray(OFF,OFF+bdN);
-  bdCesta=_cCES.subarray(OFF,OFF+bdN);
+  for(var pi=0;pi<10;pi++)bdPairs.push(new Float32Array(bdN));
+  var idx=0;
+  for(var pi=0;pi<5;pi++)for(var pj=pi+1;pj<5;pj++){
+    for(var y=0;y<bdN;y++){
+      var yr=bdY0+y;
+      var l0=bSidLon(BPL[pi],yr,0.5),l1=bSidLon(BPL[pj],yr,0.5);
+      var d=Math.abs(l0-l1)%360;if(d>180)d=360-d;
+      bdPairs[idx][y]=d;
+    }
+    idx++;
+  }
+  bdStellium=new Float32Array(bdN);
+  for(var y=0;y<bdN;y++){
+    var lons=[];for(var i=0;i<5;i++)lons.push(bSidLon(BPL[i],bdY0+y,0.5));
+    lons.sort(function(a,b){return a-b;});
+    var m=360;for(var i=0;i<5;i++){var a=((lons[(i+4)%5]-lons[i])%360+360)%360;if(a<m)m=a;}
+    bdStellium[y]=Math.max(0,Math.min(1,(120-m)/120));
+  }
+  bdCesta=new Float32Array(bdN);
+  for(var y=0;y<bdN;y++){
+    var o=0,t=0,s=0;
+    for(var p=0;p<10;p++){var v=bdPairs[p][y];if(v>=160)o++;else if(v>=110&&v<=140)t++;else if(v>=50&&v<=80)s++;}
+    if(o>=1&&t>=2&&s>=2)bdCesta[y]=1;
+    else if(o>=1&&(t>=1&&s>=2||t>=2&&s>=1))bdCesta[y]=.7;
+    else if(o>=1&&(t+s)>=3)bdCesta[y]=.4;
+    else bdCesta[y]=0;
+  }
   function fpk(data,thr){var p=[];for(var y=1;y<bdN-1;y++)if(data[y]>=thr&&data[y]>=data[y-1]&&data[y]>=data[y+1]&&(data[y]>data[y-1]||data[y]>data[y+1]))p.push(y);
-    // Agrupamento em O(n). O laço interno original varria f inteiro a cada
-    // candidato — quadrático (218ms no zoom "Tudo", com ~900 picos).
-    // 'lo' descarta o prefixo de f que já não pode casar: como p é crescente,
-    // se f[lo] < p[i]-10 então |f[lo]-p[k]| > 10 para todo k>=i, logo essa
-    // entrada nunca mais é candidata e também nunca mais é substituída.
-    // Só pulamos entradas comprovadamente mortas → o primeiro casamento
-    // encontrado é exatamente o mesmo de antes.
-    var f=[],lo=0;
-    for(var i=0;i<p.length;i++){
-      while(lo<f.length&&f[lo]<p[i]-10)lo++;
-      var ex=null;
-      for(var j=lo;j<f.length;j++)if(Math.abs(f[j]-p[i])<10){ex=j;break;}
-      if(ex===null)f.push(p[i]);else if(data[p[i]]>data[f[ex]])f[ex]=p[i];
-    }
-    return f;}
+    var f=[];for(var i=0;i<p.length;i++){var ex=null;for(var j=0;j<f.length;j++)if(Math.abs(f[j]-p[i])<10){ex=j;break;}
+    if(ex===null)f.push(p[i]);else if(data[p[i]]>data[f[ex]])f[ex]=p[i];}return f;}
   bdStPeaks=fpk(bdStellium,.3);bdCePeaks=fpk(bdCesta,.35);
-  // ── Alta Voltagem: já calculada no cache (mesma fórmula, mesmo orbe) ──
-  bdVoltage=_cVOLT.subarray(OFF,OFF+bdN);
-  bdVPeaks=[];
-  for(var y=1;y<bdN-1;y++){
-    if(bdVoltage[y]>=.7&&bdVoltage[y]>=bdVoltage[y-1]&&bdVoltage[y]>=bdVoltage[y+1]&&(bdVoltage[y]>bdVoltage[y-1]||bdVoltage[y]>bdVoltage[y+1])){
-      var dup=false;for(var j=0;j<bdVPeaks.length;j++)if(Math.abs(bdVPeaks[j]-y)<10){dup=true;if(bdVoltage[y]>bdVoltage[bdVPeaks[j]])bdVPeaks[j]=y;break;}
-      if(!dup)bdVPeaks.push(y);
-    }
-  }
-  // ── Compute element per pair per year for Ciclos view ──
-  bdElem=[];
-  var PAIR_MAP=[[0,1],[0,2],[0,3],[0,4],[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]];
-  for(var pi=0;pi<10;pi++){
-    bdElem.push(new Uint8Array(bdN));
-    var slower=PAIR_MAP[pi][1]; // slower planet determines sign at conjunction
-    var curE=0;
-    // First pass: find first conjunction to seed element
-    for(var y=0;y<bdN;y++){
-      if(bdPairs[pi][y]<20&&(y===0||bdPairs[pi][y]<=bdPairs[pi][y-1])&&(y===bdN-1||bdPairs[pi][y]<=bdPairs[pi][y+1])){
-        var lon=LON[slower][OFF+y];
-        curE=Math.floor(lon/30)%4; // sign%4 → 0=fire,1=earth,2=air,3=water
-        break;
-      }
-    }
-    // Fill forward, updating at each conjunction
-    for(var y=0;y<bdN;y++){
-      if(bdPairs[pi][y]<20&&(y===0||bdPairs[pi][y]<=bdPairs[pi][y-1])&&(y===bdN-1||bdPairs[pi][y]<=bdPairs[pi][y+1])){
-        var lon=LON[slower][OFF+y];
-        curE=Math.floor(lon/30)%4;
-      }
-      bdElem[pi][y]=curE;
-    }
-  }
 }
 
 // Mode switching
@@ -10906,147 +10504,6 @@ window.drawBD=function(){
   var W=w,H=h;ctx.fillStyle='rgba(8,8,18,.95)';ctx.fillRect(0,0,W,H);
   var ML=48,MR=10,MT=20,MB=22,pW=W-ML-MR,pH=H-MT-MB;
   function xP(yi){return ML+(yi/(bdN-1))*pW;}
-  // ── soma dos 10 pares + min/max: 1x por draw (antes: 3 varreduras O(bdN×10)) ──
-  var _bdSum=null,_bdMin=Infinity,_bdMax=0;
-  function _bdSums(){
-    if(_bdSum)return _bdSum;
-    _bdSum=new Float64Array(bdN);
-    for(var _y=0;_y<bdN;_y++){var _s=0;for(var _p=0;_p<10;_p++)_s+=bdPairs[_p][_y];
-      _bdSum[_y]=_s;if(_s<_bdMin)_bdMin=_s;if(_s>_bdMax)_bdMax=_s;}
-    return _bdSum;
-  }
-  function _bdThresh(){_bdSums();return _bdMin+(_bdMax-_bdMin)*.25;}
-  // ── hachura nos anos fora da cobertura real (ali o app usa aproximação linear) ──
-  function _bdNoData(x0,x1,lbl){
-    if(x1-x0<2)return;
-    ctx.save();
-    ctx.beginPath();ctx.rect(x0,MT,x1-x0,pH);ctx.clip();
-    ctx.fillStyle='rgba(140,120,80,.07)';ctx.fillRect(x0,MT,x1-x0,pH);
-    ctx.strokeStyle='rgba(200,170,110,.09)';ctx.lineWidth=1;ctx.beginPath();
-    for(var _hx=x0-pH;_hx<x1;_hx+=10){ctx.moveTo(_hx,MT+pH);ctx.lineTo(_hx+pH,MT);}
-    ctx.stroke();
-    if(lbl&&x1-x0>110){ctx.font='italic 8px Courier New';ctx.fillStyle='rgba(201,169,97,.5)';
-      ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(lbl,(x0+x1)/2,MT+9);}
-    ctx.restore();
-  }
-  try{
-    var _cov=_E.cover?_E.cover():null;
-    if(_cov){
-      if(_cov.y0>bdY0)_bdNoData(xP(0),xP(Math.max(0,Math.min(bdN-1,_cov.y0-bdY0))),'sem efeméride real');
-      if(_cov.y1<bdY1)_bdNoData(xP(Math.max(0,Math.min(bdN-1,_cov.y1-bdY0))),xP(bdN-1),'sem efeméride real');
-    }
-  }catch(_eCov){}
-
-  // ══════════ CICLOS SOBREPOSTOS MODE ══════════
-  if(bdMode==='ciclos'){
-    var cYmax=180;
-    function cYP(deg){return MT+pH-(deg/cYmax)*pH;}
-    // Grid at aspect degrees
-    ctx.setLineDash([4,6]);
-    BD_CICLOS_ASP.forEach(function(a){
-      var y=cYP(a.d);
-      ctx.strokeStyle='rgba(255,255,255,.07)';ctx.lineWidth=1;
-      ctx.beginPath();ctx.moveTo(ML,y);ctx.lineTo(W-MR,y);ctx.stroke();
-    });
-    ctx.setLineDash([]);
-    // Y-axis labels: aspect symbols + degrees
-    ctx.textBaseline='middle';
-    BD_CICLOS_ASP.forEach(function(a){
-      var y=cYP(a.d);
-      ctx.textAlign='right';
-      ctx.font='14px serif';ctx.fillStyle='rgba(255,255,255,.7)';
-      ctx.fillText(a.s,ML-24,y);
-      ctx.font='9px Courier New';ctx.fillStyle='rgba(255,255,255,.3)';
-      ctx.fillText(a.d+'°',ML-4,y);
-    });
-    // X-axis years
-    ctx.textAlign='center';ctx.textBaseline='top';ctx.font='9px Courier New';ctx.fillStyle='#555';
-    var ystep=bdN>5000?500:bdN>2000?200:bdN>800?100:bdN>300?50:bdN>100?20:bdN>40?10:5;
-    for(var yi=0;yi<bdN;yi++){var yr=bdY0+yi;if(yr%ystep===0){var x=xP(yi);ctx.fillText(yr,x,H-MB+10);ctx.strokeStyle='rgba(255,255,255,.03)';ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(x,MT);ctx.lineTo(x,H-MB);ctx.stroke();}}
-    // Plot border
-    ctx.strokeStyle='rgba(255,255,255,.1)';ctx.lineWidth=1;ctx.strokeRect(ML,MT,pW,pH);
-    // ── Orb bands: shaded zones around each aspect degree ──
-    var BD_ORBS=[{d:0,orb:8},{d:60,orb:6},{d:90,orb:8},{d:120,orb:8},{d:150,orb:3},{d:180,orb:8}];
-    BD_ORBS.forEach(function(ao){
-      var lo=Math.max(0,ao.d-ao.orb), hi=Math.min(180,ao.d+ao.orb);
-      var yLo=cYP(lo), yHi=cYP(hi);
-      // Shaded band
-      ctx.fillStyle='rgba(255,255,255,.025)';
-      ctx.fillRect(ML,yHi,pW,yLo-yHi);
-      // Orb boundary lines (dashed, subtle)
-      ctx.strokeStyle='rgba(255,255,255,.08)';ctx.lineWidth=.5;ctx.setLineDash([2,4]);
-      if(lo>0){ctx.beginPath();ctx.moveTo(ML,yLo);ctx.lineTo(W-MR,yLo);ctx.stroke();}
-      if(hi<180){ctx.beginPath();ctx.moveTo(ML,yHi);ctx.lineTo(W-MR,yHi);ctx.stroke();}
-      ctx.setLineDash([]);
-      // Orb label on Y-axis
-      ctx.font='7px Courier New';ctx.fillStyle='rgba(255,255,255,.15)';ctx.textAlign='right';
-      if(lo>0)ctx.fillText(lo+'°',ML-4,yLo+3);
-      if(hi<180)ctx.fillText(hi+'°',ML-4,yHi+3);
-    });
-    // Adaptive step for performance
-    var cStep=bdN>3000?4:bdN>1000?2:1;
-    // Draw each visible pair
-    for(var p=0;p<10;p++){
-      if(!bdVis(p))continue;
-      var isHov=bdHovPair===p;
-      var isFaded=bdHovPair>=0&&!isHov;
-      var lineA=isFaded?.08:isHov?1:.7;
-      var fillA=isFaded?.02:isHov?.28:.12;
-      // Fill under curve with element color
-      for(var yi=0;yi<bdN-cStep;yi+=cStep){
-        var a1=bdPairs[p][yi],a2=bdPairs[p][Math.min(yi+cStep,bdN-1)];
-        var ei=bdElem[p][yi];
-        var ec=BD_ELEM_C[ei];
-        var r=parseInt(ec.slice(1,3),16),g=parseInt(ec.slice(3,5),16),b=parseInt(ec.slice(5,7),16);
-        ctx.fillStyle='rgba('+r+','+g+','+b+','+fillA+')';
-        ctx.beginPath();
-        ctx.moveTo(xP(yi),cYP(0));
-        ctx.lineTo(xP(yi),cYP(a1));
-        ctx.lineTo(xP(yi+cStep),cYP(a2));
-        ctx.lineTo(xP(yi+cStep),cYP(0));
-        ctx.closePath();ctx.fill();
-      }
-      // Line
-      ctx.save();ctx.globalAlpha=lineA;
-      ctx.strokeStyle=BD_COLORS[p];ctx.lineWidth=isHov?2.5:1.5;
-      ctx.beginPath();
-      for(var yi=0;yi<bdN;yi+=cStep){yi===0?ctx.moveTo(xP(yi),cYP(bdPairs[p][yi])):ctx.lineTo(xP(yi),cYP(bdPairs[p][yi]));}
-      ctx.stroke();ctx.restore();
-    }
-    // 2026 marker
-    var nyi=2026-bdY0;if(nyi>=0&&nyi<bdN){var x=xP(nyi);ctx.strokeStyle='#ff4444';ctx.lineWidth=1;ctx.globalAlpha=.4;ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(x,MT);ctx.lineTo(x,H-MB);ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;ctx.fillStyle='#ff6666';ctx.font='bold 8px Courier New';ctx.textAlign='center';ctx.fillText('2026',x,MT-4);}
-    // Tooltip
-    if(bdHoverYr>=0&&bdHoverYr<bdN){
-      var x=xP(bdHoverYr);ctx.strokeStyle='rgba(255,255,255,.2)';ctx.lineWidth=1;ctx.setLineDash([2,2]);ctx.beginPath();ctx.moveTo(x,MT);ctx.lineTo(x,H-MB);ctx.stroke();ctx.setLineDash([]);
-      var yr=bdY0+bdHoverYr,items=[];
-      for(var pp=0;pp<10;pp++){if(!bdVis(pp))continue;if(bdHovPair>=0&&bdHovPair!==pp)continue;
-        var v=bdPairs[pp][bdHoverYr],ei=bdElem[pp][bdHoverYr];
-        var bst=BD_CICLOS_ASP.reduce(function(b,m){return Math.abs(m.d-v)<Math.abs(b.d-v)?m:b;});
-        items.push({p:pp,v:v,ei:ei,asp:bst,dist:Math.abs(bst.d-v)});}
-      items.sort(function(a,b){return b.v-a.v;});
-      if(items.length>0){
-        var tW=220,tH=items.length*20+28;
-        var tx=x+14;if(tx+tW>W-6)tx=x-tW-14;if(tx<4)tx=4;
-        var ty=MT+8;if(ty+tH>H-10)ty=H-10-tH;
-        ctx.fillStyle='rgba(12,12,30,.93)';ctx.strokeStyle='rgba(42,42,78,.8)';ctx.lineWidth=1;
-        bdRR(ctx,tx,ty,tW,tH,5);ctx.fill();ctx.stroke();
-        ctx.textAlign='left';ctx.fillStyle='#ddd';ctx.font='bold 10px Courier New';ctx.fillText(yr,tx+8,ty+14);
-        for(var i=0;i<items.length;i++){var it=items[i],ly=ty+28+i*20;
-          ctx.fillStyle=BD_COLORS[it.p];ctx.beginPath();ctx.arc(tx+12,ly-3,3.5,0,Math.PI*2);ctx.fill();
-          ctx.font='10px Courier New';ctx.fillStyle='#ccc';ctx.fillText(BD_LABELS[it.p],tx+20,ly);
-          ctx.fillStyle=BD_ELEM_C[it.ei];ctx.fillText(Math.round(it.v)+'°',tx+100,ly);
-          if(it.dist<8){ctx.font='13px serif';ctx.fillStyle='rgba(255,255,255,.9)';ctx.fillText(it.asp.s,tx+145,ly+1);
-            if(it.dist<3){ctx.fillStyle='#FFD700';ctx.font='bold 8px Courier New';ctx.fillText('EXATO',tx+162,ly);}
-          }
-        }
-        // Dots on lines
-        for(var i=0;i<items.length;i++){var it=items[i];
-          ctx.fillStyle=BD_COLORS[it.p];ctx.beginPath();ctx.arc(x,cYP(it.v),3.5,0,Math.PI*2);ctx.fill();}
-      }
-    }
-    return; // skip normal BD rendering
-  }
-  // ══════════ END CICLOS MODE ══════════
   var dMax=180;
   if(bdMode==='stacked'||bdMode==='both'){var sM=0;for(var y=0;y<bdN;y++){var s=0;for(var p=0;p<10;p++)if(bdVis(p))s+=bdPairs[p][y];if(s>sM)sM=s;}dMax=Math.max(dMax,sM);}
   var tM=0;for(var y=0;y<bdN;y++){var s=0;for(var p=0;p<10;p++)if(bdVis(p))s+=bdPairs[p][y];if(s>tM)tM=s;}
@@ -11076,82 +10533,19 @@ window.drawBD=function(){
   ctx.strokeStyle='#e0e0f0';ctx.lineWidth=2.5;ctx.globalAlpha=.85;ctx.beginPath();
   for(var yi=0;yi<bdN;yi++){var s=0;for(var p=0;p<10;p++)if(bdVis(p))s+=bdPairs[p][yi];yi===0?ctx.moveTo(xP(yi),yP(s)):ctx.lineTo(xP(yi),yP(s));}
   ctx.stroke();ctx.globalAlpha=1;
-  // Stellium (1.5x quando concentração > 70%)
+  // Stellium
   if(bdShowStellium&&bdStPeaks){bdStPeaks.forEach(function(pk){
-    var tv=0;for(var p=0;p<10;p++)tv+=bdPairs[p][pk];var x=xP(pk),yy=yP(tv)+10;
-    var intense=bdStellium[pk]>=.7;
-    var sc=intense?1.5:1;var dotR=1.2*sc;var ringR=4.5*sc;
-    ctx.globalAlpha=intense?.95:.85;
-    var col=intense?'#ff6020':'#ff3030';
-    [[-2*sc,-1.5*sc],[2*sc,-1.5*sc],[0,2*sc],[-1.2*sc,.5*sc],[1.2*sc,.5*sc]].forEach(function(o){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x+o[0],yy+o[1],dotR,0,Math.PI*2);ctx.fill();});
-    if(intense){ctx.save();ctx.shadowColor='#ff4020';ctx.shadowBlur=8;ctx.strokeStyle='#ff402088';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,yy,ringR,0,Math.PI*2);ctx.stroke();ctx.restore();}
-    else{ctx.strokeStyle='#ff404077';ctx.lineWidth=1;ctx.beginPath();ctx.arc(x,yy,ringR,0,Math.PI*2);ctx.stroke();}
-    ctx.globalAlpha=1;});}
-  // Cesta (1.5x + dourado quando Alta Voltagem)
+    var tv=0;for(var p=0;p<10;p++)tv+=bdPairs[p][pk];var x=xP(pk),yy=yP(tv)+10;ctx.globalAlpha=.85;
+    [[-2,-1.5],[2,-1.5],[0,2],[-1.2,.5],[1.2,.5]].forEach(function(o){ctx.fillStyle='#ff3030';ctx.beginPath();ctx.arc(x+o[0],yy+o[1],1.2,0,Math.PI*2);ctx.fill();});
+    ctx.strokeStyle='#ff404077';ctx.lineWidth=1;ctx.beginPath();ctx.arc(x,yy,4.5,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1;});}
+  // Cesta
   if(bdShowCesta&&bdCePeaks){bdCePeaks.forEach(function(pk){
-    var tv=0;for(var p=0;p<10;p++)tv+=bdPairs[p][pk];var x=xP(pk),yy=yP(tv)-10;
-    var isHV=bdVoltage&&bdVoltage[pk]>=.7;
-    var r=isHV?6:4;
-    var col=isHV?'#FFD700':'#30dd80';
-    var lw=isHV?1.8:1.2;
-    // Glow for Alta Voltagem
-    if(isHV){ctx.save();ctx.shadowColor='#FFD700';ctx.shadowBlur=10;ctx.globalAlpha=.4;
-      ctx.strokeStyle='#FFD700';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x-r,yy-r*.3);ctx.quadraticCurveTo(x,yy+r*.6,x+r,yy-r*.3);ctx.stroke();ctx.restore();}
-    ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.globalAlpha=.9;
+    var tv=0;for(var p=0;p<10;p++)tv+=bdPairs[p][pk];var x=xP(pk),yy=yP(tv)-10,r=4;
+    ctx.strokeStyle='#30dd80';ctx.lineWidth=1.2;ctx.globalAlpha=.85;
     ctx.beginPath();ctx.moveTo(x-r,yy-r*.3);ctx.quadraticCurveTo(x,yy+r*.6,x+r,yy-r*.3);ctx.stroke();
     ctx.beginPath();ctx.moveTo(x-r,yy-r*.3);ctx.lineTo(x-r*.5,yy-r);ctx.stroke();
     ctx.beginPath();ctx.moveTo(x+r,yy-r*.3);ctx.lineTo(x+r*.5,yy-r);ctx.stroke();
-    ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,yy+r*.15,isHV?1.8:1.2,0,Math.PI*2);ctx.fill();
-    // ⚡ label for Alta Voltagem
-    if(isHV){ctx.font='bold 8px Courier New';ctx.fillStyle='#FFD700';ctx.textAlign='center';ctx.fillText('⚡',x,yy-r-3);}
-    ctx.globalAlpha=1;});}
-  // ═══ ECLIPSE OVERLAY ═══
-  if(window.bdShowEcl&&eclData())try{
-    var _sums=_bdSums();
-    var bThresh=_bdThresh();
-    var _actLv=bdEclActive();
-    var eclC=0;
-    for(var yi=0;yi<bdN;yi++){
-      var yr=bdY0+yi;
-      var ecls=getEclipsesForYear(yr);if(!ecls||ecls.length===0)continue;
-      var tv=_sums[yi];
-      var isV=tv<bThresh;
-      var x=xP(yi),barbY=yP(tv);
-      var scored=[];
-      for(var ei=0;ei<ecls.length;ei++){
-        var lvl=bdEclLevel(ecls[ei],yr,isV);
-        if(_actLv.has(lvl))scored.push({e:ecls[ei],lvl:lvl});
-      }
-      scored.sort(function(a,b){return a.lvl-b.lvl;});
-      for(var si=0;si<scored.length;si++){
-        var e=scored[si].e,lvl=scored[si].lvl;
-        var st=BD_ECL_STYLE[lvl];eclC++;
-        var oY=si*(st.r*2+2);
-        var dY=barbY-oY-st.r;if(dY<MT+st.r+2)dY=MT+st.r+2;
-        var isSol=(e.k||e.kind||'s')==='s';
-        var isT=(e.t||e.type)==='t'||(e.t||e.type)==='h';
-        var baseC,glowC;
-        if(lvl===5){baseC=isSol?'#ff6600':'#c060ff';glowC=isSol?'rgba(255,80,0,'+st.glowA+')':'rgba(160,60,255,'+st.glowA+')';}
-        else if(lvl===4){baseC=isSol?'#FFD700':'#b8a0e0';glowC=isSol?'rgba(255,200,0,'+st.glowA+')':'rgba(180,160,230,'+st.glowA+')';}
-        else if(lvl===3){baseC=isSol?'rgba(220,180,40,.85)':'rgba(160,140,210,.75)';}
-        else if(lvl===2){baseC=isSol?'rgba(180,150,50,.55)':'rgba(140,120,180,.5)';}
-        else{baseC=isSol?'rgba(140,120,60,.3)':'rgba(110,100,150,.25)';}
-        ctx.save();
-        if(st.glow>0&&glowC){ctx.beginPath();ctx.arc(x,dY,st.glow,0,Math.PI*2);ctx.fillStyle=glowC;ctx.fill();}
-        if(st.eR>0){
-          var si2=(typeof e.s==='number')?(((e.s%4)+4)%4):0;
-          ctx.beginPath();ctx.arc(x,dY,st.r+2,0,Math.PI*2);
-          ctx.strokeStyle=BD_ELEM_C[si2]+'88';ctx.lineWidth=st.eR;ctx.stroke();
-        }
-        if(!isT&&lvl>=3){ctx.beginPath();ctx.arc(x,dY,st.r,0,Math.PI*2);ctx.strokeStyle=baseC;ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(x,dY,st.r*.4,0,Math.PI*2);ctx.fillStyle=baseC;ctx.fill();}
-        else{ctx.beginPath();ctx.arc(x,dY,st.r,0,Math.PI*2);ctx.fillStyle=baseC;ctx.fill();}
-        if(st.sym){ctx.font=st.symF;ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillStyle=lvl===5?(isSol?'#FFD700':'#c0a0ff'):'#FFD700';ctx.fillText(st.sym,x,dY-st.symO);}
-        if(lvl===5){ctx.strokeStyle=isSol?'rgba(255,80,0,.07)':'rgba(160,60,255,.05)';ctx.lineWidth=1;ctx.setLineDash([3,5]);ctx.beginPath();ctx.moveTo(x,MT);ctx.lineTo(x,H-MB);ctx.stroke();ctx.setLineDash([]);}
-        ctx.restore();
-      }
-    }
-    var cc=document.getElementById('bd-ecl-count');if(cc)cc.textContent=eclC+' ecl';
-  }catch(_eOv){console.warn('[BD] overlay de eclipses falhou:',_eOv);}
+    ctx.fillStyle='#30dd80';ctx.beginPath();ctx.arc(x,yy+r*.15,1.2,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;});}
   // 2026
   var nyi=2026-bdY0;if(nyi>=0&&nyi<bdN){var x=xP(nyi);ctx.strokeStyle='#ff4444';ctx.lineWidth=1;ctx.globalAlpha=.4;ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(x,MT);ctx.lineTo(x,H-MB);ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;ctx.fillStyle='#ff6666';ctx.font='bold 8px Courier New';ctx.textAlign='center';ctx.fillText('2026',x,MT-4);}
   // Tooltip
@@ -11160,15 +10554,8 @@ window.drawBD=function(){
     var yr=bdY0+bdHoverYr,items=[],total=0;
     for(var p=0;p<10;p++){if(!bdVis(p))continue;var v=bdPairs[p][bdHoverYr];total+=v;var prev=bdHoverYr>0?bdPairs[p][bdHoverYr-1]:v;items.push({p:p,v:v,ai:bdAspI(v),dir:v>prev?'↑':v<prev?'↓':'–'});}
     items.sort(function(a,b){return b.v-a.v;});
-    var stSc=bdStellium[bdHoverYr],ceSc=bdCesta[bdHoverYr];var extra=0;if(bdShowStellium&&stSc>.05)extra++;if(bdShowCesta&&ceSc>0)extra++;if(bdShowCesta&&bdVoltage&&bdVoltage[bdHoverYr]>=.7)extra+=2;
-    // Eclipse rows for tooltip height
-    var _tipEclN=0;
-    if(window.bdShowEcl&&eclData()){var _te3=getEclipsesForYear(yr);
-      var _isV3=total<_bdThresh();
-      for(var _i3=0;_i3<_te3.length;_i3++){if(bdEclVis(bdEclLevel(_te3[_i3],yr,_isV3)))_tipEclN++;}
-      if(_tipEclN>0)_tipEclN+=1; // header line
-    }
-    var lH=14,tW=235,tH=(items.length+1+extra+_tipEclN)*lH+16;
+    var stSc=bdStellium[bdHoverYr],ceSc=bdCesta[bdHoverYr];var extra=0;if(bdShowStellium&&stSc>.05)extra++;if(bdShowCesta&&ceSc>0)extra++;
+    var lH=14,tW=235,tH=(items.length+1+extra)*lH+16;
     var tx=x+14;if(tx+tW>W-6)tx=x-tW-14;if(tx<4)tx=4;var ty=MT+8;if(ty+tH>H-10)ty=H-10-tH;
     ctx.fillStyle='rgba(12,12,30,.93)';ctx.strokeStyle='rgba(42,42,78,.8)';ctx.lineWidth=1;bdRR(ctx,tx,ty,tW,tH,5);ctx.fill();ctx.stroke();
     ctx.textAlign='left';ctx.fillStyle='#ddd';ctx.font='bold 10px Courier New';ctx.fillText(yr+' · Total: '+Math.round(total)+'°',tx+8,ty+14);
@@ -11181,51 +10568,9 @@ window.drawBD=function(){
     var ey=ty+19+(items.length+1)*lH;
     if(extra>0){ctx.strokeStyle='rgba(42,42,78,.5)';ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(tx+6,ey-7);ctx.lineTo(tx+tW-6,ey-7);ctx.stroke();}
     if(bdShowStellium&&stSc>.05){ctx.fillStyle='#ff4040';ctx.font='bold 8px Courier New';ctx.textAlign='left';ctx.fillText('⚠ Stellium '+Math.round(stSc*100)+'%',tx+8,ey+2);ey+=lH;}
-    if(bdShowCesta&&ceSc>0){ctx.fillStyle='#30dd80';ctx.font='bold 8px Courier New';ctx.textAlign='left';ctx.fillText('✦ Cesta '+Math.round(ceSc*100)+'%',tx+8,ey+2);ey+=lH;}
-    if(bdShowCesta&&bdVoltage&&bdVoltage[bdHoverYr]>=.7){
-      var vPct=Math.round(bdVoltage[bdHoverYr]*100);
-      var tier=vPct>=95?'PURO ⚡⚡⚡':vPct>=85?'FORTE ⚡⚡':'MÉDIA ⚡';
-      ctx.fillStyle='#FFD700';ctx.font='bold 8px Courier New';ctx.textAlign='left';
-      ctx.fillText('⚡ VOLTAGEM '+tier+' '+vPct+'%',tx+8,ey+2);ey+=lH;
-      // Show contributing aspect orbs
-      var orbInfo=[];
-      for(var pp=0;pp<10;pp++){var vv=bdPairs[pp][bdHoverYr];
-        if(vv>=165)orbInfo.push({n:BD_LABELS[pp],a:'☍',o:Math.abs(vv-180)});
-        else if(vv>=112&&vv<=128)orbInfo.push({n:BD_LABELS[pp],a:'△',o:Math.abs(vv-120)});
-        else if(vv>=52&&vv<=68)orbInfo.push({n:BD_LABELS[pp],a:'⚹',o:Math.abs(vv-60)});}
-      orbInfo.sort(function(a,b){return a.o-b.o;});
-      ctx.fillStyle='rgba(255,215,0,.5)';ctx.font='7px Courier New';
-      var orbTxt=orbInfo.slice(0,5).map(function(x){return x.a+x.n+' '+x.o.toFixed(1)+'°';}).join(' · ');
-      ctx.fillText(orbTxt,tx+8,ey+1);ey+=lH;
-    }
+    if(bdShowCesta&&ceSc>0){ctx.fillStyle='#30dd80';ctx.font='bold 8px Courier New';ctx.textAlign='left';ctx.fillText('✦ Cesta '+Math.round(ceSc*100)+'%',tx+8,ey+2);}
     for(var p=0;p<10;p++){if(!bdVis(p))continue;ctx.fillStyle=BD_COLORS[p];ctx.beginPath();ctx.arc(x,yP(bdPairs[p][bdHoverYr]),3,0,Math.PI*2);ctx.fill();}
-    ctx.fillStyle='#e0e0f0';ctx.beginPath();ctx.arc(x,yP(total),3.5,0,Math.PI*2);ctx.fill();
-    // ── Eclipse section in tooltip ──
-    if(window.bdShowEcl&&eclData()){
-      var _bTh2=_bdThresh();var _isV2=total<_bTh2;
-      var tipEcls=getEclipsesForYear(yr);
-      var tEcls=[];
-      for(var _te=0;_te<tipEcls.length;_te++){var _tl=bdEclLevel(tipEcls[_te],yr,_isV2);if(bdEclVis(_tl))tEcls.push({e:tipEcls[_te],lvl:_tl});}
-      tEcls.sort(function(a,b){return b.lvl-a.lvl;});
-      if(tEcls.length>0){
-        ctx.strokeStyle='rgba(255,200,0,.12)';ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(tx+6,ey-2);ctx.lineTo(tx+tW-6,ey-2);ctx.stroke();
-        ctx.font='bold 7px Courier New';ctx.fillStyle='rgba(255,200,0,.45)';ctx.textAlign='left';ctx.fillText('ECLIPSES',tx+8,ey+7);
-        for(var _ei2=0;_ei2<tEcls.length;_ei2++){
-          var _e2=tEcls[_ei2].e,_lv2=tEcls[_ei2].lvl;var _ly2=ey+18+_ei2*14;
-          var _isSol2=(_e2.k||_e2.kind||'s')==='s';
-          var _tLbl2=(_e2.t||_e2.type)==='t'?'TOTAL':(_e2.t||_e2.type)==='a'?'ANULAR':'HÍBRIDO';
-          var _lvC2=_lv2===5?'#ff4040':_lv2===4?'#FFD700':_lv2===3?'#cc9900':_lv2===2?'#8888cc':'#555';
-          ctx.fillStyle=_lvC2;ctx.font='bold 7px Courier New';ctx.fillText('L'+_lv2,tx+8,_ly2);
-          ctx.fillStyle=_isSol2?'#FFD700':'#b8a0e0';ctx.font='11px serif';ctx.fillText(_isSol2?'\u2600':'\u263E',tx+24,_ly2+1);
-          ctx.font='8px Courier New';ctx.fillStyle='#ccc';ctx.fillText('S'+(_e2.sr||'?')+' '+_tLbl2,tx+38,_ly2);
-          var _f2=eclFrac(_e2,yr);var _mL2=eclApex(_f2)?'\u00c1PICE':eclPeak(_f2)?'MADURO':eclMature(_f2)?'ativo':'jovem';
-          ctx.fillStyle=eclApex(_f2)?'#FFD700':eclPeak(_f2)?'#ff8800':eclMature(_f2)?'#cc8800':'#555';
-          ctx.font='7px Courier New';ctx.fillText(_mL2,tx+130,_ly2);
-          if(_lv2===5){ctx.fillStyle='#ff4040';ctx.font='bold 8px Courier New';ctx.fillText('\u26A1',tx+170,_ly2);}
-        }
-      }
-    }
-  }
+    ctx.fillStyle='#e0e0f0';ctx.beginPath();ctx.arc(x,yP(total),3.5,0,Math.PI*2);ctx.fill();}
 };
 
 // Hover
@@ -11235,14 +10580,10 @@ if(bcv){
   bcv.addEventListener('touchmove',function(e){e.preventDefault();bdHov(e.touches[0]);},{passive:false});
   bcv.addEventListener('mouseleave',function(){bdHoverYr=-1;drawBD();});
 }
-var _bdRafPend=false;
-function bdRafDraw(){if(_bdRafPend)return;_bdRafPend=true;requestAnimationFrame(function(){_bdRafPend=false;drawBD();});}
-function bdHov(e){var r=document.getElementById('barb-d-canvas').getBoundingClientRect(),mx=(e.clientX||e.pageX)-r.left;var pw=r.width-58;var rel=(mx-48)/pw;var nv=rel>=0&&rel<=1?Math.round(rel*(bdN-1)):-1;if(nv===bdHoverYr)return;bdHoverYr=nv;bdRafDraw();}
+function bdHov(e){var r=document.getElementById('barb-d-canvas').getBoundingClientRect(),mx=(e.clientX||e.pageX)-r.left;var pw=r.width-58;var rel=(mx-48)/pw;bdHoverYr=rel>=0&&rel<=1?Math.round(rel*(bdN-1)):-1;drawBD();}
 
 // Legend
-// Navegação: range completo -10000 → 2100 (12.101 anos). Janela = span + center.
-// Fora da cobertura de data/scanner_swiss.json o app cai na aproximação linear
-// e a faixa aparece hachurada no gráfico (ver _bdNoData dentro de drawBD).
+// Navigation: full range -5000 to 2100, view window controlled by span + center
 var BD_FULL_Y0=-10000, BD_FULL_Y1=2100, BD_FULL_N=12101;
 var bdSpan=500, bdCenter=2000;
 var bdDragging=false, bdDragStartX=0, bdDragStartCenter=0;
@@ -11255,8 +10596,7 @@ function bdClampView(){
   if(bdY0<BD_FULL_Y0){bdY0=BD_FULL_Y0;bdY1=bdY0+bdSpan-1;}
   if(bdY1>BD_FULL_Y1){bdY1=BD_FULL_Y1;bdY0=bdY1-bdSpan+1;}
   bdN=bdY1-bdY0+1;
-  window.bdSpan=bdSpan; // consumido por bdAutoLevels() na IIFE do Scanner
-  bdPairs=null;bdStellium=null;bdCesta=null;bdStPeaks=null;bdCePeaks=null;bdElem=null;bdVoltage=null;bdVPeaks=null;
+  bdPairs=null;bdStellium=null;bdCesta=null;bdStPeaks=null;bdCePeaks=null;
   bdUpdateLabel();
 }
 
@@ -11267,9 +10607,8 @@ function bdUpdateLabel(){
 
 window.bdSetSpan=function(s){
   bdSpan=s;
-  bdResetEclManual();
   document.querySelectorAll('#barb-d-controls .bd-btn[onclick*="bdSetSpan"]').forEach(function(b){
-    b.classList.toggle('active',b.textContent.trim()===({50:'50a',200:'200a',500:'500a',1000:'1mil',3000:'3mil',12100:'Tudo'}[s]||''));
+    b.classList.toggle('active',b.textContent.trim()===({50:'50a',200:'200a',500:'500a',1000:'1mil',3000:'3mil',7100:'Tudo'}[s]||''));
   });
   bdClampView();drawBD();
 };
@@ -11305,10 +10644,8 @@ window.addEventListener('mousemove',function(e){
   var pw=rect.width-58;
   var dx=e.clientX-bdDragStartX;
   var yearsDx=Math.round(-(dx/pw)*bdSpan);
-  var _nc=bdDragStartCenter+yearsDx;
-  if(_nc===bdCenter)return;
-  bdCenter=_nc;
-  bdClampView();bdRafDraw();
+  bdCenter=bdDragStartCenter+yearsDx;
+  bdClampView();drawBD();
 });
 window.addEventListener('touchmove',function(e){
   if(!bdDragging)return;
@@ -11316,10 +10653,8 @@ window.addEventListener('touchmove',function(e){
   var pw=rect.width-58;
   var dx=e.touches[0].clientX-bdDragStartX;
   var yearsDx=Math.round(-(dx/pw)*bdSpan);
-  var _nct=bdDragStartCenter+yearsDx;
-  if(_nct===bdCenter)return;
-  bdCenter=_nct;
-  bdClampView();bdRafDraw();
+  bdCenter=bdDragStartCenter+yearsDx;
+  bdClampView();drawBD();
 },{passive:true});
 window.addEventListener('mouseup',function(){bdDragging=false;if(document.getElementById('barb-d-canvas'))document.getElementById('barb-d-canvas').style.cursor='';});
 window.addEventListener('touchend',function(){bdDragging=false;});
@@ -11329,15 +10664,12 @@ bdClampView();
 
 function bdBuildLeg(){
   var el=document.getElementById('barb-d-legend');if(!el)return;el.innerHTML='';
-  var allVis=bdHidden.size===0;
-  var ab=document.createElement('span');ab.className='bdl-item';ab.style.color=allVis?'#fff':'#999';
-  ab.innerHTML='<span class="bdl-sw" style="background:#888"></span>'+(allVis?'Limpar':'Todos');
-  ab.onclick=function(){if(bdHidden.size===0){for(var i=0;i<10;i++)bdHidden.add(i);}else{bdHidden.clear();}bdBuildLeg();drawBD();};el.appendChild(ab);
+  var ab=document.createElement('span');ab.className='bdl-item';ab.style.color=bdHidden.size===0?'#fff':'#999';
+  ab.innerHTML='<span class="bdl-sw" style="background:#888"></span>Todos';
+  ab.onclick=function(){bdHidden.clear();bdBuildLeg();drawBD();};el.appendChild(ab);
   for(var p=0;p<10;p++){(function(p){var it=document.createElement('span');it.className='bdl-item'+(bdHidden.has(p)?' dimmed':'');
     it.innerHTML='<span class="bdl-sw" style="background:'+BD_COLORS[p]+'"></span>'+BD_FULL[p];
     it.onclick=function(){if(bdHidden.has(p))bdHidden.delete(p);else bdHidden.add(p);bdBuildLeg();drawBD();};
-    it.onmouseenter=function(){bdHovPair=p;drawBD();};
-    it.onmouseleave=function(){bdHovPair=-1;drawBD();};
     el.appendChild(it);})(p);}
 }
 bdBuildLeg();
@@ -11349,762 +10681,11 @@ window.addEventListener('resize',function(){if(bdViewMode==='decomp')drawBD();})
 
 // Invalidar cache quando o ayanamsa muda (chamado por __ephemRefreshAll)
 window.__bdRefreshForAyan=function(){
-  bdPairs=null;bdStellium=null;bdCesta=null;bdStPeaks=null;bdCePeaks=null;bdElem=null;bdVoltage=null;bdVPeaks=null;
+  bdPairs=null;bdStellium=null;bdCesta=null;bdStPeaks=null;bdCePeaks=null;
   if(bdViewMode==='decomp'){bdCompute();drawBD();}
 };
 })();
 
-// ═══════════════════════════════════════════════════════
-// ═══ SAROS EXPLORER ═══
-// ═══════════════════════════════════════════════════════
-(function(){
-var SS=['Áries','Touro','Gêmeos','Câncer','Leão','Virgem','Libra','Escorpião','Sagitário','Capricórnio','Aquário','Peixes'];
-var SY=['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'];
-var EN=['Fogo','Terra','Ar','Água'];
-var EC=['#e8a832','#44b848','#60b8e8','#4888d8'];
-var MN=['Cardinal','Fixo','Mutável'];
-var TL={T:'Total',An:'Anular',H:'Híbrido',P:'Parcial'};
-var TC={T:'#ff4444',An:'#FFD700',H:'#cc66ff',P:'#666'};
-var PO=['Morta','Morrendo','Velha','Madura','Ápice','Jovem','Infante','Nascendo','Futura'];
-var PC={Morta:'#444',Morrendo:'#666',Velha:'#888',Madura:'#bbb',Ápice:'#FFD700',Jovem:'#999',Infante:'#777',Nascendo:'#666',Futura:'#444'};
-
-var AD={
-117:{b:792,d:2054,te:72,si:4,ds:'Leão velha. Últimas parciais.'},
-118:{b:803,d:2083,te:72,si:1,ds:'Touro: encerrando 1280 anos.'},
-119:{b:850,d:2112,te:71,si:10,ds:'Aquário: fim de vida.'},
-120:{b:933,d:2195,te:71,si:7,ds:'Escorpião: regeneração profunda.'},
-121:{b:944,d:2206,te:71,si:5,ds:'Leão: poder, liderança. Eclipse Fev 2026.'},
-122:{b:991,d:2235,te:70,si:3,ds:'Câncer: proteção, raízes.'},
-123:{b:1074,d:2318,te:70,si:0,ds:'Áries: impulso inaugural.'},
-124:{b:1049,d:2347,te:73,si:9,ds:'Capricórnio: estrutura, legado.'},
-125:{b:1060,d:2358,te:72,si:7,ds:'Escorpião: poder oculto.'},
-126:{b:1179,d:2459,te:72,si:4,ds:'Leão ápice: totais dramáticos. Eclipse total Ago 2026!'},
-127:{b:1091,d:2452,te:72,si:2,ds:'Gêmeos: comunicação, narrativa.'},
-128:{b:984,d:2282,te:73,si:11,ds:'Peixes: dissolução, transcendência.'},
-129:{b:1103,d:2528,te:80,si:0,ds:'Áries ápice: Eclipse híbrido 2023.'},
-130:{b:1096,d:2394,te:73,si:10,ds:'Aquário: revolução, tecnologia.'},
-131:{b:1125,d:2369,te:70,si:8,ds:'Sagitário: expansão, filosofia.'},
-132:{b:1208,d:2470,te:71,si:6,ds:'Libra: equilíbrio, justiça.'},
-133:{b:1219,d:2499,te:72,si:3,ds:'Câncer: maternidade, lar coletivo.'},
-134:{b:1248,d:2510,te:71,si:1,ds:'Touro: recursos, estabilidade.'},
-135:{b:1331,d:2593,te:71,si:11,ds:'Peixes: misticismo, redenção.'},
-136:{b:1360,d:2622,te:71,si:9,ds:'Capricórnio ápice: totais MAIS LONGOS do milênio.'},
-137:{b:1389,d:2633,te:70,si:7,ds:'Escorpião: morte/renascimento.'},
-138:{b:1472,d:2716,te:70,si:5,ds:'Leão: criatividade, orgulho.'},
-139:{b:1501,d:2763,te:71,si:2,ds:'Gêmeos: narrativa. Eclipse total Abr 2024.'},
-140:{b:1512,d:2774,te:71,si:0,ds:'Áries: corte limpo, impulso.'},
-141:{b:1613,d:2857,te:70,si:10,ds:'Aquário: inovação disruptiva.'},
-142:{b:1624,d:2886,te:72,si:8,ds:'Sagitário: Eclipse total Dez 2020.'},
-143:{b:1617,d:2897,te:72,si:5,ds:'Virgem: purificação, cura.'},
-144:{b:1736,d:2980,te:70,si:3,ds:'Câncer: segurança emocional.'},
-145:{b:1639,d:3009,te:77,si:1,ds:'Touro: Grande Eclipse Americano 2017.'},
-146:{b:1541,d:2893,te:76,si:11,ds:'Peixes: compaixão, ondas coletivas.'},
-147:{b:1624,d:2950,te:74,si:8,ds:'Sagitário: sabedoria, filosofia.'},
-148:{b:1653,d:2987,te:75,si:6,ds:'Libra: harmonia, justiça social.'},
-149:{b:1776,d:3056,te:72,si:4,ds:'Leão: nasc. na Revolução Americana.'},
-150:{b:1729,d:3009,te:71,si:1,ds:'Touro: segurança, acúmulo.'},
-151:{b:1776,d:3038,te:72,si:10,ds:'Aquário: revolução em formação.'},
-152:{b:1805,d:3049,te:70,si:8,ds:'Sagitário: semente de expansão.'},
-153:{b:1870,d:3114,te:70,si:5,ds:'Leão: jovem, parciais polares.'},
-154:{b:1917,d:3161,te:70,si:3,ds:'Câncer: nasc. na I Guerra.'},
-155:{b:1928,d:3190,te:71,si:0,ds:'Áries: nasc. na Grande Depressão.'},
-156:{b:2011,d:3237,te:69,si:9,ds:'Capricórnio: a mais nova! Nasceu 2011.'}
-};
-
-var AE={};
-// Maps Explorer series numbers -> JSON `sr` ids by matching known eclipse year+type.
-// The generated JSON numbers series sequentially from -5000, so numbering differs.
-var _srMap=null;
-function buildSrMap(){
-  if(_srMap)return _srMap;
-  var by=window.eclipsesByYear||{};
-  if(!Object.keys(by).length)return null;
-  var TM={'T':'t','An':'a','H':'h','P':'p'};
-  var map={};
-  for(var nk in AE){
-    var n=parseInt(nk),lst=AE[nk];
-    if(!lst||!lst.length)continue;
-    var votes={};
-    for(var i=0;i<lst.length;i++){
-      var arr=by[lst[i].y];if(!arr)continue;
-      var want=TM[lst[i].t];
-      for(var j=0;j<arr.length;j++){
-        var e=arr[j];
-        if((e.k||'s')!=='s')continue;
-        if(want&&e.t!==want)continue;
-        var sr=e.sr;if(sr===undefined||sr===null)continue;
-        votes[sr]=(votes[sr]||0)+1;
-      }
-    }
-    var bs=null,bv=0;
-    for(var k in votes){if(votes[k]>bv){bv=votes[k];bs=parseInt(k);}}
-    if(bs!==null&&bv>=2)map[n]=bs;
-  }
-  _srMap=map;return _srMap;
-}
-AE[117]=[{y:2000,t:'P'},{y:2018,t:'P'},{y:2036,t:'P'}];
-AE[118]=[{y:2011,t:'P'},{y:2029,t:'P'}];
-AE[119]=[{y:2004,t:'P'},{y:2022,t:'P'}];
-AE[120]=[{y:2015,t:'T'},{y:2033,t:'T'}];
-AE[121]=[{y:2008,t:'An'},{y:2026,t:'An'},{y:2044,t:'An'}];
-AE[122]=[{y:2000,t:'P'},{y:2019,t:'P'}];
-AE[123]=[{y:2011,t:'P'},{y:2029,t:'P'}];
-AE[124]=[{y:2004,t:'P'},{y:2022,t:'P'}];
-AE[125]=[{y:2015,t:'P'},{y:2033,t:'P'}];
-AE[126]=[{y:2008,t:'T'},{y:2026,t:'T'},{y:2044,t:'T'}];
-AE[127]=[{y:2001,t:'T'},{y:2019,t:'T'},{y:2037,t:'T'}];
-AE[128]=[{y:2012,t:'An'},{y:2030,t:'An'}];
-AE[129]=[{y:2005,t:'H'},{y:2023,t:'H'},{y:2041,t:'T'}];
-AE[130]=[{y:2016,t:'T'},{y:2034,t:'T'}];
-AE[131]=[{y:2009,t:'An'},{y:2027,t:'An'}];
-AE[132]=[{y:2001,t:'An'},{y:2019,t:'An'}];
-AE[133]=[{y:2012,t:'T'},{y:2030,t:'T'}];
-AE[134]=[{y:2005,t:'An'},{y:2023,t:'An'}];
-AE[135]=[{y:2016,t:'An'},{y:2034,t:'An'}];
-AE[136]=[{y:2009,t:'T'},{y:2027,t:'T'}];
-AE[137]=[{y:2002,t:'An'},{y:2020,t:'An'}];
-AE[138]=[{y:2013,t:'An'},{y:2031,t:'An'}];
-AE[139]=[{y:2006,t:'T'},{y:2024,t:'T'}];
-AE[140]=[{y:2017,t:'An'},{y:2035,t:'An'}];
-AE[141]=[{y:2010,t:'An'},{y:2028,t:'An'}];
-AE[142]=[{y:2002,t:'T'},{y:2020,t:'T'}];
-AE[143]=[{y:2013,t:'H'},{y:2031,t:'H'}];
-AE[144]=[{y:2006,t:'An'},{y:2024,t:'An'}];
-AE[145]=[{y:1999,t:'T'},{y:2017,t:'T'},{y:2035,t:'T'}];
-AE[146]=[{y:2010,t:'T'},{y:2028,t:'T'}];
-AE[147]=[{y:2003,t:'An'},{y:2021,t:'An'}];
-AE[148]=[{y:2014,t:'An'},{y:2032,t:'An'}];
-AE[149]=[{y:2007,t:'P'},{y:2025,t:'P'}];
-AE[150]=[{y:2000,t:'P'},{y:2018,t:'P'}];
-AE[151]=[{y:2011,t:'P'},{y:2029,t:'P'}];
-AE[152]=[{y:2003,t:'T'},{y:2021,t:'T'}];
-AE[153]=[{y:2014,t:'P'},{y:2032,t:'P'}];
-AE[154]=[{y:2007,t:'P'},{y:2025,t:'P'}];
-AE[155]=[{y:2000,t:'P'},{y:2018,t:'P'}];
-AE[156]=[{y:2011,t:'P'},{y:2029,t:'P'}];
-
-// Generate all series
-var ALL=[];
-for(var n=0;n<=181;n++){
-  var det=AD[n];var born,died,te,si;
-  if(det){born=det.b;died=det.d;te=det.te;si=det.si;}
-  else{
-    if(n<117)born=Math.round(-2500+n*28);
-    else if(n>156)born=Math.round(2011+(n-156)*32);
-    else born=Math.round(792+(n-117)*31.3);
-    died=born+1200+((n*7+3)%13)*25;te=70+((n*3+5)%11);si=(n*7+3)%12;
-  }
-  var life=died-born,prog=(2026-born)/life;
-  var ph;
-  if(2026>died)ph='Morta';else if(2026<born)ph='Futura';
-  else if(prog<.08)ph='Nascendo';else if(prog<.15)ph='Infante';
-  else if(prog<.3)ph='Jovem';else if(prog<.45)ph='Madura';
-  else if(prog<.7)ph='Ápice';else if(prog<.85)ph='Velha';else ph='Morrendo';
-  var ecl=AE[n]||[];
-  if(!AE[n]&&born<2026&&died>born){for(var ey=Math.max(born,1926);ey<=Math.min(died,2076);ey+=18){var ep=(ey-born)/life;ecl.push({y:Math.round(ey),t:ep>.25&&ep<.75?(ep>.35&&ep<.65?'T':'An'):'P'});}}
-  ALL.push({n:n,b:born,d:died,te:te,si:si,nd:n%2===0?'D':'A',ph:ph,ds:det?det.ds:SS[si]+': série '+(2026>died?'extinta':'em '+ph.toLowerCase()),ecl:ecl,isA:!!AD[n],life:life});
-}
-
-var selN=null,hovN=null,hovYr=null;
-// Barbault thresholds for sibling analysis (self-contained)
-var bQ25_saros,bQ75_saros;
-var _sBPL=[{id:'jup',L0:31.3151,r:30.628545},{id:'sat',L0:1.8594,r:13.602167},{id:'ura',L0:312.0862,r:4.035364},{id:'nep',L0:302.4682,r:2.191545},{id:'plu',L0:256.0668,r:1.811364}];
-function _sSidLon(pl,yr){
-  var SS_=window.__swissScanner;
-  var lin=function(){return (pl.L0+pl.r*(yr-2000+0.5))%360;};
-  var trop=(SS_&&SS_.lonAt)?SS_.lonAt(pl.id,yr,0.5,lin):lin();
-  var ayan=(SS_&&SS_.ayanFor)?SS_.ayanFor(yr):25.06;
-  var t=(trop-ayan)%360;while(t<0)t+=360;return t;
-}
-function _sBarbault(yr){var s=0;for(var i=0;i<5;i++)for(var j=i+1;j<5;j++){var l0=_sSidLon(_sBPL[i],yr),l1=_sSidLon(_sBPL[j],yr);var d=Math.abs(l0-l1)%360;if(d>180)d=360-d;s+=d;}return s;}
-(function(){var ab=[];for(var y=1500;y<=2200;y++)ab.push(_sBarbault(y));
-  var mn=Math.min.apply(null,ab),mx=Math.max.apply(null,ab);
-  bQ25_saros=mn+(mx-mn)*.25;bQ75_saros=mn+(mx-mn)*.75;
-})();
-var fPh='all',fEl='all',fSt='all';
-function gF(){return ALL.filter(function(s){
-  if(fPh!=='all'&&s.ph!==fPh)return false;
-  if(fEl!=='all'&&(s.si%4)!==parseInt(fEl))return false;
-  if(fSt==='active'&&!s.isA)return false;
-  if(fSt==='dead'&&s.ph!=='Morta')return false;
-  if(fSt==='alive'&&(s.ph==='Morta'||s.ph==='Futura'))return false;
-  return true;
-});}
-
-var cv=document.getElementById('saros-canvas'),ctx2;
-if(cv)ctx2=cv.getContext('2d');
-var RH=18,GAP=3;
-
-function hA(hex,a){var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return'rgba('+r+','+g+','+b+','+a+')';}
-
-function sarosResize(){
-  if(!cv)return;
-  var W=cv.parentElement.clientWidth;var f=gF();
-  var H=Math.max(300,f.length*(RH+GAP)+60);
-  var dpr=window.devicePixelRatio||1;
-  cv.width=W*dpr;cv.height=H*dpr;
-  cv.style.width=W+'px';cv.style.height=H+'px';
-  ctx2.setTransform(dpr,0,0,dpr,0,0);
-  sarosDraw();
-}
-
-function sarosDraw(){
-  if(!ctx2)return;
-  var W=cv.clientWidth,H=cv.clientHeight;var f=gF();
-  var ML=42,MR=10,MT=22,pW=W-ML-MR;
-  var Y0=-3000,Y1=3500;
-  function xOf(yr){return ML+((yr-Y0)/(Y1-Y0))*pW;}
-
-  ctx2.clearRect(0,0,W,H);ctx2.fillStyle='rgba(8,8,18,.95)';ctx2.fillRect(0,0,W,H);
-
-  // X-axis
-  ctx2.font='7px monospace';ctx2.fillStyle='#444';ctx2.textAlign='center';
-  var st=pW>600?250:500;
-  for(var yr=Math.ceil(Y0/st)*st;yr<=Y1;yr+=st){var x=xOf(yr);ctx2.fillText(yr<0?Math.abs(yr)+'aC':yr,x,8);ctx2.strokeStyle='rgba(255,255,255,.03)';ctx2.lineWidth=.5;ctx2.beginPath();ctx2.moveTo(x,MT);ctx2.lineTo(x,MT+f.length*(RH+GAP));ctx2.stroke();}
-  // 2026
-  var x26=xOf(2026);ctx2.strokeStyle='rgba(255,80,80,.3)';ctx2.lineWidth=1.5;ctx2.beginPath();ctx2.moveTo(x26,MT-4);ctx2.lineTo(x26,MT+f.length*(RH+GAP));ctx2.stroke();ctx2.fillStyle='#f66';ctx2.font='bold 7px monospace';ctx2.fillText('2026',x26,MT-6);
-
-  // Strips
-  f.forEach(function(s,i){
-    var y=MT+i*(RH+GAP);var xs=xOf(s.b),xe=xOf(s.d),w=xe-xs;
-    var isH=hovN===s.n,isS=selN===s.n;var dead=s.ph==='Morta',fut=s.ph==='Futura';
-    var ei=s.si%4,col=EC[ei];
-    if(i%2===0){ctx2.fillStyle='rgba(255,255,255,.012)';ctx2.fillRect(ML-2,y,W-ML-MR+4,RH);}
-    ctx2.fillStyle=hA(col,dead?.12:fut?.06:isH?.45:isS?.4:.28);ctx2.fillRect(xs,y+1,w,RH-2);
-    if(!dead&&!fut){var l=s.life;
-      ctx2.fillStyle=hA(col,isH?.55:isS?.5:.38);ctx2.fillRect(xOf(s.b+l*.15),y+2,xOf(s.d-l*.15)-xOf(s.b+l*.15),RH-4);
-      ctx2.fillStyle=hA(col,isH?.65:isS?.6:.5);ctx2.fillRect(xOf(s.b+l*.3),y+3,xOf(s.d-l*.3)-xOf(s.b+l*.3),RH-6);}
-    ctx2.fillStyle=hA(col,.8);ctx2.fillRect(xs,y+1,2,RH-2);
-    if(isS){ctx2.strokeStyle=col;ctx2.lineWidth=1.5;ctx2.strokeRect(xs,y,w,RH);}
-    s.ecl.forEach(function(e){var ex=xOf(e.y);if(ex<ML||ex>W-MR)return;var r=e.t==='T'?3:e.t==='An'?2.5:e.t==='H'?2.5:1.5;if(isH||isS)r*=1.2;ctx2.fillStyle=TC[e.t];ctx2.globalAlpha=dead?.5:isH||isS?1:.8;ctx2.beginPath();ctx2.arc(ex,y+RH/2,r,0,Math.PI*2);ctx2.fill();ctx2.globalAlpha=1;});
-    ctx2.font=(isH||isS)?'bold 8px monospace':'8px monospace';ctx2.fillStyle=isH||isS?'#fff':dead?'#555':PC[s.ph]||'#888';ctx2.textAlign='right';ctx2.textBaseline='middle';ctx2.fillText('S'+s.n,ML-3,y+RH/2);
-  });
-}
-
-function sarosShowD(s){
-  var dp=document.getElementById('saros-detail');if(!dp)return;
-  if(!s){dp.innerHTML='← Clique numa série';return;}
-  var ei=s.si%4,mi=s.si%3,prog=Math.max(0,Math.min(1,(2026-s.b)/s.life));
-  // Count types
-  var cT=0,cAn=0,cH=0,cP=0;
-  s.ecl.forEach(function(e){if(e.t==='T')cT++;else if(e.t==='An')cAn++;else if(e.t==='H')cH++;else cP++;});
-  // Compute Barbault + heavy for each eclipse
-  var sibData=s.ecl.map(function(e){
-    var b=_sBarbault(e.y);
-    var eFrac=s.life>0?(e.y-s.b)/s.life:.5;
-    var mature=eFrac>.22&&eFrac<.78, peak=eFrac>.35&&eFrac<.65;
-    var phLabel=eFrac>.42&&eFrac<.58?'ÁPICE':peak?'MADURO':mature?'ativo':'jovem';
-    var isHeavy=(e.t==='T'||e.t==='H')&&mature&&b<bQ25_saros;
-    return{e:e,barb:b,frac:eFrac,phLabel:phLabel,mature:mature,peak:peak,heavy:isHeavy};
-  });
-  var heavyN=sibData.filter(function(d){return d.heavy;}).length;
-
-  dp.innerHTML=
-    '<div class="sd-num" style="color:'+EC[ei]+'">SAROS '+s.n+'</div>'+
-    '<div class="sd-t">'+SY[s.si]+' '+SS[s.si]+' · '+(s.nd==='A'?'Nodo Asc ↑':'Nodo Desc ↓')+'</div>'+
-    '<div class="sd-s"><div class="sd-l">DNA</div><div class="sd-v">'+
-      '<span class="sd-tag" style="background:'+hA(EC[ei],.2)+';color:'+EC[ei]+'">'+EN[ei]+'</span>'+
-      '<span class="sd-tag" style="background:rgba(255,255,255,.05);color:#aaa">'+MN[mi]+'</span>'+
-      (s.isA?'<span class="sd-tag" style="background:rgba(255,200,0,.1);color:#FFD700">ATIVA</span>':
-       s.ph==='Morta'?'<span class="sd-tag" style="background:rgba(255,255,255,.03);color:#555">EXTINTA</span>':'')+'</div></div>'+
-    '<div class="sd-s"><div class="sd-l">Fase</div><div class="sd-v" style="color:'+(PC[s.ph]||'#888')+'">'+s.ph+'</div>'+
-      '<div class="sd-bar"><div class="sd-bf" style="width:100%;background:linear-gradient(90deg,#161b22,'+EC[ei]+','+EC[ei]+',#161b22);opacity:.35"></div>'+
-      (s.ph!=='Morta'&&s.ph!=='Futura'?'<div class="sd-bn" style="left:'+Math.round(prog*100)+'%"></div>':'')+'</div></div>'+
-    '<div class="sd-s"><div class="sd-l">Período</div><div class="sd-v">'+(s.b<0?Math.abs(s.b)+' a.C.':s.b)+' → '+s.d+' ('+s.life+'a · ~'+s.te+' ecl)</div></div>'+
-    '<div class="sd-s"><div class="sd-l">Tema</div><div class="sd-v">'+s.ds+'</div></div>'+
-    '<div class="sd-s"><div class="sd-l">Tipos</div><div class="sd-v">'+
-      (cT?'<span class="sd-tag" style="background:rgba(255,100,0,.12);color:#ff8844">Total: '+cT+'</span>':'')+
-      (cAn?'<span class="sd-tag" style="background:rgba(200,160,40,.1);color:#ccaa44">Anular: '+cAn+'</span>':'')+
-      (cH?'<span class="sd-tag" style="background:rgba(200,80,120,.1);color:#cc5588">Híbrido: '+cH+'</span>':'')+
-      (cP?'<span class="sd-tag" style="background:rgba(255,255,255,.03);color:#666">Parcial: '+cP+'</span>':'')+
-      (heavyN?'<span class="sd-tag" style="background:rgba(255,100,0,.15);color:#ff6600">⚡ Pesados: '+heavyN+'</span>':'')+
-    '</div></div>';
-
-  // Sibling list (only if eclipses exist)
-  if(s.ecl.length>0){
-    var sibHTML='<div class="sd-s"><div class="sd-l">Irmãos próximos ('+s.ecl.length+' eclipses)</div>';
-    sibData.forEach(function(d){
-      var bs=d.barb<bQ25_saros?'valley':d.barb>bQ75_saros?'peak':'mid';
-      var bLabel=bs==='valley'?'▼ VALE':bs==='peak'?'▲ PICO':'·';
-      sibHTML+='<div class="sd-sib'+(d.heavy?' heavy':'')+'">'+
-        '<span class="sd-sib-yr">'+d.e.y+'</span>'+
-        '<span class="sd-sib-type '+d.e.t+'">'+(d.e.t==='T'?'TOTAL':d.e.t==='An'?'ANULAR':d.e.t==='H'?'HÍBR':'PARC')+'</span>'+
-        '<span class="sd-sib-phase" style="color:'+(d.phLabel==='ÁPICE'?'#FFD700':d.peak?'#ff8800':d.mature?'#cc8800':'#555')+'">'+d.phLabel+'</span>'+
-        '<span class="sd-sib-barb '+bs+'">'+bLabel+'</span>'+
-        (d.heavy?'<span style="font-size:9px">⚡</span>':'')+
-      '</div>';
-    });
-    sibHTML+='</div>';
-    dp.innerHTML+=sibHTML;
-  }
-}
-
-// Events
-if(cv){
-  cv.addEventListener('mousemove',function(e){
-    var rect=cv.getBoundingClientRect(),mx=e.clientX-rect.left,my=e.clientY-rect.top;
-    var f=gF(),ri=Math.floor((my-22)/(RH+GAP));
-    hovN=ri>=0&&ri<f.length?f[ri].n:null;
-    cv.style.cursor=hovN!==null?'pointer':'crosshair';
-    sarosDraw();
-  });
-  cv.addEventListener('click',function(){
-    if(hovN!==null){
-      selN=hovN===selN?null:hovN;
-      var srSel=ALL.find(function(s){return s.n===selN;});
-      sarosShowD(srSel);sarosDraw();
-      if(selN!==null&&typeof window.openSarosCalendar==='function'){
-        var ctrY=srSel?Math.round((srSel.b+srSel.d)/2):2026;
-        var openCal=function(){
-          var mp=buildSrMap();
-          var jsonSr=(mp&&mp[selN]!==undefined)?mp[selN]:null;
-          window.openSarosCalendar(jsonSr,ctrY,selN);
-        };
-        if(!window.eclipseData&&typeof window.loadEclipseData==='function'){
-          window.openSarosCalendar(null,ctrY,selN);
-          window.loadEclipseData().then(function(){_srMap=null;openCal();});
-        } else { openCal(); }
-      } else if(selN===null&&typeof window.closeSarosCal==='function'){
-        window.closeSarosCal();
-      }
-    }
-  });
-  cv.addEventListener('mouseleave',function(){hovN=null;sarosDraw();});
-}
-
-// Build controls
-function sarosBuildC(){
-  var c=document.getElementById('saros-ctrls');if(!c)return;c.innerHTML='';
-  [{v:'all',l:'Todas'},{v:'alive',l:'Vivas'},{v:'active',l:'Detalhadas'},{v:'dead',l:'Extintas'}].forEach(function(f){
-    var b=document.createElement('button');b.textContent=f.l;if(fSt===f.v)b.classList.add('active');
-    b.onclick=function(){fSt=f.v;sarosBuildC();sarosResize();};c.appendChild(b);
-  });
-  var sp=document.createElement('span');sp.className='sep';c.appendChild(sp);
-  [{v:'all',l:'Fase'}].concat(PO.map(function(p){return{v:p,l:p};})).forEach(function(f){
-    var b=document.createElement('button');b.textContent=f.l;if(fPh===f.v)b.classList.add('active');
-    b.onclick=function(){fPh=f.v;sarosBuildC();sarosResize();};c.appendChild(b);
-  });
-  sp=document.createElement('span');sp.className='sep';c.appendChild(sp);
-  [{v:'all',l:'Elem'}].concat(EN.map(function(n,i){return{v:String(i),l:n};})).forEach(function(f){
-    var b=document.createElement('button');b.textContent=f.l;if(fEl===f.v)b.classList.add('active');
-    b.onclick=function(){fEl=f.v;sarosBuildC();sarosResize();};c.appendChild(b);
-  });
-}
-sarosBuildC();
-
-// Toggle function (global)
-window.toggleSarosExplorer=function(){
-  var w=document.getElementById('saros-wrap');if(!w)return;
-  w.classList.toggle('open');
-  if(w.classList.contains('open')){
-    sarosResize();
-    if(!window.eclipseData&&typeof window.loadEclipseData==='function')window.loadEclipseData();
-  } else {
-    if(typeof window.closeSarosCal==='function')window.closeSarosCal();
-  }
-};
-
-window.addEventListener('resize',function(){
-  var w=document.getElementById('saros-wrap');
-  if(w&&w.classList.contains('open'))sarosResize();
-});
-})();
-
-
-// ══════════════════════════════════════════════════
-// SAROS CALENDAR MAP — Ano × Mês, todos os eclipses
-// Bounds derivados dinamicamente dos dados carregados
-// ══════════════════════════════════════════════════
-(function(){
-  var SS_=['\u2648','\u2649','\u264A','\u264B','\u264C','\u264D','\u264E','\u264F','\u2650','\u2651','\u2652','\u2653'];
-  var SN_=['Áries','Touro','Gêmeos','Câncer','Leão','Virgem','Libra','Escorpião','Sagitário','Capricórnio','Aquário','Peixes'];
-  var EC_=['#d4952e','#3d7d3d','#5495bd','#2d5f96'];
-  var EN_=['Fogo','Terra','Ar','Água'];
-  var MN_=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-  function AYAN_F(yr){
-    var SS_=window.__swissScanner;
-    return (SS_&&SS_.ayanFor)?SS_.ayanFor(yr==null?2000:yr):25.06;
-  }
-
-  var scalSel=null, scalHov=null, scalExplorerN=null;
-  var scalSp=200, scalCtr=2026, scY0, scY1;
-  var scalDrag=false, scalDY=0, scalDC=0;
-  var scalBounds=null;
-
-  function eclData(){return window.eclipsesByYear||{};}
-
-  // Derive bounds from actual loaded data — works with any range
-  function getBounds(){
-    if(scalBounds) return scalBounds;
-    var by=eclData();
-    var ks=Object.keys(by);
-    if(!ks.length){return {y0:1900,y1:2100,empty:true};}
-    var mn=Infinity,mx=-Infinity;
-    for(var i=0;i<ks.length;i++){var y=parseInt(ks[i]);if(isNaN(y))continue;if(y<mn)mn=y;if(y>mx)mx=y;}
-    if(mn===Infinity){return {y0:1900,y1:2100,empty:true};}
-    scalBounds={y0:mn,y1:mx};
-    return scalBounds;
-  }
-  function fullSpan(){var b=getBounds();return b.y1-b.y0+1;}
-
-  function scClamp(){
-    var b=getBounds();
-    var maxSp=fullSpan();
-    if(scalSp>maxSp)scalSp=maxSp;
-    var h=Math.floor(scalSp/2);
-    if(scalCtr-h<b.y0)scalCtr=b.y0+h;
-    if(scalCtr+h>b.y1)scalCtr=b.y1-h;
-    scY0=scalCtr-h;scY1=scY0+scalSp-1;
-    if(scY0<b.y0){scY0=b.y0;scY1=scY0+scalSp-1;}
-    if(scY1>b.y1){scY1=b.y1;scY0=scY1-scalSp+1;}
-    var rl=document.getElementById('scal-range');
-    if(rl)rl.textContent=(scY0<0?Math.abs(scY0)+'aC':scY0)+' → '+(scY1<0?Math.abs(scY1)+'aC':scY1)+' · '+scalSp+'a';
-  }
-
-  function rowHeight(){return scalSp>2000?2:scalSp>800?4:scalSp>300?8:scalSp>150?12:scalSp>60?18:24;}
-
-  function eclSign(e,_yr){
-    // JSON provides pre-computed sidereal sign index in .s
-    if(e.s!==undefined&&e.s!==null)return((e.s%12)+12)%12;
-    var m=(e.m!==undefined?e.m:1)-1; if(m<0)m=0; if(m>11)m=11;
-    var d=e.d||15;
-    var isLun=(e.k||e.kind)==='l';
-    var lon=((m*30.44+d+279)%360-AYAN_F(_yr)+(isLun?180:0)+720)%360;
-    return Math.floor(lon/30)%12;
-  }
-
-  window.scalSpan=function(s){
-    if(s===-1)s=fullSpan();
-    scalSp=s;scClamp();scalBuildNav();scalBuildSeries();scalDraw();
-  };
-  window.scalGoYear=function(v){
-    var n=parseInt(v);if(isNaN(n))return;
-    scalCtr=n;scClamp();scalDraw();
-    var yi=document.getElementById('scal-yr');if(yi)yi.value=scalCtr;
-  };
-  window.closeSarosCal=function(){
-    var w=document.getElementById('saros-cal');if(w)w.classList.remove('open');
-  };
-  window.openSarosCalendar=function(jsonSr,centerYr,explorerN){
-    var w=document.getElementById('saros-cal');if(!w)return;
-    w.classList.add('open');
-    scalBounds=null;
-    scalSel=(jsonSr!==undefined&&jsonSr!==null)?Number(jsonSr):null;
-    scalExplorerN=(explorerN!==undefined&&explorerN!==null)?explorerN:null;
-    var centered=false;
-    if(scalSel!==null){
-      var by=eclData(),sy0=Infinity,sy1=-Infinity;
-      for(var ky in by){
-        var ka=by[ky];
-        for(var kj=0;kj<ka.length;kj++){
-          if(Number(ka[kj].sr)===scalSel){var kn=parseInt(ky);if(kn<sy0)sy0=kn;if(kn>sy1)sy1=kn;}
-        }
-      }
-      if(sy0!==Infinity){
-        scalCtr=Math.round((sy0+sy1)/2);
-        var life=sy1-sy0+1;
-        if(scalSp<life)scalSp=(life<=1200?1000:3000);
-        centered=true;
-      }
-    }
-    if(!centered&&centerYr)scalCtr=centerYr;
-    scClamp();scalBuildNav();scalBuildSeries();scalDraw();
-    var yi=document.getElementById('scal-yr');if(yi)yi.value=scalCtr;
-    setTimeout(function(){w.scrollIntoView({behavior:'smooth',block:'nearest'});},60);
-  };
-
-  function scalBuildSeries(){
-    var el=document.getElementById('scal-series');if(!el)return;
-    var by=eclData();
-    if(!Object.keys(by).length){el.innerHTML='';return;}
-    // Collect series present in current view
-    var seen={};
-    for(var yr=scY0;yr<=scY1;yr++){
-      var a=by[yr];if(!a)continue;
-      for(var i=0;i<a.length;i++){var sr=a[i].sr;if(sr!==undefined&&sr!==null)seen[sr]=(seen[sr]||0)+1;}
-    }
-    var list=Object.keys(seen).map(Number).sort(function(a,b){return a-b;});
-    el.innerHTML='';
-    var nb=document.createElement('button');
-    nb.className='none'+(scalSel===null?' active':'');
-    nb.textContent='Nenhuma';
-    nb.onclick=function(){scalSel=null;scalExplorerN=null;scalBuildSeries();scalDraw();};
-    el.appendChild(nb);
-    // Cap buttons to keep UI usable
-    var cap=120;
-    for(var k=0;k<list.length&&k<cap;k++){
-      (function(sr){
-        var b=document.createElement('button');
-        b.className=(scalSel===sr?'active':'');
-        b.textContent='S'+sr;
-        b.title=seen[sr]+' eclipses nesta janela';
-        b.onclick=function(){scalSel=(scalSel===sr?null:sr);scalExplorerN=null;scalBuildSeries();scalDraw();};
-        el.appendChild(b);
-      })(list[k]);
-    }
-    if(list.length>cap){
-      var more=document.createElement('span');
-      more.style.cssText='font:8px monospace;color:#555;padding:1px 4px';
-      more.textContent='+'+(list.length-cap)+' (reduza o zoom)';
-      el.appendChild(more);
-    }
-  }
-
-  function scalBuildNav(){
-    var lbl={30:'30a',50:'50a',100:'100a',200:'200a',500:'500a',1000:'1mil',3000:'3mil'};
-    var fs=fullSpan();
-    document.querySelectorAll('#scal-nav button').forEach(function(b){
-      var t=b.textContent.trim();
-      var on=false;
-      if(t==='Tudo')on=(scalSp===fs);
-      else{for(var k in lbl){if(lbl[k]===t&&parseInt(k)===scalSp)on=true;}}
-      b.classList.toggle('active',on);
-    });
-  }
-
-  function scalDraw(){
-    var cv=document.getElementById('scal-canvas');if(!cv)return;
-    var w=document.getElementById('saros-cal');
-    if(!w||!w.classList.contains('open'))return;
-    var ctx=cv.getContext('2d');
-    var dpr=window.devicePixelRatio||1;
-    var W=cv.parentElement.clientWidth;
-    var by=eclData();
-
-    // No data yet — show status instead of empty grid
-    if(!Object.keys(by).length){
-      var Hs=90;
-      cv.style.height=Hs+'px';cv.width=W*dpr;cv.height=Hs*dpr;
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-      ctx.fillStyle='rgba(8,8,18,.97)';ctx.fillRect(0,0,W,Hs);
-      ctx.textAlign='center';ctx.textBaseline='middle';
-      if(window._eclipseLoadFailed){
-        ctx.font='11px monospace';ctx.fillStyle='#c88';
-        ctx.fillText('Dados de eclipse indisponíveis offline',W/2,Hs/2-10);
-        ctx.font='9px monospace';ctx.fillStyle='#666';
-        ctx.fillText('Abra via GitHub Pages para carregar eclipses_major.json',W/2,Hs/2+8);
-      } else {
-        ctx.font='11px monospace';ctx.fillStyle='#888';
-        ctx.fillText('Carregando eclipses…',W/2,Hs/2);
-      }
-      var inf0=document.getElementById('scal-info');if(inf0)inf0.textContent='';
-      var rl0=document.getElementById('scal-range');if(rl0)rl0.textContent='—';
-      return;
-    }
-
-    scClamp();
-    var N=scY1-scY0+1;
-    var rowH=rowHeight();
-    var ML=44,MR=44,MT=16,MB=4;
-    var hFull=MT+N*rowH+MB;
-    var H=Math.min(hFull,3600);
-
-    cv.style.height=H+'px';cv.width=W*dpr;cv.height=H*dpr;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    ctx.fillStyle='rgba(8,8,18,.97)';ctx.fillRect(0,0,W,H);
-
-    var pW=W-ML-MR;
-    function xM(m,d){var mm=(m!==undefined?m:1)-1;if(mm<0)mm=0;if(mm>11)mm=11;return ML+((mm+(d||15)/30.44)/12)*pW;}
-
-    // Month columns
-    ctx.font='7px monospace';ctx.textAlign='center';ctx.textBaseline='top';
-    for(var mi=0;mi<12;mi++){
-      var cx=ML+((mi+.5)/12)*pW, cx0=ML+(mi/12)*pW;
-      if(mi%2===0){ctx.fillStyle='rgba(255,255,255,.01)';ctx.fillRect(cx0,MT,pW/12,H-MT-MB);}
-      ctx.fillStyle='#555';ctx.fillText(MN_[mi],cx,2);
-      ctx.strokeStyle='rgba(255,255,255,.03)';ctx.lineWidth=.5;
-      ctx.beginPath();ctx.moveTo(cx0,MT);ctx.lineTo(cx0,H-MB);ctx.stroke();
-    }
-
-    var yrStep=scalSp>2000?200:scalSp>800?50:scalSp>300?20:scalSp>150?10:scalSp>60?5:1;
-    var selDots=[];
-    var totalEcl=0;
-
-    // Pre-pass: how many of the selected series fall in this window?
-    var selCount=0;
-    if(scalSel!==null){
-      for(var py=scY0;py<=scY1;py++){
-        var pa=by[py];if(!pa)continue;
-        for(var pi=0;pi<pa.length;pi++){if(Number(pa[pi].sr)===Number(scalSel))selCount++;}
-      }
-    }
-    var dimOn=(scalSel!==null&&selCount>0);
-
-    for(var yr=scY0;yr<=scY1;yr++){
-      var ri=yr-scY0;
-      var yy=MT+ri*rowH+rowH/2;
-      if(yy>H)break;
-      var is26=(yr===2026);
-
-      if(yr%yrStep===0||is26){
-        ctx.font=is26?'bold 8px monospace':'7px monospace';
-        ctx.fillStyle=is26?'#ff6666':'#555';ctx.textAlign='right';ctx.textBaseline='middle';
-        var lb=yr<0?Math.abs(yr)+'aC':String(yr);
-        ctx.fillText(lb,ML-3,yy);ctx.textAlign='left';ctx.fillText(lb,W-MR+3,yy);
-        ctx.strokeStyle=is26?'rgba(255,80,80,.12)':'rgba(255,255,255,.015)';ctx.lineWidth=.5;
-        ctx.beginPath();ctx.moveTo(ML,yy);ctx.lineTo(W-MR,yy);ctx.stroke();
-      }
-
-      var ecls=by[yr];if(!ecls||!ecls.length)continue;
-      totalEcl+=ecls.length;
-
-      for(var ei=0;ei<ecls.length;ei++){
-        var e=ecls[ei];
-        var ex=xM(e.m,e.d);
-        var isSel=(scalSel!==null&&Number(e.sr)===Number(scalSel));
-        var isDim=(dimOn&&!isSel);
-        var isLun=(e.k||e.kind)==='l';
-        var isHov=(scalHov===e);
-        var sg=eclSign(e,yr), el=sg%4;
-        var et=e.t||e.type||'p';
-
-        if(isSel)selDots.push({x:ex,y:yy,e:e});
-
-        ctx.save();ctx.globalAlpha=isDim?.18:1;
-        var r=rowH>=18?(isHov?8:6):rowH>=12?(isHov?5:3.5):rowH>=8?(isHov?4:2.5):rowH>=4?1.8:1.1;
-        if(et==='p') r*=.7;
-
-        if(r>=2.2&&!isDim){
-          ctx.beginPath();ctx.arc(ex,yy,r+2,0,Math.PI*2);
-          ctx.strokeStyle=EC_[el]+(isSel?'aa':'33');ctx.lineWidth=isSel?1.5:.8;ctx.stroke();
-        }
-
-        if(isLun){
-          var lC=et==='t'?'#cc4444':et==='p'?'#884444':'#776666';
-          ctx.beginPath();ctx.arc(ex,yy,r*.65,0,Math.PI*2);ctx.fillStyle=lC;ctx.fill();
-        } else {
-          var sC=et==='t'?'#ff6600':et==='h'?'#cc5588':et==='a'?'#ccaa44':'#666';
-          if(et==='a'){
-            ctx.beginPath();ctx.arc(ex,yy,r,0,Math.PI*2);ctx.strokeStyle=sC;ctx.lineWidth=r>3?2:1.2;ctx.stroke();
-            if(r>2){ctx.beginPath();ctx.arc(ex,yy,r*.22,0,Math.PI*2);ctx.fillStyle=sC;ctx.fill();}
-          } else {
-            ctx.beginPath();ctx.arc(ex,yy,r,0,Math.PI*2);ctx.fillStyle='#0a0a0a';ctx.fill();
-            ctx.strokeStyle=sC;ctx.lineWidth=r>3?2:1.2;ctx.stroke();
-            if(et==='t'&&r>3){ctx.beginPath();ctx.arc(ex,yy,r+1,0,Math.PI*2);ctx.strokeStyle=sC+'33';ctx.lineWidth=2.5;ctx.stroke();}
-            if(et==='p'&&r>2){ctx.beginPath();ctx.arc(ex,yy,r*.5,0,Math.PI*2);ctx.fillStyle=sC;ctx.fill();}
-          }
-        }
-
-        if(rowH>=18&&r>=4&&!isDim){
-          ctx.font=(isSel?'bold ':'')+'8px serif';ctx.textAlign='center';ctx.textBaseline='middle';
-          ctx.fillStyle=EC_[el]+(isSel?'dd':'77');
-          ctx.fillText(SS_[sg],ex,yy+r+8);
-        }
-
-        if(isHov){
-          ctx.globalAlpha=1;
-          var tl=(isLun?'\u263E ':'\u2600 ')+(et==='t'?'TOTAL':et==='a'?'ANULAR':et==='h'?'HÍBRIDO':'PARCIAL');
-          tl+=' · '+SN_[sg]+' · '+EN_[el];
-          if(e.sr)tl+=' · S'+e.sr;
-          if(e.d&&e.m)tl+=' · '+e.d+'/'+e.m;
-          ctx.font='bold 8px monospace';ctx.textAlign='left';
-          var tw=ctx.measureText(tl).width+8;
-          var tx=ex+r+8;if(tx+tw>W-8)tx=ex-r-8-tw;
-          ctx.fillStyle='rgba(10,10,25,.94)';ctx.fillRect(tx-3,yy-7,tw,14);
-          ctx.strokeStyle='rgba(255,255,255,.12)';ctx.lineWidth=.5;ctx.strokeRect(tx-3,yy-7,tw,14);
-          ctx.fillStyle='#eee';ctx.fillText(tl,tx,yy+3);
-        }
-        ctx.restore();
-      }
-    }
-
-    // Sibling diagonal for selected series
-    if(scalSel!==null&&selDots.length>1){
-      selDots.sort(function(a,b){return a.y-b.y;});
-      ctx.strokeStyle='rgba(255,200,0,.25)';ctx.lineWidth=1.5;ctx.setLineDash([3,4]);
-      ctx.beginPath();
-      for(var di=0;di<selDots.length;di++){
-        di===0?ctx.moveTo(selDots[di].x,selDots[di].y):ctx.lineTo(selDots[di].x,selDots[di].y);
-      }
-      ctx.stroke();ctx.setLineDash([]);
-    }
-
-    var inf=document.getElementById('scal-info');
-    if(inf){
-      if(scalSel!==null){
-        if(selDots.length>0){
-          var lblN='S'+scalSel+(scalExplorerN!==null?' <span style="color:#888">(Explorer S'+scalExplorerN+')</span>':'');
-          inf.innerHTML='<span style="color:#FFD700">'+lblN+'</span> · '+selDots.length+' irmãos aqui · diagonal dourada · '+totalEcl+' eclipses no total';
-        } else {
-          // Find where this series actually lives
-          var sy0=Infinity,sy1=-Infinity;
-          for(var ky in by){
-            var ka=by[ky];
-            for(var kj=0;kj<ka.length;kj++){
-              if(Number(ka[kj].sr)===Number(scalSel)){var kyn=parseInt(ky);if(kyn<sy0)sy0=kyn;if(kyn>sy1)sy1=kyn;}
-            }
-          }
-          if(sy0!==Infinity){
-            var f0=sy0<0?Math.abs(sy0)+'aC':sy0, f1=sy1<0?Math.abs(sy1)+'aC':sy1;
-            inf.innerHTML='<span style="color:#ff8844">S'+scalSel+' fora da janela</span> · vive '+f0+' → '+f1+
-              ' · <span style="color:#8af;cursor:pointer;text-decoration:underline" onclick="scalGoYear('+Math.round((sy0+sy1)/2)+')">ir até lá</span>';
-          } else {
-            inf.innerHTML='<span style="color:#ff8844">S'+scalSel+' não encontrada nos dados</span>';
-          }
-        }
-      } else {
-        inf.textContent=totalEcl+' eclipses · clique num ponto para destacar a série';
-      }
-    }
-  }
-
-  // Interaction
-  var scv=document.getElementById('scal-canvas');
-  if(scv){
-    scv.addEventListener('mousemove',function(ev){
-      var by=eclData();
-      var rect=scv.getBoundingClientRect();
-      var mx=ev.clientX-rect.left,my=ev.clientY-rect.top;
-      var rowH=rowHeight(),ML=44,MR=44,MT=16,pW=rect.width-ML-MR;
-      if(scalDrag){
-        var dy=ev.clientY-scalDY;
-        scalCtr=scalDC+Math.round(-dy/rowH);
-        scClamp();scalDraw();return;
-      }
-      var yr=scY0+Math.floor((my-MT)/rowH);
-      var ecls=by[yr]||[];
-      var best=null,bd=Infinity;
-      for(var i=0;i<ecls.length;i++){
-        var e=ecls[i];
-        var mm=(e.m!==undefined?e.m:1)-1;if(mm<0)mm=0;if(mm>11)mm=11;
-        var x=ML+((mm+(e.d||15)/30.44)/12)*pW;
-        var d=Math.abs(mx-x);if(d<bd&&d<22){bd=d;best=e;}
-      }
-      scalHov=best;
-      scv.style.cursor=best?'pointer':'grab';
-      scalDraw();
-    });
-    scv.addEventListener('mousedown',function(ev){scalDrag=true;scalDY=ev.clientY;scalDC=scalCtr;scv.style.cursor='grabbing';});
-    window.addEventListener('mouseup',function(){if(scalDrag){scalDrag=false;var c=document.getElementById('scal-canvas');if(c)c.style.cursor='grab';}});
-    scv.addEventListener('mouseleave',function(){scalHov=null;scalDraw();});
-    scv.addEventListener('click',function(){
-      if(!scalDrag&&scalHov&&scalHov.sr){
-        scalSel=(Number(scalSel)===Number(scalHov.sr))?null:Number(scalHov.sr);
-        scalExplorerN=null;scalBuildSeries();scalDraw();
-      }
-    });
-    scv.addEventListener('touchstart',function(e){scalDrag=true;scalDY=e.touches[0].clientY;scalDC=scalCtr;},{passive:true});
-    scv.addEventListener('touchmove',function(e){
-      e.preventDefault();
-      var dy=e.touches[0].clientY-scalDY;
-      scalCtr=scalDC+Math.round(-dy/rowHeight());
-      scClamp();scalDraw();
-    },{passive:false});
-    window.addEventListener('touchend',function(){scalDrag=false;});
-  }
-
-  window.addEventListener('resize',function(){
-    var w=document.getElementById('saros-cal');
-    if(w&&w.classList.contains('open'))scalDraw();
-  });
-
-  // Redraw when eclipse data finishes loading
-  window._onEclipseData=function(){
-    scalBounds=null;
-    var w=document.getElementById('saros-cal');
-    if(w&&w.classList.contains('open')){scClamp();scalBuildNav();scalBuildSeries();scalDraw();}
-  };
-})();
 
 // ── AC/DC for main yr-input ──
 (function(){
